@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+## Bienvenue sur le site OpenLab
 
-You can use the [editor on GitHub](https://github.com/ubilab-engineering/opensil.ubilab.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Ce site à pour objectif de rallier toutes les initiatives liées à la standardisation et l'utilisation des formats ouverts dans le laboratoire. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+# Discussion
+N'hésitez pas à poser vos questions directement sur l'interface de tchat gitter
+[![Gitter](https://badges.gitter.im/ubilab-engineering/openlab.ubilab.io.svg)](https://gitter.im/ubilab-engineering/openlab.ubilab.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Ouverture
+Ce site internet est ouvert et public, n'hésitez pas à venir proposer vos modifications ou tout simplement à [forker et modifer le contenu](https://github.com/ubilab-engineering/openlab.ubilab.io).
 
-```markdown
-Syntax highlighted code block
+# Pourquoi une tel initiative ?
+Depuis qu'Ubilab est née il y a 4 ans nous nous sommes rendu compte que la majorité des acteurs n'ont aucun format standard pour échanger les données.
+Cela implique un coût énorme en terme de mainteanance et de développements pour tous les acteurs de la biologie médicale. 
+Par cette initiative nous espérons rallier le plus d'acteurs et ainsi pouvoir nous concentrer sur ce qui fait notre valeur ajouté nos logiciels. 
 
-# Header 1
-## Header 2
-### Header 3
+# Projets
+* [Compte rendu de résultat](pages/cr-resultat.md)
+* [Utilisateur du laboratoire](pages/utilisateur.md)
+* [Patient](pages/patient.md)
+* [Catalogue d'examen](pages/catalogue-examen.md)
 
-- Bulleted
-- List
+# Formats
+* HPrim Santé
+* HL7
+* CSV
+* JSON
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ubilab-engineering/opensil.ubilab.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
