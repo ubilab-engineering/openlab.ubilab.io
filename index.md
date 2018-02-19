@@ -1,6 +1,6 @@
-## Bienvenue sur le site OpenLab
 
-Ce site à pour objectif de rallier toutes les initiatives liées à la standardisation et l'utilisation des formats ouverts dans le laboratoire. 
+
+OpenLab à pour objectif de rallier toutes les initiatives liées à la standardisation et l'utilisation des formats ouverts dans les laboratoires d'analyses médicales.  
 
 
 # Discussion
@@ -27,4 +27,4 @@ Par cette initiative nous espérons rallier le plus d'acteurs et ainsi pouvoir n
 * CSV
 * JSON
 
-
+ 
