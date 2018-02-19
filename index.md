@@ -11,19 +11,20 @@ N'hésitez pas à poser vos questions directement sur l'interface de tchat gitte
 Ce site internet est ouvert et public, n'hésitez pas à venir proposer vos modifications ou tout simplement à [forker et modifer le contenu](https://github.com/ubilab-engineering/openlab.ubilab.io).
 
 # Pourquoi une tel initiative ?
-Depuis qu'Ubilab est née il y a 4 ans nous nous sommes rendu compte que la majorité des acteurs n'ont aucun format standard pour échanger les données.
+Depuis qu'[Ubilab](https://www.ubilab.io) est née il y a 4 ans nous nous sommes rendu compte que la majorité des acteurs n'ont aucun format standard pour échanger les données.
 Cela implique un coût énorme en terme de mainteanance et de développements pour tous les acteurs de la biologie médicale. 
 Par cette initiative nous espérons rallier le plus d'acteurs et ainsi pouvoir nous concentrer sur ce qui fait notre valeur ajouté nos logiciels. 
 
 # Projets
-* [Compte rendu de résultat](pages/cr-resultat.md)
-* [Utilisateur du laboratoire](pages/utilisateur.md)
-* [Patient](pages/patient.md)
-* [Catalogue d'examen](pages/catalogue-examen.md)
+* [Compte rendu de résultat](p/cr-resultat.md)
+* [Utilisateur du laboratoire](p/utilisateur.md)
+* [Patient](p/patient.md)
+* [Catalogue d'examen](p/catalogue-examen.md)
 
 # Formats
 * HPrim Santé
 * HL7
 * CSV
 * JSON
+
 
