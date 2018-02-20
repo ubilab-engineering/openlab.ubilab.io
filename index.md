@@ -16,7 +16,7 @@ Cela implique un coût énorme en terme de mainteanance et de développements po
 Par cette initiative nous espérons rallier le plus d'acteurs et ainsi pouvoir nous concentrer sur ce qui fait notre valeur ajouté nos logiciels. 
 
 # Projets
-* [Compte rendu de résultat](p/cr-resultat)
+* [Compte rendu de résultat](p/compte-rendu-resultat)
 * [Utilisateur du laboratoire](p/utilisateur)
 * [Patient](p/patient)
 * [Catalogue d'examen](p/catalogue-examen)
