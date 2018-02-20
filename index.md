@@ -17,7 +17,7 @@ Ce site internet est ouvert et public, n'hésitez pas à venir proposer vos modi
 * [Catalogue d'examen](p/catalogue-examen)
 
 # Formats
-* HL7 (CDA R2 niveau 3)
+* [HL7 (CDA R2 niveau 3)](http://esante.gouv.fr/services/referentiels/ci-sis/espace-publication)
 * HPrim Santé 2.4
 * CSV
 * JSON
