@@ -17,8 +17,8 @@ Ce site internet est ouvert et public, n'hésitez pas à venir proposer vos modi
 * [Catalogue d'examen](p/catalogue-examen)
 
 # Formats
-* HPrim Santé
-* HL7
+* HL7 (CDA R2 niveau 3)
+* HPrim Santé 2.4
 * CSV
 * JSON
 

@@ -2,8 +2,8 @@ package spec
 
 
 
-case class Address(
-                    streetAddress:Option[String],
-                    otherDesignation:Option[String],
-                    city:Option[String],
-                    addressType:Option[AddressType])
+
+case class IdSilUser(value:String)
+case class IdPatient(value:String)
+
+
