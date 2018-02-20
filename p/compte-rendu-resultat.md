@@ -75,7 +75,7 @@ NF EN ISO 15189 (SH REF 02), § 5.8
  
 [Norme CDA R2](http://esante.gouv.fr/sites/default/files/asset/document/ci-sis_contenus_cr-biologie_v1.4.0_20171003.pdf)
 
-La norme HL7 validé par l'ASIP Santé est [içi](/p/norme/hl7.html)
+La norme HL7 validé par interop Santé est [içi](/p/norme/hl7.html)
 
 
 
