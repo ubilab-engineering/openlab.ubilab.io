@@ -33,3 +33,9 @@ Par cette initiative nous espérons rallier le plus d'acteurs et ainsi pouvoir n
 # Qui participe au projet
 * [Ubilab](https://www.ubilab.io)
 * [Rajoutez votre société (Forkez moi)](https://github.com/ubilab-engineering/openlab.ubilab.io/)
+
+# Comment proposer des modifications 
+Si vous n'utilisez jamais GitHub voici un super [tutoriel](https://www.christopheducamp.com/2013/12/16/forker-un-repo-github/)
+
+Si vous voulez avoir le droit d'écriture dans le projet il suffit de proposer plusieurs pull request. 
+Au bout d'un moment nous vous proposerons naturellement d'intégrer le projet. 
