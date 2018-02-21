@@ -87,18 +87,18 @@ NF EN ISO 15189 (SH REF 02), § 5.8
    * [x] Prénom 
    * [x] Date de naissance
    * [ ] ISN
-   * [ ] CODE_SECURITE_SOCIALE
- * [ ] Prescripteur
-   * [ ] ID SIL
-   * [ ] RPPS
-   * [ ] ADELI
-   * [ ] Nom
-   * [ ] Prénom
-   * [ ] Adresse
- * [ ] Préleveur
-    * [ ] ID SIL
-    * [ ] Nom
-    * [ ] Prénom
+   * [x] CODE_SECURITE_SOCIALE
+ * [x] Prescripteur
+   * [x] ID SIL
+   * [x] RPPS
+   * [x] ADELI
+   * [x] Nom
+   * [x] Prénom
+   * [x] Adresse
+ * [x] Préleveur
+    * [x] ID SIL
+    * [x] Nom
+    * [x] Prénom
  * [ ] Resultat
     * [ ] Lieu de prise en charge du patient
     * [x] Destination du compte rendu de résultats
@@ -115,7 +115,6 @@ NF EN ISO 15189 (SH REF 02), § 5.8
     * [ ] Automate
     * [ ] Dernier traitement
     * [ ] Indication thérapeutique
-
  * [ ] Echantillon primaire
     * [ ] Origine de l'echantillon / type
     * [x] date et heure de prélèvement
@@ -216,7 +215,12 @@ NF EN ISO 15189 (SH REF 02), § 5.8
      * [x] date et heure de fin de prélèvement
      * [x] date et heure d'arrivé au laboratoire
 
- 
+# Concerto Online
+A Venir
+
+# Histone
+A Venir
+
  
 # Documents de références
  
