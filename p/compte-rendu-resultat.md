@@ -24,35 +24,83 @@ NOTE 2 Il est possible que des réglementations nationales, régionales et local
 
 
 NF EN ISO 15189 (SH REF 02), § 5.8
-[source](https://github.com/ubilab-engineering/hl7/raw/master/doc/cofrac/SH-REF-02.pdf)
+[source](https://github.com/ubilab-engineering/openlab.ubilab.io/blob/master/doc/SH-REF-02.pdf)
 
 
 
 ## Liste de toutes les informations obligatoires
 * Compte Rendu de Resultat (ID Unique)
- * Laboratoire
-   * Identifiant laboratoire émetteur 
- * Patient 
-   * ID SIL
-   * Nom
-   * Nom jeune fille
-   * Prénom 
-   * Date de naissance
-   * ISN
-   * CODE_SECURITE_SOCIALE
- * Prescripteur
-   * ID SIL
-   * RPPS
-   * ADELI
-   * Nom
-   * Prénom
-   * Adresse
- * Préleveur
-    * ID SIL
-    * Nom
-    * Prénom
- * Resultat
-    * [ ]Lieu de prise en charge du patient
+ * [ ] Laboratoire
+   * [ ]  Identifiant laboratoire émetteur 
+ * [ ] Patient 
+   * [ ] ID SIL
+   * [ ] Nom
+   * [ ] Nom jeune fille
+   * [ ] Prénom 
+   * [ ] Date de naissance
+   * [ ] ISN
+   * [ ] CODE_SECURITE_SOCIALE
+ * [ ] Prescripteur
+   * [ ] ID SIL
+   * [ ] RPPS
+   * [ ] ADELI
+   * [ ] Nom
+   * [ ] Prénom
+   * [ ] Adresse
+ * [ ] Préleveur
+    * [ ] ID SIL
+    * [ ] Nom
+    * [ ] Prénom
+ * [ ] Resultat
+    * [ ] Lieu de prise en charge du patient
+    * [ ] Destination du compte rendu de résultats
+    * [ ] Ligne resultat
+        * [ ] intervalle de référence biologique (plusieurs lignes possible)
+        * [ ] Interpretation des résultats
+        * [ ] Autre commentaire
+        * [ ] Date d'obtention du résultat
+        * [ ] Validateur
+          * [ ] ID SIL
+          * [ ] Nom
+          * [ ] Prénom
+    * [ ] Technique
+    * [ ] Automate
+    * [ ] Dernier traitement
+    * [ ] Indication thérapeutique
+
+ * [ ] Echantillon primaire
+    * [ ] Origine de l'echantillon / type
+    * [ ] date et heure de prélèvement
+    * [ ] date et heure de fin de prélèvement
+    * [ ] date et heure d'arrivé au laboratoire
+
+# Integration du format obligatoire avec Ubilab
+## Netika (Hprim Santé 2.4)
+
+* [ ] Compte Rendu de Resultat (ID Unique)
+ * [ ] Laboratoire
+   * [ ]  Identifiant laboratoire émetteur 
+ * [ ] Patient 
+   * [x] ID SIL
+   * [x] Nom
+   * [ ] Nom jeune fille
+   * [x] Prénom 
+   * [x] Date de naissance
+   * [ ] ISN
+   * [ ] CODE_SECURITE_SOCIALE
+ * [ ] Prescripteur
+   * [ ] ID SIL
+   * [ ] RPPS
+   * [ ] ADELI
+   * [ ] Nom
+   * [ ] Prénom
+   * [ ] Adresse
+ * [ ] Préleveur
+    * [ ] ID SIL
+    * [ ] Nom
+    * [ ] Prénom
+ * [ ] Resultat
+    * [ ] Lieu de prise en charge du patient
     * [x] Destination du compte rendu de résultats
     * [x] Ligne resultat
         * [x] intervalle de référence biologique (plusieurs lignes possible)
@@ -68,22 +116,113 @@ NF EN ISO 15189 (SH REF 02), § 5.8
     * [ ] Dernier traitement
     * [ ] Indication thérapeutique
 
- * Echantillon primaire
-    * Origine de l'echantillon / type
+ * [ ] Echantillon primaire
+    * [ ] Origine de l'echantillon / type
     * [x] date et heure de prélèvement
     * [x] date et heure de fin de prélèvement
     * [x] date et heure d'arrivé au laboratoire
-
  
+## DL Santé (Hprim Santé 2.4)
+
+* [ ] Compte Rendu de Resultat (ID Unique)
+ * [ ] Laboratoire
+   * [ ]  Identifiant laboratoire émetteur 
+ * [ ] Patient 
+   * [ ] ID SIL
+   * [ ] Nom
+   * [ ] Nom jeune fille
+   * [ ] Prénom 
+   * [ ] Date de naissance
+   * [ ] ISN
+   * [ ] CODE_SECURITE_SOCIALE
+ * [ ] Prescripteur
+   * [ ] ID SIL
+   * [ ] RPPS
+   * [ ] ADELI
+   * [ ] Nom
+   * [ ] Prénom
+   * [ ] Adresse
+ * [ ] Préleveur
+    * [ ] ID SIL
+    * [ ] Nom
+    * [ ] Prénom
+ * [ ] Resultat
+    * [ ] Lieu de prise en charge du patient
+    * [x] Destination du compte rendu de résultats
+    * [x] Ligne resultat
+        * [x] intervalle de référence biologique (plusieurs lignes possible)
+        * [ ] Interpretation des résultats
+        * [x] Autre commentaire
+        * [x] Date d'obtention du résultat
+        * [x] Validateur
+          * [x] ID SIL
+          * [x] Nom
+          * [x] Prénom
+    * [ ] Technique
+    * [ ] Automate
+    * [ ] Dernier traitement
+    * [ ] Indication thérapeutique
+
+ * [ ] Echantillon primaire
+    * [ ] Origine de l'echantillon / type
+    * [x] date et heure de prélèvement
+    * [x] date et heure de fin de prélèvement
+    * [x] date et heure d'arrivé au laboratoire
   
+ ## AGFA (Hprim Santé 2.4)
  
+ * [ ] Compte Rendu de Resultat (ID Unique)
+  * [ ] Laboratoire
+    * [ ]  Identifiant laboratoire émetteur 
+  * [ ] Patient 
+    * [ ] ID SIL
+    * [ ] Nom
+    * [ ] Nom jeune fille
+    * [ ] Prénom 
+    * [ ] Date de naissance
+    * [ ] ISN
+    * [ ] CODE_SECURITE_SOCIALE
+  * [ ] Prescripteur
+    * [ ] ID SIL
+    * [ ] RPPS
+    * [ ] ADELI
+    * [ ] Nom
+    * [ ] Prénom
+    * [ ] Adresse
+  * [ ] Préleveur
+     * [ ] ID SIL
+     * [ ] Nom
+     * [ ] Prénom
+  * [ ] Resultat
+     * [ ] Lieu de prise en charge du patient
+     * [x] Destination du compte rendu de résultats
+     * [x] Ligne resultat
+         * [x] intervalle de référence biologique (plusieurs lignes possible)
+         * [ ] Interpretation des résultats
+         * [x] Autre commentaire
+         * [x] Date d'obtention du résultat
+         * [x] Validateur
+           * [x] ID SIL
+           * [x] Nom
+           * [x] Prénom
+     * [ ] Technique
+     * [ ] Automate
+     * [ ] Dernier traitement
+     * [ ] Indication thérapeutique
  
- 
- 
- 
-[Norme CDA R2](http://esante.gouv.fr/sites/default/files/asset/document/ci-sis_contenus_cr-biologie_v1.4.0_20171003.pdf)
+  * [ ] Echantillon primaire
+     * [ ] Origine de l'echantillon / type
+     * [x] date et heure de prélèvement
+     * [x] date et heure de fin de prélèvement
+     * [x] date et heure d'arrivé au laboratoire
 
-La norme HL7 validé par interop Santé est [içi](/p/norme/hl7.html)
+ 
+ 
+# Documents de références
+ 
+* [Norme CDA R2 niveau 3](http://esante.gouv.fr/sites/default/files/asset/document/ci-sis_contenus_cr-biologie_v1.4.0_20171003.pdf)
+* [La norme HL7 2.5](/p/norme/hl7.html)
+* [HPRIM Santé 2.4](https://github.com/ubilab-engineering/openlab.ubilab.io/blob/master/doc/HPsante24-modif.pdf)
 
 
 
