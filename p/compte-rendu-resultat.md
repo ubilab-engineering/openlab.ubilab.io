@@ -58,6 +58,7 @@ NF EN ISO 15189 (SH REF 02), § 5.8
     * Interpretation des résultats
     * Autre commentaire
     * Technique
+    * Automate
     * Dernier traitement
     * Indication thérapeutique
  * Validateur 
