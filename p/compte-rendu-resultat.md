@@ -52,23 +52,27 @@ NF EN ISO 15189 (SH REF 02), § 5.8
     * Nom
     * Prénom
  * Resultat
-    * Lieu de prise en charge du patient
-    * Destination du compte rendu de résultats 
-    * Ligne resultat avec intervalle de référence biologique (plusieurs lignes possible)
-    * Interpretation des résultats
-    * Autre commentaire
-    * Technique
-    * Automate
-    * Dernier traitement
-    * Indication thérapeutique
- * Validateur 
-    * ID SIL
-    * Nom
-    * Prénom
+    * [ ]Lieu de prise en charge du patient
+    * [x] Destination du compte rendu de résultats
+    * [x] Ligne resultat
+        * [x] intervalle de référence biologique (plusieurs lignes possible)
+        * [ ] Interpretation des résultats
+        * [x] Autre commentaire
+        * [x] Date d'obtention du résultat
+        * [x] Validateur
+          * [x] ID SIL
+          * [x] Nom
+          * [x] Prénom
+    * [ ] Technique
+    * [ ] Automate
+    * [ ] Dernier traitement
+    * [ ] Indication thérapeutique
+
  * Echantillon primaire
     * Origine de l'echantillon / type
-    * date et heure de prélèvement
-    * date et heure d'arrivé au laboratoire
+    * [x] date et heure de prélèvement
+    * [x] date et heure de fin de prélèvement
+    * [x] date et heure d'arrivé au laboratoire
 
  
   
