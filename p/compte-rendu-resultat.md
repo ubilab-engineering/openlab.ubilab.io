@@ -57,6 +57,9 @@ NF EN ISO 15189 (SH REF 02), § 5.8
     * Ligne resultat avec intervalle de référence biologique (plusieurs lignes possible)
     * Interpretation des résultats
     * Autre commentaire
+    * Technique
+    * Dernier traitement
+    * Indication thérapeutique
  * Validateur 
     * ID SIL
     * Nom
