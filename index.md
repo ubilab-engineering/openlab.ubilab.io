@@ -19,7 +19,9 @@ Ce site internet et le code associé est ouvert et public, n'hésitez pas à ven
 
 # Pourquoi cette initiative ?
 Depuis qu'[Ubilab](https://www.ubilab.io) est née nous nous sommes rendu compte que la majorité des acteurs n'ont aucun format standard pour échanger les données.
+
 Cela implique un coût énorme en terme de maintenance et de développements pour tous les acteurs de la biologie médicale. 
+
 Par cette initiative nous espérons rallier le plus d'acteurs et ainsi pouvoir nous concentrer sur ce qui fait notre valeur ajouté nos logiciels. 
 
 # TODO 
