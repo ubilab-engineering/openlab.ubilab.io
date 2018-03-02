@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.79" displayName="PriseEnCharge" version="20170117">
+        <ConceptList>
+            <Concept code="ORG-35" displayName="Prise en charge de la douleur" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-36" displayName="Prise en charge diététique, nutritionnelle, et d'hygiène de vie" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-37" displayName="Prise en charge psychologique y compris des proches et des aidants " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-38" displayName="Prise en charge sociale, familiale " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-39" displayName="Accompagnement pour la vie quotidienne " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-40" displayName="Reconditionnement physique, activité physique adaptée " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-41" displayName="Soutien à la mise œuvre de la préservation de la fertilité " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-42" displayName="Prise en charge des troubles de la fertilité et des troubles de la sexualité " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="ORG-43" displayName="Prise en charge palliative " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="AVC-211" displayName="Autres (à préciser) " codeSystem="1.2.250.1.213.1.1.4.321"> </Concept>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

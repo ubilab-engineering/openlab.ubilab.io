@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" moodCode="EVN" xmlns="urn:hl7-org:v3">
+    <realmCode code="FR"/>
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <templateId root="2.16.840.1.113883.2.8.2.1"/>
+    <templateId root="1.2.250.1.213.1.1.1.1"/>
+    <templateId root="1.2.250.1.213.1.1.1.13"/>
+    <id root="1.2.250.1.213.1.1.9.8.1.635973781821450393810.2" extension="7"/>
+    <code code="SYNTH" codeSystem="1.2.250.1.213.1.1.4.12" displayName="Synthèse"/>
+    <title mediaType="text/plain">Synthèse médicale</title>
+    <effectiveTime value="20160711142758+0200"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+        codeSystemName="Confidentiality" displayName="Normal"/>
+    <languageCode code="fr-FR"/>
+    <recordTarget typeCode="RCT" contextControlCode="OP">
+        <patientRole classCode="PAT">
+            <id root="1.2.250.1.213.1.4.2" extension="0218805328320789819507"/>
+            <addr>
+                <streetAddressLine mediaType="text/plain">16 Chemin du Buala</streetAddressLine>
+                <streetAddressLine mediaType="text/plain">75016 PARIS</streetAddressLine>
+            </addr>
+            <telecom value="tel:0798132265" use="MC"/>
+            <telecom value="tel:0156443321" use="H"/>
+            <patient classCode="PSN" determinerCode="INSTANCE">
+                <name>
+                    <given mediaType="text/plain">Sylvaine</given>
+                    <family mediaType="text/plain" qualifier="SP">SAUVEUR</family>
+                    <family mediaType="text/plain" qualifier="BR">SAUVEUR</family>
+                </name>
+                <administrativeGenderCode code="F" codeSystemName="2.16.840.1.113883.5.1"
+                    displayName="Féminin"/>
+                <birthTime value="19750301"/>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <author typeCode="AUT" contextControlCode="OP">
+        <time value="20160711142758+0200"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <id root="1.2.250.1.71.4.2.1" extension="00B1057294" assigningAuthorityName="ASIP Santé"/>
+            <code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                displayName="Médecin - Qualifié en Médecine Générale (SM)"/>
+            <addr>
+                <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+            </addr>
+            <telecom value="tel:0142000001" use="WP"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name>
+                    <given mediaType="text/plain">PAUL</given>
+                    <family mediaType="text/plain">MEDECIN5729</family>
+                </name>
+            </assignedPerson>
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id root="1.2.250.1.71.4.2.2" extension="0B105729400"
+                    assigningAuthorityName="ASIP Santé"/>
+                <name>CABINET M. MEDECIN5729</name>
+                <addr>
+                    <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                    <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id root="1.2.250.1.71.4.2.2" extension="0B105729400"
+                    assigningAuthorityName="ASIP Santé"/>
+                <name>CABINET M. MEDECIN5729</name>
+                <addr>
+                    <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                    <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <legalAuthenticator typeCode="LA" contextControlCode="OP">
+        <time value="20160711142758+0200"/>
+        <signatureCode code="S"/>
+        <assignedEntity classCode="ASSIGNED">
+            <id root="1.2.250.1.71.4.2.1" extension="0B105729400"
+                assigningAuthorityName="ASIP Santé"/>
+            <addr>
+                <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+            </addr>
+            <telecom value="tel:0142000001" use="WP"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name>
+                    <given mediaType="text/plain">PAUL</given>
+                    <family mediaType="text/plain">MEDECIN5729</family>
+                </name>
+            </assignedPerson>
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id root="1.2.250.1.71.4.2.2" extension="0B105729400"
+                    assigningAuthorityName="ASIP Santé"/>
+                <name>CABINET M. MEDECIN5729</name>
+                <addr>
+                    <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                    <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+                </addr>
+                <standardIndustryClassCode code="AMBULATOIRE" codeSystem="1.2.250.1.213.1.1.4.9"
+                    codeSystemName="practiceSettingCode" displayName="Ambulatoire"/>
+            </representedOrganization>
+        </assignedEntity>
+    </legalAuthenticator>
+    <participant typeCode="INF" contextControlCode="OP">
+        <functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" displayName="Médecin traitant"/>
+        <time value="20160711142758+0200"/>
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="0B105729400"
+                assigningAuthorityName="ASIP Santé"/>
+            <code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                displayName="Médecin - Qualifié en Médecine Générale (SM)"/>
+            <addr>
+                <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+            </addr>
+            <telecom value="tel:0142000001" use="WP"/>
+            <associatedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name>
+                    <given mediaType="text/plain">PAUL</given>
+                    <family mediaType="text/plain">MEDECIN5729</family>
+                </name>
+            </associatedPerson>
+            <scopingOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id root="1.2.250.1.71.4.2.2" extension="0B105729400"
+                    assigningAuthorityName="ASIP Santé"/>
+                <name>CABINET M. MEDECIN5729</name>
+                <telecom value="tel:0142000001" use="WP"/>
+                <addr>
+                    <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                    <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+                </addr>
+                <standardIndustryClassCode code="AMBULATOIRE" codeSystem="1.2.250.1.213.1.1.4.9"
+                    codeSystemName="practiceSettingCode" displayName="Ambulatoire"/>
+            </scopingOrganization>
+        </associatedEntity>
+    </participant>
+    <documentationOf typeCode="DOC">
+        <serviceEvent moodCode="EVN">
+            <id root="1.2.250.1.213.1.1.9"/>
+            <code code="34117-2" codeSystem="1.2.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="historique et clinique"/>
+            <effectiveTime>
+                <low value="20160711"/>
+                <high nullFlavor="NA"/>
+            </effectiveTime>
+            <performer typeCode="PRF">
+                <assignedEntity classCode="ASSIGNED">
+                    <id root="1.2.250.1.71.4.2.1" extension="0B105729400"
+                        assigningAuthorityName="ASIP Santé"/>
+                    <addr>
+                        <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                        <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+                    </addr>
+                    <telecom value="tel:0142000001" use="WP"/>
+                    <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                        <name>
+                            <given mediaType="text/plain">PAUL</given>
+                            <family mediaType="text/plain">MEDECIN5729</family>
+                        </name>
+                    </assignedPerson>
+                    <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                        <id root="1.2.250.1.71.4.2.2" extension="0B105729400"
+                            assigningAuthorityName="ASIP Santé"/>
+                        <name>CABINET M. MEDECIN5729</name>
+                        <telecom value="tel:0142000001" use="WP"/>
+                        <addr>
+                            <streetAddressLine mediaType="text/plain">8 rue de
+                                Lyon</streetAddressLine>
+                            <streetAddressLine mediaType="text/plain">92100
+                                Boulogne</streetAddressLine>
+                        </addr>
+                        <standardIndustryClassCode code="AMBULATOIRE"
+                            codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"
+                            displayName="Ambulatoire"/>
+                    </representedOrganization>
+                </assignedEntity>
+            </performer>
+        </serviceEvent>
+    </documentationOf>
+    <componentOf>
+        <encompassingEncounter classCode="ENC" moodCode="EVN">
+            <code code="AMB" codeSystem="2.16.840.1.113883.5.4"
+                displayName="ambulatoire (hors établissement)"/>
+            <effectiveTime>
+                <low value="20160711"/>
+                <high nullFlavor="NA"/>
+            </effectiveTime>
+            <responsibleParty typeCode="RESP">
+                <assignedEntity classCode="ASSIGNED">
+                    <id root="1.2.250.1.71.4.2.1" extension="0B105729400"
+                        assigningAuthorityName="ASIP Santé"/>
+                    <addr>
+                        <streetAddressLine mediaType="text/plain">8 rue de Lyon</streetAddressLine>
+                        <streetAddressLine mediaType="text/plain">92100 Boulogne</streetAddressLine>
+                    </addr>
+                    <telecom value="tel:0142000001" use="WP"/>
+                    <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                        <name>
+                            <given mediaType="text/plain">PAUL</given>
+                            <family mediaType="text/plain">MEDECIN5729</family>
+                        </name>
+                    </assignedPerson>
+                    <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                        <id root="1.2.250.1.71.4.2.2" extension="0B105729400"
+                            assigningAuthorityName="ASIP Santé"/>
+                        <name>CABINET M. MEDECIN5729</name>
+                        <telecom value="tel:0142000001" use="WP"/>
+                        <addr>
+                            <streetAddressLine mediaType="text/plain">8 rue de
+                                Lyon</streetAddressLine>
+                            <streetAddressLine mediaType="text/plain">92100
+                                Boulogne</streetAddressLine>
+                        </addr>
+                    </representedOrganization>
+                </assignedEntity>
+            </responsibleParty>
+            <location>
+                <healthCareFacility>
+                    <code code="SA07" codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"
+                        displayName="Cabinet individuel"/>
+                    <location determinerCode="INSTANCE">
+                        <name>CABINET M. MEDECIN5729</name>
+                        <addr>
+                            <streetAddressLine mediaType="text/plain">8 rue de
+                                Lyon</streetAddressLine>
+                            <streetAddressLine mediaType="text/plain">92100
+                                Boulogne</streetAddressLine>
+                        </addr>
+                    </location>
+                </healthCareFacility>
+            </location>
+        </encompassingEncounter>
+    </componentOf>
+    <component>
+        <structuredBody classCode="DOCBODY" moodCode="EVN">
+            <component>
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="1.2.250.1.213.1.1.2.29"/>
+                    <code code="46612-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="Conclusions de synthèse"/>
+                    <title mediaType="text/plain">Pathologies en cours, antécédents, allergies et
+                        facteurs de risque</title>
+                    <component>
+                        <section classCode="DOCSECT" moodCode="EVN">
+                            <templateId root="1.2.250.1.213.1.1.2.30"/>
+                            <code code="34117-2" codeSystem="2.16.840.1.113883.6.1"
+                                codeSystemName="LOINC" displayName="Historique et physique"/>
+                            <title mediaType="text/plain">Pathologies en cours, antécédents et
+                                allergies</title>
+                            <component>
+                                <section classCode="DOCSECT" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+                                    <templateId root="2.16.840.1.113883.10.20.1.11"/>
+                                    <code code="11450-4" codeSystem="2.16.840.1.113883.6.1"
+                                        codeSystemName="LOINC"
+                                        displayName="Liste des problèmes actifs"/>
+                                    <title mediaType="text/plain">Pathologies chroniques
+                                        actives</title>
+                                    <text mediaType="text/x-hl7-text+xml">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                  <th>Date</th>
+                                                  <th>Type de l'observation</th>
+                                                  <th>Pathologie</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                  <td>21/08/2013</td>
+                                                  <td>Diagnostic</td>
+                                                  <td>BPCO stade clinique II</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>21/08/2013</td>
+                                                  <td>Symptôme</td>
+                                                  <td>Dyspnée Stade II</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </text>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <id root="9606d53f-d758-4f1f-a1e6-225961a61f84"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime>
+                                                <low value="20130821"/>
+                                                <high nullFlavor="NA"/>
+                                            </effectiveTime>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN"
+                                                  negationInd="false">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                  <id root="a5cf7175-1385-4325-8740-66cc632a7b1a"/>
+                                                  <code code="G-1009"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5"
+                                                  displayName="Diagnostic"/>
+                                                  <statusCode code="completed"/>
+                                                  <effectiveTime>
+                                                  <low value="20130821"/>
+                                                  <high nullFlavor="NA"/>
+                                                  </effectiveTime>
+                                                  <value xsi:type="CD" code="J44.9"
+                                                  codeSystem="2.16.840.1.113883.6.3"
+                                                  codeSystemName="CIM10" displayName="BPCO"/>
+                                                  <entryRelationship typeCode="REFR">
+                                                  <observation classCode="OBS" moodCode="EVN">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.55"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1"/>
+                                                  <code code="SEV"
+                                                  codeSystem="2.16.840.1.113883.5.4"
+                                                  codeSystemName="ActCode" displayName="Sévérité"/>
+                                                  <statusCode code="completed"/>
+                                                  <value xsi:type="CD" code="G-E200"
+                                                  codeSystem="2.16.840.1.113883.5.1063"
+                                                  codeSystemName="SNOMED VF 3.5"
+                                                  displayName="stade clinique II"/>
+                                                  </observation>
+                                                  </entryRelationship>
+                                                </observation>
+                                            </entryRelationship>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN"
+                                                  negationInd="false">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                  <id root="0f4b4849-ac2d-480b-9e71-0068b46fdb4f"/>
+                                                  <code code="F-01250"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5" displayName="Symptôme"/>
+                                                  <statusCode code="completed"/>
+                                                  <effectiveTime>
+                                                  <low value="20130821"/>
+                                                  <high nullFlavor="NA"/>
+                                                  </effectiveTime>
+                                                  <value xsi:type="CD" code="F-20040"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5" displayName="Dyspnée"/>
+                                                  <entryRelationship typeCode="REFR">
+                                                  <observation classCode="OBS" moodCode="EVN">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.55"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1"/>
+                                                  <code code="SEV"
+                                                  codeSystem="2.16.840.1.113883.5.4"
+                                                  codeSystemName="ActCode" displayName="Sévérité"/>
+                                                  <statusCode code="completed"/>
+                                                  <value xsi:type="CD" code="F-20042"
+                                                  codeSystem="2.16.840.1.113883.5.1063"
+                                                  codeSystemName="SNOMED VF 3.5"
+                                                  displayName="Dyspnée Stade II"/>
+                                                  </observation>
+                                                  </entryRelationship>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                </section>
+                            </component>
+                            <component>
+                                <section classCode="DOCSECT" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+                                    <id root="bdffd678-71fb-4ddf-91c0-0a51c4a08221"/>
+                                    <code code="11348-0" codeSystem="2.16.840.1.113883.6.1"
+                                        codeSystemName="LOINC" displayName="Historique des maladies"/>
+                                    <title mediaType="text/plain">Antécédents médicaux</title>
+                                    <text mediaType="text/x-hl7-text+xml">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                  <th>Date</th>
+                                                  <th>Type de l'observation</th>
+                                                  <th>Pathologie</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                  <td>13/09/2012</td>
+                                                  <td>Diagnostic</td>
+                                                  <td>Néphrite tubulo-interstitielle aiguë</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </text>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <id root="9fee9203-37fe-4b16-9b75-1e88d2f7e277"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime>
+                                                <low value="20120913"/>
+                                                <high nullFlavor="NA"/>
+                                            </effectiveTime>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN"
+                                                  negationInd="false">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                  <id root="5d458fd8-7e56-43e4-8b2a-59788f19bd77"/>
+                                                  <code code="G-1009"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5"
+                                                  displayName="Diagnostic"/>
+                                                  <statusCode code="completed"/>
+                                                  <effectiveTime>
+                                                  <low value="20120913"/>
+                                                  <high nullFlavor="NA"/>
+                                                  </effectiveTime>
+                                                  <value xsi:type="CD" code="N10"
+                                                  codeSystem="2.16.840.1.113883.6.3"
+                                                  codeSystemName="CIM10"
+                                                  displayName="Néphrite tubulo-interstitielle aiguë"
+                                                  />
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                </section>
+                            </component>
+                            <component>
+                                <section classCode="DOCSECT" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.11"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.12"/>
+                                    <id root="9fdcc3c5-2ca3-442d-ad64-7dd18cc976b2"/>
+                                    <code code="47519-4" codeSystem="2.16.840.1.113883.6.1"
+                                        codeSystemName="LOINC"
+                                        displayName="Historique des interventions"/>
+                                    <title mediaType="text/plain">Antécédents Chirurgicaux</title>
+                                    <text mediaType="text/x-hl7-text+xml">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                  <th>Date</th>
+                                                  <th>Intervention</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                  <td>12/08/2013</td>
+                                                  <td>Dilatation intraluminale de 2 vaisseaux
+                                                  coronaires avec pose d'endoprothèse, par voie
+                                                  artérielle transcutanée</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </text>
+                                    <entry>
+                                        <procedure classCode="PROC" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                                            <id root="bf0e774b-8571-48c3-86fd-13101d110009"/>
+                                            <code code="DDAF004" codeSystem="1.2.250.1.213.2.5"
+                                                codeSystemName="CCAM"
+                                                displayName="Dilatation intraluminale de 2 vaisseaux coronaires avec pose d'endoprothèse, par voie artérielle transcutanée"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime>
+                                                <low value="20130812"/>
+                                                <high nullFlavor="NA"/>
+                                            </effectiveTime>
+                                        </procedure>
+                                    </entry>
+                                </section>
+                            </component>
+                            <component>
+                                <section classCode="DOCSECT" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
+                                    <templateId root="2.16.840.1.113883.10.20.1.2"/>
+                                    <id root="7220d96d-8719-45b7-a9db-44a132f8e3cb"/>
+                                    <code code="48765-2" codeSystem="2.16.840.1.113883.6.1"
+                                        codeSystemName="LOINC"
+                                        displayName="Allergies, effets indésirables, alertes"/>
+                                    <title mediaType="text/plain">Allergies, effets indésirables,
+                                        alertes</title>
+                                    <text mediaType="text/x-hl7-text+xml">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                  <th>Date début</th>
+                                                  <th>Date fin</th>
+                                                  <th>Type d'allergie</th>
+                                                  <th>Diagnostic</th>
+                                                  <th>Manifestation</th>
+                                                  <th>Sévérité</th>
+                                                  <th>Agent</th>
+                                                  <th>Statut</th>
+                                                  <th>Commentaire</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                  <td>22/04/2014</td>
+                                                  <td/>
+                                                  <td>Allergie médicamenteuse</td>
+                                                  <td>Urticaire</td>
+                                                  <td>Éruption cutanée</td>
+                                                  <td>Modérée</td>
+                                                  <td>PARACETAMOL TEVA 1 g, comprimé</td>
+                                                  <td>
+                                                  <content ID="allstatut1">Intermittent</content>
+                                                  </td>
+                                                  <td>
+                                                  <content ID="allcomm1"/>
+                                                  </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </text>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+                                            <id root="50585cd7-a97b-40bd-a1d4-3651643af8a7"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime>
+                                                <low nullFlavor="NA"/>
+                                                <high nullFlavor="NA"/>
+                                            </effectiveTime>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+                                                  <id root="aa423069-5386-432c-8cea-b4331dcaf673"/>
+                                                  <code code="DALG"
+                                                  codeSystem="2.16.840.1.113883.5.4"
+                                                  codeSystemName="HL7:ObservationIntoleranceType"
+                                                  displayName="Allergie médicamenteuse"/>
+                                                  <statusCode code="completed"/>
+                                                  <effectiveTime>
+                                                  <low value="20140422"/>
+                                                  <high nullFlavor="NA"/>
+                                                  </effectiveTime>
+                                                  <value xsi:type="CD" code="L50"
+                                                  codeSystem="2.16.840.1.113883.6.3"
+                                                  codeSystemName="CIM10" displayName="Urticaire"/>
+                                                  <participant typeCode="CSM"
+                                                  contextControlCode="OP">
+                                                  <time nullFlavor="NAV"/>
+                                                  <participantRole classCode="MANU">
+                                                  <playingEntity classCode="MMAT"
+                                                  determinerCode="INSTANCE">
+                                                  <code code="65621649" codeSystem="orale"
+                                                  codeSystemName="comprimé"
+                                                  displayName="PARACETAMOL TEVA 1 g, comprimé"/>
+                                                  </playingEntity>
+                                                  </participantRole>
+                                                  </participant>
+                                                  <entryRelationship typeCode="MFST">
+                                                  <observation classCode="OBS" moodCode="EVN">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                  <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                                                  <id root="35db5f3b-b1f7-4d01-be16-5ce63cfa96bd"/>
+                                                  <code code="F-01250"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5" displayName="Symptôme"/>
+                                                  <statusCode code="completed"/>
+                                                  <effectiveTime>
+                                                  <low value="20140422"/>
+                                                  <high nullFlavor="NA"/>
+                                                  </effectiveTime>
+                                                  <value xsi:type="CD" code="D0-00165"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5"
+                                                  displayName="Éruption cutanée"/>
+                                                  </observation>
+                                                  </entryRelationship>
+                                                  <entryRelationship typeCode="SUBJ"
+                                                  inversionInd="true">
+                                                  <observation classCode="OBS" moodCode="EVN"
+                                                  negationInd="false">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.55"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1"/>
+                                                  <id root="c4df3db6-7c99-45df-b9d6-36243e8a24ff"/>
+                                                  <code code="SEV"
+                                                  codeSystem="2.16.840.1.113883.5.4"
+                                                  codeSystemName="ActCode" displayName="Sévérité"/>
+                                                  <statusCode code="completed"/>
+                                                  <value xsi:type="CD" code="M"
+                                                  codeSystem="2.16.840.1.113883.5.1063"
+                                                  codeSystemName="HL7:SeverityObservation"
+                                                  displayName="Modéré"/>
+                                                  </observation>
+                                                  </entryRelationship>
+                                                  <entryRelationship typeCode="REFR"
+                                                  inversionInd="false">
+                                                  <observation classCode="OBS" moodCode="EVN"
+                                                  negationInd="false">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.57"/>
+                                                  <templateId root="2.16.840.1.113883.10.20.1.50"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1"/>
+                                                  <id root="01a45f2b-9bd3-426b-85c4-afe9b047f0ca"/>
+                                                  <code code="33999-4"
+                                                  codeSystem="2.16.840.1.113883.6.1"
+                                                  codeSystemName="LOINC" displayName="Status"/>
+                                                  <text mediaType="text/plain">
+                                                  <reference value="#allstatut1"/>
+                                                  </text>
+                                                  <statusCode code="completed"/>
+                                                  <value xsi:type="CE" code="G-A397"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5"
+                                                  displayName="Intermittent"/>
+                                                  </observation>
+                                                  </entryRelationship>
+                                                  <entryRelationship typeCode="SUBJ"
+                                                  inversionInd="true">
+                                                  <act classCode="ACT" moodCode="EVN">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                                  <code code="48767-8"
+                                                  codeSystem="2.16.840.1.113883.6.1"
+                                                  codeSystemName="LOINC"
+                                                  displayName="Annotation Comment">
+                                                  <originalText mediaType="text/plain">
+                                                  <reference value="#allcomm1"/>
+                                                  </originalText>
+                                                  </code>
+                                                  <statusCode code="completed"/>
+                                                  </act>
+                                                  </entryRelationship>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                </section>
+                            </component>
+                        </section>
+                    </component>
+                    <component>
+                        <section classCode="DOCSECT" moodCode="EVN">
+                            <templateId root="1.2.250.1.213.1.1.2.31"/>
+                            <code code="57207-3" codeSystem="2.16.840.1.113883.6.1"
+                                codeSystemName="LOINC"
+                                displayName="Facteurs de risque présents ou passés affectant l’état de santé et/ou une circonstance"/>
+                            <title mediaType="text/plain">Facteurs de risque</title>
+                            <component>
+                                <section classCode="DOCSECT" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16.1"/>
+                                    <id root="ea220127-5c83-41d7-8460-f490ac0dc931"/>
+                                    <code code="29762-2" codeSystem="2.16.840.1.113883.6.1"
+                                        codeSystemName="LOINC" displayName="Historique social"/>
+                                    <title mediaType="text/plain">Mode de vie</title>
+                                    <text mediaType="text/x-hl7-text+xml">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                  <td>Consommation Tabagique : 10 PA</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </text>
+                                    <entry>
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                                            <id root="6370e9d8-f3e4-4247-b943-340957fbe4d4"/>
+                                            <code code="39240-7" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC"
+                                                displayName="Consommation tabagique"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime value="20160711"/>
+                                            <value xsi:type="PQ" value="10" unit="PA"/>
+                                        </observation>
+                                    </entry>
+                                </section>
+                            </component>
+                            <component>
+                                <section classCode="DOCSECT" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.1"/>
+                                    <id root="d57932e0-e1e8-4c6c-b544-11cd592bfe92"/>
+                                    <code code="10161-8" codeSystem="2.16.840.1.113883.6.1"
+                                        codeSystemName="LOINC"
+                                        displayName="Historique de l’exposition professionnelle"/>
+                                    <title mediaType="text/plain">Facteurs de risque
+                                        professionnels</title>
+                                    <text mediaType="text/x-hl7-text+xml">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                  <td>Exposition à l'amiante, poussière (architecte,
+                                                  reconstruction d'immeuble, visites de
+                                                  chantier)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </text>
+                                </section>
+                            </component>
+                            <component>
+                                <section classCode="DOCSECT" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.14"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.15"/>
+                                    <code code="10157-6" codeSystem="2.16.840.1.113883.6.1"
+                                        codeSystemName="LOINC"
+                                        displayName="Historique des pathologies familiales"/>
+                                    <title mediaType="text/plain">Antécédents familiaux</title>
+                                    <text mediaType="text/x-hl7-text+xml">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                  <th>Date</th>
+                                                  <th>Type de l'observation</th>
+                                                  <th>Pathologie</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                  <td>04/04/2012</td>
+                                                  <td>Diagnostic</td>
+                                                  <td>Affections à hématies falciformes
+                                                  [drépanocytaires]</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </text>
+                                    <entry>
+                                        <organizer classCode="CLUSTER" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.1.23"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.15"/>
+                                            <statusCode code="completed"/>
+                                            <subject typeCode="SBJ" contextControlCode="OP">
+                                                <relatedSubject>
+                                                  <code code="MTH "
+                                                  codeSystem="2.16.840.1.113883.5.14"
+                                                  codeSystemName="HL7:RoleCode" displayName="Mère"/>
+                                                  <subject classCode="PSN" determinerCode="INSTANCE">
+                                                  <administrativeGenderCode code="M"
+                                                  codeSystem="2.16.840.1.113883.5.1"
+                                                  codeSystemName="AdministrativeGender"
+                                                  displayName="Masculin"/>
+                                                  </subject>
+                                                </relatedSubject>
+                                            </subject>
+                                            <component>
+                                                <observation classCode="OBS" moodCode="EVN">
+                                                  <templateId root="2.16.840.1.113883.10.20.1.22"/>
+                                                  <templateId
+                                                  root="1.3.6.1.4.1.19376.1.5.3.1.4.13.3"/>
+                                                  <code code="G-1009"
+                                                  codeSystem="1.2.250.1.213.2.12"
+                                                  codeSystemName="SNOMED 3.5"
+                                                  displayName="Diagnostic"/>
+                                                  <statusCode code="completed"/>
+                                                  <effectiveTime>
+                                                  <low value="20120404"/>
+                                                  <high nullFlavor="NA"/>
+                                                  </effectiveTime>
+                                                  <value xsi:type="CE" code="D57"
+                                                  codeSystem="2.16.840.1.113883.6.3"
+                                                  codeSystemName="CIM10"
+                                                  displayName="Affections à hématies falciformes [drépanocytaires]"
+                                                  />
+                                                </observation>
+                                            </component>
+                                        </organizer>
+                                    </entry>
+                                </section>
+                            </component>
+                        </section>
+                    </component>
+                </section>
+            </component>
+            <component>
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+                    <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="Résumé des investigations pratiquées"/>
+                    <title mediaType="text/plain">Points de vigilance</title>
+                    <text mediaType="text/x-hl7-text+xml">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Spirométrie le 21/08/2013 : VEMS 60% (BPCO StadeII)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                </section>
+            </component>
+            <component>
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="1.2.250.1.213.1.1.2.32"/>
+                    <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                        displayName="Plan de traitement"/>
+                    <title mediaType="text/plain">Traitements au long cours</title>
+                    <component>
+                        <section classCode="DOCSECT" moodCode="EVN">
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+                            <templateId root="2.16.840.1.113883.10.20.1.8"/>
+                            <code code="10160-0" codeSystem="2.16.840.1.113883.6.1"
+                                codeSystemName="LOINC"
+                                displayName="Historique de la prise médicamenteuse "/>
+                            <title mediaType="text/plain">Médications</title>
+                            <text mediaType="text/x-hl7-text+xml">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date de début</th>
+                                            <th>Date de fin</th>
+                                            <th>Médicament</th>
+                                            <th colspan="5">Dose</th>
+                                            <th colspan="3">Périodicité</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>29/07/2013</td>
+                                            <td/>
+                                            <td>
+                                                <content ID="trtmed2">SEREVENT 25 microgrammes par
+                                                  dose, suspension pour inhalation en flacon
+                                                  pressurisé</content>
+                                            </td>
+                                            <td>de</td>
+                                            <td>2</td>
+                                            <td>à</td>
+                                            <td/>
+                                            <td>
+                                                <content ID="trtdose2">nébulisation</content>
+                                            </td>
+                                            <td>par</td>
+                                            <td>1</td>
+                                            <td>jour(s)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </text>
+                            <entry>
+                                <substanceAdministration classCode="SBADM" moodCode="INT">
+                                    <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                                    <id root="8b278e73-900d-45ac-a39b-6da4f5fe57c9"/>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime xsi:type="IVL_TS">
+                                        <low value="20130729"/>
+                                        <high nullFlavor="NA"/>
+                                    </effectiveTime>
+                                    <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                        <period value="1" unit="J"/>
+                                    </effectiveTime>
+                                    <doseQuantity value="2">
+                                        <translation>
+                                            <originalText mediaType="text/plain">
+                                                <reference value="#trtdose2"/>
+                                            </originalText>
+                                        </translation>
+                                    </doseQuantity>
+                                    <maxDoseQuantity>
+                                        <numerator/>
+                                        <denominator value="1" unit="J"/>
+                                    </maxDoseQuantity>
+                                    <consumable typeCode="CSM">
+                                        <manufacturedProduct>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                            <manufacturedMaterial classCode="MMAT">
+                                                <code code="67274478"
+                                                  codeSystem="1.2.250.1.213.2.3.1"
+                                                  codeSystemName="CIS_Spécialités"
+                                                  displayName="SEREVENT 25 microgrammes par dose, suspension pour inhalation en flacon pressurisé">
+                                                  <originalText mediaType="text/plain">
+                                                  <reference value="#trtmed2"/>
+                                                  </originalText>
+                                                </code>
+                                            </manufacturedMaterial>
+                                        </manufacturedProduct>
+                                    </consumable>
+                                </substanceAdministration>
+                            </entry>
+                        </section>
+                    </component>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

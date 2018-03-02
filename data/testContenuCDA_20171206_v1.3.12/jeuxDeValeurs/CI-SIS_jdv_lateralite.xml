@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.4" displayName="lateralite" version="20131025">
+        <ConceptList>
+            <Concept code="G-A101" displayName="Gauche" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="G-A100" displayName="Droit" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="G-A102" displayName="Bilatéral" codeSystem="1.2.250.1.213.2.12"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

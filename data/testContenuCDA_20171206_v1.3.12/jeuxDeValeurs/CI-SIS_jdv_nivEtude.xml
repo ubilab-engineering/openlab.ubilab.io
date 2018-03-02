@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    22/11/17 : NMA : Mise à jour des codes TA_CS ==> TA_ASIP
+-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.250" displayName="CSE_NivEtude" version="20100802">
+        <ConceptList>
+            <Concept code="PAT-038" displayName="Ecole primaire" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="PAT-039" displayName="Secondaire" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="PAT-040" displayName="Niveau bac" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="PAT-035" displayName="Enseignement supérieur"
+                codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

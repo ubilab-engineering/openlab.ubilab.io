@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.40" displayName="JDV_ContexteActivite_CI-SIS"
+        version="20160808">
+        <ConceptList>
+            <Concept code="P2-00130" displayName="consultation" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="SDMMR-34" displayName="hôpital de jour"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="ORG-044" displayName="hospitalisation traditionnelle"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="ORG-045" displayName="avis d'expertise sur un dossier"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="SDMMR-35" displayName="téléconsultation"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="MED-095" displayName="autre contexte"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="SDMMR-34" displayName="consultation pluridisciplinaire"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-35" displayName="avis sur dossier en consultation"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-36" displayName="avis en salle"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

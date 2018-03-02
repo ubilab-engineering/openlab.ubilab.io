@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.46" displayName="AVC_InterpretationScoreFisher">
+        <ConceptList>
+            <Concept code="AVC-166" displayName="Absence de sang"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-167" displayName="Dépôts de moins de 1 mm d'épaisseur"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-168" displayName="Dépôts de plus de 1 mm d'épaisseur"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-169"
+                displayName="Hématome parenchymateux ou hémorragie ventriculaire"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

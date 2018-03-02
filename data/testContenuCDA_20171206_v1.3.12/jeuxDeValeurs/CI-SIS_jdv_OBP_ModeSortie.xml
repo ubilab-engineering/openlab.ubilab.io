@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.41" displayName="OBP_ModeSortie" version="20131025">
+        <ConceptList>
+            <Concept code="P0-20300"
+                displayName="mutation (->Transfert d'un patient dans un autre ES)"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="P0-20400"
+                displayName="transfert (->Transfert du patient à l'intérieur de l'ES)"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="PA-63000" displayName="HAD" codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="P0-20100" displayName="départ du patient contre avis médical"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="R99" displayName="décès" codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="OBS_307" displayName="domicile bonne santé"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_270" displayName="maison maternelle"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_271" displayName="appartement thérapeutique"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_272" displayName="famille d’accueil"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_273" displayName="hôtel du SAMU social"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_228" displayName="Placement" codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_308" displayName="sage-femme dom. hors HAD"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_309" displayName="autre mode de sortie"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

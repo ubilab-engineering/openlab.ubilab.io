@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.50" displayName="CI-SIS_JDV_AVC_Appareillage"
+        version="20160718">
+        <ConceptList>
+            <Concept code="G-A217" displayName="Petit" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="AVC-264" displayName="Grand" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC "/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

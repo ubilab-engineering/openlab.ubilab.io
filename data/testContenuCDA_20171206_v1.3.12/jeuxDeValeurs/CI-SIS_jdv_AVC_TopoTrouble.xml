@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.3" displayName="AVC_TopoTrouble" version="20131025">
+        <ConceptList>
+            <Concept code="T-D1200" displayName="Face" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-D8000" displayName="Membre supérieur" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-D8700" displayName="Main (isolée)" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-D9000" displayName="Membre inférieur" codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

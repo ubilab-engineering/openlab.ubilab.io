@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.54" displayName="CI-SIS_JDV_AVC_Activite" version="20160719">
+        <ConceptList>
+            <Concept code="G-A224" displayName="Seul" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="AVC-273" displayName="Partiellement" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-274" displayName="Avec Aide" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-275" displayName="Non" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

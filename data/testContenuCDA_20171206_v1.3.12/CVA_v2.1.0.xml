@@ -1,0 +1,1693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="Schematrons/CI-SIS_CVAC.sch"?>
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+
+   <!-- 
+      **********************************************************************************************************
+      Système : ASIP
+      Document : Carnet de Vaccination
+      Auteur : PRAS (CRI)
+      Date de création : 27/09/2011
+      Version : 2.1.0
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:
+      
+      OID temporaire du LPS producteur de document: 1.2.3.4
+
+      
+      **********************************************************************************************************
+      
+      10/10/17 : NMA : Correction de plusieurs erreurs
+      07/11/17 : NMA : Mise à jour du volet pour une nouvelle version
+   -->
+
+   <realmCode code="FR"/>
+   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+   <templateId root="2.16.840.1.113883.2.8.2.1"/>
+   <templateId root="1.2.250.1.213.1.1.1.1"/>
+   
+   <!-- Déclarations de conformité au template PCC Immunization Content -->
+   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.18.1.2"/>
+   <!-- Déclarations de conformité au template ASIP Carnet de Vaccination -->
+   <templateId root="1.2.250.1.213.1.1.1.10"/>
+
+   <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+   <id extension="15078" root="1.2.3.4"/>
+   <code code="CERT_DECL" codeSystem="1.2.250.1.213.1.1.4.12" codeSystemName="Typecode ASIP"
+      displayName="Certificat, déclaration"/>
+   <title>CARNET DE VACCINATION</title>
+   <effectiveTime value="20110927094914+0100"/>
+   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+      codeSystemName="Confidentiality" displayName="Normal"/>
+   <languageCode code="fr-FR"/>
+
+
+   <!--=<<o#%@O[ Identification ]O@%#o>>=-->
+   <recordTarget contextControlCode="OP" typeCode="RCT">
+      <patientRole>
+         <!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+         <id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+         <addr>
+            <houseNumber>24</houseNumber>
+            <streetNameType>AV</streetNameType>
+            <streetName>de Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>Paris</city>
+         </addr>
+         <telecom nullFlavor="MSK"/>
+         <telecom value="mailto:marie.decourcy@mail.fr"/>
+         <patient classCode="PSN">
+            <name>
+               <given>Marie</given>
+               <family qualifier="BR">DECOURCY</family>
+            </name>
+            <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+            <birthTime value="19760531"/>
+            <birthplace>
+               <place>
+                  <name>Clinique du Belvédère</name>
+                  <addr>
+                     <houseNumber>18</houseNumber>
+                     <streetNameType>RUE</streetNameType>
+                     <streetName>du Belvédère</streetName>
+                     <postalCode>92100</postalCode>
+                     <city>Boulogne-Billancourt</city>
+                  </addr>
+               </place>
+            </birthplace>
+         </patient>
+      </patientRole>
+   </recordTarget>
+
+   <!--=<<o#%@O[ Auteur du document ]O@%#o>>=-->
+   <author contextControlCode="OP" typeCode="AUT">
+      <time value="20100603094914+0100"/>
+      <assignedAuthor classCode="ASSIGNED">
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <!-- Spécialité de l’auteur -->	
+         <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"    
+            codeSystem="1.2.250.1.213.1.1.4.5"/>
+         <addr nullFlavor="NASK"/>       
+         <telecom nullFlavor="NASK"/>
+         <assignedPerson>
+            <name>
+               <family>Müller</family>
+               <given>Charles</given>
+               <prefix>Dr.</prefix>
+            </name>
+         </assignedPerson>
+         <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="801234567897"/>
+            <name>Cabinet Médical du Dr. Müller</name>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+               codeSystem="1.2.250.1.213.1.1.4.9"/>
+         </representedOrganization>
+      </assignedAuthor>
+   </author>
+   
+   <!--=<<o#%@O[ Organisation de santé responsable du document ]O@%#o>>=-->
+   <custodian typeCode="CST">
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="801234567897" 
+               assigningAuthorityName="ASIP-SANTE"/>
+            <name>Cabinet médical du Docteur Müllet</name>
+            <telecom value="tel:+33-142515151" use="WP"/>
+            <addr>
+               <houseNumber>25</houseNumber>
+               <streetNameType>RUE</streetNameType>
+               <streetName>Pasteur</streetName>
+               <postalCode>92100</postalCode>
+               <city>Evry</city>
+            </addr>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   
+   <!--=<<o#%@O[ Signataire du certificat ]O@%#o>>=-->
+   <legalAuthenticator>
+      <time value="20080929094914+0100"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <realmCode code="FR"/>
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <!-- Spécialité de l’auteur -->	
+         <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"    
+            codeSystem="1.2.250.1.213.1.1.4.5"/>
+         <addr nullFlavor="MSK"/>       
+         <telecom nullFlavor="MSK"/>
+         <assignedPerson>
+            <name>
+               <family>Müller</family>
+               <given>Charles</given>
+               <prefix>Dr.</prefix>
+            </name>
+         </assignedPerson>
+         <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="801234567897"/>
+            <name>Cabinet Médical du Dr. Müller</name>
+            <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+               codeSystem="1.2.250.1.213.1.1.4.9"/>
+         </representedOrganization>
+      </assignedEntity>
+   </legalAuthenticator>
+
+   <!--=<<o#%@O[ Informations sur sur le document ]O@%#o>>=-->
+   <documentationOf>
+      <serviceEvent classCode="ACT">
+         <code code="P0-00120" displayName="Certificat Médical" codeSystem="1.2.250.1.213.2.12"
+            codeSystemName="SNOMED 3.5"/>
+         <effectiveTime>
+            <low value="20080929094914+0100"/>
+         </effectiveTime>
+         <!-- La personne qui a réalisé l'acte principal du document (vaccination). 
+            Il s'agit ici l'auteur du document-->
+         <performer typeCode="PRF">
+            <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+            <assignedEntity>
+               <!-- PS identifié par son N°RPPS -->
+               <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <!-- Spécialité du performer -->	
+               <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"    
+                  codeSystem="1.2.250.1.213.1.1.4.5"/>
+               <addr nullFlavor="MSK"/>       
+               <telecom nullFlavor="MSK"/>
+               <assignedPerson>
+                  <name>
+                     <family>Müller</family>
+                     <given>Charles</given>
+                     <prefix>Dr.</prefix>
+                  </name>
+               </assignedPerson>
+               <representedOrganization>
+                  <id root="1.2.250.1.71.4.2.2" extension="801234567897"/>
+                  <name>Cabinet Médical du Dr. Müller</name>
+                  
+                  <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9"/>
+               </representedOrganization>
+            </assignedEntity>
+         </performer>
+      </serviceEvent>
+   </documentationOf>
+
+   <!--=<<o#%@O[ Informations sur les circonstances de la "prise en charge médicale" ]O@%#o>>=-->
+   <componentOf>
+      <encompassingEncounter>
+         <id root="1.2.250.1.213.1.1.9.9.123456"/>
+         <code code="AMB" codeSystem="2.16.840.1.113883.5.4" displayName="Ambulatoire"/>
+         <effectiveTime>
+            <low value="20080929094914+0100"/> 
+         </effectiveTime>
+         <location>
+            <healthCareFacility>
+               <id root="1.2.250.1.213.1.1.9.9" extension="11223344"
+                  assigningAuthorityName="Clinique des papillons"/>
+               <code code="SA03" displayName="Etablissement Privé PSPH"
+                  codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+            </healthCareFacility>
+         </location>
+      </encompassingEncounter>
+   </componentOf>
+
+
+   <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+
+
+   <component>
+      <structuredBody>
+
+         <!--=<<o#%@O[ ELEMENTS PRE VACCINAUX DE L'USAGER ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.62"/>
+               <id root="8eb19d92-80ae-498b-9d0d-c349b7ba124b"/>
+               <title>ELEMENTS PRE VACCINAUX DE L'USAGER</title>
+               <text></text>
+
+                <!--=<<o#%@O[ PCC History of past illness ]O@%#o>>=-->
+                <component>
+                   <section>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+                      <id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+                      <code code="11348-0" displayName="antécédents médicaux"
+                         codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <title>Antécédents</title>
+                      <text>
+                         <table border="1">
+                            <thead><tr><th>Date</th><th>Pathologie</th></tr></thead>
+                            <tbody align="left">
+                               <tr><td>11/08/2008</td><td><content ID="pathologie">Pyélonéphrite aiguë</content></td></tr>
+                            </tbody>
+                         </table>
+                      </text>
+                      
+                      <!-- Événements -->
+                      <entry>
+                         <act classCode="ACT" moodCode="EVN">
+                            <!-- Conformité Problem Act template -->
+                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                            <!-- Conformité Concern entry template -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                            <!-- Conformité problem concern entry template -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                            <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                            <code nullFlavor="NA"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime>
+                               <low value="20080811"/>
+                               <high nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                               <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                  <id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5"/>
+                                  <code code="G-1009" displayName="Diagnostic"
+                                     codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                  <text>
+                                     <reference value="pathologie"></reference>
+                                  </text>
+                                  <statusCode code="completed"/>
+                                  <effectiveTime>
+                                     <low value="20080811"/>
+                                  </effectiveTime>
+                                  <value xsi:type="CD" code="N10" 
+                                     displayName="Pyélonéphrite aiguë"
+                                     codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                                     <originalText>
+                                        <reference value="pathologie"></reference>
+                                     </originalText>
+                                  </value>
+                               </observation>
+                            </entryRelationship>
+                         </act>
+                      </entry>
+                   </section>
+                </component>
+       
+                <!--=<<o#%@O[ PCC Active Problem Section ]O@%#o>>=-->       
+                <component>
+                   <section>
+                      <templateId root="2.16.840.1.113883.10.20.1.11"/>
+                      <!-- Active problem section templateId -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+                      <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+                      <code code="11450-4" displayName="Pathologies actives" codeSystem="2.16.840.1.113883.6.1"
+                         codeSystemName="LOINC"/>
+                      <title>Pathologie Active</title>
+                      <text>
+                         <table border="1">
+                            <thead><tr>
+                               <th>Date</th><th>Sévérité</th><th>Statut</th><th>Statut Clinique</th><th>Pathologie</th>
+                            </tr></thead>
+                            <tbody align="left">
+                               <tr><td>25/09/2011</td><td><content ID="sevPatho">Modérée</content></td><td><content ID="statutProbleme">Actif</content></td><td><content ID="statutCli">En rémission</content></td><td><content ID="maladie">Lumbago avec sciatique|région lombo-sacrée</content></td></tr>
+                            </tbody>
+                         </table>
+                      </text>
+
+                      <!-- Événements -->
+                      <entry>
+                         <act classCode="ACT" moodCode="EVN">
+                            <!-- Conformité Problem Act template -->
+                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                            <!-- Conformité Concern entry template -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                            <!-- Conformité problem concern entry template -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                            <id root="16ABB7E7-8829-4507-AFB2-54CD2D6D4249"/>
+                            <code nullFlavor="NA"/>
+                            <statusCode code="active"/>
+                            <effectiveTime>
+                               <low value="20110925"/>
+                            </effectiveTime>
+                            <!-- 1..* entry relationships identifying problems of concern -->
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                               <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                  <id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5"/>
+                                  <code code="F-01250" displayName="Symptôme"
+                                     codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                  <text>
+                                     <reference value="maladie"></reference>
+                                  </text>
+                                  <statusCode code="completed"/>
+                                  <effectiveTime>
+                                     <low value="20110925"/>
+                                  </effectiveTime>
+                                  <value xsi:type="CD" code="M54.47" 
+                                     displayName="Lumbago avec sciatique|région lombo-sacrée"
+                                     codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                                     <originalText>
+                                        <reference value="maladie"></reference>
+                                     </originalText>
+                                  </value>
+                                  <!-- sévérité -->
+                                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                                     <observation classCode="OBS" moodCode="EVN" >
+                                        <templateId root="2.16.840.1.113883.10.20.1.55"/>
+                                        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1"/>
+                                        <code code="SEV" displayName="Sévérité"
+                                           codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActCode"/>
+                                        <text><reference value="#SevPatho"/></text>
+                                        <statusCode code="completed"/>
+                                        <value xsi:type="CD" code="M" displayName="Modéré"
+                                           codeSystem="2.16.840.1.113883.5.1063" 
+                                           codeSystemName="HL7:ObservationValue"/>
+                                     </observation>
+                                  </entryRelationship>
+                                  <!-- Statut du problème -->
+                                  <entryRelationship typeCode="REFR" inversionInd="false">
+                                     <observation classCode="OBS" moodCode="EVN">
+                                        <templateId root="2.16.840.1.113883.10.20.1.57"/>
+                                        <templateId root="2.16.840.1.113883.10.20.1.50"/>
+                                        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1"/>
+                                        <code code="33999-4" displayName="Status"
+                                           codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                        <text><reference value="#StatutProbleme"/></text>
+                                        <statusCode code="completed"/>
+                                        <value xsi:type="CE" code="G-A397" displayName="Intermittent"
+                                           codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                     </observation>
+                                  </entryRelationship>
+                                  
+                                  <!-- Statut clinique du patient -->
+                                  <entryRelationship typeCode="REFR" inversionInd="false">
+                                     <observation classCode="OBS" moodCode="EVN">
+                                        <templateId root="2.16.840.1.113883.10.20.1.51"/>
+                                        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.2"/>
+                                        <code code="11323-3" displayName="Statut clinique du patient" 
+                                           codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                                        <text><reference value="#StatutCli"/></text>
+                                        <statusCode code="completed"/>
+                                        <value xsi:type="CE" code="G-A005" displayName="En rémission"
+                                           codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                     </observation>
+                                  </entryRelationship>
+                               </observation>
+                            </entryRelationship>
+                         </act>
+                      </entry>
+                   </section>
+                </component>
+                
+                <!--=<<o#%@O[ PCC Medication Section ]O@%#o>>=-->         
+                <component>
+                   <section>
+                      <templateId root="2.16.840.1.113883.10.20.1.8"/>
+                      <!-- CCD -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+                      <!-- PCC Medications section template -->
+                      <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" displayName="Historique des traitements"/>
+                      <title>Traitements</title>
+                      <text>
+                         <table border="1" width="100%">
+                            <thead>
+                               <tr>
+                                  <th>Médicament (Spécialité)</th>
+                                  <th>Médicament (DC)</th>
+                                  <th>Voie d'administration</th>
+                                  <th>Motif</th>
+                                  <th>Début du traitement</th>
+                                  <th>Fin du traitement</th>
+                                  <th>Prise</th>
+                                  <th>Fréquence</th>
+                                  <th>Instructions sur la prise du traitement</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                  <td><content ID="zz0004">SOLUPRED 20 mg, comprimé effervescent</content></td>
+                                  <td><content ID="zz0005">MÉTASULFOBENZOATE SODIQUE DE PREDNISOLONE</content></td>
+                                  <td>Prendre par la bouche</td>
+                                  <td><content ID="zz0006">Lumbago avec sciatique|région lombo-sacrée</content></td>
+                                  <td><content ID="zz0018">25/09/2011</content></td>
+                                  <td><content ID="zz0019">27/09/2011</content></td>
+                                  <td><content ID="zz0007">3</content></td>
+                                  <td><content ID="zz0020">1/j</content></td>
+                                  <td><content ID="instructions">1/j</content></td>
+                               </tr>
+       
+                            </tbody>
+                         </table>
+                      </text>
+       
+                      <!-- ************ 
+                         
+                         Traitement Corticostéroïde lié au lumbago (id=16ABB7E7-8829-4507-AFB2-54CD2D6D4249)
+                         = Solupred 60 mg/j (Solupred 20mg x 3/j) pendant 3 jours
+                         
+                         ************ -->
+       
+       
+                      <entry typeCode="DRIV">
+                         <substanceAdministration classCode="SBADM" moodCode="EVN">
+                            <!-- template CCD Medication activity -->
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <!-- template 'PCC Medication' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <!-- template 'Normal dosing' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime xsi:type="IVL_TS">
+                               <low value="20110925"/>
+                               <high value="20110927"/>
+                            </effectiveTime>
+                            <effectiveTime xsi:type="PIVL_TS" operator="A">
+                               <period value="1" unit="d"/>
+                            </effectiveTime>
+                            <!--Voie d'administration-->
+                            <routeCode code="PO" displayName="Prendre par la bouche"
+                               codeSystem="2.16.840.1.113883.5.112" codeSystemName="routeOfAdministration"/>
+                            <!--Région anatomique d'administration-->
+                            <approachSiteCode nullFlavor="MSK"/>
+                            <!--Dose administrée-->
+                            <doseQuantity>
+                               <low value="3" unit="tbl"/>
+                               <high nullFlavor="NA"/>
+                            </doseQuantity>
+                            <!--Rythme d'administration-->
+                            <rateQuantity>
+                               <low nullFlavor="NA"/>
+                               <high nullFlavor="NA"/>
+                            </rateQuantity>
+                            <consumable>
+                               <manufacturedProduct>
+                                  <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                  <!-- Product template -->
+                                  <manufacturedMaterial>
+                                     <code code="66871876" codeSystem="1.2.250.1.213.2.3"
+                                        codeSystemName="CIS"
+                                        displayName="SOLUPRED 20 mg, comprimé effervescent">
+                                        <originalText mediaType="text/xml">
+                                           <reference value="#zz0004"/>
+                                        </originalText>
+                                        <translation code="3400932014668" codeSystem="1.2.250.1.213.2.3.3"
+                                           codeSystemName="CIP" displayName="1 flacon(s) en verre de 20 comprimé(s)"/>
+                                        <translation code="3981" codeSystem="1.2.250.1.213.2.3.2"
+                                           codeSystemName="CIS_Composition" displayName="MÉTASULFOBENZOATE SODIQUE DE PREDNISOLONE">
+                                           <originalText mediaType="text/xml">
+                                              <reference value="#zz0005"/>
+                                           </originalText>
+                                        </translation>
+                                     </code>
+                                     <name>Solupred 20mg</name>
+                                     <lotNumberText nullFlavor="NA"/>
+                                  </manufacturedMaterial>
+                               </manufacturedProduct>
+                            </consumable>
+                            <!--Instructions sur la prise du traitement-->
+                            <entryRelationship typeCode="SUBJ" inversionInd="true">
+                               <act classCode="ACT" moodCode="INT">
+                                  <templateId root="2.16.840.1.113883.10.20.1.49"/>
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3"/>
+                                  <code code="PINSTRUCT" codeSystem="1.3.6.1.4.1.19376.1.5.3.2"
+                                     codeSystemName="IHEActCode" />
+                                  <text> <reference value="#instructions"/> </text>
+                                  <statusCode code="completed" />
+                               </act>
+                            </entryRelationship>
+                            <entryRelationship typeCode="RSON">
+                               <!-- Liaison du traitement à sa cause -->
+                               <observation classCode="COND" moodCode="EVN">
+                                  <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                  <!-- Problem observation template = Id du problème traité  -->
+                                  <id root="16ABB7E7-8829-4507-AFB2-54CD2D6D4249"/>
+                                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" displayName="assertion"/>
+                                  <statusCode code="completed"/>
+                                  <effectiveTime xsi:type="IVL_TS">
+                                     <low value="20000328"/>
+                                  </effectiveTime>
+                                  <value xsi:type="CD" code="M54.47" 
+                                     displayName="Lumbago avec sciatique|région lombo-sacrée"
+                                     codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"/>
+                               </observation>
+                            </entryRelationship>
+                            <!--Liaison à la prescription-->
+                            <entryRelationship typeCode="REFR">
+                               <supply classCode="SPLY" moodCode="EVN">
+                                  <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                                  <!-- Supply activity template -->
+                                  <id root="a5516277-3f86-4681-9013-93868243ab67"/>
+                                  <statusCode code="completed"/>
+                                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                                     <act classCode="ACT" moodCode="INT">
+                                        <templateId root="2.16.840.1.113883.10.20.1.43"/>
+                                        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3.1"/>
+                                        <code code="FINSTRUCT"
+                                           codeSystem="1.3.6.1.4.1.19376.1.5.3.2"
+                                           codeSystemName="IHEActCode" />
+                                        <text><reference value="#comment-2"/>Ne renouveller qu'une seule fois par
+                                           dispensation</text>
+                                        <statusCode code="completed"/>
+                                     </act>
+                                  </entryRelationship>
+                               </supply>
+                            </entryRelationship>
+                         </substanceAdministration>
+                      </entry>
+                   </section>
+                </component>
+       
+                <!--=<<o#%@O[ PCC Coded Vital Signs Section ]O@%#o>>=-->         
+                <component>
+                   <section>
+                      <!-- PCC Vital Signs Section templateId -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25"/>
+                      <!-- PCC Coded Vital Signs Section templateId -->
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2"/>
+                      <id root="b70d20aa-0438-4092-ad2f-e376173c00d9"/>
+                      <code code="8716-3" displayName="signes vitaux" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <title>Signes Vitaux</title>
+                      <text>
+                         <table border="1">
+                            <thead align="center">
+                               <tr>
+                                  <th align="center" colspan="3">Signes Vitaux</th>
+                               </tr>
+                            </thead>
+                            <tbody align="left">
+                               <tr><td><content ID="poids">Poids</content> </td><td>6400g</td></tr>
+                               <tr><td><content ID="taille">Taille</content></td><td>162cm</td></tr>
+                               <tr><td><content ID="temp">Température</content></td> <td>37.5 °C</td></tr>
+                               <tr><td><content ID="imc">IMC</content></td> <td>24.38</td></tr>
+                            </tbody>
+                         </table>
+                         <br/>
+                         <br/>
+                      </text>
+                      <!-- [PCC Vital Signs Organizer] -->
+                      <entry>
+                         <organizer classCode="CLUSTER" moodCode="EVN">
+                            <!-- CCD Result Organizer templateId-->
+                            <templateId root="2.16.840.1.113883.10.20.1.32"/>
+                            <!-- CCD Vital Signs Organizer templateId-->
+                            <templateId root="2.16.840.1.113883.10.20.1.35"/>
+                            <!-- PCC Vital Signs Organizer templateId-->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1"/>
+                            <id root="0fd525fd-8712-40f9-bc31-af9e25069c24"/>
+                            <code code="F-03400" displayName="signes vitaux"
+                               codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime value="20100312"/>
+                            <!--Poids -->
+                            <component typeCode="COMP">
+                               <observation classCode="OBS" moodCode="EVN">
+                                  <!-- PCC Simple Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                  <!-- CCD/ASTM Vital Signs Observation templateId-->
+                                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                                  <!-- PCC Vital Signs Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                                  <id root="ecd72ddd-c2a0-42c8-9bd3-e3c8b408003d"/>
+                                  <code code="3141-9" codeSystem="2.16.840.1.113883.6.1"
+                                     displayName="Poids (mesuré)" codeSystemName="LOINC"/>
+                                  <text>
+                                     <reference value="poids"></reference>
+                                  </text>
+                                  <statusCode code="completed"/>
+                                  <effectiveTime nullFlavor="NAV"/>
+                                  <value xsi:type="PQ" value="6400" unit="g"/>
+                               </observation>
+                            </component>
+                            <!-- Taille(cm) -->
+                            <component typeCode="COMP">
+                               <observation classCode="OBS" moodCode="EVN">
+                                  <!-- PCC Simple Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                  <!-- CCD/ASTM Vital Signs Observation templateId-->
+                                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                                  <!-- PCC Vital Signs Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                                  <id root="c936fa75-6b57-46dD7-a243-3dc2009e65ca"/>
+                                  <code code="8302-2" codeSystem="2.16.840.1.113883.6.1"
+                                     displayName="Taille (mesurée)" codeSystemName="LOINC"/>
+                                  <text>
+                                     <reference value="taille"></reference>
+                                  </text>
+                                  <statusCode code="completed"/>
+                                  <effectiveTime nullFlavor="NAV"/>
+                                  <value xsi:type="PQ" value="162" unit="cm"/>
+                               </observation>
+                            </component>
+                            <!-- Température (°C) -->
+                            <component typeCode="COMP">
+                               <observation classCode="OBS" moodCode="EVN">
+                                  <!-- PCC Simple Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                  <!-- CCD/ASTM Vital Signs Observation templateId-->
+                                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                                  <!-- PCC Vital Signs Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                                  <id root="3704bde3-3bb7-4483-b0a0-037b90a99901"/>
+                                  <code code="8310-5" codeSystem="2.16.840.1.113883.6.1"
+                                     displayName="Température corporelle" codeSystemName="LOINC"/>
+                                  <text>
+                                     <reference value="temp"></reference>
+                                  </text>
+                                  <statusCode code="completed"/>
+                                  <effectiveTime nullFlavor="NAV"/>
+                                  <value xsi:type="PQ" value="37.5" unit="Cel"/>
+                               </observation>
+                            </component>
+                            <!-- IMC -->
+                            <component typeCode="COMP">
+                               <observation classCode="OBS" moodCode="EVN">
+                                  <!-- PCC Simple Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                  <!-- CCD/ASTM Vital Signs Observation templateId-->
+                                  <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                                  <!-- PCC Vital Signs Observation template Id -->
+                                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                                  <id root="02eccd70-3298-4fd5-a732-4af23cbcbaf1"/>
+                                  <code code="41909-3" codeSystem="2.16.840.1.113883.6.1"
+                                     displayName="IMC" codeSystemName="LOINC"/>
+                                  <text>
+                                     <reference value="imc"></reference>
+                                  </text>
+                                  <statusCode code="completed"/>
+                                  <effectiveTime nullFlavor="NAV"/>
+                                  <value xsi:type="REAL" value="24.38"/>
+                               </observation>
+                            </component>
+                         </organizer>
+                      </entry>
+                   </section>
+                </component>
+                
+            </section>
+         </component>
+                   
+         <!--=<<o#%@O[ FACTEURS DE RISQUES FAVORISANT UNE INDICATION OU CONTRE INDICATION A LA VACCINATION DE L'USAGER ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.64"/>
+               <id root="148d6c38-488b-4315-83eb-d0933332f148"/>
+               <title>FACTEURS DE RISQUES FAVORISANT UNE INDICATION OU CONTRE INDICATION A LA VACCINATION DE L'USAGER</title>
+               <text/>
+               
+               <!--=<<o#%@O[ Allergies & intolerances Section ]O@%#o>>=-->        
+               <component>
+                  <section>
+                     <templateId root="2.16.840.1.113883.10.20.1.2"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
+                     <id root="7649c5fa-a444-49a6-91e9-78d2e5880c67"/>
+                     <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" 
+                        displayName="Allergies et autres effets indésirables"/>
+                     <title>Allergies et autres effets indésirables</title>
+                     <text>
+                        <table>
+                           <thead>
+                              <tr>
+                                 <th>Date</th>
+                                 <th>Type d'allergie</th>
+                                 <th>Description clinique</th>
+                                 <th>Agent responsable</th>
+                                 <th>Réaction</th>
+                                 <th>Statut du problème</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>26/07/2017</td>
+                                 <td><content ID="TypeAllergie">Allergie Médicamenteuse</content></td>
+                                 <td><content ID="Description">Urticaire</content></td>
+                                 <td><content ID="Agent">Gélatine</content></td>
+                                 <td><content ID="Réaction">Urticaire</content></td>
+                                 <td><content ID="StatutProb">Intermittent</content></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     
+                     <entry>
+                        <!-- Elément 'Allergies and Intolerances Concern' -->
+                        <act classCode="ACT" moodCode="EVN">
+                           <!-- CCD Problem acts template Id -->
+                           <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                           <!-- Concern Entry template id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                           <!-- allergies and Intolerance Concern template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+                           <id root="1269c206-4d59-4a9d-aa2d-aa0c4622d525"/>
+                           <code nullFlavor="NA"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20170726"/>
+                              <high value="20170726"/>
+                           </effectiveTime>
+                           
+                           <!-- 1 entrée par allergie ou intolérance -->
+                           <entryRelationship typeCode="SUBJ" negationInd="false">
+                              <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                 <templateId root="2.16.840.1.113883.10.20.1.18"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+                                 <id root="c64c6013-c8af-4938-ad10-1b7d26dee2a0"/>
+                                 <!-- Type d’allergie ou intolérance -->
+                                 <code code="ALG" displayName="Allergie"
+                                    codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode">
+                                    </code>
+                                 <text><reference value="#TypeAllergie"/></text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime xsi:type="IVL_TS">
+                                       <low value="20170726"/>
+                                    </effectiveTime>
+                                    <!-- Description clinique de l’allergie ou de l’intolérance -->
+                                    <value xsi:type="CD" code="T78.3" displayName="Urticaire"
+                                       codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                                       <originalText><reference value="#Description"/></originalText>
+                                    </value>
+                                    <!-- Agent responsable de l’allergie / intolérance -->
+                                    <participant typeCode='CSM'>
+                                       <participantRole classCode='MANU'>
+                                          <playingEntity classCode='MMAT'>
+                                             <code code="MED-136" codeSystem="1.2.250.1.213.1.1.4.322"
+                                                codeSystemName="TA_ASIP" displayName="Gélatine">
+                                                <originalText><reference value="#Agent"/></originalText>
+                                             </code>
+                                             <name>Gélatine</name>
+                                          </playingEntity>
+                                       </participantRole>
+                                    </participant>
+                                    
+                                    <!-- Réaction observée -->
+                                    <entryRelationship typeCode='MFST' inversionInd='false'>
+                                       <observation classCode='OBS' moodCode='EVN' negationInd='true'>
+                                          <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                                          <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                                          <templateId root='2.16.840.1.113883.10.20.1.54'/>
+                                          <id root='6a2a251d-097a-48b4-944e-0003e92f843f'/>
+                                          <code code="F-01250" displayName="Symptôme" codeSystem="1.2.250.1.213.2.12"/>
+                                          <text><reference value='#Réaction'/></text>
+                                          <statusCode code='completed'/>
+                                          <effectiveTime>
+                                             <low value='20100212'/>
+                                          </effectiveTime>
+                                          <value xsi:type='CD' code='T78.3' displayName='Urticaire'
+                                             codeSystem='2.16.840.1.113883.6.3' codeSystemName='CIM-10'>
+                                             <originalText>
+                                                <reference value="#Réaction"></reference>
+                                             </originalText>
+                                          </value>
+                                       </observation>
+                                    </entryRelationship>
+                                    
+                                    <!-- Sévérité -->
+                                    <entryRelationship typeCode='SUBJ' inversionInd='true'>
+                                       <observation classCode='OBS' moodCode='EVN'>
+                                          <templateId root='2.16.840.1.113883.10.20.1.55'/>
+                                          <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.1'/>
+                                          <code code='SEV' displayName='Sévérité'
+                                             codeSystem='2.16.840.1.113883.5.4' codeSystemName='ActCode'/>
+                                          <text><reference value='#Sévérité'/></text>
+                                          <statusCode code='completed'/>
+                                          <value xsi:type='CD' code='M' displayName='Modéré'
+                                             codeSystem='2.16.840.1.113883.5.1063' 
+                                             codeSystemName='SeverityObservation'/>
+                                       </observation>
+                                    </entryRelationship>
+                                    
+                                    <!-- Statut clinique -->
+                                    <entryRelationship typeCode="REFR" inversionInd="false">
+                                       <observation classCode="OBS" moodCode="EVN">
+                                          <templateId root="2.16.840.1.113883.10.20.1.57"/>
+                                          <templateId root="2.16.840.1.113883.10.20.1.50"/>
+                                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1"/>
+                                          <code code="33999-4" displayName="Status"
+                                             codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                          <text><reference value='#StatutProb'/></text>
+                                          <statusCode code="completed"/>
+                                          <value xsi:type="CE" code="G-A397" displayName="Intermittent"
+                                             codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                       </observation>
+                                    </entryRelationship>
+                                    
+                                    <!-- Commentaires -->
+                                    <entryRelationship typeCode="SUBJ" inversionInd='true'>
+                                       <act classCode='ACT' moodCode='EVN'>
+                                          <templateId root='2.16.840.1.113883.10.20.1.40'/>
+                                          <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.2'/>
+                                          <code code='48767-8' displayName='Commentaire'
+                                             codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                                          <text><reference value='#comment-al1'/>Texte du commentaire</text>
+                                          <statusCode code='completed'/>
+                                       </act>
+                                    </entryRelationship>
+                              </observation>
+                           </entryRelationship>
+                           
+                        </act>
+                     </entry>
+                     
+                  </section>
+               </component>
+               
+               <!--=<<o#%@O[ PCC Pregnancy History Section ]O@%#o>>=-->
+               <component>
+                  <section>
+                     <!-- PCC Pregnancy History Section template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.4"/>
+                     <id root="87b50dad-c401-406e-00fe-57b02e1e155f"/>
+                     <code code="10162-6" displayName="Historique des grossesses"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                     <title>Historique des grossesses</title>
+                     <text>
+                        <table border="1" width="100%">
+                           <thead>
+                              <tr><th>Grossesse en cours</th><th>Date prévisionnelle de l'accouchement</th><th>Projet de grossesse</th></tr>
+                           </thead>
+                           <tbody>
+                              <tr><td>Oui</td><td>01/11/2012</td><td>Non</td></tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     <!--Date prévisionnelle de l'accouchement-->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+                           <id root="f575adee-0dc3-4d76-932e-6e23daf4e163"/> 
+                           <code code="11780-4" displayName="Date prévisionnelle de l'accouchement"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <text>
+                              <reference value="dateAccou"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NASK"/>
+                           <value xsi:type="TS" value="20121101"/>
+                        </observation>
+                     </entry>
+                     
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.5"/>
+                           <id root="0d5958c7-fd83-4f7d-8909-4342ff7d5e7b"/> 
+                           <code code="OBS_006" displayName="Projet de grossesse"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <text>
+                              <reference value="projetGrossesse"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NASK"/>
+                           <value xsi:type="BL" value="false"/>
+                        </observation>
+                     </entry>
+
+                  </section>
+               </component>
+               
+               <!-- -=<<o#%@O[ Coded Social History section ]O@%#o>>=- -->
+               <component>
+                  <section>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16.1"/>
+                     <id root="10c4f352-be15-4117-a026-c8433ebd3c9d"/>
+                     <code code="29762-2" displayName="Habitus, Mode de vie" codeSystem="2.16.840.1.113883.6.1"
+                        codeSystemName="LOINC"/>
+                     <title>Habitus, Mode de vie</title>
+                     <text>
+                        <table border="1" width="100%">
+                           <thead>
+                              <tr>
+                                 <th colspan="3"><content styleCode="BoldItalics">Facteurs de risque sociaux</content></th>
+                              </tr>
+                              <tr>
+                                 <td>Facteurs de risques liés à la consommation de drogues</td>
+                                 <td>Profession exposée</td>
+                                 <td>Vie en collectivité</td>
+                                 <td>Risque pour l'usager lié à l'entourage</td>
+                                 <td>Risque pour Entourage</td>
+                                 <td>Comportement sexuel à risque</td>
+                                 <td>Risque lié au déplacement de l'usager dans un pays à risque infectueux élevé</td>
+                                 <td>Date prévisionnelle du voyage</td>
+                                 <td>Région ou pays</td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><content ID="drogues">Voie nasale</content></td>
+                                 <td><content ID="profession">Justice</content></td>
+                                 <td><content ID="vieCollectivite">Oui</content></td>
+                                 <td><content ID="risqueUsager">Usager immunodéprimé</content></td>
+                                 <td><content ID="risqueEntourage">Femme enceinte</content></td>
+                                 <td><content ID="comportementSexuel">Non</content></td>
+                                 <td><content ID="voyage">Oui</content></td>
+                                 <td>25/09/2018</td>
+                                 <td><content ID="pays">Bangladesh</content></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     
+                     <!-- Facteurs de risques liés à la consommation de drogues -->               
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="8bd16152-442b-4c2c-bac2-207fbcfdd618"/>
+                           <code code="S-32200" displayName="Consommation de drogue"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                           <text>
+                              <reference value="drogues"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20110925"/>
+                           </effectiveTime>
+                           <value xsi:type="CD" code="GEN-070" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" displayName="Voie nasale" />
+                        </observation>
+                     </entry>
+                     
+                     <!-- Profession exposée -->               
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="5178eeb9-5fb1-4f8d-a49a-d5f5d55d4941"/>
+                           <code code="S-00520" displayName="Facteur social relié à la vie professionnelle"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                           <text>
+                              <reference value="profession"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20110925"/>
+                           </effectiveTime>
+                           <value xsi:type="CD" code="GEN-058" displayName="Justice" codeSystem="1.2.250.1.213.1.1.4.322"/>
+                        </observation>
+                     </entry>
+                     
+                     <!--Vie en collectivité-->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="8ba00fd6-cae3-430a-b43f-c51ec7188596"/>
+                           <code code="S-00500" displayName="Autre élément social"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                              <qualifier>
+                                 <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                                 <value code="GEN-086" displayName="Vie en collectivité" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                              </qualifier>
+                           </code>
+                           <text>
+                              <reference value="vieCollectivite"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20170925"/>
+                           </effectiveTime>
+                           <value xsi:type="BL" value="true"/>
+                        </observation>
+                     </entry>
+                     
+                     
+                     <!--Risque pour l'usager lié à l'entourage-->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="a7dc5da0-a699-4aa1-b496-3ef8c870cb1c"/>
+                           <code code="S-00500" displayName="Autre élément social"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                              <qualifier>
+                                 <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                                 <value code="GEN-048" displayName="L'entourage présente un risque pour l'usager" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                              </qualifier>
+                           </code>
+                           <text>
+                              <reference value="risqueUsager"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20110925"/>
+                           </effectiveTime>
+                           <value xsi:type="ST">Usager immunodéprimé</value>
+                        </observation>
+                     </entry>
+                     
+                     <!--Risque pour Entourage -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="392da2d8-aecd-455c-8913-57811f94bcd4"/>
+                           <code code="S-00500" displayName="Autre élément social"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                              <qualifier>
+                                 <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                                 <value code="GEN-064" displayName="L'usager présente un risque pour son entourage" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                              </qualifier>
+                           </code>
+                           <text>
+                              <reference value="risqueEntourage"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20110925"/>
+                           </effectiveTime>
+                           <value xsi:type="ST">Femme enceinte</value>
+                        </observation>
+                     </entry>
+                     
+                     <!--Comportement sexuel à risque-->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="13b5491c-605a-440b-b5ab-c5a1f567e427"/>
+                           <code code="S-00500" displayName="Autre élément social"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                              <qualifier>
+                                 <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                                 <value code="GEN-049" displayName="Comportement sexuel à risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                              </qualifier>
+                           </code>
+                           <text>
+                              <reference value="comportementSexuel"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20110925"/>
+                           </effectiveTime>
+                           <value xsi:type="BL" value="false"/>
+                        </observation>
+                     </entry>
+                     
+                     <!--Risque lié au déplacement de l'usager dans un pays à risque infectueux élevé -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="6da7c3b4-e467-45e9-8eb2-7641ff0e25db"/>
+                           <code code="S-00500" displayName="Autre élément social"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                              <qualifier>
+                                 <name code="GEN-047" displayName="Facteur de risque" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                                 <value code="GEN-050" displayName="Voyage" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                              </qualifier>
+                           </code>
+                           <text>
+                              <reference value="Voyage"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <!--Date prévisionnelle du voyage-->
+                           <effectiveTime>
+                              <low value="20180925"/>
+                           </effectiveTime>
+                           <value xsi:type="BL" value="true"/>
+                        </observation>
+                     </entry>
+                     
+                     <!--Pays-->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.33"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+                           <id root="8b80530e-fc83-4b2c-9ca9-c28d8b5f45b8"/>
+                           <code code="S-00500" displayName="Autre élément social"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                              <qualifier>
+                                 <name code="GEN-050" displayName="Voyage" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                                 <value code="GEN-077" displayName="Région" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+                              </qualifier>
+                           </code>
+                           <text>
+                              <reference value="pays"/>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low value="20110925"/>
+                           </effectiveTime>
+                           <value xsi:type="CD" code="99246" displayName="Bangladesh" codeSystem="1.2.250.1.213.2.24" codeSystemName="TRE_R20-Pays"/>
+                        </observation>
+                     </entry>
+                  </section>
+               </component>
+               
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Section vaccins ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.63"/>
+               <id root="b62f18b4-900b-4578-b102-b93e9a5595c7"/>
+               <title>VACCINS</title>
+               <text/>
+               <!--=<<o#%@O[ PCC Immunization Section ]O@%#o>>=-->
+               <component>
+                  <section>
+                     <templateId root="2.16.840.1.113883.10.20.1.6"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23"/>
+                     <id root="df6b5534-b28e-499B-968e-2ccac9b98914"/>
+                     <code code="11369-6" displayName="Historique des vaccinations"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                     <title>Historique des vaccinations</title>
+                     <text>
+                        
+                        <!--=<<o@O[ BCG ]O@o>>=-->
+                        <list>
+                           <item><content styleCode="BoldItalics">Vaccination Antituberculeuse : BCG</content></item>
+                        </list>
+                        <table border="1">
+                           <thead>
+                              <tr><th>Date</th><th>Vaccin</th><th>Lot n°</th><th>Rang</th><th>Voie</th><th>Région d'administration</th><th>Référence prescription</th><th>Dose à administrer</th><th>Commentaire</th><th>Vaccinateur</th></tr>
+                           </thead>
+                           <tbody>
+                              <tr><td>1975</td><td><content ID="bcg">VACCIN BCG SSI</content></td><td>235421176</td><td>1</td><td>Voie intradermique</td><td>Haut du bras gauche</td><td>Ne renouveller qu'une seule fois par
+                                 dispensation</td><td>1</td><td ID="comment-2">L'usager a été informé des avantages et risques liés à la vaccination</td><td>---</td></tr>
+                              
+                           </tbody>
+                        </table>
+                        
+                        <!--=<<o@O[ DTCP HB ]O@o>>=-->
+                        <list>
+                           <item><content styleCode="BoldItalics">Vaccination contre la diphtérie, le tétanos, la poliomyélite, la coqueluche (pertussis), l'Haemophilus influenzae b</content></item>
+                        </list>
+                        <table border="1">
+                           <thead>
+                              <tr><th>Date</th><th>Vaccin</th><th>Lot n°</th><th>Rang</th><th>Voie</th><th>Région d'administration</th><th>Dose à administrer</th><th>Commentaire</th><th>Vaccinateur</th></tr>
+                           </thead>
+                           <tbody>
+                              <tr><td>25/08/2011</td><td><content ID="tetanos">VACCIN TETANIQUE PASTEUR</content></td><td>4678</td><td>1</td><td>Voie intramusculaire</td><td>Deltoïde gauche</td><td>1</td><td>-</td><td>Dr.Müller </td></tr>
+                              <tr><td>28/09/2011</td><td><content ID="tetanos2">VACCIN TETANIQUE PASTEUR</content></td><td>4456668</td><td>2</td><td>Voie intramusculaire</td><td>Deltoïde gauche</td><td>1</td><td>Prise récente et ponctuelle de solupred (60mg) en une prise pendant 2 jours</td><td>Dr.Müller </td></tr>
+                           </tbody>
+                        </table>
+                        
+                        <!--=<<o@O[ Pneumocoque ]O@o>>=-->
+                        <list>
+                           <item><content styleCode="BoldItalics">Vaccination contre les infections invasives à pneumocoques</content></item>
+                        </list>
+                      
+                        
+                        <!--=<<o@O[ Vaccination contre l'hépatite B ]O@o>>=-->
+                        <list>
+                           <item><content styleCode="BoldItalics">Vaccination contre l'hépatite B</content></item>
+                        </list>
+       
+       
+                        <!--=<<o@O[ Vaccination ROR ]O@o>>=-->
+                        <list>
+                           <item><content styleCode="BoldItalics">Vaccination contre la rougeole, les oreillons et la rubéole</content></item>
+                        </list>
+      
+                        
+                        <!--=<<o@O[ Autres Vaccinations ]O@o>>=-->
+                        <list>
+                           <item><content styleCode="BoldItalics">Autres Vaccinations</content></item>
+                        </list>
+      
+                     </text>
+                     
+                     <!-- Vaccination BCG -->
+                     <entry>
+                        <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+                           <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+                           <id root="41DAC707-7C96-47B7-B600-AC63D8002142"/>
+                           <code code="INITIMMUNIZ" codeSystem="2.16.840.1.113883.1.11.19708" displayName="1ère série vaccinante"
+                              codeSystemName="ActSubstanceAdministrationImmunizationCode"/>
+                           <text>
+                              <reference value="bcg"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="1975"/>
+                           <routeCode code="IDINJ" 
+                              displayName="injection intradermique" 
+                              codeSystem="2.16.840.1.113883.5.112" 
+                              codeSystemName="routeOfAdministration"/>
+                           
+                           <!--Région d'administration-->
+                           <approachSiteCode code="LUA" displayName="Haut du bras gauche"
+                              codeSystem="2.16.840.1.113883.1.11.19724" 
+                              codeSystemName="HumanSubstanceAdministrationSite"/>
+                          
+                           <!--Dose à administrer-->
+                           <doseQuantity value="1"/>
+                           <consumable typeCode="CSM">
+                              <manufacturedProduct>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                 <manufacturedMaterial>
+                                    <code code="C-B6010" 
+                                       displayName="Vaccin BCG" 
+                                       codeSystem="1.2.250.1.213.2.12" 
+                                       codeSystemName="SNOMED 3.5">
+                                       <originalText>
+                                          <reference value="bcg"></reference>
+                                       </originalText>
+                                       <translation code="61077869" 
+                                          displayName="VACCIN BCG SSI, poudre et solvant pour suspension injectable	poudre et  solvant pour suspension injectable intradermique" 
+                                          codeSystem="1.2.250.1.213.2.3.1" 
+                                          codeSystemName="CIS"/>
+                                       <translation code="3400936466425" 
+                                          displayName="1 flacon(s) en verre jaune(brun) - 1 flacon(s) en verre de 1 ml avec nécessaire(s) avec aiguille(s)"
+                                          codeSystem="1.2.250.1.213.2.3.3"
+                                           codeSystemName="CIP"/>
+                                    </code>
+                                    <lotNumberText>235421176</lotNumberText>
+                                 </manufacturedMaterial>
+                              </manufacturedProduct>
+                           </consumable>
+
+                           <performer nullFlavor="UNK">
+                              <assignedEntity>
+                                 <id nullFlavor="UNK"/>
+                                 <addr nullFlavor="NAV"/>
+                                 <telecom nullFlavor="NAV"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <given>Charles </given>
+                                       <family>Muller</family>
+                                       <prefix>Dr.</prefix>
+                                    </name>
+                                 </assignedPerson>
+                              </assignedEntity>
+                           </performer>
+
+                           <informant>
+                              <assignedEntity>
+                                 <id nullFlavor="UNK"/>
+                                 <addr nullFlavor="NAV"/>
+                                 <telecom nullFlavor="NAV"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <given>Charles </given>
+                                       <family>Muller</family>
+                                       <prefix>Dr.</prefix>
+                                    </name>
+                                 </assignedPerson>
+                              </assignedEntity>
+                           </informant>
+                           
+                           <!--Référence prescription-->
+                           <entryRelationship typeCode="REFR">
+                              <supply moodCode="INT" classCode="SPLY">
+                                 <templateId root="2.16.840.1.113883.10.20.1.34"/>
+                                 <!-- Supply activity template -->
+                                 <id root="b6daa144-abfa-4d43-bf8a-1603216fe746"/>
+                                 <statusCode code="completed"/>
+                                 <entryRelationship typeCode="SUBJ" inversionInd="true">
+                                    <act classCode="ACT" moodCode="INT">
+                                       <templateId root="2.16.840.1.113883.10.20.1.43"/>
+                                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.3.1"/>
+                                       <code code="FINSTRUCT"
+                                          codeSystem="1.3.6.1.4.1.19376.1.5.3.2"
+                                          codeSystemName="IHEActCode" />
+                                       <text><reference value="#comment-2"/>Ne renouveller qu'une seule fois par
+                                          dispensation</text>
+                                       <statusCode code="completed"/>
+                                    </act>
+                                 </entryRelationship>
+                              </supply>
+                           </entryRelationship>
+                           
+                           <!--Rang de la dose-->
+                           <entryRelationship typeCode="SUBJ">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                                 <code code="30973-2" displayName="Rang de la dose"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <statusCode code="completed"/>
+                                 <value xsi:type="INT" value="1"/>
+                              </observation>
+                           </entryRelationship>
+                           
+                           <!--Usager informé-->
+                           <entryRelationship typeCode="SUBJ">
+                              <act classCode="ACT" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                 <code code="48767-8" displayName="Commentaire"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <text>L'usager a été informé des avantages et risques liés à la vaccination</text>
+                                 <statusCode code="completed"/>
+                              </act>
+                           </entryRelationship>
+                           
+                           <!--Réaction observée-->
+                           <entryRelationship typeCode="CAUS" inversionInd="false">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                                 <id root="5d002088-67f2-47bf-a256-f2f2a2c8941d"/>
+                                 <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème"/>
+                                 <text>
+                                    <reference value="reacBCG"></reference>
+                                 </text>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20120505"/>
+                                 </effectiveTime>
+                                 <value xsi:type="CD" code="R50.2" displayName="fièvre due à des médicaments" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                                    <originalText>
+                                       <reference value="reacBCG"></reference>
+                                    </originalText>
+                                 </value>
+                              </observation>
+                           </entryRelationship>
+                        </substanceAdministration>
+                     </entry>
+                     
+                     <!-- Vaccination tétanos (1er injection) -->
+                     <entry>
+                        <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+                           <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+                           <id root="41DAC707-7C96-47B7-B600-AC63D8002142"/>
+                           <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" displayName="vaccination"
+                              codeSystemName="ActCode"/>
+                           <text>
+                              <reference value="tetanos"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110928094914+0100"/>
+                           <routeCode code="IM" 
+                              displayName="injection intramusculaire" 
+                              codeSystem="2.16.840.1.113883.5.112" 
+                              codeSystemName="routeOfAdministration"/>
+                           <!--Région d'administration-->
+                           <approachSiteCode code="LD" 
+                              displayName="Deltoïde gauche"
+                              codeSystem="2.16.840.1.113883.1.11.19724" 
+                              codeSystemName="HumanSubstanceAdministrationSite"/>
+                           <!--Dose à administrer-->
+                           <doseQuantity value="1"/>
+                           <consumable typeCode="CSM">
+                              <manufacturedProduct>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                 <manufacturedMaterial>
+                                    <code code="C-B5531" 
+                                       displayName="Anatoxine Tétanique Adsorbée" 
+                                       codeSystem="1.2.250.1.213.2.12" 
+                                       codeSystemName="SNOMED 3.5">
+                                       <originalText>
+                                          <reference value="tetanos"></reference>
+                                       </originalText>
+                                    </code>
+                                    <lotNumberText>4456668</lotNumberText>
+                                 </manufacturedMaterial>
+                              </manufacturedProduct>
+                           </consumable>
+                           <performer typeCode="PRF">
+                              <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+                              <assignedEntity>
+                                 <!-- PS identifié par son N°RPPS -->
+                                 <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                                 <!-- Spécialité de l’auteur -->	
+                                 <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"    
+                                    codeSystem="1.2.250.1.213.1.1.4.5"/>
+                                 <addr nullFlavor="MSK"/>       
+                                 <telecom nullFlavor="MSK"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <family>Müller</family>
+                                       <given>Charles</given>
+                                       <prefix>Dr.</prefix>
+                                    </name>
+                                 </assignedPerson>
+                                 <representedOrganization>
+                                    <id root="1.2.250.1.71.4.2.2" extension="801234567897"/>
+                                    <name>Cabinet Médical du Dr. Müller</name>
+                                    <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+                                       codeSystem="1.2.250.1.213.1.1.4.9"/>
+                                 </representedOrganization>
+                              </assignedEntity>
+                           </performer>
+                           <!--Rang de la dose-->
+                           <entryRelationship typeCode="SUBJ">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                                 <code code="30973-2" displayName="Rang de la dose"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <statusCode code="completed"/>
+                                 <value xsi:type="INT" value="1"/>
+                              </observation>
+                           </entryRelationship>
+                           <!--Commentaire-->
+                           <entryRelationship typeCode="SUBJ" inversionInd="true">
+                              <act classCode="ACT" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                 <code code="48767-8" displayName="Commentaire"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <text>Prise récente et ponctuelle de solupred (60mg) en une prise pendant 2 jours</text>
+                                 <statusCode code="completed"/>
+                              </act>
+                           </entryRelationship>
+                           <!--Réaction observée-->
+                           <entryRelationship typeCode="CAUS" inversionInd="false">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                                 <id root="3374f9e9-6175-442e-929a-73b07f3d2484"/>
+                                 <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème"/>
+                                 <text>
+                                    <reference value="reacTeta1"/>
+                                 </text>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20120505"/>
+                                 </effectiveTime>
+                                 <value xsi:type="CD" code="R50.2" displayName="fièvre due à des médicaments" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                                    <originalText>
+                                       <reference value="reacTeta1"></reference>
+                                    </originalText>
+                                 </value>
+                              </observation>
+                           </entryRelationship>
+                        </substanceAdministration>
+                     </entry>
+                     
+                     <!-- Vaccination tétanos (2ème injection) -->
+                     <entry>
+                        <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+                           <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+                           <id root="41DAC707-7C96-47B7-B600-AC63D8002142"/>
+                           <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" displayName="vaccination"
+                              codeSystemName="ActCode"/>
+                           <text>
+                              <reference value="tetanos2"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110928094914+0100"/>
+                           <routeCode code="IM" 
+                              displayName="injection intramusculaire" 
+                              codeSystem="2.16.840.1.113883.5.112" 
+                              codeSystemName="routeOfAdministration"/>
+                           <!--Région d'administration-->
+                           <approachSiteCode code="LD" displayName="Deltoïde gauche"
+                              codeSystem="2.16.840.1.113883.1.11.19724" 
+                              codeSystemName="HumanSubstanceAdministrationSite"/>
+                           <!--Dose à administrer-->
+                           <doseQuantity value="1"/>
+                           <consumable typeCode="CSM">
+                              <manufacturedProduct>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                 <manufacturedMaterial>
+                                    <code code="C-B5531" 
+                                       displayName="Anatoxine Tétanique Adsorbée" 
+                                       codeSystem="1.2.250.1.213.2.12" 
+                                       codeSystemName="SNOMED 3.5">
+                                       <originalText>
+                                          <reference value="tetanos2"></reference>
+                                       </originalText>
+                                       <translation code="65076266" 
+                                          displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en unidose vaccin tétanique adsorbé
+                                          suspension injectable intramusculaire;sous-cutanée" 
+                                          codeSystem="1.2.250.1.213.2.3.1" 
+                                          codeSystemName="CIS"/>
+                                       <translation code="3400932857241" 
+                                          displayName="1 seringue(s) préremplie(s) en verre de 0,5 ml" 
+                                          codeSystem="1.2.250.1.213.2.3.3" 
+                                          codeSystemName="CIP"/>
+                                    </code>
+                                    <lotNumberText>4456668</lotNumberText>
+                                 </manufacturedMaterial>
+                              </manufacturedProduct>
+                           </consumable>
+                           <performer typeCode="PRF">
+                              <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+                              <assignedEntity>
+                                 <!-- PS identifié par son N°RPPS -->
+                                 <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                                 <!-- Spécialité de l’auteur -->	
+                                 <code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"    
+                                    codeSystem="1.2.250.1.213.1.1.4.5"/>
+                                 <addr nullFlavor="NASK"/>       
+                                 <telecom nullFlavor="NASK"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <family>Müller</family>
+                                       <given>Charles</given>
+                                       <prefix>Dr.</prefix>
+                                    </name>
+                                 </assignedPerson>
+                                 <representedOrganization>
+                                    <id root="1.2.250.1.71.4.2.2" extension="801234567897"/>
+                                    <name>Cabinet Médical du Dr. Müller</name>
+                                    <standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+                                       codeSystem="1.2.250.1.213.1.1.4.9"/>
+                                 </representedOrganization>
+                              </assignedEntity>
+                           </performer>
+                           <entryRelationship typeCode="SUBJ">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                                 <code code="30973-2" displayName="Rang de la dose"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <statusCode code="completed"/>
+                                 <value xsi:type="INT" value="2"/>
+                              </observation>
+                           </entryRelationship>
+                           <!--Réaction observée-->
+                           <entryRelationship inversionInd="false" typeCode="CAUS">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.54"/>
+                                 <id root="f9e020e2-d219-43d4-8bf8-6b275e1f726d"/>
+                                 <code code="F-01000" codeSystem="1.2.250.1.213.2.12" displayName="Problème"/>
+                                 <text>
+                                    <reference value="reacTeta2"></reference>
+                                 </text>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low value="20120505"/>
+                                 </effectiveTime>
+                                 <value xsi:type="CD" code="R50.2" displayName="fièvre due à des médicaments" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                                    <originalText>
+                                       <reference value="reacTeta2"></reference>
+                                    </originalText>
+                                 </value>
+                              </observation>
+                           </entryRelationship>
+                        </substanceAdministration>
+                     </entry>
+                 
+                  </section>
+               </component>
+            
+               <!-- -=<<o#%@O[ Coded Care Plan section ]O@%#o>>=- -->
+               <component>
+                  <section>
+                     <templateId root="2.16.840.1.113883.10.20.1.10"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+                     <id root="a06cd659-5c02-4a7e-9db3-2d9bd3edc08b"/>
+                     <code code="18776-5" displayName="plan de soins" codeSystem="2.16.840.1.113883.6.1"
+                        codeSystemName="LOINC"/>
+                     <title>Plan de soins</title>
+                     <text>
+                        <table border="1" width="100%">
+                           <thead>
+                              <tr><th>Vaccin de rappel</th><th>Date prévue</th><th>Vaccin</th></tr>
+                           </thead>
+                           <tbody>
+                              <tr><td>Oui</td><td>28/05/2012</td><td><content ID="rubeole">Vaccin contre la rubéole</content></td></tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     
+                     <entry>
+                        <observation classCode="OBS" moodCode="INT">
+                           <!-- Observation Request -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+                           <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                           <id root="54afde03-853a-4aa6-963e-400a5a2c2bb3"/>
+                           <code code="GEN-087" codeSystem="1.2.250.1.213.1.1.4.322"
+                              codeSystemName="TA_ASIP" displayName="Vaccin de rappel"/>
+                           <text>
+                              <reference value=""></reference>
+                           </text>
+                           <statusCode code="active"/>
+                           <effectiveTime value="20180531"/>
+                           <!-- Vaccin de rappel -->
+                           <value xsi:type="BL" value="false"/>
+                        </observation>
+                     </entry>
+                     
+                     <entry>
+                        <substanceAdministration  classCode="SBADM" negationInd="true" moodCode="INT">
+                           <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+                           <id root="C4C7F503-E80D-44DD-8B78-329CC38EFF82"/>
+                           <code code="BOOSTER" codeSystem="2.16.840.1.113883.1.11.19708" codeSystemName="ActSubstanceAdministrationImmunizationCode" displayName="rappel"/>
+                           <text>
+                              <reference value="rubeole"></reference>
+                           </text>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20120528"/>
+                           <routeCode nullFlavor="NA"/>
+                           <doseQuantity value="1"/>
+                           <consumable typeCode="CSM">
+                              <manufacturedProduct>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                 <manufacturedMaterial>
+                                    <code code="C-B60D0" 
+                                       displayName="Vaccin contre la rubéole" 
+                                       codeSystem="1.2.250.1.213.2.12" 
+                                       codeSystemName="SNOMED 3.5">
+                                       <originalText>
+                                          <reference value="rubeole"></reference>
+                                       </originalText>
+                                    </code>
+                                    <lotNumberText nullFlavor="NA"/>
+                                 </manufacturedMaterial>
+                              </manufacturedProduct>
+                           </consumable>
+                           <entryRelationship typeCode="SUBJ">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.46"/>
+                                 <code code="30973-2" displayName="Rang de la dose"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <statusCode code="completed"/>
+                                 <value xsi:type="INT" value="1"/>
+                              </observation>
+                           </entryRelationship>
+                        </substanceAdministration>
+                     </entry>
+                     
+                  </section>
+               </component>
+               
+            </section>
+         </component>
+      
+      </structuredBody>
+   </component>
+</ClinicalDocument>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.36" displayName="AVC_interpretationECG">
+        <ConceptList>
+            <Concept code="F-38001" displayName="ECG normal" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="F-38002" displayName="ECG anormal" codeSystem="1.2.250.1.213.2.12"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

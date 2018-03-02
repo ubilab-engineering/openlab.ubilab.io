@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par NMA, le 02/11/2017-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.1" displayName="JDV_J01-XdsAuthorSpecialty-CISIS"
+        version="test">
+        <ConceptList>
+            <Concept code="ALIM_AM"
+                displayName="Alimentation automatique à partir du Système d'Information de l'Assurance Maladie"
+                codeSystem="1.2.250.1.213.1.1.4.6"/>
+            <Concept code="DISPOSITIF" displayName="Dispositif médical"
+                codeSystem="1.2.250.1.213.1.1.4.6"/>
+            <Concept code="EXP_PATIENT" displayName="Expression personnelle du patient"
+                codeSystem="1.2.250.1.213.1.1.4.6"/>
+            <Concept code="SECRETARIAT_MEDICAL" displayName="Secrétariat médical"
+                codeSystem="1.2.250.1.213.1.1.4.6"/>
+            <Concept code="G15_10" displayName="Médecin" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/PAC00"
+                displayName="Médecin - Qualification Praticien adjoint contractuel (PAC)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM01"
+                displayName="Médecin - Anatomie et Cytologie pathologiques (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM02" displayName="Médecin - Anesthésie-réanimation (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM04"
+                displayName="Médecin - Cardiologie et maladies vasculaires (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM05" displayName="Médecin - Chirurgie générale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM06" displayName="Médecin - Chirurgie maxillo-faciale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM07"
+                displayName="Médecin - Chirurgie maxillo-faciale et Stomatologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM08"
+                displayName="Médecin - Chirurgie orthopédique et Traumatologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM09" displayName="Médecin - Chirurgie infantile (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM10"
+                displayName="Médecin - Chirurgie plastique reconstruct et esthétique (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM11"
+                displayName="Médecin - Chirurgie thoracique et cardio-vasculaire (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM12" displayName="Médecin - Chirurgie urologique (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM13" displayName="Médecin - Chirurgie vasculaire (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM14"
+                displayName="Médecin - Chirurgie viscérale et digestive (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM15" displayName="Médecin - Dermatologie et Vénéréologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM16" displayName="Médecin - Endocrinologie et métabolisme (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM17" displayName="Médecin - Génétique médicale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM18" displayName="Médecin - Gériatrie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM19" displayName="Médecin - Gynécologie médicale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM20" displayName="Médecin - Gynécologie-obstétrique (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM21" displayName="Médecin - Hématologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM22"
+                displayName="Médecin - Hématologie, opt Maladie du sang (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM23"
+                displayName="Médecin - Hématologie, opt Onco-hématologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM24"
+                displayName="Médecin - Gastro-entérologie et hépatologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM25" displayName="Médecin - Médecine du travail (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM27" displayName="Médecin - Médecine interne (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM28" displayName="Médecin - Médecine nucléaire (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM29"
+                displayName="Médecin - Médecine physique et réadaptation (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM30" displayName="Médecin - Néphrologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM31" displayName="Médecin - Neuro-chirurgie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM32" displayName="Médecin - Neurologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM33" displayName="Médecin - Neuro-psychiatrie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM34"
+                displayName="Médecin - ORL et Chirurgie cervico-faciale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM35" displayName="Médecin - Oncologie, opt Onco-hématologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM36" displayName="Médecin - Oncologie, opt médicale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM37" displayName="Médecin - Oncologie, opt radiothérapie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM38" displayName="Médecin - Ophtalmologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM39" displayName="Médecin - Oto-rhino-laryngologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM40" displayName="Médecin - Pédiatrie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM41" displayName="Médecin - Pneumologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM42" displayName="Médecin - Psychiatrie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM43"
+                displayName="Médecin - Psychiatrie, opt enfant et adolescent (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM44" displayName="Médecin - Radio-diagnostic (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM45" displayName="Médecin - Radio-thérapie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM46" displayName="Médecin - Réanimation médicale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM47" displayName="Médecin - Recherche médicale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM48" displayName="Médecin - Rhumatologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM49"
+                displayName="Médecin - Santé publique et Médecine sociale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM50" displayName="Médecin - Stomatologie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM51"
+                displayName="Médecin - Gynéco-obstétrique et Gynéco méd, opt gyn-obs (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM52"
+                displayName="Médecin - Gynéco-obstétrique et Gynéco méd, opt gyn-méd (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM53"
+                displayName="Médecin - Spécialiste en Médecine Générale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM54" displayName="Médecin - Médecine Générale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM55"
+                displayName="Médecin - Radio-diagnostic et Radio-Thérapie (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SM56" displayName="Médecin - Chirurgie orale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CEX22"
+                displayName="Médecin - Gynécologie médicale et obstétrique (CEX)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CEX24" displayName="Médecin - Gynécologie médicale (CEX)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CEX26" displayName="Médecin - Obstétrique (CEX)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CEX64" displayName="Médecin - Urologie (CEX)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH01"
+                displayName="Médecin - Anatomie et cytologie pathologiques (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH02" displayName="Médecin - Anesthésie-réanimation (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH03"
+                displayName="Médecin - Bactériologie-virologie, hygiène hosp (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH04" displayName="Médecin - Biochimie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH05"
+                displayName="Médecin - Biologie cellulaire, histologie, bio du dév (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH06" displayName="Médecin - Biologie médicale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH07" displayName="Médecin - Biophysique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH08" displayName="Médecin - Oncologie médicale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH09"
+                displayName="Médecin - Cardiologie et maladies vasculaires (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH10" displayName="Médecin - Chirurgie générale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH11"
+                displayName="Médecin - Chirurgie viscérale et digestive (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH12" displayName="Médecin - Chirurgie infantile (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH13" displayName="Médecin - Chirurgie maxillo-faciale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH14"
+                displayName="Médecin - Chirurgie orthopédique et Traumatologique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH15"
+                displayName="Médecin - Chirurgie plast reconstruct, esthétique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH16"
+                displayName="Médecin - Chirurgie thoracique et cardio-vasculaire (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH17" displayName="Médecin - Chirurgie urologique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH18" displayName="Médecin - Chirurgie vasculaire (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH19" displayName="Médecin - Dermatologie et Vénéréologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH20" displayName="Médecin - Endocrinologie et Métabolisme (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH21" displayName="Médecin - Santé publique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH22" displayName="Médecin - Explorations fonctionnelles (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH23"
+                displayName="Médecin - Gastro-entérologie et Hépatologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH24" displayName="Médecin - Génétique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH25" displayName="Médecin - Génétique médicale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH26" displayName="Médecin - Gynécologie et Obstétrique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH27" displayName="Médecin - Hématologie biologique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH28" displayName="Médecin - Hématologie clinique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH29" displayName="Médecin - Hémobiologie-transfusion (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH30" displayName="Médecin - Hygiène hospitalière (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH31" displayName="Médecin - Immunologie biologique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH32" displayName="Médecin - Immunologie clinique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH33"
+                displayName="Médecin - Maladies infectieuses, maladies tropicales (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH34"
+                displayName="Médecin - Médecine de la repro et Gynécologie médicale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH35" displayName="Médecin - Médecine du travail (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH36" displayName="Médecin - Médecine d'urgence (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH37" displayName="Médecin - Médecine générale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH38" displayName="Médecin - Gériatrie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH39" displayName="Médecin - Médecine interne (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH40" displayName="Médecin - Médecine légale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH41" displayName="Médecin - Médecine nucléaire (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH42"
+                displayName="Médecin - Médecine physique et de réadaptation (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH43" displayName="Médecin - Néphrologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH44" displayName="Médecin - neuro-chirurgie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH45" displayName="Médecin - Neurologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH46" displayName="Médecin - Odontologie polyvalente (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH47" displayName="Médecin - Ophtalmologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH48" displayName="Médecin - Oto-rhino-laryngologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH49" displayName="Médecin - Parasitologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH50" displayName="Médecin - Pédiatrie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH51"
+                displayName="Médecin - Pharmacie polyvalente et Pharmacie hosp (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH52"
+                displayName="Médecin - Pharmacologie clinique et Toxicologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH53" displayName="Médecin - Pneumologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH54" displayName="Médecin - Psychiatrie polyvalente (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH55" displayName="Médecin - Radiologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH56" displayName="Médecin - Oncologie radiothérapique (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH57" displayName="Médecin - Réanimation médicale (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH58" displayName="Médecin - Rhumatologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH59" displayName="Médecin - Stomatologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/SCH60" displayName="Médecin - Toxicologie et Pharmacologie (SCH)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C01"
+                displayName="Médecin - Anatomie et Cytologie pathologiques humaines (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C03" displayName="Médecin - Anesthésie-réanimation (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C05" displayName="Médecin - Médecine appliquée aux sports (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C07" displayName="Médecin - Cardiologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C09"
+                displayName="Médecin - Chirurgie plast reconstruct, esthétique (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C10" displayName="Médecin - Chirurgie maxillo-faciale (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C11" displayName="Médecin - Chirurgie thoracique (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C12" displayName="Médecin - Chirurgie orthopédique (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C13" displayName="Médecin - Urologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C15" displayName="Médecin - Dermato-vénéréologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C20" displayName="Médecin - Hémobiologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C23"
+                displayName="Médecin - Gynécologie médicale et Obstétrique (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C25" displayName="Médecin - Gynécologie médicale (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C27" displayName="Médecin - Obstétrique (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C29" displayName="Médecin - Maladies de l'appareil digestif (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C30" displayName="Médecin - Néphrologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C31" displayName="Médecin - Médecine exotique (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C33" displayName="Médecin - Allergologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C34" displayName="Médecin - Angéiologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C35" displayName="Médecin - Cancérologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C36" displayName="Médecin - Diabétologie-nutrition (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C37" displayName="Médecin - Endocrinologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C38" displayName="Médecin - Maladies du sang (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C39" displayName="Médecin - Réanimation (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C40" displayName="Médecin - Médecine légale (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C41" displayName="Médecin - Médecine du travail (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C43" displayName="Médecin - Neurologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C45" displayName="Médecin - Neuro-chirurgie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C47" displayName="Médecin - Neuro-psychiatrie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C51" displayName="Médecin - Pédiatrie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C52" displayName="Médecin - Phoniatrie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C54" displayName="Médecin - Pneumologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C57" displayName="Médecin - Psychiatrie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C58"
+                displayName="Médecin - Psychiatrie, opt enfant et adolescent (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C60" displayName="Médecin - Médecine physique et réadaptation (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C62" displayName="Médecin - Rhumatologie (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C68" displayName="Médecin - Chirurgie pédiatrique (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C69" displayName="Médecin - Médecine nucléaire (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C71" displayName="Médecin - Médecine thermale (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C72" displayName="Médecin - Génétique médicale (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C75"
+                displayName="Médecin - Endocrinologie et Maladies métaboliques (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C76" displayName="Médecin - Orthopédie dento-maxillo-faciale (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/C83" displayName="Médecin - Chirurgie face et cou (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA01" displayName="Médecin - Addictologie clinique (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA02" displayName="Médecin - Aide médicale urgente (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA03" displayName="Médecin - Allergologie (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA04" displayName="Médecin - Angéiologie (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA05"
+                displayName="Médecin - Evaluation et traitement de la douleur (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA06" displayName="Médecin - Gérontologie (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA07"
+                displayName="Médecin - Hydrologie et climatologie médicales (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA08" displayName="Médecin - Médecine aérospatiale (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA09" displayName="Médecin - Médecine de catastrophe (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA10"
+                displayName="Médecin - Médecine et biologie du sport (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA11"
+                displayName="Médecin - Médecine de travail, prév risques prof (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA12" displayName="Médecin - Médecine pénitentiaire (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA13" displayName="Médecin - Médecine tropicale (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA14"
+                displayName="Médecin - Pratiques médico-judiciaires (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA15"
+                displayName="Médecin - Technologie transfusionnelle (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/CAPA16" displayName="Médecin - Toxicomanies et Alcoologies (CAPA)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM200" displayName="Médecin - Addictologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM201"
+                displayName="Médecin - Allergologie et Immunologie clinique (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM202" displayName="Médecin - Andrologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM203"
+                displayName="Médecin - Biochimie hormonale et métabolique (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM204"
+                displayName="Médecin - Biologie des agents infectieux (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM205" displayName="Médecin - Biologie moléculaire (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM206" displayName="Médecin - Cancérologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM207"
+                displayName="Médecin - Chirurgie de la face et du cou (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM208"
+                displayName="Médecin - Chirurgie plastique et reconstructrice (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM209" displayName="Médecin - Chirurgie vasculaire (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM210" displayName="Médecin - Cytogénétique humaine (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM211" displayName="Médecin - Dermatopathologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM212" displayName="Médecin - Foetopathologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM213" displayName="Médecin - Gériatrie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM214" displayName="Médecin - Hématologie biologique (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM215" displayName="Médecin - Hématologie maladies du sang (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM216" displayName="Médecin - Hémobiologie-transfusion (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM217"
+                displayName="Médecin - Immunologie et Immunopathologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM218" displayName="Médecin - Médecine de la reproduction (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM219" displayName="Médecin - Médecine du sport (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM220" displayName="Médecin - Médecine d'urgence (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM221"
+                displayName="Médecin - Médecine légale et Expertises médicales (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM222" displayName="Médecin - Médecine nucléaire (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM223" displayName="Médecin - Médecine vasculaire (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM224" displayName="Médecin - Néonatalogie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM225" displayName="Médecin - Neuropathologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM226" displayName="Médecin - Nutrition (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM227"
+                displayName="Médecin - Orthopédie dento-maxillo-faciale (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM228"
+                displayName="Médecin - Pathologie infect et trop, clin et bio (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM229"
+                displayName="Médecin - Pharmacocinétique et Métabolisme des méd (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM230"
+                displayName="Médecin - Pharmacologie clin et Eval thérapeutiq (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM231"
+                displayName="Médecin - Psychiatrie de l'enfant et de l'ado (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM232"
+                displayName="Médecin - Radiopharmacie et radiobiologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM233" displayName="Médecin - Réanimation médicale (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM234" displayName="Médecin - Toxicologie biologique (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM235"
+                displayName="Médecin - Médecine de la douleur et Méd palliative (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM236"
+                displayName="Médecin - Cancérologie, opt Trait méd des cancers (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM237"
+                displayName="Médecin - Cancérologie, opt Chir cancérologique (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM238"
+                displayName="Médecin - Cancérologie, opt Réseaux cancérologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM239"
+                displayName="Médecin - Cancérologie, opt Biologie cancérologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_10/DSM240"
+                displayName="Médecin - Cancérologie, opt Imagerie cancérologie (DNQ)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21" displayName="Pharmacien" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/A" displayName="Pharmacien titulaire d'officine"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/B" displayName="Pharmacien d'entreprise - industrie"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/C" displayName="Pharmacien d'entreprise - distribution"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/D" displayName="Pharmacien adjoint, remplaçant ou gérant"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/DA" displayName="Pharmacien adjoint"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/DM" displayName="Pharmacien mutualiste ou minier"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/E" displayName="Pharmacien d'Outre-Mer"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/EA" displayName="Pharmacien titulaire d'officine - OM"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/EB" displayName="Pharmacien d'entreprise - industrie - OM"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/EC" displayName="Pharmacien d'entreprise - distribution - OM"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/ED" displayName="Pharmacien adjoint - OM"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/EG" displayName="Pharmacien biologiste - OM"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/EH" displayName="Pharmacien d'un établissement de santé - OM"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/G" displayName="Pharmacien biologiste"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/H" displayName="Pharmacien d'établissement de santé"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_21/M" displayName="Pharmacien militaire"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_26" displayName="Audioprothésiste" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_28" displayName="Opticien-Lunetier"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_40" displayName="Chirurgien-Dentiste"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_40/SCD01"
+                displayName="Chirurgien-Dentiste - Orthopédie dento-faciale (SCD)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_40/SCD02" displayName="Chirurgien-Dentiste - Chirurgie orale (SCD)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_40/SCD03"
+                displayName="Chirurgien-Dentiste - Médecine bucco-dentaire (SCD)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_50" displayName="Sage-Femme" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_69" displayName="Infirmier psychiatrique"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_70" displayName="Masseur-Kinésithérapeute"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_80" displayName="Pédicure-Podologue"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_81" displayName="Orthoprothésiste" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_82" displayName="Podo-Orthésiste" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_83" displayName="Orthopédiste-Orthésiste"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_84" displayName="Oculariste" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_85" displayName="Epithésiste" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_86" displayName="Technicien de labo Médical"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_91" displayName="Orthophoniste" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_92" displayName="Orthoptiste" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_94" displayName="Ergothérapeute" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_95" displayName="Diététicien" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_96" displayName="Psychomotricien" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G15_98" displayName="Manipulateur ERM" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G16_10" displayName="Médecin en formation"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G16_21" displayName="Pharmacien en formation"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G16_40" displayName="Chirurgien-Dentiste en formation"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <Concept code="G16_50" displayName="Sage-Femme en formation"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

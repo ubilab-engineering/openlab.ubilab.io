@@ -1,0 +1,2938 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+
+<?oxygen SCHSchema="schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?>
+<?oxygen SCHSchema="schematrons/CI-SIS_D2LM_FIN.sch"?>
+
+<!--?oxygen SCHSchema="schematrons/CI-SIS_VSM_CDA_n3.sch"?-->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+	<!-- 
+		**********************************************************************************************************
+		Système : ASIP
+		Document : Dématérialisation de la seconde lecture de la Mammographie (D2LM)
+		Auteur : NMA
+		Date de création : 15/06/2016
+		Version : 0.0.1
+		**********************************************************************************************************
+		format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+		**********************************************************************************************************
+		Notes:
+		- TemplateId du modèle de document: Synthèse Médicale (VSM):  
+		- Type de documents (Matrice): SYNTH (Synthèse)
+		- Domaine de vocabulaire ASIP pour VSM 
+		- OID temporaire du LPS producteur de document: root="1.2.250.1.213.1.1.9" 
+		
+		**********************************************************************************************************
+	-->
+
+
+	<realmCode code="FR"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<!-- Conformité spécifications HL7 France -->
+	<templateId root="2.16.840.1.113883.2.8.2.1"/>
+	<!-- Conformité spécifications au CI-SIS -->
+	<templateId root="1.2.250.1.213.1.1.1.1"/>
+	<!-- Conformité spécifications au CI-SIS -->
+	<templateId root="1.2.250.1.213.1.1.1.13"/>
+
+	<!--Conformité au template FIN-->
+	<templateId root="1.2.250.1.213.1.1.1.27"/>
+
+	<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+	<id root="ab3a3135-2562-4bc1-961f-e98c34d2aade"/>
+	<code code="18748-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+		displayName="CR d’imagerie médicale"/>
+
+
+	<title>DEPISTAGE DU CANCER DU SEIN</title>
+	<effectiveTime value="20160615121700+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+		codeSystemName="Confidentiality" displayName="Normal"/>
+	<languageCode code="fr-FR"/>
+
+
+	<!-- Identification du patient -->
+	<recordTarget>
+		<patientRole>
+			<!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+			<id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+			
+			<!-- Adresse du Patient -->
+			<addr>
+				<houseNumber>3</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pont</streetName>
+				<!-- Code Postal du patient -->
+				<postalCode>75005</postalCode>
+				<city>Paris</city>
+				<country>France</country>
+			</addr>
+			<telecom nullFlavor="NASK"/>
+			<patient classCode="PSN">
+				<!-- Nom, prénom et NomJF du patient -->
+				<name>
+					<prefix/>
+					<given>Jeanne</given>
+					<family qualifier="SP">Dupont</family>
+					<family qualifier="BR">Martin</family>
+				</name>
+				<administrativeGenderCode code="F" displayName="Féminin"
+					codeSystem="2.16.840.1.113883.5.1"/>
+				<!-- Date de Naissance du patient -->
+				<birthTime value="19401110"/>
+				<!-- Organisme assurance maladie -->
+				<guardian>
+					<guardianOrganization>
+						<name>Organisation représentant le patient</name>
+					</guardianOrganization>
+				</guardian>
+				<!--Lieu de naissance-->
+				<birthplace>
+					<place>
+						<addr>
+							<houseNumber>2</houseNumber>
+							<streetNameType>RUE</streetNameType>
+							<streetName>Jean Jaurès</streetName>
+							<postalCode>92000</postalCode>
+							<city>Nanterre</city>
+							<country>France</country>
+						</addr>
+					</place>
+				</birthplace>
+
+			</patient>
+		</patientRole>
+	</recordTarget>
+
+	<!-- Radiologue -->
+	<author>
+		<time value="20120328111700+0100"/>
+		<assignedAuthor>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM55" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Radiodiagnostic et radiothérapie (SM)"/>
+
+			<!-- Adresse du Radiologue -->
+			<addr>
+				<houseNumber>3</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pont</streetName>
+				<postalCode>75005</postalCode>
+				<city>Paris</city>
+				<country>France</country>
+			</addr>
+			<telecom nullFlavor="NASK"/>
+			<!-- Nom et Prénom du Radiologue -->
+			<assignedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Charles </given>
+					<family>BOILEAU</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id root="1.2.250.1.71.4.2.2"/>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+	<!-- Signataire du document -->
+	<legalAuthenticator>
+		<time value="20080929094914+0100"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+			<addr nullFlavor="NASK"/>
+			<telecom nullFlavor="NASK"/>
+			<assignedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Charles</given>
+					<family>BOILEAU</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</legalAuthenticator>
+
+	<!-- Gynéco/Généraliste -->
+	<participant typeCode="REF">
+		<functionCode code="GYNEC"/>
+		<time xsi:type="IVL_TS">
+			<low value="20120505111700+0100"/>
+		</time>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<!-- Adresse du gynéco -->
+			<addr>
+				<houseNumber>9</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Georges Pitard</streetName>
+				<!-- Code Postal du professionnel -->
+				<postalCode>75015</postalCode>
+				<city>Paris</city>
+				<country>France</country>
+			</addr>
+			<!--Téléphone-->
+			<telecom value="tel:0147150000" use="WP"/>
+			<associatedPerson>
+				<!-- Nom et prénom -->
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Stéphane</given>
+					<family>MEDIONI</family>
+				</name>
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+
+	<!-- Second Lecteur L2 -->
+	<participant typeCode="CON">
+		<!-- Date de Lecture -->
+		<time xsi:type="IVL_TS">
+			<low value="20120505111700+0100"/>
+		</time>
+		<!--<time value="20120505111700+0100"/>-->
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<!-- Adresse du radiologue -->
+			<addr nullFlavor="NASK"/>
+			<telecom value="tel:0147150000" use="WP"/>
+			<!-- IdLecteur -->
+			<associatedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Stéphane</given>
+					<family>MEDIONI</family>
+				</name>
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+
+	<!-- Acte documenté par le document (Dématérialisation de la seconde lecture de mammmographie)-->
+	<documentationOf>
+		<serviceEvent>
+			<code code="34117-2" displayName="Historique du patient"
+				codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+			<effectiveTime>
+				<low value="20120328111700+0100"/>
+			</effectiveTime>
+			<performer typeCode="PRF">
+				<assignedEntity>
+					<!-- N° RPPS du PS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<addr nullFlavor="NASK"/>
+					<telecom nullFlavor="NASK"/>
+					<assignedPerson>
+						<name>
+							<given>Charles </given>
+							<family>BOILEAU</family>
+							<prefix>Dr.</prefix>
+						</name>
+					</assignedPerson>
+					<!-- Numéro FINESS de l'ES  -->
+					<representedOrganization>
+						<id root="1.2.250.1.71.4.2.2" extension="101238887"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>Centre de soins du Belvédère</name>
+						<telecom value="tel:0131931902" use="EC"/>
+						<addr>
+							<houseNumber>142</houseNumber>
+							<streetNameType>RUE</streetNameType>
+							<streetName>Belvédère</streetName>
+							<postalCode>92100</postalCode>
+							<city>Boulogne-Billancourt</city>
+						</addr>
+						<standardIndustryClassCode code="ETABLISSEMENT"
+							displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+							codeSystemName="practiceSettingCode"/>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+		</serviceEvent>
+	</documentationOf>
+
+	<!-- Consentement patient - BilanDiagnosticImmediat -->
+	<authorization typeCode="AUTH">
+		<consent classCode="CONS" moodCode="EVN">
+			<templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.5"/>
+			<id root="f15846db-dbcb-4823-ab69-9dc011778095"/>
+			<code code="P0-10600" displayName="Obtention du consentement éclairé du patient"
+				codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+			<statusCode code="completed"/>
+		</consent>
+	</authorization>
+
+	<!-- Etablissement de soin -->
+	<componentOf>
+		<encompassingEncounter>
+			<effectiveTime nullFlavor="MSK"/>
+			<location>
+				<healthCareFacility>
+					<code code="SA01" codeSystem="1.2.250.1.71.4.2.4"
+						displayName="Etablissement public de santé"/>
+				</healthCareFacility>
+			</location>
+		</encompassingEncounter>
+	</componentOf>
+
+	<!-- 
+		********************************************************
+		Corps du document
+		********************************************************
+	-->
+
+	<component>
+		<structuredBody>
+
+			<!-- Section Identification -->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.56"/>
+					<code code="45964-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Identification"/>
+					<title>Identification</title>
+					<text/>
+					<!--Section Procédures et interventions-->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+							<id root="84800922-016a-4b32-ae04-b58971a59cb6"/>
+							<code code="29554-3" displayName="’Procédures et interventions"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Equipement</title>
+
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Equipement</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Type de système du mammographe</td>
+											<td colspan="2">
+												<content ID="TypeMammo">Numérique CR</content>
+											</td>
+										</tr>
+										<tr>
+											<td>Marque et modèle du Mammographe</td>
+											<td colspan="2">Mammographe XXX</td>
+										</tr>
+										<tr>
+											<td>Marque et modèle du lecteur</td>
+											<td colspan="2">Lecteur YYY</td>
+										</tr>
+										<tr>
+											<td>Marque et modèle des écrans ERLM</td>
+											<td colspan="2">Ecrans ZZZ</td>
+										</tr>
+										<tr>
+											<td>Marque et modèle de la console d'interprétation</td>
+											<td colspan="2">Console TTT</td>
+										</tr>
+										<tr>
+											<td>Mammographe muni de l'option tomosynthèse</td>
+											<td colspan="2">Oui</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<entry>
+								<procedure classCode="PROC" moodCode="INT">
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<!-- INT moodCode : acte planifié -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+									<id root="2cfd8e52-28cb-41c6-b5a3-b9fe15463277"/>
+									<code code="P5-40010" displayName="Mammographie"
+										codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+									<text>
+										<reference value="#mam"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20071212"/>
+										<high value="20071215"/>
+									</effectiveTime>
+
+									<participant typeCode="IND">
+										<participantRole classCode="AGNT">
+											<code code="P5-40010" displayName="Mammographie"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5">
+												<!-- Type Mammographe -->
+												<originalText>
+												<reference value="#TypeMammo"/>
+												</originalText>
+											</code>
+											<playingDevice classCode="DEV" determinerCode="INSTANCE">
+												<!-- Marque et modèle du Mammographe -->
+												<manufacturerModelName>Mammographe
+												XXX</manufacturerModelName>
+											</playingDevice>
+										</participantRole>
+
+									</participant>
+									<participant typeCode="IND">
+										<participantRole>
+											<playingDevice classCode="DEV">
+												<!-- Marque et modèle du lecteur -->
+												<manufacturerModelName>Lecteur
+												YYY</manufacturerModelName>
+											</playingDevice>
+										</participantRole>
+									</participant>
+									<participant typeCode="IND">
+										<participantRole>
+											<playingDevice classCode="DEV">
+												<!-- Marque et modèle des écrans ERLM -->
+												<manufacturerModelName>Ecrans
+												ZZZ</manufacturerModelName>
+											</playingDevice>
+										</participantRole>
+									</participant>
+									<participant typeCode="IND">
+										<participantRole>
+											<playingDevice classCode="DEV">
+												<!-- Marque et modèle de la console d'interprétation -->
+												<manufacturerModelName>Console
+												TTT</manufacturerModelName>
+											</playingDevice>
+										</participantRole>
+									</participant>
+									<!-- Mammographe muni de l'option tomosynthèse (si cette partie n'est pas présente, c'est que le mammographe n'est pas muni de l'option tomosynthèse)-->
+									<participant typeCode="IND">
+										<participantRole>
+											<code code="MED-113" displayName="Tomosynthèse"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+											<playingDevice classCode="DEV">
+												<manufacturerModelName nullFlavor="NA"/>
+											</playingDevice>
+										</participantRole>
+									</participant>
+								</procedure>
+							</entry>
+						</section>
+					</component>
+				</section>
+			</component>
+
+			<!-- Section Antécédents -->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.57"/>
+					<code code="11349-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Antécédents"/>
+					<title>Antécédents</title>
+					<text/>
+					<!-- History of Past Illness Section -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+							<id root="2dfe22c1-2721-4917-80e3-9b5b385a177d"/>
+							<code code="11348-0" displayName="Historique des maladies"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Historique des maladies</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Historique des
+												maladies</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Antécédents personnels</td>
+											<td colspan="2"><content ID="antecedentPerso">CANCER DU SEIN</content></td>
+										</tr>
+										<tr>
+											<td>Année du Cancer</td>
+											<td colspan="2">2007</td>
+										</tr>
+										<tr>
+											<td>Antecedent Mammographie</td>
+											<td colspan="2"><content ID="antecedentMammo">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Date de la dernière Mammographie</td>
+											<td colspan="2">28/03/2007</td>
+										</tr>
+										<tr>
+											<td>Antécédents familiaux connus de cancer du sein et/ou
+												de l'ovaire</td>
+											<td colspan="2"><content ID="anteFam">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Antécédents familiaux </td>
+											<td colspan="2"><content ID="anteFamID">Fille</content></td>
+										</tr>
+										<tr>
+											<td>Indiquez l'âge de survenue le plus précoce</td>
+											<td colspan="2"><content ID="ageSurvenue">50 ans</content></td>
+										</tr>
+										<tr>
+											<td>Patiente informée</td>
+											<td colspan="2"><content ID="patienteInfo">Non</content></td>
+										</tr>
+										<tr>
+											<td>Médecin traitant informé</td>
+											<td colspan="2"><content ID="medecinInfo">Non</content></td>
+										</tr>
+										<tr>
+											<td>Traitement hormonal substitutif de la ménopause en
+												cours</td>
+											<td colspan="2"><content ID="traitHormo">Oui</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<!-- Problem Concern entry -->
+							<entry>
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.27"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+									<id root="7f356243-b1eb-4612-93c5-2d33b5e5c9b2"/>
+									<code nullFlavor="NA"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20120328"/>
+										<high value="20120330"/>
+									</effectiveTime>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+											<templateId root="2.16.840.1.113883.10.20.1.28"/>
+											<id root="ca5cfdc3-514b-4b78-8055-592dd1fa3363"/>
+											<code code="F-01000" displayName="Problème"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5"/>
+											<text>
+												<reference value="#Tumeur"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<value xsi:type="CD" code="C00-D48" displayName="Tumeur"
+												codeSystem="2.16.840.1.113883.6.3"
+												codeSystemName="CIM-10">
+												<originalText>
+													<reference value="#tumeur"></reference>
+												</originalText>
+											</value>
+										</observation>
+
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<!-- template Problem entry -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="4bd8f351-4110-4b0f-83f1-f620036084f0"/>
+											<code code="G-1009" displayName="Diagnostic"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5"/>
+											<text>
+												<reference value="#antecedentMammo"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<!-- DateDerniereMammo -->
+											<effectiveTime>
+												<low value="20070328111700+0100"/>
+											</effectiveTime>
+											<!-- AntecedentMammo -->
+											<value xsi:type="BL" value="true"/>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<!-- template Simple Observations -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="27fdbe45-4e0f-4227-b181-ce1baedaa20b"/>
+											<code code="MED-009"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"
+												displayName="Antécédents personnels"/>
+											<text>
+												<reference value="#antecedentPerso"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<!-- AnnéeCancer -->
+											<effectiveTime>
+												<low value="2007"/>
+											</effectiveTime>
+											<!--AntecedentsPerso -->
+											<value xsi:type="CD" code="MED-046"
+												displayName="CANCER DU SEIN"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="ba15a596-a131-4c0d-a7d2-5144c70f04e5"/>
+											<code code="MED-010"
+												displayName="Antécédents familiaux connus de cancer du sein et/ou de l'ovaire"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+											<text>
+												<reference value="#anteFam"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- AntecedentsFamiliaux -->
+											<value xsi:type="BL" value="true"/>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="0d774582-3439-4b21-ae64-d3cda70c50dc"/>
+											<code code="MED-123" displayName="Antécédents familiaux"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+											<text>
+												<reference value="#anteFamID"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- AntecedentsFamiliauxIdentification -->
+											<value xsi:type="CD" code="DAU"
+												codeSystemName="RoleCode"
+												codeSystem="2.16.840.1.113883.5.111"
+												displayName="FILLE"/>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="f8f00e5c-a48a-431e-96e7-e491175ba05b"/>
+											<code code="MED-070"
+												displayName="Indiquez l'âge de survenue le plus précoce"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+											<text>
+												<reference value="AgeSurvenue"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<!-- AgeSurvenueFamille -->
+											<value xsi:type="INT" value="50"/>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="6facbe20-b923-4eab-9f81-3bb3ed11f287"/>
+											<code code="MED-016" displayName="Patiente informée"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+											<text>
+												<reference value="#patienteInfo"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<!-- Patiente informée -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="146ace89-4495-437e-97e5-223f5b4c2036"/>
+											<code code="MED-017"
+												displayName="Médecin traitant informé"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+											<text>
+												<reference value="medecinInfo"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<!-- Médecin traitant informé -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="1e5acb65-9815-414d-bee8-19427f469a07"/>
+											<code code="MED-029"
+												displayName="Traitement hormonal substitutif de la ménopause en cours"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"/>
+											<text>
+												<reference value="traitHormo"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Traitement Hormonal -->
+											<value xsi:type="BL" value="true"/>
+										</observation>
+									</entryRelationship>
+								</act>
+							</entry>
+						</section>
+					</component>
+
+				</section>
+			</component>
+
+			<!-- Section Première Lecture -->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.58"/>
+					<code code="22030-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Radiologie"/>
+					<title>Interprétation du Premier Lecteur</title>
+					<text/>
+
+					<!--Coded Results Section-->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+							<code code="30954-2" displayName="Résultats d'examens"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Résultats d'examens</title>
+
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Résultats d'examens</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Date d'interpretation</td>
+											<td colspan="2">12/11/2007</td>
+										</tr>
+										<tr>
+											<td>Type de lecture</td>
+											<td colspan="2"><content ID="typeLect">Sur Films</content></td>
+										</tr>
+										<tr>
+											<td>Echographie</td>
+											<td colspan="2">Oui</td>
+										</tr>
+										<tr>
+											<td>Motif de l'Echographie</td>
+											<td colspan="2"><content ID="motifEcho">Autre</content></td>
+										</tr>
+										<tr>
+											<td>Précision du motif de l'echographie</td>
+											<td colspan="2"><content ID="precMotif">Mise en évidence d'une anomalie -
+												nécessitant une analyse plus fine</content></td>
+										</tr>
+										<tr>
+											<td>Résultat de l'échographie (ACR 3, Gauche)</td>
+											<td colspan="2"><content ID="resultatEcho">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Cliché Complementaire</td>
+											<td colspan="2"><content ID="clicheCompl">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Résultat de lecture Bénin BI-RADS ACR1 (droit)</td>
+											<td colspan="2"><content ID="resultatBenin">oui</content></td>
+										</tr>
+										<tr>
+											<td>Résultat de lecture Normal BI-RADS ACR2
+												(gauche)</td>
+											<td colspan="2"><content ID="resultatNormal">non</content></td>
+										</tr>
+										<tr>
+											<td>Résultat de lecture Anormal BI-RADS ACR [0,4,5]
+												(gauche)</td>
+											<td colspan="2"><content ID="anormal">oui</content></td>
+										</tr>
+										<tr>
+											<td>Difficultés techniques</td>
+											<td colspan="2"><content ID="difficultesTech">oui</content></td>
+										</tr>
+										<tr>
+											<td>Précision de la difficulté</td>
+											<td colspan="2"><content ID="precisionDiff">Cliché trop oppaque</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<entry>
+								<!-- Procedure Entry -->
+								<procedure classCode="PROC" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+									<templateId root="2.16.840.1.113883.10.20.1.29"/>
+									<id root="e97c8d3f-90e6-4570-859b-59ca972e525f"/>
+									<!-- Interpretation du 1er Lecteur -->
+									<code code="MED-022" displayName="Interpretation du lecteur"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#premiereLect"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<!--dateInterpretation-->
+									<effectiveTime value="20071111"/>
+								</procedure>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="8286b3b6-f42b-4137-9c5f-e3f60de1cb13"/>
+									<code code="MED-008" displayName="Type de lecture"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#typeLect"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NASK"/>
+									<!-- TypeLecture -->
+									<value xsi:type="CD" code="MED-024" displayName="Films"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+								</observation>
+							</entry>
+
+							<!-- Echographie, si ce bloc existe, c'est qu'Echographie est à "true"  -->
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="fde6c600-d4cd-43fd-a09e-39514d86e7af"/>
+									<code code="P5-B0000" displayName="Echographie"
+										codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+									<text>
+										<reference value="motifEcho"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NASK"/>
+									<!-- MotifEchographie -->
+									<value xsi:type="CD" code="G-A609" displayName="AUTRE"
+										codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+
+									<entryRelationship typeCode="CAUS">
+										<observation classCode="OBS" moodCode="EVN">
+											<!-- template Simple Observations -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="55b29342-f913-4674-ae60-bb6042a4f2fd"/>
+											<code code="MED-001"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"
+												displayName="Précision Echographie"/>
+											<text>
+												<reference value="#precMotif"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NASK"/>
+											<!-- PrecisionMotif -->
+											<value xsi:type="ST"/>
+										</observation>
+									</entryRelationship>
+
+									<!--Résultat de l'échographie: ACR de 1 à 5-->
+									<entryRelationship typeCode="COMP">
+										<observation classCode="OBS" moodCode="EVN">
+											<!-- template Simple Observations -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="37804981-f5be-4898-88aa-c1a3d13609e8"/>
+											<code code="MED-122"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP"
+												displayName="Résultat de l'échographie">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4585-1"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="gauche" codeSystemName="LOINC"/>
+												</qualifier>
+												<qualifier>
+													<name code="MED-128"
+														codeSystem="1.2.250.1.213.1.1.4.322"
+														displayName="Classification"
+														codeSystemName="TA_ASIP"/>
+													<value code="MED-131"
+														codeSystem="1.2.250.1.213.1.1.4.322"
+														displayName="ACR 3" codeSystemName="TA_ASIP"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#resultatEcho"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<!-- Résultat de l'échographie -->
+											<value xsi:type="BL" value="true"/>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</entry>
+
+							<!-- Simple Observation entry -->
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="8e1ac576-e35a-4549-b2bc-be58ca155695"/>
+									<code code="MED-050" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Cliché(s) complémentaire(s)"/>
+									<text>
+										<reference value="#clicheCompl"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ClicheComplementaire -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="d516d6d9-4c5d-4849-9aca-85332bb24cce"/>
+									<!-- ResultatBenin -->
+									<code code="G-A249" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Bénin">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#resultatBenin"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ResultatBenin -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="2552a662-86cd-4938-8a94-4372d6a68799"/>
+									<!-- ResultatNormal -->
+									<code code="G-A460" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Normal">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#resultatNormal"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ResultatNormal -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<!-- Simple Observation entry -->
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="07a88159-90e4-448c-b178-da58c8a63e07"/>
+									<code code="GEN-016" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Anormal">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#anormal"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NA"/>
+									<!-- Anormal BI-RADS ACR [0,4,5] -->
+									<value xsi:type="BL" value="true"/>
+
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="94ce4c76-0722-4ae7-87c4-7261a81f9a81"/>
+									<code code="GEN-005" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Difficultés techniques"/>
+									<text>
+										<reference value="#difficultesTech"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- DifficulteTechnique -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="44514ac5-8036-4657-b5c5-9fb6995b5a81"/>
+									<code code="GEN-023" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Précision difficulté"/>
+									<text>
+										<reference value="#precisiondiff"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- Précision difficulté -->
+									<value xsi:type="ST">Cliché trop oppaque</value>
+								</observation>
+							</entry>
+						</section>
+					</component>
+
+					<!-- ActiveProblem Section -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+							<templateId root="2.16.840.1.113883.10.20.1.11"/>
+							<id root="b841c1b2-6374-44f0-9640-ca1b46e69870"/>
+							<code code="11450-4" displayName="Liste des problems actifs"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Liste des problems actifs</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Liste des problems
+												actifs</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td ID="schemaFace">Mammographie Face</td>
+											<td colspan="2">
+												<renderMultiMedia referencedObject="MammoFace"/>
+											</td>
+										</tr>
+										<tr>
+											<td ID="schemaOblique">Mammographie Oblique</td>
+											<td colspan="2">
+												<renderMultiMedia referencedObject="MammoOblique"/>
+											</td>
+										</tr>
+										<tr>
+											<td>Masse (droit)</td>
+											<td colspan="2" ID="masse">Oui</td>
+										</tr>
+										<tr>
+											<td>Calcifications</td>
+											<td colspan="2" ID="calcif">Non</td>
+										</tr>
+										<tr>
+											<td>Masse Et Calcifications</td>
+											<td colspan="2" ID="masseEtCalcif">Non</td>
+										</tr>
+										<tr>
+											<td>Distortion Architecturale</td>
+											<td colspan="2" ID="distArchi">Non</td>
+										</tr>
+										<tr>
+											<td>Asymétrie focale de densité</td>
+											<td colspan="2" ID="asyFocale">Non</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<entry>
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.27"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+									<id root="a361ded6-eb3f-4133-95d0-a8fa6056fa6c"/>
+									<code nullFlavor="NA"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NASK"/>
+
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+											<templateId root="2.16.840.1.113883.10.20.1.28"/>
+											<id root="ba78731f-c2d1-478b-a3b5-40ccc75de2c9"/>
+											<code code="F-01000" displayName="Problème"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5"/>
+											<text>
+												<reference value="#tumeur001"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!--cancer-->
+											<value xsi:type="CD" code="C00-D48" displayName="Tumeur"
+												codeSystem="2.16.840.1.113883.6.3"
+												codeSystemName="CIM-10">
+												<originalText>
+													<reference value="#tumeur001"></reference>
+												</originalText>
+											</value>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="1e3fd22e-bb86-4c49-b4f9-61f5400aa436"/>
+											<code code="MED-118" displayName="Masse"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#masse"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Masse -->
+											<value xsi:type="BL" value="true"/>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="760aa1d4-9797-4aa3-9338-7b3cd43e6f92"/>
+											<code code="MED-119" displayName="Calcifications"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#calcif"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Calcifications -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="1f404421-0ead-4ef9-9e3a-c82f4c78737d"/>
+											<code code="MED-026"
+												displayName="Masse Et Calcifications"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#masseEtCalcif"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Masse + Calcifications -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="d16666b4-855c-43e0-a86d-76289a0c6985"/>
+											<code code="MED-027"
+												displayName="Distortion Architecturale"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#distArchi"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Distortion Architecturale -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="8db3fbcb-d887-4d9c-af20-58eee677d02a"/>
+											<code code="MED-028"
+												displayName="Asymétrie focale de densité"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#asyFocale"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Asymétrie focale de densité -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+								</act>
+							</entry>
+						</section>
+					</component>
+
+					<!-- Coded Care Plan section -->
+					<component>
+						<section>
+							<templateId root="2.16.840.1.113883.10.20.1.10"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+							<id root="23a39152-bbf4-48ac-95a4-67ddf44fe259"/>
+							<code code="18776-5" displayName="Plan de soins"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Plan de soins</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3">Plan de soins</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Conduite à tenir</td>
+											<td colspan="2"><content ID="conduite">Suivi rapproché</content></td>
+										</tr>
+										<tr>
+											<td>Fréquence de contrôle</td>
+											<td colspan="2"><content ID="freqControle">6 Mois</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="f6e5a5bd-6436-4b12-b6e5-9010e845ad1b"/>
+									<code code="GEN-007" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Conduite à tenir">
+										<qualifier>
+											<name code="P5-B0000" displayName="Echographie"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5"/>
+											<value code="G-A249" codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5" displayName="Bénin"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#conduite"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Conduite à tenir -->
+									<value xsi:type="CD" code="MED-116" codeSystemName="TA_ASIP"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										displayName="Suivi rapproché"/>
+								</observation>
+							</entry>
+
+							<!--si dans conduite à tenir, c'est dépistage qui est choisie, au lieu de fréquence de controle, on codera l'Echeance-->
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="185a0feb-525d-4821-8d2e-cb671c3945a2"/>
+									<code code="MED-120" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Fréquence de controle"/>
+									<text>
+										<reference value="#freqControle"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Fréquence de controle -->
+									<value xsi:type="PQ" unit="mois" value="6"/>
+								</observation>
+							</entry>
+						</section>
+					</component>
+
+					<!-- Coded Event Outcomes Section -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+							<id root="6ea86375-e39d-4100-983f-af1febe25a74"/>
+							<code code="42545-4" displayName="Evènements resultants"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Evènements resultants</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3">Evènements
+												resultants</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Examen clinique</td>
+											<td colspan="2"><content ID="examen">Refus</content></td>
+										</tr>
+										<tr>
+											<td>Comparaison avec les clichés précédents</td>
+											<td colspan="2"><content ID="comparaison">Oui</content></td>
+										</tr>
+										<tr>
+											<td><content ID="schemaCicatrices">Schéma clinique</content></td>
+											<td colspan="2">
+												<renderMultiMedia referencedObject="clinique"/>
+											</td>
+										</tr>
+										<tr>
+											<td>Date du cliché comparé</td>
+											<td colspan="2">02/01/2013</td>
+										</tr>
+										<tr>
+											<td>Densite mammaire</td>
+											<td colspan="2"><content ID="densite">a</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<!-- Simple Observation entry -->
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="174f6d84-986e-4032-8f99-91975403b955"/>
+									<code code="P2-01400" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Examen clinique"/>
+									<text>
+										<reference value="#examen"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="20130102"/>
+									<!-- ExamenClinique -->
+									<value xsi:type="CD" code="GEN-011" displayName="REFUS"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="a1f3f1c9-8cdb-491d-a78a-a5630482c547"/>
+									<code code="MED-018" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Comparaison Cliché Précédent"/>
+									<text>
+										<reference value="#comparaison"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<!-- DateBilanCompare -->
+									<effectiveTime value="20130102"/>
+									<!-- ComparaisonClichePrecedent -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="8d70bb59-50cb-443a-9e93-64d96dd54bbf"/>
+									<code code="MED-019" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Densité mammaire"/>
+									<text>
+										<reference value="#densite"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- DensiteMammaire -->
+									<value xsi:type="CD" code="MED-039" codeSystemName="TA_ASIP"
+										displayName="a" codeSystem="1.2.250.1.213.1.1.4.322"/>
+								</observation>
+							</entry>
+
+						</section>
+					</component>
+
+					<!-- Images illustratives -->
+					<component>
+						<section>
+							<templateId root="1.2.250.1.213.1.1.2.37"/>
+							<code code="52040-3"
+								displayName="Document encapsulant une image d'illustration non DICOM"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Images illustratives</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Images
+												illustratives</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><content ID="typeDocCachet">Cachet</content></td>
+											<td colspan="2">
+												<renderMultiMedia referencedObject="cachet"/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<!-- Cachet et signature du radiologue -->
+							<entry>
+								<organizer classCode="CLUSTER" moodCode="EVN">
+									<templateId root="1.2.250.1.213.1.1.3.18"/>
+									<code code="55107-7" displayName="Document attaché"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<statusCode code="completed"/>
+
+									<component typeCode="COMP">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="7c7742c7-41a1-42d0-b0ca-3f62416483bb"/>
+											<code code="69764-9" displayName="Type de document"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<text>
+												<reference value="#typeDocCachet"/>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<value xsi:type="ST">Cachet et signature du
+												radiologue</value>
+										</observation>
+									</component>
+									<component>
+										<observationMedia classCode="OBS" moodCode="EVN" ID="cachet">
+											<value mediaType="image/jpeg" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</component>
+								</organizer>
+							</entry>
+
+							<!-- Schéma de localisation des cicatrices, naevus et anomalies (identifiées lors de l’examen clinique) -->
+							<entry>
+								<organizer classCode="CLUSTER" moodCode="EVN">
+									<templateId root="1.2.250.1.213.1.1.3.18"/>
+									<code code="55107-7" displayName="Document attaché"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<statusCode code="completed"/>
+									<component typeCode="COMP">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="c24d1ffe-be9b-42ef-97ce-43eceada8bee"/>
+											<code code="69764-9" displayName="Type de document"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<text>
+												<reference value="#schemaCicatrices"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<value xsi:type="ST">Schéma de localisation des
+												cicatrices, naevus et anomalies (identifiées lors de
+												l’examen clinique)</value>
+										</observation>
+									</component>
+									<component>
+										<observationMedia classCode="OBS" moodCode="EVN"
+											ID="clinique">
+											<value mediaType="image/jpeg" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</component>
+								</organizer>
+							</entry>
+
+							<!-- Schéma face de localisation des anomalies (résultat de la lecture de la mammographie) -->
+							<entry>
+								<organizer classCode="CLUSTER" moodCode="EVN">
+									<templateId root="1.2.250.1.213.1.1.3.18"/>
+									<code code="69764-9" displayName="Document attaché"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<statusCode code="completed"/>
+									<component typeCode="COMP">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="2d887a9f-66d5-4d04-af67-1f90f4bfa4f5"/>
+											<code code="69764-9" displayName="Type de document"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<text>
+												<reference value="#schemaFace"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<value xsi:type="ST">Schéma face de localisation des
+												anomalies (résultat de la lecture de la
+												mammographie)</value>
+										</observation>
+									</component>
+
+									<component>
+										<observationMedia classCode="OBS" moodCode="EVN"
+											ID="MammoFace">
+											<value mediaType="image/jpeg" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</component>
+								</organizer>
+							</entry>
+
+							<!-- Schéma oblique de localisation des anomalies (résultat de la lecture de la mammographie) -->
+							<entry>
+								<organizer classCode="CLUSTER" moodCode="EVN">
+									<templateId root="1.2.250.1.213.1.1.3.18"/>
+									<code code="55107-7" displayName="Document attaché"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<statusCode code="completed"/>
+									<component typeCode="COMP">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="eb0764a1-707f-4922-9087-2c99b372d305"/>
+											<code code="69764-9" displayName="Type de document"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<text>
+												<reference value="#schemaOblique"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<value xsi:type="ST">Schéma oblique de localisation des
+												anomalies (résultat de la lecture de la
+												mammographie)</value>
+										</observation>
+									</component>
+									<component>
+										<observationMedia classCode="OBS" moodCode="EVN"
+											ID="MammoOblique">
+											<value mediaType="image/jpeg" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</component>
+								</organizer>
+							</entry>
+						</section>
+					</component>
+
+				</section>
+			</component>
+
+			<!-- Section Bilan Diagnostic Immédiat -->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.59"/>
+					<code code="72135-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Bilan cancérologie"/>
+					<title>Bilan du Diagnostic Immediat</title>
+					<text/>
+
+					<!-- Coded care plan Section -->
+					<component>
+						<section>
+							<templateId root="2.16.840.1.113883.10.20.1.10"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+							<id root="23a39152-bbf4-48ac-95a4-67ddf44fe259"/>
+							<code code="18776-5" displayName="Plan de soins"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Plan de soins</title>
+							
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Plan de soins</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Motif du bilan diagnostic immédiat</td>
+											<td colspan="2"><content ID="motifDiag">Clinique</content></td>
+										</tr>
+										<tr>
+											<td>Bilan de diagnostic immédiat</td>
+											<td colspan="2"><content ID="bilanDiag">Autre Technique</content></td>
+										</tr>
+										<tr>
+											<td>Précision technique du bilan diagnostic</td>
+											<td colspan="2"><content ID="precTechBilan">Ponction cytologique</content></td>
+										</tr>
+										<tr>
+											<td>Conduite à tenir</td>
+											<td colspan="2"><content ID="conduiteTenir">Suivi rapproché</content></td>
+										</tr>
+										<tr>
+											<td>Fréquence de contrôle</td>
+											<td colspan="2"><content ID="freqCont">6 mois</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="41c82163-43d7-4d83-9844-9527561680bb"/>
+									<code code="MED-013" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Motif du bilan diagnostic"/>
+									<text>
+										<reference value="#motifDiag"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- motif diagnostic -->
+									<value xsi:type="CD" code="G-A304" codeSystemName="SNOMED 3.5"
+										codeSystem="1.2.250.1.213.2.12" displayName="CLINIQUE"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="e202e35a-1538-4893-91f0-3afeb4ce606e"/>
+									<code code="MED-014" displayName="Bilan diagnostic"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#bilanDiag"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Bilan diagnostic -->
+									<value xsi:type="CD" code="MED-114" codeSystemName="TA_ASIP"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										displayName="Autre Technique"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="8f28eafe-7a6f-4f52-aa1c-d2a660782c6c"/>
+									<code code="GEN-041" displayName="Précision Technique"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#precTechBilan"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Précision technique du bilan diagnostic-->
+									<value xsi:type="ST"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="f6e5a5bd-6436-4b12-b6e5-9010e845ad1b"/>
+									<code code="GEN-007" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Conduite à tenir">
+										<qualifier>
+											<name code="MED-121"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP" displayName="ACR Final"/>
+											<value code="MED-131"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												displayName="ACR 3" codeSystemName="TA_ASIP"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#conduiteTenir"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Conduite à tenir avec (ACR Final 3)-->
+									<value xsi:type="CD" code="MED-116"
+										displayName="Suivi rapproché"
+										codeSystem="1.2.250.1.213.1.1.4.322"/>
+								</observation>
+							</entry>
+
+							<!--si dans conduite à tenir, c'est dépistage qui est choisie, au lieu de fréquence de controle, on aura Echeance avec comme value <value xsi:type="PQ" unit="ans" value="2"/>-->
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="185a0feb-525d-4821-8d2e-cb671c3945a2"/>
+									<code code="MED-120" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Fréquence de controle"/>
+									<text>
+										<reference value="#freqCont"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Fréquence de controle -->
+									<value xsi:type="PQ" unit="mois" value="6"/>
+								</observation>
+							</entry>
+						
+						</section>
+					</component>
+
+					<!-- Coded Event Outcomes Section -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+							<id root="6ea86375-e39d-4100-983f-af1febe25a74"/>
+							<code code="42545-4" displayName="Evènements resultants"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Evènements resultants</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Evènements
+												resultants</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>ACR Final ACR 3 </td>
+											<td colspan="2"><content ID="ACRFinal">Oui</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<!--ACR Final de 1 à 5-->
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="15336774-1d05-4dee-9caf-497db6d06e3a"/>
+									<code code="MED-121" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="ACR Final">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+										</qualifier>
+										<qualifier>
+											<name code="MED-128"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												displayName="Classification"
+												codeSystemName="TA_ASIP"/>
+											<value code="MED-131"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												displayName="ACR 3" codeSystemName="TA_ASIP"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#ACRFinal"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NA"/>
+									<!-- ACR Final -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+						</section>
+					</component>
+
+					<!-- Coded Results Section -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+							<code code="30954-2" displayName="Résultats d'examens"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Résultats d'examens</title>
+
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3">Résultats d'examens</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Mammo Seule</td>
+											<td colspan="2"><content ID="mammo">non</content></td>
+										</tr>
+										<tr>
+											<td>Echographie Seule</td>
+											<td colspan="2"><content ID="echo">non</content></td>
+										</tr>
+										<tr>
+											<td>Mammographie et échographie</td>
+											<td colspan="2"><content ID="mammoEcho">non</content></td>
+										</tr>
+										<tr>
+											<td>Autre technique seule</td>
+											<td colspan="2"><content ID="autreTech">non</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<entry>
+								<!-- Procedure Entry -->
+								<procedure classCode="PROC" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+									<templateId root="2.16.840.1.113883.10.20.1.29"/>
+									<id root="4a53f02d-5a7c-43fc-9d87-557ab666abd7"/>
+									<code code="MED-121" displayName="ACR Final"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#acrFin"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="20071111"/>
+								</procedure>
+							</entry>
+							
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="389b05d7-6766-4d22-bf7f-c1e57e3c6392"/>
+									<code code="P5-40010" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Mammographie">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#mammo"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- MammoSeule -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="75b151b5-fc5e-48aa-a1f0-29aab76a49bd"/>
+									<code code="P5-B0000" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Echographie">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#echo"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- EchographieSeule -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="6ad12eb3-7706-4704-87ba-808fa6a9f164"/>
+									<code code="MED-015" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Mammographie et échographie">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#mammoEcho"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- MammoEtEcho -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="1ba7a009-aa10-40d4-8a33-aba0e541a918"/>
+									<code code="GEN-040" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Autre technique seule">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#autreTech"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- Autre Technique seule -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+						</section>
+					</component>
+
+				</section>
+			</component>
+
+			<!-- Section Seconde Lecture -->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.58"/>
+					<code code="22030-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Radiologie"/>
+					<title>Interprétation du deuxième lecteur</title>
+					<text/>
+
+					<!-- Coded Results Section -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+							<code code="30954-2" displayName="Résultats d'examens"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Résultats d’examens</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Résultats d'examens</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Type de lecture</td>
+											<td colspan="2"><content ID="typeLecture">Sur Films</content></td>
+										</tr>
+										<tr>
+											<td>Cliché Techniquement Insuffisant</td>
+											<td colspan="2"><content ID="techInsu">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Précision Cliché Techniquement Insuffisant</td>
+											<td colspan="2"><content ID="preciser">Forte proportion d'opacité</content></td>
+										</tr>
+										<tr>
+											<td>Positionnement (gauche)</td>
+											<td colspan="2"><content ID="positionnement">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Qualité image (droit)</td>
+											<td colspan="2"><content ID="qualite">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Impression numérique (gauche)</td>
+											<td colspan="2"><content ID="impressionNum">Oui</content></td>
+										</tr>
+										<tr>
+											<td>En clair (Réimpression du cliché)</td>
+											<td colspan="2"><content ID="enClair">Cliché Décalé sur la droite</content></td>
+										</tr>
+										<tr>
+											<td>Comparaison cliché Antérieur</td>
+											<td colspan="2"><content ID="anterieur">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Apparue (gauche)</td>
+											<td colspan="2"><content ID="apparue">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Plus suspecte (droit)</td>
+											<td colspan="2"><content ID="plusSuspect">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Identique ou moins suspect (gauche)</td>
+											<td colspan="2"><content ID="identique">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Résultat Normal (gauche)</td>
+											<td colspan="2"><content ID="resNormal">Non</content></td>
+										</tr>
+										<tr>
+											<td>Résultat Bénin (droit)</td>
+											<td colspan="2"><content ID="benin">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Résultat Anormal BI-RADS ACR [0,3,4,5]</td>
+											<td colspan="2"><content ID="resAnormal">non</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+							<entry>
+								<!-- Procedure Entry -->
+								<procedure classCode="PROC" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+									<templateId root="2.16.840.1.113883.10.20.1.29"/>
+									<id root="e97c8d3f-90e6-4570-859b-59ca972e525f"/>
+									<!-- Interpretation du 2nd Lecteur -->
+									<code code="MED-022" displayName="Interpretation du lecteur"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#secondeLect"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="20071111"/>
+								</procedure>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="82b9002b-9285-43cc-a72d-e897cc4208be"/>
+									<code code="MED-008" displayName="Type de lecture"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#typeLecture"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NASK"/>
+									<!-- TypeLecture -->
+									<value xsi:type="CD" code="MED-024" displayName="Films"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="106237ef-5b2a-4011-9330-0cd0cd15fe4e"/>
+									<code code="MED-005" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Cliché techniquement insuffisant"/>
+									<text>
+										<reference value="#techInsu"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ClicheTechniquementInsuffisant -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="df6afb1c-25ce-45f3-b6a9-05a7e6e4e24e"/>
+									<code code="GEN-013" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Préciser"/>
+									<text>
+										<reference value="#preciser"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- Précision Cliché Techniquement Insuffisant -->
+									<value xsi:type="ST"> </value>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="b0dae7e6-8952-471b-b184-c6f4fd37368f"/>
+									<!-- Positionnement -->
+									<code code="GEN-004" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Positionnement">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#positionnement"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- Positionnement -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="64142333-2b41-4f06-9b39-cf18ddb1b6b9"/>
+									<!-- QualiteImage -->
+									<code code="MED-006" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Qualité image">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#qualite"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- QualiteImage -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="cd5a0ffd-b32c-4876-a83b-e033cc58a5a1"/>
+									<!-- ImpressionNumerique -->
+									<code code="MED-007" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Impression numérique">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#impressionNum"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ImpressionNumerique -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="6ad24c13-c946-47f1-9af2-1ef73c966be9"/>
+									<code code="GEN-014" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="En clair"/>
+									<text>
+										<reference value="#enClair"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- En clair (Réimpression du cliché) -->
+									<value xsi:type="ST">Cliché Décalé sur la droite</value>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="b16132d3-c75e-4e09-9fa1-190f7eb4172a"/>
+									<code code="MED-018" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Comparaison cliché Antérieur"/>
+									<text>
+										<reference value="#anterieur"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ComparaisonClicheAnterieur-->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="70598a5a-6f3d-4418-bc9e-3a093cded983"/>
+									<!-- Apparue -->
+									<code code="GEN-001" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Apparue">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#apparue"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- Apparue -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="63e512a9-3c07-4a29-b076-13193a009781"/>
+									<!-- Plus suspecte -->
+									<code code="GEN-002" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Plus suspect">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#plusSuspect"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- Plus suspecte -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="e7d0990d-f62e-4ce5-86b8-7ac31fcb700d"/>
+									<!-- IdentiqueOuMoinsSuspecte -->
+									<code code="GEN-003" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"
+										displayName="Identique ou moins suspect">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#identique"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- IdentiqueOuMoinsSuspecte -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="2552a662-86cd-4938-8a94-4372d6a68799"/>
+									<!-- ResultatNormal -->
+									<code code="G-A460" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Normal">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#resNormal"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ResultatNormal -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="d516d6d9-4c5d-4849-9aca-85332bb24cce"/>
+									<!-- ResultatBenin -->
+									<code code="G-A249" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Bénin">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4306-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="droit" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#benin"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime value="2006"/>
+									<!-- ResultatBenin -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="2c4c2451-1bb8-4240-b91e-c4d5ecb64b6e"/>
+									<code code="GEN-016" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Anormal">
+										<qualifier>
+											<name code="20228-3" codeSystem="2.16.840.1.113883.6.1"
+												displayName="latéralité" codeSystemName="LOINC"/>
+											<value code="LA4585-1"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="gauche" codeSystemName="LOINC"/>
+										</qualifier>
+									</code>
+									<text>
+										<reference value="#resAnormal"></reference>
+									</text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NA"/>
+									<!-- Anormal BI-RADS ACR [0,3,4,5] -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+						</section>
+					</component>
+
+					<!-- ActiveProblem Section -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+							<templateId root="2.16.840.1.113883.10.20.1.11"/>
+							<id root="b841c1b2-6374-44f0-9640-ca1b46e69870"/>
+							<code code="11450-4" displayName="Liste des problèmes actifs"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Liste des problèmes actifs</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Liste des problems
+												actifs</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Mammographie Face</td>
+											<td colspan="2">
+												<renderMultiMedia referencedObject="Mammo-Face"/>
+											</td>
+										</tr>
+										<tr>
+											<td>Mammographie Oblique</td>
+											<td colspan="2">
+												<renderMultiMedia referencedObject="Mammo-Oblique"/>
+											</td>
+										</tr>
+										<tr>
+											<td>Masse (droit)</td>
+											<td colspan="2"><content ID="masseTumeur">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Calcifications</td>
+											<td colspan="2"><content ID="calcifications">Non</content></td>
+										</tr>
+										<tr>
+											<td>Masse Et Calcifications</td>
+											<td colspan="2"><content ID="masseEtCalcifications">Non</content></td>
+										</tr>
+										<tr>
+											<td>Distortion Architecturale</td>
+											<td colspan="2"><content ID="distortion">Non</content></td>
+										</tr>
+										<tr>
+											<td>Asymétrie focale de densité</td>
+											<td colspan="2"><content ID="asymetrie">Non</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+							<entry>
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.27"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+									<id root="a361ded6-eb3f-4133-95d0-a8fa6056fa6c"/>
+									<code nullFlavor="NA"/>
+									<statusCode code="active"/>
+									<effectiveTime nullFlavor="NASK"/>
+
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+											<templateId root="2.16.840.1.113883.10.20.1.28"/>
+											<id root="f0c0c206-5d21-49e9-9c43-7cd4b838f2cd"/>
+											<code code="F-01000" displayName="Problème"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5"/>
+											<text>
+												<reference value="#Tumeur"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!--cancer-->
+											<value xsi:type="CD" code="C00-D48" displayName="Tumeur"
+												codeSystem="2.16.840.1.113883.6.3"
+												codeSystemName="CIM-10">
+												<originalText>
+													<reference value="#Tumeur"></reference>
+												</originalText>
+											</value>
+										</observation>
+									</entryRelationship>
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="f8536f3a-11ef-42ac-b900-3f462a662e42"/>
+											<code code="MED-118" displayName="Masse"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#masseTumeur"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Masse -->
+											<value xsi:type="BL" value="true"/>
+										</observation>
+
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="5f99523a-2606-4646-bd00-4784b952a29f"/>
+											<code code="MED-119" displayName="Calcifications"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#calcifications"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Calcifications -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="058c180e-6f27-4345-960f-5c02ab65a5a5"/>
+											<code code="MED-026"
+												displayName="Masse et calcifications"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#masseEtCalcifications"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Masse + Calcifications -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="7e059bca-a96e-4f33-89d5-e77795f144fe"/>
+											<code code="MED-027"
+												displayName="Distortion Architecturale"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#distortion"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Distortion Architecturale -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="982fa144-8976-463b-8623-9cb12830a154"/>
+											<code code="MED-028"
+												displayName="Asymétrie focale de densité"
+												codeSystem="1.2.250.1.213.1.1.4.322"
+												codeSystemName="TA_ASIP">
+												<qualifier>
+													<name code="20228-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="latéralité" codeSystemName="LOINC"/>
+													<value code="LA4306-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														displayName="droit" codeSystemName="LOINC"/>
+												</qualifier>
+											</code>
+											<text>
+												<reference value="#asymetrie"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20120328111700+0100"/>
+											</effectiveTime>
+											<!-- Asymétrie focale de densité -->
+											<value xsi:type="BL" value="false"/>
+										</observation>
+									</entryRelationship>
+								</act>
+							</entry>
+						</section>
+					</component>
+
+					<!-- Coded care plan Section -->
+					<component>
+						<section>
+							<templateId root="2.16.840.1.113883.10.20.1.10"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+							<id root="23a39152-bbf4-48ac-95a4-67ddf44fe259"/>
+							<code code="18776-5" displayName="Plan de soins"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Plan de soins</title>
+							<text>
+								<table border="1">
+									<thead>
+										<tr>
+											<th align="center" colspan="3"> Plan de soins</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Cliché supplémentaire (examen recommandé)</td>
+											<td colspan="2"><content ID="clicheSupp">Oui</content></td>
+										</tr>
+										<tr>
+											<td>Préciser (Examen recommendé)</td>
+											<td colspan="2"><content ID="precision">Scanner</content></td>
+										</tr>
+										<tr>
+											<td>Agrandissement (examen recommandé)</td>
+											<td colspan="2"><content ID="agrandissement">Non</content></td>
+										</tr>
+										<tr>
+											<td>Echographie (examen recommandé)</td>
+											<td colspan="2"><content ID="echographie">Non</content></td>
+										</tr>
+										<tr>
+											<td>Conduite à tenir</td>
+											<td colspan="2"><content ID="conduiteATenir">suivi rapproché</content></td>
+										</tr>
+										<tr>
+											<td>Fréquence de controle</td>
+											<td colspan="2"><content ID="frequence">6 mois</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+
+
+							<!-- Cliché supplémentaire (examen recommandé) -->
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="3f70b007-31d4-4c6c-897a-6845f119d9aa"/>
+									<code code="MED-035" displayName="Cliché supplémentaire"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text>
+										<reference value="#clicheSupp"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Cliché supplémentaire -->
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entry>
+
+							<!-- Préciser (Examen recommendé) -->
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="b95239ac-ff11-4284-924d-55f9b56585d3"/>
+									<code code="GEN-013" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Préciser"/>
+									<text>
+										<reference value="#precision"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Preciser -->
+									<value xsi:type="ST">Scanner</value>
+								</observation>
+							</entry>
+
+							<!-- Agrandissement (examen recommandé) -->
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="22816e1f-0484-4b7e-9f34-7da6d7a3c5e8"/>
+									<code code="MED-034" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Agrandissement"/>
+									<text>
+										<reference value="#agrandissement"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Agrandissement -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<!-- Echographie (examen recommandé) -->
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="6d1b02fe-5914-47eb-9656-d643cfda2a9a"/>
+									<code code="P5-B0000" displayName="Echographie"
+										codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+									<text>
+										<reference value="#echographie"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Echographie -->
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entry>
+
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="e6670822-f9b9-44df-ad02-bd448d6336a0"/>
+									<code code="GEN-007" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Conduite à tenir"/>
+									<text>
+										<reference value="#conduiteATenir"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Conduite à tenir -->
+									<value xsi:type="CD" code="MED-116" codeSystemName="TA_ASIP"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										displayName="suivi rapproché"/>
+								</observation>
+							</entry>
+
+							<!--si dans conduite à tenir, c'est dépistage qui est choisie, au lieu de fréquence de controle, on aura Echeance avec comme value <value xsi:type="PQ" unit="ans" value="2"/>-->
+							<entry>
+								<observation classCode="OBS" moodCode="INT">
+									<!-- Observation Request -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+									<templateId root="2.16.840.1.113883.10.20.1.25"/>
+									<id root="4a065cad-09ce-4f1a-9dac-8d5c232048b5"/>
+									<code code="MED-120" codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP" displayName="Fréquence de controle"/>
+									<text>
+										<reference value="#frequence"></reference>
+									</text>
+									<statusCode code="active"/>
+									<effectiveTime value="20130102"/>
+									<!-- Fréquence de controle -->
+									<value xsi:type="PQ" unit="mois" value="6"/>
+								</observation>
+							</entry>
+
+						</section>
+					</component>
+
+					<!-- Images illustratives -->
+					<component>
+						<section>
+							<templateId root="1.2.250.1.213.1.1.2.37"/>
+							<code code="52040-3"
+								displayName="Document encapsulant une image d'illustration non DICOM"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Images illustratives</title>
+							<text>
+								<!--<renderMultiMedia referencedObject="Mammo-Face"></renderMultiMedia>
+								<renderMultiMedia referencedObject="Mammo-Oblique"></renderMultiMedia>-->
+							</text>
+
+							<!-- Schéma face de localisation des anomalies (résultat de la lecture de la mammographie) -->
+							<entry>
+								<organizer classCode="CLUSTER" moodCode="EVN">
+									<templateId root="1.2.250.1.213.1.1.3.18"/>
+									<code code="55107-7" displayName="Document attaché"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<statusCode code="completed"/>
+									<component typeCode="COMP">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="39647f70-19e3-4173-8666-a857989c3765"/>
+											<code code="69764-9" displayName="Type de document"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<text>
+												<reference value="#schemaFace"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<value xsi:type="ST">Schéma face de localisation des
+												anomalies (résultat de la lecture de la
+												mammographie)</value>
+										</observation>
+									</component>
+									<component>
+										<observationMedia classCode="OBS" moodCode="EVN"
+											ID="Mammo-Face">
+											<value mediaType="image/jpeg" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</component>
+								</organizer>
+							</entry>
+
+
+							<!-- Schéma oblique de localisation des anomalies (résultat de la lecture de la mammographie) -->
+							<entry>
+								<organizer classCode="CLUSTER" moodCode="EVN">
+									<templateId root="1.2.250.1.213.1.1.3.18"/>
+									<code code="55107-7" displayName="Document attaché"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<statusCode code="completed"/>
+									<component typeCode="COMP">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+											<id root="7a4c3c76-8781-40c5-ba6e-8ebdbed18f25"/>
+											<code code="69764-9" displayName="Type de document"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<text>
+												<reference value="#schemaOblique"></reference>
+											</text>
+											<statusCode code="completed"/>
+											<effectiveTime nullFlavor="NA"/>
+											<value xsi:type="ST">Schéma oblique de localisation des
+												anomalies (résultat de la lecture de la
+												mammographie)</value>
+										</observation>
+									</component>
+									<component>
+										<observationMedia classCode="OBS" moodCode="EVN"
+											ID="Mammo-Oblique">
+											<value mediaType="image/jpeg" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</component>
+								</organizer>
+							</entry>
+						</section>
+					</component>
+
+				</section>
+			</component>
+
+		</structuredBody>
+	</component>
+</ClinicalDocument>

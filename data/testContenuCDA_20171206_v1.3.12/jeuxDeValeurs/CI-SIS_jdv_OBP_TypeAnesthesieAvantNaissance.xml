@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.28" displayName="OBP_TypeAnesthesieAvantNaissance"
+        version="20131025">
+        <ConceptList>
+            <Concept code="OBS_207" displayName="analgésie morphinique"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_208" displayName="analgésie inhalatoire"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="P1-C0010" displayName="générale" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-C0200" displayName="loco-régionale" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-C0400" displayName="locale (infiltration tissulaire)"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="XX-MCH165" displayName="autre analgésie"
+                codeSystem="1.2.250.1.213.1.1.4.14"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

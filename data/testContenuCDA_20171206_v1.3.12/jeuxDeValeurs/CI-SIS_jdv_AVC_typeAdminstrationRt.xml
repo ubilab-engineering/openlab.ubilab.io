@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.39" displayName="AVC_typeAdminstrationRt-PA"
+        version="20131025">
+        <ConceptList>
+            <Concept code="IVINJBOL" displayName="injection intraveineuse en bolus"
+                codeSystem="2.16.840.1.113883.5.112"/>
+            <Concept code="IV" displayName="perfusion intraveineuse"
+                codeSystem="2.16.840.1.113883.5.112"/>
+            <Concept code="IAINJ" displayName="injection intra-artérielle"
+                codeSystem="2.16.840.1.113883.5.112"/>
+            <Concept code="PO" displayName="per os intra-artérielle"
+                codeSystem="2.16.840.1.113883.5.112"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

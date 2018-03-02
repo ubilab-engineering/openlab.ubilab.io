@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.17" displayName="OBP_TypeActePostPartum"
+        version="20131025">
+        <ConceptList>
+            <Concept code="JNFA001"
+                displayName="Hystérectomie pour complications obstétricales, par laparotomie"
+                codeSystem="1.2.250.1.213.2.5"/>
+            <Concept code="JPGD001" displayName="délivrance artificielle (+ révision utérine)"
+                codeSystem="1.2.250.1.213.2.5"/>
+            <Concept code="OBS_210" displayName="révision utérine isolée"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_211" displayName="autre technique chirurgicale"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_212" displayName="autre acte réalisé en postpartum immédiat"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="P1-30530" displayName="embolisation artérielle sélective"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-86EA8" displayName="réduction manuelle d’inversion utérine"
+                codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.253" displayName="CSE_typeGardeEnfant" version="20100802">
+        <ConceptList>
+            <Concept code="XX-MCH119" displayName="Crèche collective"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+            <Concept code="XX-MCH120" displayName="Crèche parentale"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+            <Concept code="XX-MCH122" displayName="Halte-garderie"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+            <Concept code="XX-MCH124" displayName="Structure multi-accueil"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+            <Concept code="XX-MCH121" displayName="A domicile par un tiers"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+            <Concept code="XX-MCH123"
+                displayName="Assistance maternelle dans le cadre d&apos;une crèche familiale"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+            <Concept code="XX-MCH128" displayName="Assistance maternelle indépendante"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+            <Concept code="XX-MCH125" displayName="Autre type de garde d&apos;enfant"
+                codeSystem="1.2.250.1.213.1.1.4.14"> </Concept>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.41" displayName="JDV_ObjectifActivite_CI-SIS"
+        version="20160808">
+        <ConceptList>
+            <Concept code="MED-097" displayName="diagnostic" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP"/>
+            <Concept code="ORG-046" displayName="mise en place de la prise en charge"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="ORG-047" displayName="suivi" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP"/>
+            <Concept code="MED-098" displayName="conseil génétique"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="MED-099" displayName="diagnostic prénatal"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="MED-100" displayName="diagnostic préimplantatoire"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="ORG-048" displayName="prise en charge en urgence"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="ORG-049" displayName="protocole de recherche"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="AVC-228" displayName="Education thérapeutique"
+                codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+            <Concept code="ORG-031" displayName="acte médical" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

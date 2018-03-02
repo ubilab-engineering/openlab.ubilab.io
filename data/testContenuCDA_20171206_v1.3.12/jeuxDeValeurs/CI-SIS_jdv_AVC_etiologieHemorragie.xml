@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.43" displayName="AVC_etiologieHemorragie"
+        version="20131025">
+        <ConceptList>
+            <Concept code="AVC-120" displayName="Anticoagulant au long cours"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-118" displayName="Maladie petites artères"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-120" displayName="Angiopathie amyloïde"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="M-24600" displayName="Malformation vasculaire"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="G-A609" displayName="autre" codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

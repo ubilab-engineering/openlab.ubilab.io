@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Historique :
+        26/04/2017 : NMA : Création
+-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+
+    <ValueSet id="1.2.250.1.213.1.1.5.90" displayName="RisquePourEntourage" version="test">
+        <ConceptList>
+            <Concept code="F-84000" displayName="enceinte" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="GEN-051" displayName="Patient présentant un déficite en complément ou traitement à l'éculizumab" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="GEN-052" displayName="Enfant de moins de 6 mois à risque de grippe grave" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="GEN-053" displayName="Enfant de moins de 6 mois (Contact étroit et durables)" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

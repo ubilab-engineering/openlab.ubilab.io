@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.283.7" displayName="HL7_ObservationIntoleranceType"
+        version="20110727">
+        <ConceptList>
+            <Concept code="ALG" displayName="Allergie" codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="OINT" displayName="Intolérance" codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="DINT" displayName="Intolérance médicamenteuse"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="EINT" displayName="Intolérance environementale"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="FINT" displayName="Intolérance alimentaire"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="DALG" displayName="Allergie médicamenteuse"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="EALG" displayName="Allergie environementale"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="FALG" displayName="Allergie alimentaire"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="DNAINT" displayName="Intolérance médicamentause non allergique"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="ENAINT" displayName="Intolérance environementale non allergique"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="FNAINT" displayName="Intolérance alimentaire non allergique"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+            <Concept code="NAINT" displayName="Intolérance non allergique"
+                codeSystem="2.16.840.1.113883.5.4"/> 
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

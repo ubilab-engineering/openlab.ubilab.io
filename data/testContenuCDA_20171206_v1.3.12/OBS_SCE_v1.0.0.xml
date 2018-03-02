@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="Schematrons/CI-SIS_OBP_SCE.sch"?> 
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+
+   <!-- 
+      **********************************************************************************************************
+      Système : ASIP
+      Document :  Synthèse Suites de Couches Enfant (SCE)
+      Auteur : PRAS (CRI), CNGOF
+      Date de création : 28/03/2012
+      Version : 0.0.1
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:
+      - TemplateId des documents:
+      Synthèse antepartum (SAP): 1.2.250.1.213.1.1.1.12.1
+      Synthèse Salle de Naissance Mère (SNM): 1.2.250.1.213.1.1.1.12.2
+      Synthèse Salle de Naissance Enfant (SNE): 1.2.250.1.213.1.1.1.12.3
+      Synthèse Suites de Couches Mère (SCM): 1.2.250.1.213.1.1.1.12.4
+      Synthèse Suites de Couches Enfant (SCE): 1.2.250.1.213.1.1.1.12.4
+      
+      - Type de documents (Matrice)
+      SNM et SNE entre dans la catégorie "Compte-rendu d'accouchement" de code LOINC 15508-5
+      SAP, SCM, SCE entrent dans la catégorie "Synthèse d'épisode de soins" de code LOINC 34133-9
+      - OID temporaire du LPS producteur de document: root="1.2.250.1.213.1.1.9" 
+      - Domaine de vocabulaire ASIP pour l'obstétrique = TA_OBS (1.2.250.1.213.1.1.4.2.289)
+      
+      
+      **********************************************************************************************************
+   -->
+   
+   <realmCode code="FR"/>
+   <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+   <!-- Conformité spécifications HL7 France -->
+   <templateId root="2.16.840.1.113883.2.8.2.1"/>
+   <!-- Conformité spécifications au CI-SIS de l'ASIP Santé -->
+   <templateId root="1.2.250.1.213.1.1.1.1"/>
+   <!-- Conformité au Volet Synthèse Suites de Couches Enfant (SCE)-->
+   <templateId root="1.2.250.1.213.1.1.1.12.5"/>
+
+
+   <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+   <id root="1.2.250.1.213.1.1.9" extension="A7102400008_0444"/>
+   <code code="15508-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+      displayName="Compte-rendu d'accouchement"/>
+   <title>SYNTHESE DES SUITES DE COUCHES (ENFANT)</title>
+   <effectiveTime value="20120328111700+0100"/>
+   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+      codeSystemName="Confidentiality" displayName="Normal"/>
+   <languageCode code="fr-FR"/>
+
+   <!--=<<o#%@O[ recordTarget - Identification de la mère ]O@%#o>>=-->
+   
+   <recordTarget>
+      <patientRole>
+         <!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+         <id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+         <addr use="H">
+            <houseNumber>24</houseNumber>
+            <streetNameType>AV</streetNameType>
+            <streetName>Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>Paris</city>
+         </addr>
+         <!-- Portable -->
+         <telecom value="tel:0686970800" use="MC"/>
+         <!-- Domicile -->
+         <telecom value="tel:0186940900" use="H"/>
+         <patient classCode="PSN">
+            <name>
+               <given>Sophie</given>
+               <family qualifier="BR">DECOURCY</family>
+               <family qualifier="SP" nullFlavor="NAV"/>
+            </name>
+            <administrativeGenderCode code="F"/>
+            <birthTime value="19800315"/>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   
+   <!--=<<o#%@O[ author - Auteur du document - Clinicien ayant suivi la patiente ]O@%#o>>=-->
+   
+   <author>
+      <time value="20120328111700+0100"/>
+      <assignedAuthor classCode="ASSIGNED">
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+            displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+         <addr nullFlavor="NASK"/>
+         <telecom nullFlavor="NASK"/>
+         <assignedPerson>
+            <name>
+               <given>Charles </given>
+               <family>BOILEAU</family>
+               <prefix>Dr.</prefix>
+            </name>
+         </assignedPerson>
+         <!-- Numéro FINESS de l'ES (optionnel)  -->
+         <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+            <name>Clinique du Belvédère</name>
+            <telecom nullFlavor="NAV"/>
+            <addr>
+               <houseNumber>142</houseNumber>
+               <streetNameType>rue</streetNameType>
+               <streetName>Belvédère</streetName>
+               <postalCode>92100</postalCode>
+               <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" 
+               displayName="Établissement de santé"
+               codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+         </representedOrganization>
+      </assignedAuthor>
+   </author>
+   
+   <!--=<<o#%@O[ informant - Personne à prévenir en cas d'urgence ]O@%#o>>=-->
+   
+   <informant>
+      <relatedEntity classCode="ECON">
+         <code code="AUNT" displayName="Tante"/>
+         <addr nullFlavor="NAV"/>
+         <telecom value="tel:0647150100" use="MC"/>
+         <relatedPerson>
+            <name>
+               <family>DECOURCY</family>
+               <given>Sophie</given>
+            </name>
+         </relatedPerson>
+      </relatedEntity>
+   </informant>
+   
+   <!--=<<o#%@O[ custodian - Organisation de santé responsable du document ]O@%#o>>=-->
+
+   <custodian typeCode="CST">
+      <assignedCustodian classCode="ASSIGNED">
+         <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+            <id root="1.2.250.1.71" extension="1120456789" assigningAuthorityName="GIP-CPS"/>
+            <name>Clinique du Belvédère</name>
+            <telecom value="tel:0442515151" use="WP"/>
+            <addr>
+               <houseNumber>142</houseNumber>
+               <streetNameType>rue</streetNameType>
+               <streetName>Belvédère</streetName>
+               <postalCode>92100</postalCode>
+               <city>Boulogne-Billancourt</city>
+            </addr>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   
+   <!--=<<o#%@O[ legalAuthenticator - Responsable de la validation de la synthèse ]O@%#o>>=-->
+   
+   <legalAuthenticator>
+      <time value="20120329094914-0100"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <realmCode code="FR"/>
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+            displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+         <assignedPerson>
+            <name>
+               <given>Jacques </given>
+               <family>BIDEAULT</family>
+               <prefix>Pr.</prefix>
+               <suffix/>
+            </name>
+         </assignedPerson>
+      </assignedEntity>
+   </legalAuthenticator>
+   
+   <!--=<<o#%@O[ participant - Médecin traitant ]O@%#o>>=-->
+   <participant typeCode="INF">
+      <functionCode code="PCP"/>
+      <associatedEntity classCode="PROV">
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+         <addr>
+            <houseNumber>3</houseNumber>
+            <streetNameType>rue</streetNameType>
+            <streetName>Petit Pont</streetName>
+            <postalCode>75005</postalCode>
+            <city>Paris</city>
+         </addr>
+         <telecom value="tel:0147150000" use="EC"/>
+         <associatedPerson>
+            <name>
+               <family>MEDIONI</family>
+               <given>Jacques</given>
+               <prefix>Docteur</prefix>
+            </name>
+         </associatedPerson>         
+      </associatedEntity>
+   </participant>
+   
+   
+   <!--=<<o#%@O[ documentationOf - Informations sur sur le document ]O@%#o>>=-->
+   
+   <documentationOf>
+      <serviceEvent classCode="ACT">
+         <id root="5A931FFC-E3D3-4153-953F-4C314500A410"/>
+         <code code="15508-5" displayName="Compte-rendu d'accouchement" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+         <effectiveTime>
+            <low value="20120328111700+0100"/>
+            <high value="20120330111700+0100"/>
+         </effectiveTime>
+         <performer typeCode="PRF">
+            <assignedEntity>
+               <realmCode code="FR"/>
+               <!-- PS identifié par son N°RPPS -->
+               <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                  displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+               <assignedPerson>
+                  <name>
+                     <given>Jacques </given>
+                     <family>BIDEAULT</family>
+                     <prefix>Docteur</prefix>
+                     <suffix/>
+                  </name>
+               </assignedPerson>
+               <representedOrganization>
+                  <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                  <name>Clinique du Belvédère</name>
+                  <telecom nullFlavor="NAV"/>
+                  <addr>
+                     <houseNumber>142</houseNumber>
+                     <streetNameType>rue</streetNameType>
+                     <streetName>Belvédère</streetName>
+                     <postalCode>92100</postalCode>
+                     <city>Boulogne-Billancourt</city>
+                  </addr>
+                  <standardIndustryClassCode code="ETABLISSEMENT" 
+                     displayName="Établissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+               </representedOrganization>
+            </assignedEntity>
+         </performer>
+      </serviceEvent>
+   </documentationOf>
+
+   <!--=<<o#%@O[ componentOf - Informations sur les circonstances de la "rencontre" ]O@%#o>>=-->
+   
+   <componentOf>
+      <encompassingEncounter>
+         <code code='EXTERNE' displayName='acte et consultation externe (établissement)' codeSystem="1.2.250.1.213.1.1.4.2.291"/>
+         <effectiveTime>
+            <!-- High : Date de sortie -->
+            <high value="20120328111700+0100"/>
+            <!-- Low : Date du début de prise en charge (optionnel) -->
+         </effectiveTime>
+         
+         <location>
+            <healthCareFacility>
+               <id root="1.2.250.1.213.1.1.9" extension="11223344"
+                  assigningAuthorityName="Clinique de Breteuil"/>
+               <code code="SA04" displayName="Etablissement Privé Non PSPH"
+                  codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+            </healthCareFacility>
+         </location>
+         
+      </encompassingEncounter>
+   </componentOf>
+
+
+   <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+   
+
+   <component>
+      <structuredBody>
+         
+         <!--=<<o#%@O[ PCC Coded Event Outcome Section ]O@%#o>>=-->
+
+         <component>
+            <section>
+               <!-- PCC Coded Event Outcomes Section template Id -->
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+               <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+               <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+               <code code="42545-4" displayName="Event Outcome"
+                  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Pathologies dans la période des suites de couches </title>
+               <text>
+                  <table border="1">
+                     <thead align="center">
+                        <tr><th align="center" colspan="4">&#160;</th></tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td rowspan="10">Pathologies dans les suites de couches</td><td rowspan="3">Lésion traumatique</td></tr>
+                           <tr><td colspan="2">Lésion faciale due à un traumatisme obstétrical</td></tr>
+                        <tr><td colspan="1">Autres traumatismes obstétricaux précisés</td><td>Description (Texte) du trauma obstétrical</td></tr>
+                        <tr><td colspan="1">Anomalies congénitales</td><td colspan="2">Insuffisance mitrale congénitale</td></tr>
+                        <tr><td colspan="1" rowspan="3">Infectieux</td><td>Infection bactérienne du nouveau-né</td><td>Probable</td></tr>
+                        <tr><td colspan="1">Origine</td><td>Infection du nouveau-né à Escherichia coli</td></tr>
+                        <tr><td colspan="2">Administration d'antibiotiques</td></tr>
+                        <tr><td colspan="1" rowspan="2">Ictère</td><td>Ictère néonatal</td><td>Oui</td></tr>
+                        <tr><td colspan="1">Origine</td><td>Ictère nucléaire dû à une iso-immunisation</td></tr>
+                        <tr><td> Autres affections dont l'origine se situe dans la période périnatale</td><td colspan="2">Régurgitation et mérycisme du nouveau-né<br/></td></tr>
+                       
+                        <tr><td  rowspan="4">Mode de sortie</td><td>Nature</td><td colspan="2">Transfert d'un patient dans un autre ES</td></tr>
+                        <tr><td>Type</td><td colspan="2">Autre Maternité<br/></td></tr>
+                        <tr><td colspan="3">Clinique Geoffroy St-Hilaire <br/>44 rue Geoffroy St-Hilaire<br/></td></tr>
+                        <tr><td>75005</td><td colspan="2">Paris<br/></td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <!-- PCC Simple Observations - Pathologie de suites de couches -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- PCC Simple Observation template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="T14.9" displayName="Lésion traumatique"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <value xsi:type="CD" code="P15.4" displayName="Lésion faciale due à un traumatisme obstétrical"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                  </observation>
+               </entry>
+               <!-- PCC Simple Observations - Pathologie de suites de couches Autres traumas (à préciser) -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- PCC Simple Observation template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="T14.9" displayName="Lésion traumatique"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <value xsi:type="CD" code="P15.8" displayName="Autres traumatismes obstétricaux précisés"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10">
+                        <originalText><reference value='#sce0001'/></originalText>
+                     </value>
+                  </observation>
+               </entry>
+               <!-- PCC Simple Observations - Anomalies congénitales -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- PCC Simple Observation template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="D4-00000" displayName="Maladie Congénitale"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <value xsi:type="CD" code="Q23.3" displayName="Insuffisance mitrale congénitale"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10">
+                     </value>
+                  </observation>
+               </entry>
+               <!-- PCC Simple Observations - Infectieux -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- PCC Simple Observation template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="F-06230" displayName="porteur d'agent infectieux"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <value xsi:type="CD" code="P36.9" displayName="Infection bactérienne du nouveau-né"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10">
+                        <qualifier>
+                           <value code="G-2002" displayName="Probable" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                        </qualifier>
+                     </value>
+                     <entryRelationship typeCode="CAUS">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="UNK"/>
+                           <value xsi:type="CD" code="P36.4" displayName="Infection du nouveau-né à Escherichia coli" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                        </observation>
+                     </entryRelationship>
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="UNK"/>
+                           <value xsi:type="CD" code="P2-45012" displayName="Administration d'antibiotiques" 
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+               <!-- PCC Simple Observations - Ictère -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- PCC Simple Observation template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="P59.9" displayName="Ictère néonatal"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <value xsi:type="CD" nullFlavor="NAV"/>
+                     <entryRelationship typeCode="CAUS">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="57.0" displayName="Ictère nucléaire dû à une iso-immunisation" 
+                              codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="UNK"/>
+                           <value xsi:type="CD" nullFlavor="NAV"></value>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+               <!-- PCC Simple Observations - Autres affections -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- PCC Simple Observation template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="P96" displayName="Autres affections dont l'origine se situe dans la période périnatale"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <value xsi:type="CD"  code="P92.1" displayName="Régurgitation et mérycisme du nouveau-né"/>
+                  </observation>
+               </entry>      
+             
+               
+               <!-- PCC Simple Observations - Mode de sortie -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <!-- PCC Simple Observation template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="OBS_050" displayName="Mode de sortie"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <value xsi:type="CD" code="P0-20300" displayName="Transfert d'un patient dans un autre ES"
+                        codeSystem="2.16.840.1.113883.6.3" codeSystemName="SNOMED 3.5"/>
+                  </observation>
+               </entry>
+               
+               <!--  PCC Patient Tranfer Entry - Transfert  -->
+               <entry>
+                  <act classCode="ACT" moodCode="EVN" negationInd="false">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1"/>
+                     <id root="528775c1-e1a2-4953-ae99-e535c9090e02"/>
+                     <code code="OBS_005" displayName="Transfert ou mutation" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="SNOMED 3.5"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20130811"/><high nullFlavor="NA"/></effectiveTime>
+                     <participant typeCode="DST">
+                           <!-- Identification de l'établissement (ou du service) de transfert (FINESS) -->
+                           <templateId root="1.2.250.1.71.4.2.2" extension="101238889" assigningAuthorityName="ASIP Santé"/>
+                           <participantRole classCode="SDLOC">
+                              <!-- Type d'établissement si transfert ou mutation -->
+                              <code code="S-10126" displayName="Autre Maternité" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                              <addr>
+                                 <houseNumber>44</houseNumber>
+                                 <streetNameType>rue</streetNameType>
+                                 <streetName>Geoffroy St-Hilaire</streetName>
+                                 <postalCode>75005</postalCode>
+                                 <city>Paris</city>
+                              </addr>
+                              <telecom nullFlavor="NAV"/>
+                              <playingEntity classCode="ENT">
+                                 <name>Clinique Geoffroy St-Hilaire</name>
+                              </playingEntity>
+                           </participantRole>
+                        </participant>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ PCC Functional Status Assessment Section ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.7.3.1.1.13.3'/>
+               <id root='16696797-f854-443d-8819-231ee09cad71'/>
+               <code code='47420-5' displayName='Functional Status Assessment'
+               codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Statut fonctionnel</title>
+               <text>
+                  <table border="1">
+                     <thead align="center">
+                        <tr><th colspan="2">&#160;</th></tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td>Alimentation du nouveau-né</td><td>Allaitement maternel exclusif<br/></td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <component>
+                  <section>
+                     <!-- Section Evaluation Fonctionnelle du Sommeil et de l'Alimentation -->
+                     <templateId root='1.3.6.1.4.1.19376.1.7.3.1.1.13.5'/>
+                     <id root="860cfd26-f7eb-4b67-99f2-c79e7036dd4b"/>
+                     <code code='47420-5' displayName='Functional Status Assessment'
+                     codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                     
+                     <entry>
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='62ec6425-bbc6-4306-81e9-e90417dd78fd'/>
+                           <code code='F-50100' displayName='Alimentation'
+                              codeSystem='2.16.840.1.113883.6.1' 
+                              codeSystemName='SNOMED 3.5'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code="OBS_229" displayName="Allaitement maternel exclusif" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                        </observation>
+                     </entry>
+
+                        
+                  </section>
+               </component>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ PCC Procedures & Interventions Section ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+               <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+               <code code="29554-3" displayName="PROCEDURES"
+                  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Interventions et/ou actes réalisés dans les suites de couches</title>
+               <text>
+                  <table border="1">
+                     <thead align="center">
+                        <tr>
+                           <th colspan="3">&#160;</th>
+                        </tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td colspan="2">Autopsie</td><td>Non</td></tr>
+                        <tr><td rowspan="8">Dépistage</td>
+                        <td>Dépistage hyperphénylalaninémie</td><td>Non</td></tr>
+                        <tr><td>Dépistage hypothyroïdie</td><td>Non</td></tr>
+                        <tr><td>Dépistage hyperplasie congénitale des surrénales</td><td>Non</td></tr>
+                        <tr><td>Dépistage drépanocytose</td><td>Non</td></tr>
+                        <tr><td>Dépistage mucoviscidose</td><td>Non</td></tr>
+                        <tr><td>Dépistage MCAD</td><td>Non</td></tr>
+                        <tr><td>Test audition</td><td>Non</td></tr>
+                        <tr><td>Autre dépistage</td><td>[Description autre dépistage]</td></tr>
+                        <tr><td rowspan="2">Vaccinations</td>
+                           <td>Hépatite B</td><td>Non</td></tr>
+                        <tr><td>BCG</td><td>Non</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               
+               <!-- Autopsie -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                     <code code="JQQP003" 
+                        displayName="Autopsie médicale d'un fœtus ou d'un nouveau-né de moins de 4 jours de vie, avec examen de l'encéphale"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low nullFlavor="NAV"/></effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Dépistage hyperphénylalaninémie -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="OBS_251" displayName="Dépistage hyperphénylalaninémie"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Dépistage hypothyroïdie -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="OBS_252" displayName="Dépistage hypothyroïdie"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Dépistage hyperplasie congénitale des surrénales -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="OBS_253" displayName="Dépistage hyperplasie congénitale des surrénales"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Dépistage drépanocytose -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="OBS_254" displayName="Dépistage drépanocytose"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Dépistage mucoviscidose -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="OBS_255" displayName="Dépistage mucoviscidose"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Dépistage MCAD -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="OBS_256" displayName="Dépistage MCAD"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Test audition -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="OBS_257" displayName="Test audition"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+
+               <!-- Vaccination Hépatite Virale B  -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="P2-47430" displayName="Vaccination Hépatite B"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+               <!-- Vaccination par le BCG -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="true">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="9d2d544e-789C-4396-a4dc-b9aea338e233"/>
+                     <code code="P2-47020" displayName="Vaccination par le BCG" codeSystem="1.2.250.1.213.2.12"
+                        codeSystemName="SNOMED 3.5"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime>
+                        <low nullFlavor="NA"/>
+                     </effectiveTime>
+                  </procedure>
+               </entry>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Section PCC Care Plan ]O@%#o>>=-->
+
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.1.10"/>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+               <id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+               <code code="18776-5" displayName="TREATMENT PLAN" codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Plan de soins</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th align="center" colspan="2">Plan de soins</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td><content ID="sce020">Suivi spécialisé</content></td><td>En attente de confirmation</td></tr>
+
+                     </tbody>
+                  </table>
+               </text>
+               <!-- Demande d'examen médical spécialisé -->
+               <entry>
+                  <encounter classCode="ENC" moodCode="ARQ">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                     <id root="EA461BC2-E7FA-4694-96CE-4B4561BBDD82"/>
+                     <code code="P0-20510" displayName="Examen médical spécialisé"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                     <text mediaType="text/xml"><reference value="#sce020"/></text>
+                     <effectiveTime nullFlavor="UNK"/>
+                     <priorityCode code="CS"/>
+                  </encounter>
+               </entry>
+               
+            </section>
+         </component>
+                 
+         
+         <!--=<<o#%@O[ Section Statut du document ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.35"/>
+               <id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+               <code code="33557-0" displayName="Niveau de complétion" 
+                  codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Statut du Document</title>
+               <text>Statut du document : validé</text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id/>
+                     <code code="CDA_001" 
+                        displayName="Statut du document" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.286" 
+                        codeSystemName="TA_CDA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value='20110314'/>
+                     <value xsi:type='CD' code="CDA_002" 
+                        displayName="En cours" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.286" 
+                        codeSystemName="TA_CDA"/>
+                  </observation>
+               </entry>
+            </section> 
+         </component>
+         
+
+ 
+      </structuredBody>
+   </component>
+</ClinicalDocument>

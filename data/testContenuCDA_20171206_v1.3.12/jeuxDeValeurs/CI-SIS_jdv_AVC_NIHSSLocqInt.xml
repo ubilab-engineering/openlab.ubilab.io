@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.24" displayName="AVC_NIHSSLocqInt" version="20131025">
+        <ConceptList>
+            <Concept code="AVC-014" displayName="répond aux deux questions correctement."
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-015" displayName="ne répond correctement qu’à une seule question."
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-016"
+                displayName="ne répond correctement à aucune des deux questions."
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>
+<!-- 
+AVC_NIHSSConsInt (1.2.250.1.213.1.1.4.321.23)
+
+AVC_NIHSSLocqInt (1.2.250.1.213.1.1.4.321.24)
+AVC_NIHSSLoccInt (1.2.250.1.213.1.1.4.321.25)
+AVC_NIHSSOculInt(1.2.250.1.213.1.1.4.321.26)
+AVC_NIHSSCvInt(1.2.250.1.213.1.1.4.321.27)
+AVC_NIHSSPfInt(1.2.250.1.213.1.1.4.321.28)
+AVC_NIHSSMsInt(1.2.250.1.213.1.1.4.321.29)
+AVC_NIHSSMiInt (1.2.250.1.213.1.1.4.321.30)
+AVC_NIHSSAtaxInt (1.2.250.1.213.1.1.4.321.31)
+AVC_NIHSSSensInt (1.2.250.1.213.1.1.4.321.34)
+AVC_NIHSSLangInt (1.2.250.1.213.1.1.4.321.32)
+AVC_NIHSSDysInt (1.2.250.1.213.1.1.4.321.35)
+-->

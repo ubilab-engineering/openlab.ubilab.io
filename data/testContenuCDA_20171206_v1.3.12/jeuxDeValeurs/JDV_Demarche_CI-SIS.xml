@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.81" displayName="Demarche" version="20170117">
+        <ConceptList>
+            <Concept code="PAT-024" displayName="Aides à domicile " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="PAT-025" displayName="Scolarité et ses adaptations  " codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="PAT-026" displayName="Sortie de l’arrêt de travail (invalidité, retraite, médecine du travail)" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="PAT-027" displayName="Reprise du poste ou à la réinsertion professionnelle" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="PAT-028" displayName="Autre démarche (à préciser)" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.11" displayName="AVC_autreSymptomeExNeuro"
+        version="20131025">
+        <ConceptList>
+            <Concept code="AVC-142" displayName="Déficit moteur de la main"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="F-A6660" displayName="dysarthrie" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="F-A6000" displayName="Aphasie" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="DF-D1670" displayName="négligence" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="F-A5562" displayName="confusion" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="F-A5560" displayName="trouble de la conscience"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="F-F2020" displayName="mydriase" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="F-F2030" displayName="myosis" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="DA-41070" displayName="affection du douxième nerf crânien"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="F-51702" displayName="déglutition anormale"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="DA-74510" displayName="Diplopie" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="DA-74940" displayName="cécité d'un oeil" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="DA-48034" displayName="nystagmus" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="DA-78500" displayName="syndrome de Claude Bernard-Horner"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="AVC-126" displayName="Latéropulsion" codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="G98" displayName="Autres affections du système nerveux"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="K13.7" displayName="Paralysie du voile du Palais"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="J39.2" displayName="Paralysie du Pharynx"
+                codeSystem="2.16.840.1.113883.6.3"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

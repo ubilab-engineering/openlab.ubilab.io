@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+         22/11/17 : NMA : Mise à jour des codes TA_CS ==> TA_ASIP
+-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.255" displayName="CSE_DateCons" version="20100802">
+        <ConceptList>
+            <Concept code="GEN-094" displayName="1er trimestre" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="GEN-095" displayName="2ème trimestre" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="GEN-096" displayName="3ème trimestre" codeSystem="1.2.250.1.213.1.1.4.322"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

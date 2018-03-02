@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.14" displayName="OBP_InfectCervicoVaginale"
+        version="20131025">
+        <ConceptList>
+            <Concept code="OBS_133" displayName="Infection cervico-vaginale à streptocoque B"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_122" displayName="Infection cervico-vaginale à d'autres germes"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_132" displayName="Infection cervico-vaginale"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

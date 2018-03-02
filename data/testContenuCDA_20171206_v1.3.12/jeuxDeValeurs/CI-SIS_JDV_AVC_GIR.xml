@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.53" displayName="CI-SIS_JDV_AVC_GIR" version="20160719">
+        <ConceptList>
+            <Concept code="AVC-267" displayName="GIR1" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-268" displayName="GIR2" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-269" displayName="GIR3" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-270" displayName="GIR4" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-271" displayName="GIR5" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-272" displayName="GIR6" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

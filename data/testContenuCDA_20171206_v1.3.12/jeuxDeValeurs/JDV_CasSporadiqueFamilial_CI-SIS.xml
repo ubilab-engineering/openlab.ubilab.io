@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.46" displayName="JDV_CasSporadiqueFamilial_CI-SIS"
+        version="20160808">
+        <ConceptList>
+            <Concept code="G-A646" displayName="sporadique" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="SDMMR-44" displayName="familial" codeSystem="1.2.250.1.213.1.1.4.324"
+                codeSystemName="TA_SDMMR"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

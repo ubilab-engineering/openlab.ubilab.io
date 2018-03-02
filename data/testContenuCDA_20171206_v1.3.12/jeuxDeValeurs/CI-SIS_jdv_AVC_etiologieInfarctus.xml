@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.41" displayName="AVC_etiologieInfarctus"
+        version="20131025">
+        <ConceptList>
+            <Concept code="AVC-115" displayName="Athérome extracrânien"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-116" displayName="Athérome intracrânien"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-117" displayName="Embolie cardiaque"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-118" displayName="Maladie petites artères"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-119" displayName="Dissection des TSA"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-121" displayName="Etiologie multiple"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="G-A609" displayName="autre" codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

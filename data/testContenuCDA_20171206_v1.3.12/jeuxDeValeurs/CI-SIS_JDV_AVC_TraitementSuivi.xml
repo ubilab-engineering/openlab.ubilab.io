@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.57" displayName="CI-SIS_JDV_AVC_TraitementSuivi "
+        version="20160718">
+        <ConceptList>
+            <Concept code="AVC-229" displayName="Séjour de répit"
+                codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC "/>
+            <Concept code="AVC-230" displayName="MAS/FAM" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-231" displayName="HOSPITALISATION COMPLETE"
+                codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+            <Concept code="AVC-232" displayName="HAD" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-233" displayName="HDJ" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="AVC-234" displayName="SSIAD" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="G-A609" displayName="AUTRE" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

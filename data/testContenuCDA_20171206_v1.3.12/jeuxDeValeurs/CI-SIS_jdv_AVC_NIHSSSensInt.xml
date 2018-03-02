@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.34" displayName="AVC_NIHSSSensInt" version="20131025">
+        <ConceptList>
+            <Concept code="AVC-054" displayName="normale" codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-055"
+                displayName="déficit sensitif discret à modéré ; du côté atteint, la piqûre est moins bien perçue ou non perçue mais le patient est conscient d’être touché"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-056"
+                displayName="déficit sévère à total; le patient n’a pas conscience d’être touché au niveau de la face, du bras et de la jambe"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+
+
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>
+<!-- 
+
+ ()
+ ()
+ ()
+AVC_NIHSSLangInt (1.2.250.1.213.1.1.4.321.32)
+AVC_NIHSSDysInt (1.2.250.1.213.1.1.4.321.35)
+-->

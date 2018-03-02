@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.80" displayName="Addictions" version="20170117">
+        <ConceptList>
+            <Concept code="MED-093" displayName="Tabagique" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+            <Concept code="MED-094" displayName="Autre addiction" codeSystem="1.2.250.1.213.1.1.4.322"> </Concept>
+       
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

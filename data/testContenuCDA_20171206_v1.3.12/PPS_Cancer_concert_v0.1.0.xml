@@ -1,0 +1,2475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="schematrons/PPS_Cancer.sch"?>
+
+<!--<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+	<?oxygen SCHSchema=""?>-->
+
+<!--?oxygen SCHSchema="schematrons/CI-SIS_VSM_CDA_n3.sch"?-->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+	<!-- 
+		**********************************************************************************************************
+		Système : ASIP Santé
+		Document : Plan Personnalisé de Soins Cancer
+		Auteur : LBE
+		Date de création : 09/01/2017
+		Version : 0.1.0
+		**********************************************************************************************************
+		format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+		**********************************************************************************************************
+		Notes:		
+		**********************************************************************************************************
+	-->
+	<realmCode code="FR"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<!-- Conformité spécifications HL7 France -->
+	<templateId root="2.16.840.1.113883.2.8.2.1"/>
+	<!-- Conformité spécifications au CI-SIS -->
+	<templateId root="1.2.250.1.213.1.1.1.1"/>
+	<!-- Conformité spécifications au CI-SIS -->
+	<templateId root="1.2.250.1.213.1.1.1.13"/>
+	<!-- Conformité au modèle de document PPS (ASIP Santé) -->
+	<templateId root="1.2.250.1.213.1.1.1.20"/>
+
+	<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+	<id root="a47ecf80-7069-4060-abf3-0d99291f8813"/>
+	<code code="18776-5" displayName="Plan personnalisé de soins" codeSystem="2.16.840.1.113883.6.1"/>
+	<title>Plan personnalisé de Soin - Cancer (PPS Cancer)</title>
+	<effectiveTime value="20170615121700+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+		codeSystemName="Confidentiality" displayName="Normal"/>
+	<languageCode code="fr-FR"/>
+	<!-- numéro de la version courante (entier positif), ici la première version -->
+	<versionNumber value="1"/>
+
+	<!-- Identification du patient -->
+	<recordTarget>
+		<patientRole>
+			<!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+			<!-- A revoir -->
+
+			<!-- Identifiant Local du patient -->
+			<!-- Trouver un OID -->
+
+
+
+			<!-- NIR/INS -->
+			<id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+			<!-- Adresse du Patient -->
+			<addr>
+				<houseNumber>3</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pont</streetName>
+				<!-- Code Postal du patient -->
+				<postalCode>75005</postalCode>
+				<city>Paris</city>
+				<country>France</country>
+			</addr>
+			<!-- Téléphone professionnel du patient  -->
+			<telecom value="tel:0242515151" use="WP"/>
+			<!-- Téléphone personnel -->
+			<telecom value="tel:0101010101" use="H"/>
+			<patient classCode="PSN">
+				<!-- Nom, prénom et NomJF du patient -->
+				<name>
+					<prefix/>
+					<given>Jeanne</given>
+					<family qualifier="SP">Dupont</family>
+					<family qualifier="BR">Martin</family>
+				</name>
+				<administrativeGenderCode code="F" displayName="Féminin"
+					codeSystem="2.16.840.1.113883.5.1"/>
+				<!-- Date de Naissance du patient -->
+				<birthTime value="19401110"/>
+
+				<birthplace>
+					<place>
+						<addr>
+							<houseNumber>2</houseNumber>
+							<streetNameType>RUE</streetNameType>
+							<streetName>Jean Jaurès</streetName>
+							<postalCode>92000</postalCode>
+							<city>Nanterre</city>
+							<country>France</country>
+						</addr>
+					</place>
+				</birthplace>
+
+			</patient>
+		</patientRole>
+	</recordTarget>
+
+	<!-- Radiologue -->
+	<author>
+		<!-- Date de Lecture -->
+		<time value="20120328111700+0100"/>
+		<assignedAuthor>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Gynécologue et/ou Généraliste"/>
+
+			<addr nullFlavor="NASK"/>
+			<telecom nullFlavor="NASK"/>
+			<!-- Nom et Prénom du Radiologue -->
+			<assignedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Stéphane</given>
+					<family>MEDIONI</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+
+
+	<!-- Tuteur legal
+		contient : Nom, prénom, coordonnées de contact, adresse
+		Obligatoire si le patient est sous tutelle -->
+	<!--  Si classCode = "GUARD" cela signifie que le patient est sous tutelle -->
+	<informant>
+		<relatedEntity classCode="GUARD">
+			<!-- lien de parenté -->
+			<code code="FTH" displayName="Père"/>
+			<!-- Adresse du représentant -->
+			<addr>
+				<city>PARIS</city>
+				<houseNumber>4</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>de Lille</streetName>
+				<postalCode>75007</postalCode>
+				<country>France</country>
+			</addr>
+			<!-- Téléphone -->
+			<telecom value="tel:0601020304"/>
+			<!-- Identité -->
+			<relatedPerson>
+				<name>
+					<family>ANDRE</family>
+					<given>Jacques</given>
+				</name>
+			</relatedPerson>
+		</relatedEntity>
+	</informant>
+
+	<!-- Personne de confiance  -->
+	<informant>
+		<relatedEntity classCode="QUAL">
+			<!-- Lien de parenté -->
+			<code code="MTH" displayName="Mère"/>
+			<!-- Adresse -->
+			<addr>
+				<city>Paris</city>
+				<houseNumber> 12</houseNumber>
+				<streetName> Rue Mouffetar</streetName>
+				<postalCode>75005</postalCode>
+				<country>France</country>
+			</addr>
+
+			<telecom nullFlavor="NASK"/>
+		</relatedEntity>
+
+	</informant>
+	<!-- Organisation chargée de la conservation du document  -->
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id/>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+	<!-- Signataire du document -->
+	<legalAuthenticator>
+		<time value="20080929094914+0100"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+			<addr nullFlavor="NASK"/>
+			<telecom nullFlavor="NASK"/>
+			<assignedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Stéphane</given>
+					<family>MEDIONI</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</legalAuthenticator>
+
+	<!-- Etablissement de santé de référence -->
+
+	<participant typeCode="INF">
+		<!-- Memebre de l'equipe -->
+		<functionCode code="ASPEC" codeSystem="2.16.840.1.113883.5.88"
+			displayName="Autre specialiste"/>
+		<time value="20120328111700+0100"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="ORG-054" displayName="Établissement de santé de référence"
+				codeSystem="1.2.250.1.213.1.1.4.322"/>
+			<!--  -->
+			<addr>
+				<houseNumber>8</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pois</streetName>
+				<postalCode>75018</postalCode>
+				<city>Paris</city>
+			</addr>
+			<telecom value="tel:0147150000" use="WP"/>
+			<associatedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>James</given>
+					<family>Smith</family>
+				</name>
+			</associatedPerson>
+
+		</associatedEntity>
+	</participant>
+
+
+	<!-- Membre de la structure ou professionnel identifiée pour le lieu d'administration -->
+
+	<participant typeCode="INF">
+		<!-- Membre de l'equipe -->
+		<functionCode code="ASPEC" codeSystem="2.16.840.1.113883.5.88"
+			displayName="Autre specialiste"/>
+		<time value="20120328111700+0100"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<!--  -->
+			<code code="ORG-059" displayName="Lieu d'adlinistration"
+				codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+			<addr>
+				<houseNumber>8</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pois</streetName>
+				<postalCode>75018</postalCode>
+				<city>Paris</city>
+			</addr>
+			<telecom value="tel:0147150000" use="WP"/>
+			<associatedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Jean</given>
+					<family>Petit</family>
+				</name>
+			</associatedPerson>
+
+		</associatedEntity>
+	</participant>
+
+	<!-- Membre de la structure et identifiant de la structure de prise en charge en oncogératrie -->
+	<participant typeCode="INF">
+		<!-- Membre de l'equipe -->
+		<functionCode code="ASPEC" codeSystem="2.16.840.1.113883.5.88"
+			displayName="Autre specialiste"/>
+		<time value="20120328111700+0100"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<!--  -->
+			<code code="ORG-060" displayName="Lieu de prise en charge en oncogératrie"
+				codeSystem="1.2.250.1.213.1.1.4.322"/>
+			<addr>
+				<houseNumber>8</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pois</streetName>
+				<postalCode>75018</postalCode>
+				<city>Paris</city>
+			</addr>
+			<telecom value="tel:0147150000" use="WP"/>
+			<associatedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Smith</given>
+					<family>Mouloud</family>
+				</name>
+			</associatedPerson>
+
+		</associatedEntity>
+	</participant>
+
+	<!-- Médecin traitant =-->
+	<participant typeCode="INF">
+		<functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" displayName="Médecin Traitant"/>
+		<time value="20120328111700+0100"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<addr>
+				<houseNumber>3</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pont</streetName>
+				<postalCode>75005</postalCode>
+				<city>Paris</city>
+			</addr>
+			<telecom value="tel:0147150000" use="WP"/>
+			<associatedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Stéphane</given>
+					<family>MEDIONI</family>
+				</name>
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+
+
+	<!-- Informations sur le document réalisé -->
+
+	<documentationOf>
+		<serviceEvent classCode="ACT">
+			<!-- Identifiant de la FRCP -->
+			<id root="1.2.250.1.123.1.1.9.8.1123456789"/>
+			<!-- Date de la création du document -->
+			<effectiveTime>
+				<low value="20170101"/>
+			</effectiveTime>
+			<!-- La personne ayant réalisé l'acte principal du document  Il s'agit ici de l'auteur du document-->
+			<performer typeCode="PRF">
+				<templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+				<time>
+					<high value="20100104152530+0100"/>
+				</time>
+				<assignedEntity>
+					<!-- PS identifié par son N°RPPS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5"
+						codeSystemName="RPPS" displayName="Médecin - Oncologie option médicale (SM)"/>
+					<addr>
+						<streetNameType>RUE</streetNameType>
+						<streetName>du Mail</streetName>
+						<houseNumber>4</houseNumber>
+						<postalCode>49933</postalCode>
+						<city>ANGERS</city>
+					</addr>
+					<telecom value="tel:0242515151" use="WP"/>
+					<assignedPerson>
+						<name>
+							<given>Charles </given>
+							<family>Müller</family>
+							<prefix>Dr.</prefix>
+						</name>
+					</assignedPerson>
+					<representedOrganization>
+						<id root="1.2.250.1.71.4.2.2" extension="801234567897"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>Cabinet du Dr.Müller</name>
+						<addr>
+							<streetNameType>RUE</streetNameType>
+							<streetName>de Limoges</streetName>
+							<houseNumber>4</houseNumber>
+							<postalCode>49933</postalCode>
+							<city>ANGERS</city>
+						</addr>
+						<standardIndustryClassCode code="ETABLISSEMENT"
+							displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+							codeSystemName="practiceSettingCode"/>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+		</serviceEvent>
+	</documentationOf>
+
+
+	<componentOf>
+		<encompassingEncounter>
+			<effectiveTime nullFlavor="MSK"/>
+			<location>
+				<healthCareFacility>
+					<code code="SA01" codeSystem="1.2.250.1.71.4.2.4"
+						displayName="Etablissement public de santé"/>
+				</healthCareFacility>
+			</location>
+		</encompassingEncounter>
+	</componentOf>
+
+	<!-- 
+		********************************************************
+		Corps du document
+		********************************************************
+	-->
+
+	<component>
+		<structuredBody>
+
+			<!-- 
+				*********************************************
+				********************************************
+				RUBRIQUE PROGRAMME THÉRAPEUTIQUE ET DE SUIVI 
+				*********************************************
+				*********************************************
+			-->
+
+
+			<!-- *********Pédiatrie *********-->
+			<component>
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.2"/>
+					<id root="41FEABE2-D1D7-4390-8CD5-F5BC78E07B7D"/>
+					<code code="42349-1" displayName="Raison de la recommandation"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Motif du passage en RCP</title>
+					<text> : </text>
+					<entry>
+						<!-- Oncopédiatrique O/N -->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="B95156E1-B262-40DA-A4BB-3C9C71D19F4F"/>
+							<code code="RCP_094" displayName="Oncopédiatrie"
+								codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NAV"/>
+							<value xsi:type="BL" value="false"/>
+						</observation>
+					</entry>
+				
+				</section>
+			</component>
+			<!-- *****************
+				Diagnostic
+				*******************
+			-->
+			<!-- Utilisation de la section Cancer Diagnosis Section (Cf FRCP 2.0.0) -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.11"/>
+					<templateId root="1.3.6.1.4.1.19376.1.7.3.1.3.14.1"/>
+					<id root="a6617910-3abf-4b30-aaC5-d58dd3a75479"/>
+					<code code="C-DIAG" displayName="Diagnostic du cancer"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Diagnostic du cancer</title>
+					<text>
+						<table border="1">
+							<thead>
+								<tr>
+									<th colspan="3">Tumeur Primitive</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Localisation</td>
+									<td>C34.0</td>
+									<td>Hile pulmonaire et médiastin</td>
+								</tr>
+								<tr>
+									<td>Latéralité (si applicable)</td>
+									<td colspan="2">droit</td>
+								</tr>
+								<tr>
+									<td>Date du diagnostic initial (minimum mois et année)</td>
+									<td colspan="2">2/12/2009</td>
+								</tr>
+							</tbody>
+						</table>
+						<table border="1">
+							<thead>
+								<tr>
+									<th colspan="3">Stade Clinique Initial</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>TNM (T)</td>
+									<td>T2</td>
+									<td ID="TNM_comment3">Précisions Extension locale Texte
+										libre-</td>
+								</tr>
+								<tr>
+									<td>TNM (N)</td>
+									<td>Présence de métastase(s) ganglionnaire(s) non
+										déterminée</td>
+									<td ID="TNM_comment1">Précisions métastase ganglionnaire Texte
+										libre</td>
+								</tr>
+								<tr>
+									<td>TNM (M)</td>
+									<td>Absence de métastase(s) à distance</td>
+									<td ID="TNM_comment2">Précisions Métastase à distance Texte
+										libre</td>
+								</tr>
+
+								<tr>
+									<td>Autre stade si pertinent</td>
+									<td colspan="2" ID="TNM_comment4">Autre Stade Texte libre-</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+
+					<entry>
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+							<id root="015B3222-62B8-4A27-801F-A414B285D58B"/>
+							<code nullFlavor="NA"/>
+							<statusCode code="active"/>
+							<!-- Date du diagnostic -->
+							<effectiveTime>
+								<low value="20150101"/>
+							</effectiveTime>
+
+							<entryRelationship typeCode="SUBJ" inversionInd="false">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<templateId root="2.16.840.1.113883.10.20.1.28"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+									<templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.1"/>
+									<id root="F4A5860F-5FDB-4EDE-93EF-EF8F33F245BC"/>
+									<code code="G-1009" displayName="Diagnostic"
+										codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+									<statusCode code="completed"/>
+									<!-- Date de diagnostic -->
+									<effectiveTime>
+										<low value="20150101"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="RCP_075"
+										codeSystem="1.2.250.1.213.1.1.4.2.281"
+										codeSystemName="TA_RCP" displayName="Tumeur primitive"/>
+									<!-- Localisation cf. ICD-10 chapitre 2 -->
+									<targetSiteCode code="C34"
+										displayName="Tumeur maligne des bronches et du poumon"
+										codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+										<!-- Lateralié cf. SNOMED 3.5 VF 1.1 Table G Modificateurs -->
+										<qualifier>
+											<name code="G-C171" displayName="Latéralité"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5"/>
+											<value code="G-A100" displayName="Droit"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5">
+												<originalText><reference value="#rcp017"
+												/></originalText>
+											</value>
+										</qualifier>
+									</targetSiteCode>
+
+									<!--TNM Stage Information-->
+									<entryRelationship typeCode="SUBJ" inversionInd="false">
+										<observation classCode="OBS" moodCode="EVN"
+											negationInd="false">
+											<templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.2"/>
+											<code code="21908-9" displayName="Stade TNM Clinique"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<statusCode code="completed"/>
+											<effectiveTime>
+												<low value="20110101"/>
+											</effectiveTime>
+											<value xsi:type="CD" nullFlavor="NAV"/>
+
+											<!-- 6.3.4.62 TNM Clinical Tumor Observation-->
+											<entryRelationship typeCode="COMP">
+												<observation classCode="OBS" moodCode="EVN">
+												<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+												<id root="02DF6527-DEF2-45CB-BB8C-D9A9E5AB6872"/>
+												<code code="21905-5" displayName="TNM Clinique T"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+												<statusCode code="completed"/>
+												<effectiveTime nullFlavor="NAV"/>
+												<value xsi:type="CD" code="T1b"
+												displayName="2-3cm"
+												codeSystem="1.2.250.1.213.2.47"
+												codeSystemName="TNM_UICC" codeSystemVersion="7"/>
+
+												</observation>
+											</entryRelationship>
+
+											<!--6.3.4.63 TNM Clinical Nodes Observation -->
+											<entryRelationship typeCode="COMP">
+												<observation classCode="OBS" moodCode="EVN">
+												<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+												<id root="351A3E1F-A1EC-4211-8863-E3C24EBECAE5"/>
+												<code code="21906-3" displayName="TNM Clinique N"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+												<statusCode code="completed"/>
+												<effectiveTime nullFlavor="NAV"/>
+												<value xsi:type="CD" code="N1"
+												displayName="ipsolatéral péribronchique, ipsolatéral hilaire"
+												codeSystem="1.2.250.1.213.2.47"
+												codeSystemName="TNM_UICC" codeSystemVersion="7"/>
+												</observation>
+											</entryRelationship>
+
+											<!--6.3.4.64 TNM Clinical Metastases Observation-->
+											<entryRelationship typeCode="COMP">
+												<observation classCode="OBS" moodCode="EVN">
+												<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+												<id root="AE14D1C8-2268-4468-B015-EE7EA7A495AA"/>
+												<code code="21907-1" displayName="TNM Clinique M"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+												<statusCode code="completed"/>
+												<effectiveTime nullFlavor="NAV"/>
+												<value xsi:type="CD" code="M1"
+												displayName="Métastases distantes"
+												codeSystem="1.2.250.1.213.2.47"
+												codeSystemName="TNM_UICC" codeSystemVersion="7"/>
+												</observation>
+											</entryRelationship>
+										</observation>
+									</entryRelationship>
+
+									<!-- Autre stade si pertinent -->
+									<entryRelationship typeCode="SUBJ" inversionInd="true">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.2"/>
+											<code code="21918-8"
+												displayName="Autre classification du stade"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<statusCode code="completed"/>
+											<value xsi:type="CD" nullFlavor="NAV">
+												<originalText>
+												<reference value="#TNM_comment4"/>
+												</originalText>
+											</value>
+										</observation>
+									</entryRelationship>
+
+									<!-- Mode de découverte du cancer -->
+									<entryRelationship typeCode="SUBJ" inversionInd="true">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.2"/>
+											<code code="P2-06020" displayName="Dépistage du Cancer"
+												codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5"/>
+											<statusCode code="completed"/>
+											<value xsi:type="BL" value="true"/>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+				</section>
+			</component>
+
+
+			<!-- *****************
+				Localisation et phase clinique de la maladie
+				Repris de la FRCP 2.0.0
+				*******************
+			-->
+			<!--=<<o#%@O[ Note de progression (Coded Progress Note section) ]O@%#o>>=-->
+
+			<component>
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.7"/>
+					<templateId root="1.2.250.1.213.1.1.2.25"/>
+					<id root="13d34c19-34ab-40aa-9fde-7bfe2c469362"/>
+					<code code="18733-6" displayName="Evaluation de la progression"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Cas présenté en RCP</title>
+					<text>
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="4">Cas proposé en RCP (discuté ou
+										non)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Phase</td>
+									<td>Rechute du cancer</td>
+									<td>27/02/2012</td>
+								</tr>
+								<tr>
+									<td rowspan="3">Progression</td>
+									<td>Locale</td>
+									<td>Oui</td>
+								</tr>
+								<tr>
+									<td>Régionale</td>
+									<td>Oui</td>
+								</tr>
+								<tr>
+									<td>A distance</td>
+									<td>Non</td>
+								</tr>
+								<tr>
+									<td>Commentaires et précisions (si possible date et nature des
+										examens de référence établissant la phase clinique de la
+										maladie)</td>
+									<td colspan="3"><content ID="frcp012">10/02/2012 - IRM
+											médiastin</content></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="fefc9782-6087-47c2-9406-f9a41e1069ad"/>
+							<code code="RCP_051" displayName="Phase du cancer"
+								codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20120227"/>
+							<value xsi:type="CD" code="RCP_052" displayName="Rechute du cancer"
+								codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+
+							<entryRelationship typeCode="SUBJ" inversionInd="true">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" displayName="Annotation Comment"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<text><reference value="#frcp012"/></text>
+									<statusCode code="completed"/>
+									<effectiveTime value="20101211"/>
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+					<!-- Progression du cancer -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="708528af-ede4-4be3-a1ac-2b7c9cb3e470"/>
+							<code code="RCP_059" displayName="Progression du cancer"
+								codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20120227"/>
+							<value xsi:type="BL" value="true"/>
+							<!-- locale -->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="d1c9e678-0183-4dd7-a48e-ede9cb1941bc"/>
+									<code code="RCP_055" displayName="Progression locale du cancer"
+										codeSystem="1.2.250.1.213.1.1.4.2.281"
+										codeSystemName="TA_RCP"/>
+									<statusCode code="completed"/>
+									<effectiveTime value="20120227"/>
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entryRelationship>
+							<!-- régionale -->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="42d46bc3-133c-48a3-9566-029d69eecc5e"/>
+									<code code="RCP_056"
+										displayName="Progression régionale du cancer"
+										codeSystem="1.2.250.1.213.1.1.4.2.281"
+										codeSystemName="TA_RCP"/>
+									<statusCode code="completed"/>
+									<effectiveTime value="20120227"/>
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entryRelationship>
+							<!-- à distance -->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="f02dbbaf-9034-43cd-b7ef-3312bd205f08"/>
+									<code code="RCP_057"
+										displayName="Progression à distance du cancer"
+										codeSystem="1.2.250.1.213.1.1.4.2.281"
+										codeSystemName="TA_RCP"/>
+									<statusCode code="completed"/>
+									<effectiveTime value="20120227"/>
+									<value xsi:type="BL" value="false"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+			<!-- *****************
+				Prise en charge thérapeutique antérieure ou en cours 
+				Traitements Réalisés
+				*******************
+			-->
+
+			<!-- Reprise de la FRCP 2.0.0 -->
+			<!--=<<o#%@O[ Section Procédures et interventions ]O@%#o>>=-->
+			<!-- Code les traitements réalisés -->
+
+			<component>
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+					<id root="4cb7acce-6747-4326-a750-5ca410ae6a99"/>
+					<code code="29554-3" displayName="Interventions"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Prise en charge thérapeutique antérieure</title>
+					<text>
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3">Prise en charge thérapeutique du
+										cas présenté en RCP</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Prise en charge</td>
+									<td>active</td>
+								</tr>
+								<tr>
+									<td>Type</td>
+									<td>Chimiothérapie</td>
+								</tr>
+								<tr>
+									<td>Type</td>
+									<td><content ID="frcp013">Autre traitement</content></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<procedure classCode="PROC" moodCode="EVN" negationInd="false">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+							<!-- template utilisé pour le moodCode="EVN" -->
+							<templateId root="2.16.840.1.113883.10.20.1.29"/>
+							<id root="e7483fac-a654-4fe9-ba4e-ecdb0b739222"/>
+							<!--traitement-->
+							<code code="P2-67010" displayName="Chimiothérapie conventionnelle"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"> </code>
+							<!-- LBE : Modification du statut (on est sur des traitements réalisés -->
+							<!-- Statut de la prise en charge, fixé à "completed" -->
+							<statusCode code="completed"/>
+							<!--dates de debut et de fin de traitement-->
+							<effectiveTime>
+								<low nullFlavor="NAV"/>
+								<high nullFlavor="NAV"/>
+							</effectiveTime>
+							<entryRelationship typeCode="SUBJ" inversionInd="true">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" displayName="Annotation Comment"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<text>Commentaires de la prise en charge</text>
+									<statusCode code="completed"/>
+								</act>
+							</entryRelationship>
+						</procedure>
+					</entry>
+					<entry>
+						<procedure classCode="PROC" moodCode="EVN" negationInd="false">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+							<!-- template utilisé pour le moodCode="EVN" -->
+							<templateId root="2.16.840.1.113883.10.20.1.29"/>
+							<id root="726eb1c3-fd81-4435-9bc7-4b13f079f40a"/>
+							<code code="P0-0044D" displayName="Autres soins"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+								<originalText>
+									<reference value="#frcp013"/>
+								</originalText>
+							</code>
+							<!-- Statut de la prise en charge: Déjà traitée (completed)  -->
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NAV"/>
+							<entryRelationship typeCode="SUBJ" inversionInd="true">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" displayName="Annotation Comment"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<text>Commentaires de la prise en charge</text>
+									<statusCode code="completed"/>
+								</act>
+							</entryRelationship>
+						</procedure>
+					</entry>
+				</section>
+			</component>
+
+
+			<!-- *****************
+				Proposition de prise en charge thérapeutique
+				Traitements Prévus
+				*******************
+			-->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="3814a1de-1664-4ce3-aaad-147eb2f3e5b7"/>
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Plan de traitement"/>
+					<title> Traitement(s) Prévu(s)</title>
+					<text>
+						<!-- Tableau regroupant les traitements prévus -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="6"> Traitements Prévus</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr styleCode="bold">
+									<td>Type Traitement</td>
+									<td>Date de début souhaitée</td>
+									<td>Date de fin souhaitée</td>
+									<td>Date de début réelle</td>
+									<td>Date de fin réelle</td>
+									<td>Mode administration</td>
+								</tr>
+								<tr>
+									<td>Soins palliatifs</td>
+									<td ID="dateEstimee">10/01/2017</td>
+									<td ID="dateConfirmee">10/01/2018</td>
+									<td>12/01/2017</td>
+									<td>Inconnue</td>
+									<td>Voie intraveineuse</td>
+								</tr>
+								<tr>
+									<td colspan="6">
+										<paragraph>
+											<caption styleCode="Italic">Complément d'information sur
+												le type de traitement : </caption>
+											<content ID="infComplementTypeTraitement">Refus d'être
+												réanimé</content>
+										</paragraph>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- Tableau regroupant les information du rythme d'administration -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3">Rythme d'administation</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr styleCode="bold">
+									<td>Nombre de répétition</td>
+									<td>Périodicité</td>
+									<td>Jour de la semaine</td>
+								</tr>
+								<tr>
+									<td><content ID="nombRep">156</content></td>
+									<td>1 an</td>
+									<td>Lun/Mer/Ven</td>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<paragraph>
+											<caption styleCode="Italic">Complément d'information sur
+												le rythme d'administration : </caption>
+											<content ID="infComplementRythme">A donner pendant les
+												repas</content>
+										</paragraph>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="1">Lieu d'administration</td>
+									<td colspan="3"><content ID="lieuAdministration"
+											>Domicile</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Effet secondaire notable du traitement</td>
+									<td colspan="3"><content ID="effetSecondaire"
+											>Vomissements/Nausées</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Facteurs de croissance hématopoïétiques</td>
+									<td colspan="3"><content ID="croissanceHematopoietiques"
+											>non</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Mesure(s) de préservation de la fertilité</td>
+									<td colspan="3"><content ID="fertilite">non</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Prise en charge en oncogériatrie</td>
+									<td colspan="3">non</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+
+
+
+					<!-- Traitements prévus-->
+					<!-- Issu de la FRCP 2.0.0 Traitements -->
+
+					<entry>
+						<procedure classCode="PROC" moodCode="INT" negationInd="false">
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+							<id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE"/>
+							<!--Traitement-->
+							<code code="P5-C0300" displayName="Radiothérapie"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<!--statut du traitement-->
+							<statusCode code="active"/>
+							<!--Dates prévisionnelles-->
+							<effectiveTime>
+								<low value="20131015"/>
+								<!-- Début -->
+								<high value="20131030"/>
+								<!-- Fin -->
+							</effectiveTime>
+
+							<!-- Commentaire Précision sur les traitements -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+						</procedure>
+					</entry>
+
+
+					<!-- Dates confirmées -->
+
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="f92eb944-7ccd-4a52-af2a-b8e11352fb76"/>
+							<code code="11778-8 " codeSystem="2.16.840.1.113883.6.1"
+								codeSystemName="LOINC" displayName="Date"/>
+							<text>
+								<reference value="#DateConfirmee"/>
+							</text>
+							<statusCode code="completed"/>
+
+							<effectiveTime>
+								<low value="20170110"/>
+								<!-- Début -->
+								<high value="20180110"/>
+								<!-- Fin -->
+							</effectiveTime>
+							<value xsi:type="ST" nullFlavor="NA"/>
+						</observation>
+					</entry>
+
+					<!-- ***** Rythme d'administration *****-->
+					<!-- Entrée Médication -->
+
+					<!-- Nombre de répétition 
+						Période 
+						Jours de la semaine 
+						Numéro du jour du mois 
+						Déduites avec le rythme d'administration et la fréquence d'administration-->
+					<entry>
+						<substanceAdministration classCode="SBADM" moodCode="INT">
+							<templateId root="2.16.840.1.113883.10.20.1.24"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+							<!-- Conformité en donction du mode d'administration -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+							<id root="9aa99fc5-c982-4ae0-aed3-1cdb58bf5f88"/>
+							<!-- TE = Thérapeutic -->
+							<code code="TE" codeSystem="2.16.840.1.113883.1.11.19708"
+								codeSystemName=" ActSubstanceAdministrationCode "/>
+							<text>
+								<reference value="#nombRep"/>
+							</text>
+							<statusCode code="completed"/>
+
+							<!-- Durée du traitement -->
+							<effectiveTime xsi:type="IVL_TS">
+								<low value="20170901"/>
+								<high value="20170904"/>
+							</effectiveTime>
+							<!-- Fréquence d'administration -->
+							<effectiveTime xsi:type="PIVL_TS" institutionSpecified="true">
+								<period value="3" unit="semaine"/>
+							</effectiveTime>
+
+
+							<!-- Mode/Methode d'administration (issu du jdv mode d'administration) -->
+							<routeCode code="G-D101" displayName="Voie intraveineuse"
+								codeSystem="1.2.250.1.213.2.12"/>
+							<!-- Elément fixé à NullFlavor car obligatoires mais non demandés -->
+							<doseQuantity nullFlavor="NA"/>
+
+							<consumable>
+								<manufacturedProduct>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+									<templateId root="2.16.840.1.113883.10.20.1.53"/>
+									<manufacturedMaterial>
+										<code nullFlavor="UNK"/>
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+
+
+						</substanceAdministration>
+					</entry>
+
+					<!-- Complément d'information sur le rythme d'administration  -->
+
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="c45df63f-d894-4b5e-b27c-2607ee0f2c47"/>
+							<code code="G-D100" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5" displayName="voie d'administration"/>
+							<text/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="ST"/>
+
+						</observation>
+					</entry>
+
+
+				</section>
+			</component>
+
+
+
+			<!-- Section codant les effets secondaires du traitements/Les facteurs de croissances hématopïétiques/preservation de la fertilité/prise en charge en oncogératrie -->
+
+			<component>
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+					<id root="cecd4661-b7a7-4481-98a0-0d737b89bf44"/>
+					<code code="42545-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Event Outcome"/>
+
+					<text> </text>
+					<!-- Effet secondaire notable du traitement -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="d22ac932-3a0b-479d-b713-9dfcc2a6a5c0"/>
+							<code code="F-01460" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5" displayName="Effet Secondaire"/>
+
+							<text>
+								<reference value="#effetSecondaire"/>
+							</text>
+							<!-- Fixé à completed -->
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<!-- Effet secondaire notable du traitement-->
+							<value xsi:type="ST"/>
+
+						</observation>
+					</entry>
+
+					<!-- Facteurs de croissance hématopoïétiques -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="55b61577-6d6a-4fab-9855-d860aac475b2"/>
+							<code code="F-DF300" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5"
+								displayName="facteurs de croissance hématopoïétiques"/>
+
+							<text>
+								<reference value="#croissanceHematopoietiques"/>
+							</text>
+
+							<!-- Fixé à completed -->
+							<statusCode code="completed"/>
+							<!-- Not Applicable -->
+							<effectiveTime nullFlavor="NA"/>
+
+							<value xsi:type="BL" value="false"/>
+
+						</observation>
+					</entry>
+					<!-- Mesure(s) de préservation de la fertilité -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="aca436bb-0ec0-4e62-85c3-7c187d7aa39b"/>
+							<code code="MED-051" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP"
+								displayName="Mesures de préservation de la fertilité"/>
+
+							<text>
+								<reference value="#fertilite"/>
+							</text>
+
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+
+							<value xsi:type="BL" value="false"/>
+							<!-- Commentaire Précision (Mesure(s) de préservation de la fertilité) -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+
+
+					<!-- Prise en charge spécifique en oncogériatrie -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="e3a00c28-4a10-4a28-814d-e8ce557272fc"/>
+							<code code="ORG-001" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP"
+								displayName="Prise en charge spécifique en oncogériatrie"/>
+
+							<text>
+								<reference value="#xxx"/>
+							</text>
+
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+
+							<value xsi:type="BL" value="false"/>
+							<!-- Commentaire Précision -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+
+				</section>
+			</component>
+
+
+			<!-- *****************
+				Proposition de prise en charge thérapeutique
+				Suivi(s) pendant le ou les traitement(s)
+				*******************
+			-->
+
+
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="68927f65-64a1-408b-a81b-cba553f0de3e"/>
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="TREATMENT PLAN"/>
+					<title> Suivi(s) pendant le/ ou les traitements</title>
+					<text>
+						<!-- Tableau regroupant les types de suivi -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="6"> Suivi(s)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr styleCode="bold">
+									<td>Type de suivi</td>
+									<td>Date de début prévisionnelle</td>
+									<td>Date de fin prévisonnelle</td>
+									<td>Date de début réelle</td>
+									<td>Date de fin réelle</td>
+									<td>précision</td>
+								</tr>
+								<tr>
+									<td>Consultation</td>
+									<td ID="dateEstimeeSuivi">10/01/2017</td>
+									<td>10/01/2018</td>
+									<td>12/01/2017</td>
+									<td>Inconnue</td>
+									<td/>
+								</tr>
+
+							</tbody>
+						</table>
+						<!-- Tableau regroupant les information du rythme de suivi -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3">Rythme de suivi</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr styleCode="bold">
+									<td>Nombre de répétition</td>
+									<td>Périodicité</td>
+									<td>Jour de la semaine</td>
+								</tr>
+								<tr>
+									<td><content ID="nombRepSuivi">156</content></td>
+									<td>1 an</td>
+									<td>Lun/Mer/Ven</td>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<paragraph>
+											<caption styleCode="Italic">Complément d'information sur
+												le rythme de suivi : </caption>
+											<content ID="infComplementSuivi"> Intensifier si
+												nécessaire</content>
+										</paragraph>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- Tableau regroupant les informations sur le suivi après le traitement -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3">Suivi après le traitement</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr>
+									<td colspan="1">Type de surveillance</td>
+									<td colspan="3"><content ID="typeSurveillance"
+											>Domicile</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Autre surveillance</td>
+									<td colspan="3"><content ID="autreSurveillance"/></td>
+								</tr>
+								<tr>
+									<td colspan="1">Complément d'information sur la
+										surveillance</td>
+									<td colspan="3"><content ID="compInfSurv">IRM</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Date prévisionnelle de début</td>
+									<td colspan="3">12/01/2017</td>
+								</tr>
+								<tr>
+									<td colspan="1">Date prévisionnelle de fin</td>
+									<td colspan="3">12/01/2018</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- Tableau regroupant les information du rythme de surveillance -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3">Rythme de surveillance</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr styleCode="bold">
+									<td>Nombre de répétition</td>
+									<td>Périodicité</td>
+									<td>Jour de la semaine</td>
+								</tr>
+								<tr>
+									<td><content ID="nombRepSur">145</content></td>
+									<td>1 an</td>
+									<td>Lun/Mer/Ven</td>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<paragraph>
+											<caption styleCode="Italic">Complément d'information sur
+												le rythme de surveillance : </caption>
+											<content ID="infComplementSur"> Intensifier si
+												nécessaire</content>
+										</paragraph>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!--  Observation Requests element -->
+
+
+					<!-- Type de suivi -->
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="74101ddb-8074-4ca5-8c36-e48e38e0bced"/>
+							<code code="ORG-003" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Type de suivi"/>
+
+							<!-- Précision sur le suivi -->
+							<text>
+								<reference value="#infComplementSuivi"/>
+							</text>
+							<statusCode code="active"/>
+							<effectiveTime>
+								<low value="20170110"/>
+								<!-- Date prévisionnelle de début -->
+								<high value="20180110"/>
+								<!-- Date prévisionnelle de fin  -->
+							</effectiveTime>
+							<!-- type de suivi -->
+							<value xsi:type="CD" code="P2-00130" displayName="Consultation"
+								codeSystem="1.2.250.1.213.2.12"/>
+							<!--Autre suivi -->
+							<value xsi:type="ST"/>
+
+
+						</observation>
+					</entry>
+
+					<!-- ****  Rythme de suivi ***** -->
+
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="6de1efcc-b64a-41e0-b970-cac952c9ee2e"/>
+							<code code="ORG-004" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Rythme du suivi"/>
+
+							<!-- Complément d'information sur le rythme du suivi -->
+							<text>
+								<reference value="#infComplementSuivi"/>
+							</text>
+							<statusCode code="active"/>
+							<!-- Périodicité -->
+							<effectiveTime xsi:type="IVL_TS">
+								<low value="20170112"/>
+								<!-- Début de la période -->
+								<high value="20180102"/>
+								<!-- Fin de la période -->
+							</effectiveTime>
+
+							<!-- Nombre de répétitions -->
+							<value xsi:type="INT" value="65"/>
+							<!-- Jour de la semaine -->
+							<value xsi:type="CD" code="GEN-024" displayName="Lundi"
+								codeSystem="1.2.250.1.213.1.1.4.322"/>
+
+							<!-- Commentaire/Précision générale du suivi prévu -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+						</observation>
+					</entry>
+
+					<!-- ***** Le suivi après traitement ***** -->
+
+					<entry>
+						<observation classCode="OBS" moodCode="GOL">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="59002b18-7706-40cc-9f53-c6bd8e8512cc"/>
+							<code code="ORG-002" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Suivi après traitement"/>
+							<!-- Complément d'information sur la surveillance -->
+							<text>
+								<reference value="#infComplementSur"/>
+							</text>
+							<statusCode code="active"/>
+
+
+							<effectiveTime>
+								<low/>
+								<!-- Date prévisionnelle de début -->
+								<high/>
+								<!-- Date prévisionnelle de fin -->
+							</effectiveTime>
+							<!-- Type de surveillance -->
+							<value xsi:type="CD" code="MED-092"
+								displayName="Examen d’imagerie Médicale"
+								codeSystem="1.2.250.1.213.1.1.4.322"/>
+							<!-- Autre surveillance -->
+							<value xsi:type="ST"/>
+
+						</observation>
+					</entry>
+
+					<!-- ***** Rythme de la surveillance **** -->
+
+
+					<entry>
+						<observation classCode="OBS" moodCode="GOL">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="31f02a8a-f793-47a1-ad97-f47c9ac64280"/>
+							<code code="ORG-006" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Rythme de surveillance"/>
+
+							<!-- Complément d'information sur le rythme de la surveillance -->
+							<text>
+								<reference value="#"/>
+							</text>
+							<statusCode code="active"/>
+
+
+							<!-- Périodicité -->
+							<effectiveTime xsi:type="IVL_TS">
+								<low value="20170812"/>
+								<!-- Début de la période -->
+								<high value="20180802"/>
+								<!-- Fin de la période -->
+							</effectiveTime>
+
+							<!-- Nombre de répéttions -->
+							<value xsi:type="INT" value="145"/>
+							<!-- Jour de la semaine -->
+							<value xsi:type="CD" code="GEN-025" displayName="Mardi"
+								codeSystem="1.2.250.1.213.1.1.4.322"/>
+
+							<!-- Commentaire/Précision général de la surveillance -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#comment-2"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+
+
+			<!-- *****************
+				Mesure(s) anticipée(s)
+				******************
+			-->
+			<!-- Coded Care Plan Section -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="f0049ebe-74d8-44ad-99a4-c0c427936a4f"/>
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="TREATMENT PLAN"/>
+					<title> Mesure(s) anticpée(s)</title>
+					<text>
+						<!-- Tableau regroupant les mesures anticipées  -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="5"> Mesures Anticipées</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="3">Prise en charge anticipée des conséquences
+										neurocognitives et endocriniennes</td>
+									<td><content ID="priseEnCharge">non</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Mesure anticipée</td>
+									<td colspan="3"><content ID="ma1">Infirmière à
+											domicile</content></td>
+									<td/>
+								</tr>
+								<tr>
+									<td colspan="1">Mesure anticipée</td>
+									<td colspan="3">Installation d'un lit médicalisé</td>
+									<td/>
+								</tr>
+
+							</tbody>
+						</table>
+					</text>
+					<!-- Prise en charge anticipée des conséquences neurocognitives et endocriniennes -->
+					<!-- Observation Request -->
+					<entry>
+						<observation moodCode="INT" classCode="OBS">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="5cf8a9ee-c89b-4dc1-96ba-477b0b5d8275"/>
+							<code code="ORG-007" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP"
+								displayName="Prise en charge anticipée des conséquences neurocognitives et endocriniennes"/>
+							<text>
+								<reference value="#priseEnCharge"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+
+							<value xsi:type="BL" value="false"/>
+							<!-- Commentaire sur les mesures anticipées -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#comment-2"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+
+
+					<!-- Procedure Entry -->
+					<entry>
+						<procedure classCode="PROC" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+							<templateId root="2.16.840.1.113883.10.20.1.29"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+
+							<id root="d6f154f7-8fe8-4d32-a73e-c19e5badac68"/>
+							<code code="ORG-008" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Autres mesures anticipées"/>
+							<!-- Autres mesures anticipées -->
+							<text>
+								<reference value="#ma1"/>
+							</text>
+							<statusCode code="active"/>
+							<effectiveTime nullFlavor="NA"/>
+
+
+
+						</procedure>
+					</entry>
+
+				</section>
+			</component>
+
+			<!-- *****************
+				Situation de non-réponse au traitement
+				******************
+			-->
+			<!-- coded care plan section -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="c7e5fb07-ab7f-4d26-b7d6-d80df27dd1bd"/>
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="TREATMENT PLAN"/>
+					<title>Situation de non réponse au traitement</title>
+					<text>
+						<!-- Tableau contenant les information de non réponse au traitement -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="5"> Situation de non réponse au
+										traitement</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="3">Arrêt de tous les traitements actifs</td>
+									<td>oui</td>
+								</tr>
+								<tr>
+									<td colspan="3">Date</td>
+									<td colspan="3">11/01/2017</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!--  Observation Requests  -->
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="a135cc56-da85-4528-9f05-f36f62e40d41"/>
+							<code code="MED-052" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP"
+								displayName="Arrêt de tous les traitements actifs"/>
+							<text/>
+							<statusCode code="active"/>
+							<effectiveTime value="20170111"/>
+							<!-- Date d'arrrêt des traitements actifs -->
+							<!-- Arrêt de tous les traitements actifs -->
+							<value xsi:type="BL" value="true"/>
+							<!-- Commentaire précision de la rubrique Situation de non-réponse au traitement-->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#comment-2"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+				</section>
+
+			</component>
+
+
+
+
+			<!-- 
+				*********************************************
+				********************************************
+				RUBRIQUE SOINS DE SUPPORT, ACCOMPAGNEMENT
+				SOCIAL ET PROFESSIONNEL
+				*********************************************
+				*********************************************
+			-->
+
+
+			<!-- *****************
+				Soins de support et accompagnement social
+				******************
+			-->
+			<!-- Coded Care Plan Section -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="bb7dd622-8cc1-4d47-b6ed-132d1bdd86a1"/>
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="TREATMENT PLAN"/>
+					<title>Soins de support et Accompagnement Social</title>
+					<text>
+						<!-- Tableau du soin de support  -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3"> Soins de support</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr styleCode="bold">
+									<td>soins de support</td>
+									<td>situation</td>
+									<td>poids</td>
+								</tr>
+								<tr>
+									<td>Prise en charge de la douleur</td>
+									<td><content ID="situation">Grosse douleur</content></td>
+									<td>75kg</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- Détail de la proposition thérapeutique -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3"> Détails de la proposition
+										thérapeutique</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr styleCode="bold">
+									<td>Périodicité</td>
+									<td>Date de début</td>
+									<td>Date de fin</td>
+								</tr>
+								<tr>
+									<td>1 an</td>
+									<td>11/01/2017</td>
+									<td>11/01/2018</td>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<paragraph>
+											<caption styleCode="Italic">Complément d'information sur
+												le soin de support : </caption>
+											<content ID="infComplementSupport">Regarder les
+												améliorations</content>
+										</paragraph>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+
+					<!-- Observation Requests  -->
+
+					<entry>
+						<observation classCode="OBS" moodCode="GOL">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="f83d3db2-c511-4cfa-b216-773f6deadb4d"/>
+							<code code="MED-053" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Soins de support"/>
+							<!-- Situation -->
+							<text>
+								<reference value="#situation"/>
+							</text>
+							<statusCode code="active"/>
+
+							<effectiveTime nullFlavor="NA"/>
+							<!-- Soin de support -->
+							<value xsi:type="CD" code="ORG-35"
+								displayName="Prise en charge de la douleur"
+								codeSystem="1.2.250.1.213.1.1.4.322"/>
+							<!-- Poids -->
+							<value xsi:type="PQ" unit="kg" value="75"/>
+
+
+						</observation>
+					</entry>
+
+					<!-- ***** Détail de la proposition thérapeutique ******** -->
+					<entry>
+						<observation classCode="OBS" moodCode="GOL">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="f83d3db2-c511-4cfa-b216-773f6deadb4d"/>
+							<code code="MED-054" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Proposition thérapeutique"/>
+							<text/>
+							<statusCode code="active"/>
+							<!-- Periodicité  déduite de la date de début et de la date de fin-->
+
+							<effectiveTime>
+								<low value="20170111"/>
+								<!-- Date de début -->
+								<high value="20170911"/>
+								<!-- Date de fin  -->
+							</effectiveTime>
+							<value xsi:type="ST" nullFlavor="NA"/>
+							<!-- Commentaire/Précision -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#infComplementSupport"/>Commentaire texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+
+					</entry>
+				</section>
+			</component>
+
+			<!-- *****************
+				Accompagnement au sevrage
+				******************
+			-->
+
+
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="5a53dad6-84b9-4fef-9f04-4e78884606e4"/>
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="TREATMENT PLAN"/>
+					<title> Accompagnement au sevrage</title>
+					<text>
+						<!-- Tableau regroupant les informations de l'accompagnement au sevrage -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3">Accompagnement au sevrage</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<tr>
+									<td colspan="1">Type de sevrage</td>
+									<td colspan="3"><content ID="sevrage">Tabagique</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Si autre, préciser</td>
+									<td colspan="3"><content ID="AutreAddiction"/></td>
+								</tr>
+								<tr>
+									<td colspan="1">Fumeur actif</td>
+									<td colspan="3"><content ID="fumeurActif">oui</content></td>
+								</tr>
+								<tr>
+									<td colspan="1">Sevrage de moins de douze mois</td>
+									<td colspan="3"><content ID="sevrageUnAn">non</content></td>
+								</tr>
+							</tbody>
+						</table>
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="3">Détail de la proposition de
+										sevrage</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr styleCode="bold">
+									<td>Nombre de répétition</td>
+									<td>Périodicité</td>
+									<td>Jour de la semaine</td>
+								</tr>
+								<tr>
+									<td>156</td>
+									<td>1 an</td>
+									<td>Lun/Mer/Ven</td>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<content ID="commentairePriseCharge"/><paragraph>
+											<caption styleCode="Italic">Complément d'information sur
+												la prise en charge : </caption>
+										</paragraph>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</text>
+
+					<!-- Type de sevrage -->
+					<!-- Observation request -->
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="d1206106-5b11-4055-a1a1-f172eb946b45"/>
+							<code code="F-8A050" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5" displayName="sevrage"/>
+							<!-- Autres addictions -->
+							<text>
+								<reference value="#AutreAddiction"/>
+							</text>
+							<statusCode code="active"/>
+
+							<!-- **** Détail de la proposition de sevrage **** -->
+							<!-- Périodicité déduite-->
+
+							<effectiveTime xsi:type="IVL_TS">
+								<low value="20170111"/>
+								<!-- Date de début -->
+								<high value="20180111"/>
+								<!-- Date de fin  -->
+							</effectiveTime>
+							<!-- Type de sevrage -->
+							<value xsi:type="CD" code="MED-093" displayName="Tabagique"
+								codeSystem="1.2.250.1.213.1.1.4.322"/>
+							<!-- Complément d'information sur la prise en charge -->
+							<!-- Entrée commentaire -->
+
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#commentairePriseCharge"/>Commentaire
+										texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+
+					<!-- Fumeur actif -->
+
+					<entry>
+						<observation classCode="OBS" moodCode="GOL">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="f83d3db2-c511-4cfa-b216-773f6deadb4d"/>
+							<code code="D9-30171" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5" displayName="tabagisme"/>
+							<text>
+								<reference value="#fumeurActif"/>
+							</text>
+							<statusCode code="active"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+
+						</observation>
+					</entry>
+
+					<!-- Sevrage de moins de 12 mois -->
+					<entry>
+						<observation classCode="OBS" moodCode="GOL">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="a506700b-c60a-4afe-94f3-011a37c37a66"/>
+							<code code="MED-055" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP" displayName="Sevrage de moins de 12 mois"/>
+							<text>
+								<reference value="#sevrageUnAn"/>
+							</text>
+							<statusCode code="active"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="false"/>
+							<!-- Commentaire général sur le sevrage -->
+							<!-- Entrée commentaire -->
+
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#commentairePriseCharge"/>Commentaire
+										texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+
+				</section>
+			</component>
+
+
+
+			<!-- *****************
+				Situation scolaire et socioprofessionnelle
+				******************
+			-->
+
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="5a53dad6-84b9-4fef-9f04-4e78884606e4"/>
+					<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="TREATMENT PLAN"/>
+					<title> Situation scolaire et socioprofessionnelle</title>
+					<text>
+						<!-- Tableau regroupant les informations de la situation scolaire et socioprofessionnelle -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="5">Situation scolaire et
+										socioprofessionnelle</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<tr styleCode="bold">
+									<td colspan="1">Type de démarche à mettre en oeuvre</td>
+									<td colspan="1">Autre demarche</td>
+									<td colspan="1">Complément d'information sur le démarche</td>
+									<td colspan="1">Date de début</td>
+									<td colspan="1">Date de fin </td>
+								</tr>
+								<tr>
+									<td><content ID="TypeDemarche">Aides à domicile</content></td>
+									<td/>
+									<td><content ID="demarche"/></td>
+									<td>11/01/2017</td>
+									<td>Inconnue</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</text>
+
+					<!-- Type de démarche à mettre en oeuvre -->
+					<!-- Observation request -->
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="0d7c0dcf-22c9-4db9-8082-30eba57f7963"/>
+							<code code="GEN-017" codeSystem="1.2.250.1.213.1.1.4.322"
+								codeSystemName="TA_ASIP"
+								displayName="Type de démarche à mettre en œuvre"/>
+
+							<!-- Complément d'information sur la démarche -->
+							<text>
+								<reference value="#demarche"/>
+							</text>
+							<statusCode code="active"/>
+
+
+
+							<effectiveTime xsi:type="IVL_TS">
+								<low value="20170111"/>
+								<!-- Date de début -->
+								<high value="20180111"/>
+								<!-- Date de fin  -->
+							</effectiveTime>
+
+							<!-- Type de démarche à mettre en oeuvre -->
+							<value xsi:type="CD" code="PAT-024" displayName="Aides à domicile "
+								codeSystem="1.2.250.1.213.1.1.4.322"/>
+							<!-- Autre Démarche -->
+							<value xsi:type="ST"/>
+
+
+						</observation>
+					</entry>
+
+				</section>
+			</component>
+			<!-- *****************
+				Organisme d'aide et de maintien dans l'emploi Nom/Ville 
+				******************
+			-->
+			<!-- Encounter section -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.3"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.3"/>
+					<id root="96a8596f-7650-4717-b2f8-45d12d860ac4"/>
+					<code code="46240-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="HISTORY OF ENCOUNTERS"/>
+					<title> Organisme d'aide et de maintien dans l'emploi</title>
+					<text>
+						<!-- Tableau regroupant les informations de l'organisme d'aide et de maintien dans l'emploi -->
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="2">Organisme d'aide et de maintien
+										dans l'emploi</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<tr>
+									<td colspan="1">Nom de l'organisme</td>
+									<td colspan="1">
+										<content ID="nomOrg">Pôle Emploi</content></td>
+								</tr>
+								<tr>
+									<td> Adresse de l'organisme</td>
+									<td>7 rue de du neutrogena Paris</td>
+								</tr>
+								<tr>
+									<td>Contact</td>
+									<td>0102030405</td>
+								</tr>
+								<tr>
+									<td>Commentaire/Précision</td>
+									<td>Beaucoup d'attente...</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<encounter classCode="ENC" moodCode="ARQ">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="4874e13c-0f73-4e86-8b32-91d6884eab2f"/>
+							<code code="AMB" codeSystem="2.16.840.1.113883.5.4"
+								codeSystemName="ActEncounterCode"/>
+
+							<!-- Nom de l'organisme -->
+							<text>
+								<reference value="#nomOrg"/>
+							</text>
+							<effectiveTime nullFlavor="NA"/>
+							<participant typeCode="LOC">
+								<templateId root="2.16.840.1.113883.10.20.1.45"/>
+								<participantRole classCode="SDLOC">
+									<id root="6ad64601-f1d4-4002-a9f9-60e1c88ea079"/>
+									<code/>
+									<!-- Adresse de l'organisme -->
+									<addr>
+										<city>Paris</city>
+									</addr>
+									<!-- Contact -->
+									<telecom value="tel:010101010"/>
+									<playingEntity classCode="PLC" determinerCode="INSTANCE">
+										<name/>
+									</playingEntity>
+								</participantRole>
+							</participant>
+
+							<!-- Commentaire/ Précision organisme d'aide et de maintien dans l'emploi -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#commentairePriseCharge"/>Commentaire
+										texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</encounter>
+					</entry>
+				</section>
+			</component>
+
+
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.47"/>
+					<id root="12999bb3-07bd-4957-8703-98e9c2cff4bf"/>
+					<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Commentaire"/>
+					<title>Commentaires</title>
+					<text>
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="5">Commentaires</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<tr>
+									<td colspan="1">lieu d'administration</td>
+									<td colspan="4">
+										<content ID="lieuAdm"/></td>
+								</tr>
+								<tr>
+									<td colspan="1">Établissement de santé de référence</td>
+									<td colspan="4">
+										<content ID="ESR"/></td>
+								</tr>
+								<tr>
+
+									<td colspan="1">Centre d'hébergement</td>
+									<td colspan="4">
+										<content ID="CentreHebergement"/></td>
+								</tr>
+
+								<tr>
+
+									<td colspan="1">Structure de coordination ou d'interface
+										ville-hôpital</td>
+									<td colspan="4">
+										<content ID="StructCoordinationVilleHopital"/></td>
+								</tr>
+								<tr>
+									<td colspan="1">Lieu de prise en charge pour le sevrage
+										ville-hôpital</td>
+									<td colspan="4"> </td>
+								</tr>
+
+
+								<tr>
+									<td>Autre Strucutre ou professionnel(le)</td>
+									<td/>
+								</tr>
+								<tr>
+									<td>Structure(s) de soutien et d'information</td>
+									<td/>
+								</tr>
+
+							</tbody>
+						</table>
+					</text>
+
+					<!-- Commentaire sur le lieu d'administration  -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="612957fa-dcb4-434e-941e-4ecbcee58b84"/>
+							<code code="ORG-059" displayName="Lieu d'adlinistration"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+
+							<text>
+								<reference value="#lieuAdm"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="ST"/>
+						</observation>
+					</entry>
+					<!-- Commentaire sur l'établissement de santé de référence -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="612957fa-dcb4-434e-941e-4ecbcee58b84"/>
+							<code code="ORG-054" displayName="Établissement de santé de référence"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+
+							<text>
+								<reference value="#lieuAdm"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="ST"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+
+			<!-- Statut du document -->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.35"/>
+					<id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+					<code code="33557-0" displayName="Niveau de complétion"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Statut du Document</title>
+					<text>Statut du document : en cours</text>
+					<!--Statut du document -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id/>
+							<code code="CDA_001" displayName="Statut du document"
+								codeSystem="1.2.250.1.213.1.1.4.2.286" codeSystemName="TA_CDA"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20110314"/>
+							<!-- Date de mise à jour -->
+
+							<!-- statut -->
+							<value xsi:type="CD" code="GEN-066" displayName="En cours" codeSystem="1.2.250.1.213.1.1.4.322"/>
+
+							<!-- précision sur le statut -->
+							<!-- Commentaire -->
+							<entryRelationship inversionInd="true" typeCode="SUBJ">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.40"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+									<code code="48767-8" codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC" displayName="Annotation Comment"/>
+									<text>
+										<reference value="#commentairePriseCharge"/>Commentaire
+										texte </text>
+									<statusCode code="completed"/>
+
+								</act>
+							</entryRelationship>
+
+						</observation>
+					</entry>
+					
+					<!-- Motif de mise à jour -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id/>
+							<code code="GEN-037" displayName="Motif de mise à jour"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<!-- Motif de mise à jour codé -->
+							<value xsi:type="CD" code="G-A500" displayName="récidive"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+			<!-- Section citation de documents, contient les références à la FRCP et au CR-ACP -->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.55"/>
+					<id root="acb0d9e4-ac59-43b9-8519-10a114f70930"/>
+					<code code="LP72255-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Citation de document"/>
+					<title> Documents utilisés</title>
+					<text>
+						<table border="1">
+							<thead>
+								<tr>
+									<th align="center" colspan="5">Documents utilisés</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td colspan="1">FRCP n° ...</td>
+									<td colspan="1">CR-ACP n°...</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4"/>
+							<id root="5f6aa97d-9789-4769-8b11-850bab6980f5"/>
+							<code nullFlavor="NA"/>
+							<text>
+								<reference value="#study-1"/>
+							</text>
+
+							<reference typeCode="REFR">
+								<!-- Document de référence-->
+								<externalDocument classCode="DOC" moodCode="EVN">
+									<!-- Identifiant du document -->
+									<id root="151d1722-4e1e-415a-9b3d-d25d175cb1c7"/>
+									<text>
+										<!-- URL du document -->
+										<reference value="http://foo.."/>
+									</text>
+								</externalDocument>
+
+							</reference>
+							<!-- Reprise d'une observation-->
+							<reference typeCode="REFR">
+								<externalObservation>
+									<!-- identifiant de l'observation -->
+									<id root="c05c9027-1d57-4ac1-b83c-d8285db0439e"/>
+								</externalObservation>
+
+							</reference>
+
+							<!-- Reprise d'une procédure-->
+							<reference typeCode="REFR">
+								<externalProcedure>
+									<!-- identifiant de la procédure -->
+									<id root="a407c656-e6d0-48f0-8a0c-42482c24f21d"/>
+								</externalProcedure>
+							</reference>
+						</act>
+					</entry>
+
+				</section>
+			</component>
+
+		</structuredBody>
+	</component>
+</ClinicalDocument>

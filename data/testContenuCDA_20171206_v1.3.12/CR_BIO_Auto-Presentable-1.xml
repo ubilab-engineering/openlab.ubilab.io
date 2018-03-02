@@ -1,0 +1,1677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_CRBiologie.sch"?> 
+
+<?xml-stylesheet type="text/xsl"  href="#"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:exsl="http://exslt.org/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:data="urn:asip-sante:ci-sis" xmlns:c="urn:hl7-org:v3"
+	xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:xad="http://uri.etsi.org/01903/v1.2.2#">
+<!-- Exemple de Compte Rendu d'examens biologiques au format CDA R2 et autoprésentable -->
+<!-- Un document autoprésentable utilise la feuille de style fournie dans le document -->
+
+	<data:Contenu>
+		<!-- :::::::::::::::::::: -->
+		<!--   Le document CDA	  -->
+		<!-- :::::::::::::::::::: -->
+		<c:ClinicalDocument>
+			<c:realmCode code="FR"/>
+			<c:typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+			<!-- Déclarations de conformité pour un compte rendu d'examens biologiques -->
+			<c:templateId root="2.16.840.1.113883.2.8.2.1"/>
+			<c:templateId root="1.2.250.1.213.1.1.1.1"/>
+			<c:templateId root="1.3.6.1.4.1.19376.1.3.3"/>
+			<!-- Identifiant unique de cette occurrence du document -->
+			<c:id root="1.2.250.1.213.1.1.9" extension="ALBIOM_Test2c_150410"
+				assigningAuthorityName="ASIP SANTE"/>
+			<!-- Type de document -->
+			<c:code code="11502-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+				displayName="CR d'examens biologiques"/>
+			<c:title>Compte rendu d'examens biologiques</c:title>
+			<!-- Date et heure de création du document -->
+			<c:effectiveTime value="20150410171000+0200"/>
+			<c:confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25"/>
+			<c:languageCode code="fr-FR"/>
+			<!-- identifiant commun à toutes les versions successives du comtpe rendu -->
+			<c:setId root="1.2.250.1.213.1.1.9" extension="ALBIOM_Test1"
+				assigningAuthorityName="ASIP SANTE"/>
+			<!-- numéro de la version courante (entier positif): la première version -->
+			<c:versionNumber value="1"/>
+			<!-- Le patient auquel se rapporte ce compte rendu 	-->
+			<c:recordTarget>
+				<c:patientRole>
+					<!-- patient identifié par son INS-C (mettre celui lu sur la carte Vitale de test ou de démo représentant cette patiente) -->
+					<c:id extension="1742126595744074312053" root="1.2.250.1.213.1.4.2"/>
+					<c:addr use="HP">
+						<c:streetAddressLine>39 chemin des viornes</c:streetAddressLine>
+						<c:streetAddressLine>67000 Strasbourg</c:streetAddressLine>
+					</c:addr>
+					<c:telecom use="MC" value="tel:+33-6-12-34-56-78"/>
+					<c:telecom use="H" value="mailto:julie.garnier@laposte.net"/>
+					<c:patient>
+						<c:name>
+							<c:prefix>Me</c:prefix>
+							<c:given>Julie</c:given>
+							<c:family qualifier="BR">Garnier</c:family>
+						</c:name>
+						<c:administrativeGenderCode code="F" displayName="Féminin"
+							codeSystem="2.16.840.1.113883.5.1"/>
+						<c:birthTime value="19850112"/>
+					</c:patient>
+				</c:patientRole>
+			</c:recordTarget>
+			<!-- Auteur du compte rendu -->
+			<c:author>
+				<c:time value="20140402171000+0200"/>
+				<c:assignedAuthor>
+					<c:id root="1.2.250.1.71.4.2.1" extension="810100526226"/>
+					<c:code code="G15_21/G" displayName="Pharmacien biologiste"
+						codeSystem="1.2.250.1.213.1.1.4.5"/>
+					<c:addr>
+						<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+						<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+					</c:addr>
+					<c:telecom value="tel:+33-3-88-24-73-47"/>
+					<c:telecom value="mailto:celine.cartier@selas.labo.com"/>
+					<c:assignedPerson>
+						<c:name>
+							<c:given>Céline</c:given>
+							<c:family>CARTIER</c:family>
+							<c:prefix>Dr</c:prefix>
+						</c:name>
+					</c:assignedPerson>
+					<c:representedOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1670015932"/>
+						<c:name>SELAS LABORATOIRE ANALYSEO - Site du parc des poteries</c:name>
+						<c:telecom use="PUB" value="tel:+33-3-88-24-73-00"/>
+						<c:telecom use="PUB" value="mailto:contact@selas.labo.com"/>
+						<c:addr>
+							<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+							<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+						</c:addr>
+					</c:representedOrganization>
+				</c:assignedAuthor>						
+			</c:author>
+			<!-- L'organisation chargée de la conservation du document -->
+			<c:custodian>
+				<c:assignedCustodian>
+					<c:representedCustodianOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1670015932"/>
+						<c:name>SELAS LABORATOIRE ANALYSEO - Site du parc des poteries</c:name>
+						<!-- APE 15/01/2015 <c:telecom use="PUB" value="tel:+33-3-88-24-73-47"/> il ne peut y avoir qu'une seule occurrence - cf CI-SIS -->
+						<c:telecom use="PUB" value="mailto:contact@selas.labo.com"/>
+						<c:addr>
+							<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+							<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+						</c:addr>
+					</c:representedCustodianOrganization>
+				</c:assignedCustodian>
+			</c:custodian>
+			<!-- Le responsable de la diffusion de ce compte rendu -->
+			<c:legalAuthenticator>
+				<c:time value="20140402171000+0200"/>
+				<c:signatureCode code="S"/>
+				<c:assignedEntity>
+					<c:id root="1.2.250.1.71.4.2.1" extension="810100526226"/>
+					<c:addr>
+						<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+						<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+					</c:addr>
+					<c:telecom use="PUB" value="tel:+33-3-88-24-73-47"/>
+					<c:telecom use="PUB" value="mailto:celine.cartier@selas.labo.com"/>					
+					<c:assignedPerson>
+						<c:name>
+							<c:given>Céline</c:given>
+							<c:family>CARTIER</c:family>
+							<c:prefix>Dr</c:prefix>
+						</c:name>
+					</c:assignedPerson>
+					<c:representedOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1670015932"/>
+						<c:name>SELAS LABORATOIRE ANALYSEO - Site du parc des poteries</c:name>
+						<c:telecom use="PUB" value="tel:+33-3-88-24-73-00"/>
+						<c:telecom use="PUB" value="mailto:contact@selas.labo.com"/>
+						<c:addr>
+							<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+							<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+						</c:addr>
+					</c:representedOrganization>
+				</c:assignedEntity>	
+			</c:legalAuthenticator>
+			<!-- Le médecin prescripteur des examens de biologie -->
+			<c:participant typeCode="REF">
+				<!-- Date de la prescription -->
+				<c:time>
+					<c:high value="20140201"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="810002422979"/>
+					<c:code code="G15_10/SM41" displayName="Médecin - Pneumologie (SM)"
+						codeSystem="1.2.250.1.213.1.1.4.5"/>
+					<c:addr>
+						<c:streetAddressLine>5 rue du chêne</c:streetAddressLine>
+						<c:streetAddressLine>67205 OBERHAUSBERGEN</c:streetAddressLine>
+					</c:addr>
+					<c:telecom nullFlavor="NASK"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:prefix>Dr</c:prefix>
+							<c:given>Pascal</c:given>
+							<c:family>CHARLES</c:family>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<!-- Le préleveur : une infirmière libérale -->
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" displayName="préleveur"
+					codeSystem="1.2.250.1.213.1.1.4.2.280"/>
+				<!-- Date et heure de prélèvement -->
+				<c:time>
+					<c:high value="20140827080500+0200"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0676066145"/>
+					<c:code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:given>Jeanine</c:given>
+							<c:family>Allemandet</c:family>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<!-- Médecin traitant -->
+			<c:participant typeCode="INF">
+				<c:functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88"/>
+				<c:time nullFlavor='NA'/>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="00B1057294" assigningAuthorityName="GIP-CPS" />
+					<c:code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS" displayName="Médecin - Qualifié en Médecine Générale (SM)" />
+					<c:addr>
+						<c:streetAddressLine>8 rue de Lyon</c:streetAddressLine>
+						<c:streetAddressLine>92100 Boulogne</c:streetAddressLine>
+					</c:addr>
+					<c:telecom value="tel:+33-1-42-00-00-01" use="WP" />
+					<c:telecom value="mailto:paul.medecin5729@medecin.formation.mssante.fr" use="WP" />
+					<c:associatedPerson>
+						<c:name>
+							<c:given>Paul</c:given>
+							<c:family>MEDECIN5729</c:family>
+							<c:prefix>Dr</c:prefix>
+						</c:name>
+					</c:associatedPerson>
+					<c:scopingOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="00B105729400" assigningAuthorityName="ASIP Santé" />
+						<c:name>CABINET M. MEDECIN5729</c:name>
+						<c:telecom value="tel:+33-1-42-00-00-00" use="WP" />
+						<c:telecom value="mailto:cabinet.medecin5729@medecin.formation.mssante.fr" use="WP" />
+						<c:addr>
+							<c:streetAddressLine>8 rue de Lyon</c:streetAddressLine>
+							<c:streetAddressLine>92100 Boulogne</c:streetAddressLine>
+						</c:addr>
+						<c:standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+					</c:scopingOrganization>
+				</c:associatedEntity>
+			</c:participant>					
+			<!-- Identifiant de la prescription électronique d'examens de biologie reçue par le SIL  -->
+			<c:inFulfillmentOf>
+				<c:order>
+					<c:id root="1.2.250.1.213.1.1.9" extension="2014123456789"/>
+				</c:order>
+			</c:inFulfillmentOf>
+			<!-- Acte principal : La demande d'examens enregistrée dans le SI du laboratoire (SGL) et le 1er chapitre du compte rendu -->
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:id root="1.2.250.1.213.1.1.9" extension="201411111123"/>
+					<c:code code="18719-5" displayName="Biochimie"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<c:effectiveTime>
+						<!-- Date de réception de la demande et des échantillons -->
+						<c:low value="20140402095500+0200"/>
+						<!-- Date de fin de traitement = date et heure de libération du compte rendu final -->
+						<c:high value="20140402171000+0200"/>
+					</c:effectiveTime>
+					<!-- Le laboratoire exécutant -->
+					<c:performer typeCode="PRF">
+						<c:templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+						<c:time>
+							<c:low value="20140402095500+0200"/>
+							<c:high value="20140402171000+0200"/>
+						</c:time>
+						<c:assignedEntity>
+							<!-- identifiant du directeur -->
+							<c:id root="1.2.250.1.71.4.2.1" extension="810100526226"/>
+							<c:addr>
+								<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+								<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+							</c:addr>
+							<c:telecom use="PUB" value="tel:+33-3-88-24-73-47"/>
+							<c:telecom use="PUB" value="mailto:celine.cartier@selas.labo.com"/>
+							<c:assignedPerson>
+								<c:name>
+									<c:given>Céline</c:given>
+									<c:family>CARTIER</c:family>
+									<c:prefix>Dr</c:prefix>
+								</c:name>
+							</c:assignedPerson>
+							<c:representedOrganization>
+								<c:id root="1.2.250.1.71.4.2.2" extension="1670015932"/>
+								<c:name>Laboratoire ANALYSEO - Site du parc des poteries</c:name>
+								<c:telecom use="PUB" value="tel:+33-3-88-24-73-00"/>
+								<c:telecom use="PUB" value="mailto:contact@selas.labo.com"/>
+								<c:addr>
+									<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+									<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+								</c:addr>
+								<!-- Cadre d'exercice : Laboratoire de ville -->
+								<c:standardIndustryClassCode code="AMBULATOIRE"
+									displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9"/>
+							</c:representedOrganization>
+						</c:assignedEntity>								
+					</c:performer>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<!-- Acte secondaire pour l'alimentation de la métadonnée eventCodeList -->
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:code code="18727-8" displayName="Sérologie"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<!-- Acte secondaire pour l'alimentation de la métadonnée eventCodeList -->
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:code code="18718-7" displayName="Protéines, marqueurs tumoraux, vitamines"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<!-- 
+				Prise en charge  patient/structure de soins à laquelle se rattache ce compte rendu de biologie
+				Contexte ambulatoire :  prélèvements reçus au laboratoire
+			-->
+			<c:componentOf>
+				<c:encompassingEncounter>
+					<c:code code="AMB" displayName="Ambulatoire" codeSystem="2.16.840.1.113883.5.4"/>
+					<c:effectiveTime>
+						<c:low value="20140402095500+0200"/>
+						<c:high value="20140402171000+0200"/>
+					</c:effectiveTime>
+					<c:responsibleParty>
+						<c:assignedEntity>
+							<c:id root="1.2.250.1.71.4.2.1" extension="810100526226"/>
+							<c:addr>
+								<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+								<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+							</c:addr>
+							<c:telecom use="PUB" value="tel:+33-3-88-24-73-47"/>
+							<c:telecom use="PUB" value="mailto:celine.cartier@selas.labo.com"/>
+							<c:assignedPerson>
+								<c:name>
+									<c:given>Céline</c:given>
+									<c:family>CARTIER</c:family>
+									<c:prefix>Dr</c:prefix>
+								</c:name>
+							</c:assignedPerson>
+							<c:representedOrganization>
+								<c:id root="1.2.250.1.71.4.2.2" extension="1670015932"/>
+								<c:name>SELAS LABORATOIRE ANALYSEO - Site du parc des poteries</c:name>
+								<c:telecom use="PUB" value="tel:+33-3-88-24-73-00"/>
+								<c:telecom use="PUB" value="mailto:contact@selas.labo.com"/>
+								<c:addr>
+									<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+									<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+								</c:addr>
+							</c:representedOrganization>
+						</c:assignedEntity>										
+					</c:responsibleParty>
+					<c:location>
+						<c:healthCareFacility>
+							<!-- métadonnée "modalité d'exercice" -->
+							<c:code code="SA25" displayName="Laboratoire de Biologie Médicale"
+								codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"/>
+							<c:location>
+								<c:name>SELAS LABORATOIRE ANALYSEO - Site du parc des poteries</c:name>
+								<c:addr>
+									<c:streetAddressLine>1 rue Charles Péguy</c:streetAddressLine>
+									<c:streetAddressLine>67200 STRASBOURG</c:streetAddressLine>
+								</c:addr>
+							</c:location>	
+						</c:healthCareFacility>
+					</c:location>
+				</c:encompassingEncounter>
+			</c:componentOf>
+			
+			<!--********************* Corps du compte rendu ********************-->
+			<c:component>
+				<c:structuredBody>
+					<c:component>
+						<!-- Section de premier niveau = chapitre "Biochimie" -->
+						<c:section>
+							<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+							<c:code code="18719-5" displayName="Biochimie"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<c:title>BIOCHIMIE</c:title>
+							<c:component>
+								<!-- Section de second niveau = BILAN LIPIDIQUE -->
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:code code="57698-3" displayName="Bilan lipidique"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<c:text>
+										<c:table border="0">
+											<c:thead align="center">
+												<c:tr align="left">
+													<c:th styleCode="Bold">BILAN LIPIDIQUE</c:th>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th>Valeurs de référence</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody align="center">
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr>
+													<c:td align="left">Triglycérides</c:td>
+													<c:td/>
+													<c:td align="right">0.62</c:td>
+													<c:td align="left">g/l</c:td>
+													<c:td/>
+													<c:td align="left">(0.50 - 1.50)</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left"><c:content ID="BL0002">...(Colorimétrie enzymatique)</c:content></c:td>
+													<c:td/>
+													<c:td align="right">0.71</c:td>
+													<c:td align="left">mmol/l</c:td>
+													<c:td/>
+													<c:td align="left">(0.57 - 1.71)</c:td>
+												</c:tr>
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr align="right">
+													<c:td align="left">Cholestérol</c:td>
+													<c:td/>
+													<c:td align="right">1.90</c:td>
+													<c:td align="left">g/l</c:td>
+													<c:td/>
+													<c:td align="left">(1.50 - 2.00)</c:td>
+												</c:tr>
+												<c:tr align="right">
+													<c:td align="left"><c:content ID="BL0003">...(Colorimétrie enzymatique)</c:content></c:td>
+													<c:td/>
+													<c:td align="right">4.90</c:td>
+													<c:td align="left">mmol/l</c:td>
+													<c:td/>
+													<c:td align="left">(3.87 - 5.16)</c:td>
+												</c:tr>
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr align="right">
+													<c:td align="left">H.D.L. Cholestérol</c:td>
+													<c:td/>
+													<c:td align="right">0.73</c:td>
+													<c:td align="left">g/l</c:td>
+													<c:td/>
+													<c:td align="left">(0.40 - 1.00)</c:td>
+												</c:tr>
+												<c:tr align="left">
+													<c:td align="left"><c:content ID="BL0004">...(Enzymatique HDL-direct)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr align="right">
+													<c:td align="left">L.D.L. Cholestérol calculé</c:td>
+													<c:td/>
+													<c:td align="right">1.05</c:td>
+													<c:td align="left">g/l</c:td>
+													<c:td/>
+													<c:td align="left">(&lt;1.60)</c:td>
+												</c:tr>
+												<c:tr align="right">
+													<c:td align="left"><c:content ID="BL0005">...(Calculé selon la formule de Friedewald)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:br/>
+										<c:table border="1">
+											<c:thead align="center">
+												<c:tr>
+												<c:th colspan="2">Objectifs thérapeutiques en
+												fonction des facteurs de risque
+												cardiovasculaires</c:th>
+												</c:tr>
+												<c:tr>
+												<c:th colspan="2">(Recommandations ANSM
+												2005)</c:th>
+												</c:tr>
+												<c:tr>
+												<c:th>Facteur de risque</c:th>
+												<c:th>Objectifs thérapeutiques LDL en g/l</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody align="center">
+												<c:tr>
+												<c:td>Absence</c:td>
+												<c:td>&lt;2.20</c:td>
+												</c:tr>
+												<c:tr>
+												<c:td>1</c:td>
+												<c:td>&lt;1.90</c:td>
+												</c:tr>
+												<c:tr>
+												<c:td>2</c:td>
+												<c:td>&lt;1.60</c:td>
+												</c:tr>
+												<c:tr>
+												<c:td>3 ou plus</c:td>
+												<c:td>&lt;1.30</c:td>
+												</c:tr>
+												<c:tr>
+												<c:td>Haut risque</c:td>
+												<c:td>&lt;1.00</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td colspan="2">...</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td rowspan="6">Facteurs de risque</c:td>
+													<c:td align="left">- Hommes de 50 ans ou plus ou femmes de 60 ans ou plus</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left">- Antécédents familiaux de maladie coronaire précoce</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left">- Tabagisme (ou arrêté depuis moins de trois ans)</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left">- Hypertension artérielle</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left">- Diabète de type 2</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left">- HDL cholestérol &lt; 0.40 g/l (mais facteur	protecteur si HDL &gt; 0.60 g/l)</c:td>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:br/>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="57698-3" codeSystem="2.16.840.1.113883.6.1" displayName="Bilan lipidique"/>
+											<c:statusCode code="completed"/>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="2571-8" codeSystem="2.16.840.1.113883.6.1" 
+																displayName="Triglycérides [Masse/Volume] Sérum/Plasma ; Numérique"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime value="20140402145521+0200"/>
+															<c:value xsi:type="c:PQ" value="0.62" unit="g/L">
+																<!-- unité secondaire -->
+																<c:translation value="0.71" code="mmol/L"/>
+															</c:value>
+															<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+															<c:methodCode>
+																<c:originalText><c:reference value="#BL0002"/></c:originalText>
+															</c:methodCode>
+															<c:referenceRange>
+																<c:observationRange>
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="0.50" unit="g/L">
+																			<!-- unité secondaire -->
+																			<c:translation value="0.57" code="mmol/L"/>
+																		</c:low>
+																		<c:high value="1.50" unit="g/L">
+																			<!-- unité secondaire -->
+																			<c:translation value="1.71" code="mmol/L"/>
+																		</c:high>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="2093-3" codeSystem="2.16.840.1.113883.6.1" 
+																displayName="Cholestérol [Masse/Volume] Sérum/Plasma ; Numérique"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime value="20140402145521+0200"/>
+															<c:value xsi:type="c:PQ" value="1.90" unit="g/L">
+																<c:translation value="4.90" code="mmol/L"/>
+															</c:value>
+															<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+															<c:methodCode>
+																<c:originalText><c:reference value="#BL0003"/></c:originalText>
+															</c:methodCode>
+															<c:referenceRange>
+																<c:observationRange>
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="1.50" unit="g/L">
+																			<c:translation value="3.87" code="mmol/L"/>
+																		</c:low>
+																		<c:high value="2.00" unit="g/L">
+																			<c:translation value="5.16" code="mmol/L"/>
+																		</c:high>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="2085-9" codeSystem="2.16.840.1.113883.6.1" 
+																displayName="Cholestérol HDL [Masse/Volume] Sérum/Plasma ; Numérique"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime value="20140402145521+0200"/>
+															<c:value xsi:type="c:PQ" value="0.73" unit="g/L"/>
+															<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+															<c:methodCode>
+																<c:originalText><c:reference value="#BL0004"/></c:originalText>
+															</c:methodCode>
+															<c:referenceRange>
+																<c:observationRange>
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="0.40" unit="g/L"/>
+																		<c:high value="1.00" unit="g/L"/>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="13457-7" codeSystem="2.16.840.1.113883.6.1" 
+																displayName="Cholestérol LDL [Masse/Volume] Sérum/Plasma ; Numérique ; Résultat calculé"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime value="20140402145521+0200"/>
+															<c:value xsi:type="c:PQ" value="1.05" unit="g/L"/>
+															<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+															<c:methodCode>
+																<c:originalText><c:reference value="#BL0005"/></c:originalText>
+															</c:methodCode>
+															<c:referenceRange>
+																<c:observationRange>
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:high value="1.60" unit="g/L"/>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<!-- Code générique de biochimie, faute de code spécialisé pour biochimie sanguine -->
+									<c:code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1"/>
+									<c:text> 
+										<c:table border="0">
+											<c:thead align="center">
+												<c:tr align="left">
+													<c:th styleCode="Bold">AUTRES EXAMENS DE BIOCHIMIE SANGUINE</c:th>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th>Valeurs de référence</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody align="center">
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr>
+													<c:td align="left">Glycémie à jeun</c:td>
+													<c:td/>
+													<c:td align="right">0.88</c:td>
+													<c:td align="left">g/l</c:td>
+													<c:td/>
+													<c:td align="left">(0.70 - 1.08)</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left"><c:content ID="ABS0001">...(UV Hexokinase)</c:content></c:td>
+													<c:td/>
+													<c:td align="right">4.89</c:td>
+													<c:td align="left">mmol/l</c:td>
+													<c:td/>
+													<c:td align="left">(3.89 - 6.00)</c:td>
+												</c:tr>
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr align="right">
+													<c:td align="left">Transaminases GOT (ASAT)</c:td>
+													<c:td/>
+													<c:td align="right" styleCode="Bold">61</c:td>
+													<c:td align="left">UI/l</c:td>
+													<c:td/>
+													<c:td align="left">(10 - 50)</c:td>
+												</c:tr>
+												<c:tr align="left">
+													<c:td align="left"><c:content ID="ABS0002">...(IFCC avec P5P)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr align="right">
+													<c:td align="left">Transaminases GPT (ALAT)</c:td>
+													<c:td/>
+													<c:td align="right" styleCode="Bold">82</c:td>
+													<c:td align="left">UI/l</c:td>
+													<c:td/>
+													<c:td align="left">(10 - 50)</c:td>
+												</c:tr>
+												<c:tr align="left">
+													<c:td align="left"><c:content ID="ABS0003">...(IFCC avec P5P)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr align="right">
+													<c:td align="left">Gamma G.T.</c:td>
+													<c:td/>
+													<c:td align="right" styleCode="Bold">361</c:td>
+													<c:td align="left">UI/l</c:td>
+													<c:td/>
+													<c:td align="left">(4 - 60)</c:td>
+												</c:tr>
+												<c:tr align="right">
+													<c:td align="left"><c:content ID="ABS0004">...(Colorimétrie enzymatique)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:br/>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<!-- Code générique de biochimie, faute de code spécialisé pour biochimie sanguine -->
+											<c:code code="18719-5"
+												codeSystem="2.16.840.1.113883.6.1"
+												displayName="Biochimie"/>
+											<c:statusCode code="completed"/>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="53049-3"
+														codeSystem="2.16.840.1.113883.6.1"
+														codeSystemName="LOINC"
+														displayName="Glucose à jeun [Masse/Volume] Sérum/Plasma ; Numérique"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="20140402145521+0200"/>
+													<c:value xsi:type="c:PQ" value="0.88" unit="g/L">
+														<!-- unité secondaire -->
+														<c:translation value="4.89" code="mmol/L"/>
+													</c:value>
+													<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+													<c:methodCode>
+														<c:originalText><c:reference value="#ABS0001"/></c:originalText>
+													</c:methodCode>
+													<!-- Intervalle de valeurs de référence -->
+													<c:referenceRange typeCode="REFV">
+														<c:observationRange classCode="OBS"
+															moodCode="EVN.CRT">
+															<c:value xsi:type="c:IVL_PQ">
+																<c:low value="0.70" unit="g/L">
+																	<c:translation value="3.89" code="mmol/L"/>
+																</c:low>
+																<c:high value="1.08" unit="g/L">
+																	<c:translation value="6.00" code="mmol/L"/>
+																</c:high>
+															</c:value>
+														</c:observationRange>
+													</c:referenceRange>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="30239-8"
+														codeSystem="2.16.840.1.113883.6.1"
+														codeSystemName="LOINC"
+														displayName="Aspartate aminotransférase [Catalytique/Volume] Sérum/Plasma ; Numérique ; Avec phosphate de pyridoxal"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="20140402145521+0200"/>
+													<c:value xsi:type="c:PQ" value="61" unit="UI/L"/>
+													<c:interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83"/>
+													<c:methodCode>
+														<c:originalText><c:reference value="#ABS0002"/></c:originalText>
+													</c:methodCode>
+													<!-- Intervalle de valeurs de référence -->
+													<c:referenceRange typeCode="REFV">
+														<c:observationRange classCode="OBS"
+															moodCode="EVN.CRT">
+															<c:value xsi:type="c:IVL_PQ">
+																<c:low value="10" unit="UI/L"/>
+																<c:high value="50" unit="UI/L"/>
+															</c:value>
+														</c:observationRange>
+													</c:referenceRange>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="1743-4"
+														codeSystem="2.16.840.1.113883.6.1"
+														codeSystemName="LOINC"
+														displayName="Alanine aminotransférase [Catalytique/Volume] Sérum/Plasma ; Numérique ; Avec phosphate de pyridoxal"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="20140402145521+0200"/>
+													<c:value xsi:type="c:PQ" value="82" unit="UI/L"/>
+													<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+													<c:methodCode>
+														<c:originalText><c:reference value="#ABS0003"/></c:originalText>
+													</c:methodCode>
+													<!-- Intervalle de valeurs de référence -->
+													<c:referenceRange typeCode="REFV">
+														<c:observationRange classCode="OBS"
+															moodCode="EVN.CRT">
+															<c:value xsi:type="c:IVL_PQ">
+																<c:low value="10" unit="UI/L"/>
+																<c:high value="50" unit="UI/L"/>
+															</c:value>
+														</c:observationRange>
+													</c:referenceRange>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="2324-2"
+														codeSystem="2.16.840.1.113883.6.1"
+														codeSystemName="LOINC"
+														displayName="Gamma glutamyltransférase [Catalytique/Volume] Sérum/Plasma ; Numérique"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="20140402145521+0200"/>
+													<c:value xsi:type="c:PQ" value="321" unit="UI/L"/>
+													<c:interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83"/>
+													<c:methodCode>
+														<c:originalText><c:reference value="#ABS0004"/></c:originalText>
+													</c:methodCode>
+													<!-- Intervalle de valeurs de référence -->
+													<c:referenceRange typeCode="REFV">
+														<c:observationRange classCode="OBS"
+															moodCode="EVN.CRT">
+															<c:value xsi:type="c:IVL_PQ">
+																<c:low value="4" unit="UI/L"/>
+																<c:high value="60" unit="UI/L"/>
+															</c:value>
+														</c:observationRange>
+													</c:referenceRange>
+												</c:observation>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<!-- Code générique de biochimie, faute de code spécialisé pour dosage des protéines -->
+									<c:code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1"/>
+									<c:text>
+										<c:table border="0">
+											<c:thead align="center">
+												<c:tr align="left">
+													<c:th styleCode="Bold">DOSAGE DES PROTEINES.................................</c:th>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th>Valeurs de référence</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody align="center">
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr>
+													<c:td align="left">CRP</c:td>
+													<c:td/>
+													<c:td align="right">&lt;1.0</c:td>
+													<c:td align="left">mg/l</c:td>
+													<c:td/>
+													<c:td align="left">(&lt; 5.0)</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left"><c:content ID="PR0001">...(Immunoturbidimétrie)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:br/>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<!-- Code générique de biochimie, faute de code spécialisé pour dosage des protéines -->
+											<c:code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1"/>
+											<c:statusCode code="completed"/>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="1988-5"
+														codeSystem="2.16.840.1.113883.6.1"
+														codeSystemName="LOINC"
+														displayName="C Réactive protéine [Masse/Volume] Sérum/Plasma ; Numérique"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="20140402145521+0200"/>
+													<c:value xsi:type="c:ED">&lt;1.0 mg/L</c:value>
+													<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+													<c:methodCode>
+														<c:originalText><c:reference value="#PR0001"/></c:originalText>
+													</c:methodCode>
+													<!-- Intervalle de valeurs de référence -->
+													<c:referenceRange typeCode="REFV">
+														<c:observationRange classCode="OBS"
+															moodCode="EVN.CRT">
+															<c:value xsi:type="c:IVL_PQ">
+																<c:high value="5.0" unit="mg/L"/>
+															</c:value>
+														</c:observationRange>
+													</c:referenceRange>
+												</c:observation>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<!-- Code générique de biochimie, faute de code panel pour bilan thyroidien -->
+									<c:code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1"/>
+									<c:text>
+										<c:table border="0">
+											<c:thead align="center">
+												<c:tr align="left">
+													<c:th styleCode="Bold">BILAN THYROIDIEN....................................</c:th>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th/>
+													<c:th>Valeurs de référence</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody align="center">
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr>
+													<c:td align="left">Thyréostimuline (TSH)</c:td>
+													<c:td/>
+													<c:td align="right">2.050</c:td>
+													<c:td align="left">mUI/l</c:td>
+													<c:td/>
+													<c:td align="left">(0.270 - 4.200)</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left"><c:content ID="TH0001">...(ECL Modular)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr><c:td align="left" colspan="6">.</c:td></c:tr>
+												<c:tr>
+													<c:td align="left">Thyroxine libre (FT4)</c:td>
+													<c:td/>
+													<c:td align="right">7.67</c:td>
+													<c:td align="left">pg/ml</c:td>
+													<c:td/>
+													<c:td align="left">(9.30 - 17.00)</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left"><c:content ID="TH0002">...(ECL Modular)</c:content></c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:br/>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<!-- Code générique de biochimie, faute de code spécialisé pour bilan thyroidien -->
+											<c:code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1"/>
+											<c:statusCode code="completed"/>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="3016-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+														displayName="Thyréostimuline [Arbitraire/Volume] Sérum/Plasma ; Numérique"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="20140402145521+0200"/>
+													<c:value xsi:type="c:PQ" value="2.050" unit="mUI/L"/>
+													<c:interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83"/>
+													<c:methodCode>
+														<c:originalText><c:reference value="#TH0001"/></c:originalText>
+													</c:methodCode>
+													<!-- Intervalle de valeurs de référence -->
+													<c:referenceRange typeCode="REFV">
+														<c:observationRange classCode="OBS"
+															moodCode="EVN.CRT">
+															<c:value xsi:type="c:IVL_PQ">
+																<c:low value="0.270" unit="mUI/L"/>
+																<c:high value="4.200" unit="mUI/L"/>
+															</c:value>
+														</c:observationRange>
+													</c:referenceRange>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="3024-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+														displayName="Thyroxine libre [Masse/Volume] Sérum/Plasma ; Numérique"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="20140402145521+0200"/>
+													<c:value xsi:type="c:PQ" value="7.67" unit="pg/mL"/>
+													<c:interpretationCode code="L" displayName="Anormalement bas" codeSystem="2.16.840.1.113883.5.83"/>
+													<c:methodCode>
+														<c:originalText><c:reference value="#TH0002"/></c:originalText>
+													</c:methodCode>
+													<!-- Intervalle de valeurs de référence -->
+													<c:referenceRange typeCode="REFV">
+														<c:observationRange classCode="OBS"
+															moodCode="EVN.CRT">
+															<c:value xsi:type="c:IVL_PQ">
+																<c:low value="9.30" unit="pg/mL"/>
+																<c:high value="17.00" unit="pg/mL"/>
+															</c:value>
+														</c:observationRange>
+													</c:referenceRange>
+												</c:observation>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+						</c:section>
+					</c:component>
+				</c:structuredBody>
+			</c:component>
+		</c:ClinicalDocument>
+	</data:Contenu>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<!--         Feuille de style XSLT pour CR auto-présentable du LBM des Charmes  -->
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+	<xsl:template match="xsl:stylesheet">
+		<xsl:apply-templates select="data:Contenu/c:ClinicalDocument"/>
+	</xsl:template>
+	<xsl:template match="c:ClinicalDocument">
+		<html>
+			<head>
+				<style>
+					body {
+						font-family : Calibri, sans-serif;
+					}
+					h1 {
+					}
+					h2 {
+						margin : 0px;
+					}
+					table {
+						border-collapse : collapse;
+					}
+					th {
+						padding : 0px 5px 0px 5px;
+					
+					}
+					tr {
+						font-weight : normal;
+					}
+					td {
+						padding : 0px 5px 0px 5px;
+					}
+					#header img,
+					#header p,
+					#header h2 {
+						margin : 0px 25px 0px 25px;
+					}
+					.data {
+						font-style : italic;
+						color : rgb(0, 112, 192);
+					}</style>
+				<title>
+					<xsl:value-of select="c:title"/>
+				</title>
+			</head>
+			<body>
+				<table id="header">
+					<tr>
+						<td>
+							<xsl:call-template name="printLogo"/>
+						</td>
+						<td>
+							<h2 class="data">
+								<xsl:value-of select="c:custodian//c:name"/>
+							</h2>
+							<p>
+								<span class="data">
+									<xsl:call-template name="show-address">
+										<xsl:with-param name="address" select="c:custodian//c:addr"/>
+									</xsl:call-template>
+									<xsl:for-each select="c:custodian//c:telecom[@use='PUB']">
+										<xsl:call-template name="show-telecom">
+											<xsl:with-param name="telecom" select="."/>
+										</xsl:call-template>
+										<br/>
+									</xsl:for-each>
+								</span>
+								Médecin biologiste responsable: 
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref"
+										select="c:legalAuthenticator/c:assignedEntity"/>
+								</xsl:call-template>
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<h1 class="data">
+					<xsl:value-of select="//c:title"/>
+				</h1>
+				<p> Produit le <xsl:call-template name="printDate">
+						<xsl:with-param name="date" select="c:effectiveTime/@value"/>
+					</xsl:call-template> pour <span class="data">
+						<xsl:value-of select="c:recordTarget//c:patient/c:name"/>
+					</span>
+					<br/>INS-C: <span class="data">
+						<xsl:value-of select="c:recordTarget//c:id/@extension"/></span> , Date de
+					naissance: <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:recordTarget//c:patient/c:birthTime/@value"/>
+					</xsl:call-template> , Sexe: <span class="data">
+						<xsl:value-of
+							select="c:recordTarget//c:patient/c:administrativeGenderCode/@code"/>
+					</span>
+				</p>
+				<p> Demande d'examens <span class="data">
+						<xsl:value-of select="c:documentationOf/c:serviceEvent/c:id/@extension"/>
+					</span> prescrite le <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:participant[@typeCode='REF']/c:time/c:high/@value"/>
+					</xsl:call-template> par <xsl:call-template name="printNameAndId">
+						<xsl:with-param name="ref"
+							select="c:participant[@typeCode='REF']/c:associatedEntity"/>
+					</xsl:call-template>
+					<br/> Réalisation du <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:low/@value"/>
+					</xsl:call-template> au <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:high/@value"
+						/>
+					</xsl:call-template>
+					<br/> Echantillons biologiques prélevés le <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:high/@value"
+						/>
+					</xsl:call-template> par <xsl:call-template name="printNameAndId">
+						<xsl:with-param name="ref"
+							select="c:participant[@typeCode='DIST']/c:associatedEntity"/>
+					</xsl:call-template>
+				</p>
+				<xsl:apply-templates select="c:component/c:structuredBody"/>
+				<br/>
+				<table>
+					<tr>
+						<th>Biologistes médicaux ayant participé à l'interprétation du compte
+							rendu</th>
+						<th>Date &amp; heure</th>
+					</tr>
+
+					<xsl:for-each select="c:authenticator">
+						<tr>
+							<td>
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref" select="c:assignedEntity"/>
+								</xsl:call-template>
+
+							</td>
+							<td>
+								<xsl:call-template name="printDateAndTime">
+									<xsl:with-param name="date" select="c:time/@value"/>
+								</xsl:call-template>
+							</td>
+						</tr>
+					</xsl:for-each>
+					<xsl:if test="not(c:authenticator/c:assignedEntity)">
+						<tr>
+							<td>
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref"
+										select="c:legalAuthenticator/c:assignedEntity"/>
+								</xsl:call-template>
+							</td>
+							<td>
+								<xsl:call-template name="printDateAndTime">
+									<xsl:with-param name="date"
+										select="c:legalAuthenticator/c:time/@value"/>
+								</xsl:call-template>
+							</td>
+						</tr>
+					</xsl:if>
+					<tr><td><xsl:call-template name="directeur_signe"/></td></tr>
+				</table>
+			</body>
+		</html>
+	</xsl:template>
+
+	<xsl:template name="printNameAndId">
+		<xsl:param name="ref"/>
+		<span class="data">
+			<xsl:value-of select="$ref/c:assignedPerson/c:name|$ref/c:associatedPerson/c:name"/>
+		</span>
+		<xsl:text>(</xsl:text>
+		<span class="data">
+			<xsl:value-of select="$ref//c:id/@extension"/>
+		</span>
+		<xsl:text>)</xsl:text>
+	</xsl:template>
+
+	<xsl:template name="printDate">
+		<xsl:param name="date"/>
+		<span class="data">
+			<xsl:value-of select="substring($date, 7, 2)"/>
+		</span>
+		<xsl:text>/</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 5, 2)"/>
+		</span>
+		<xsl:text>/</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 1, 4)"/>
+		</span>
+	</xsl:template>
+
+	<xsl:template name="printDateAndTime">
+		<xsl:param name="date"/>
+		<xsl:call-template name="printDate">
+			<xsl:with-param name="date" select="$date"/>
+		</xsl:call-template>
+		<xsl:text> </xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 9, 2)"/>
+		</span>
+		<xsl:text>:</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 11, 2)"/>
+		</span>
+	</xsl:template>
+
+	<xsl:template name="printLogo">
+		<img
+			src="data:image/jpeg;base64,
+			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
+			eW4Gc5/gNMjRo0H/2Q==
+			"
+		/>
+	</xsl:template>
+
+	<xsl:template name="directeur_signe">
+		<br/>
+		<img
+			src="data:image/jpeg;base64,
+			iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQMAAACxXBw2AAAAB3RJTUUH2woPDAQmGYX3JgAAAAlw
+			SFlzAAAK8AAACvABQqw0mAAAAAZQTFRFAAAA////pdmf3QAAAShJREFUeNrtl0EOhCAMRcvKJTeC
+			mw16M7xRl6xgfkGNmllOITPRpEGfCwv/tyCVT1emB/8TToTLEdloC8t90Me+RiaMHGqoY0cmeXZ2
+			BXqRGY1LxJqsnTGE6IarDJi8KH9Xpy+uHkRyEndr6uCttjyTaH8tQCWcTBKzYfp4dZq8Ihbtp1JW
+			PDg7Q/8yDGM9kiRHCDhwT1ATxylPWb6PWPhQXhPXWmMDARxdZeiN4yTJwfZkMOZdBk0smTS9nc10
+			WRMtDJuJ2WB8U2a78ECcWo810mTsvK+JJm6NRfraVQY9XJupr1OXnSSc+7cWboeFuGVyNNMBWLZR
+			uG/bR177BqOPAWF6w92wr+Xt4e95IBYZcFRAclL7XXA7LADDg4ED6+Ov/CA8+NfwG147q3gE6HAP
+			AAAAAElFTkSuQmCC
+			"
+		/>
+	</xsl:template>
+
+	<xsl:template match="c:component/c:structuredBody">
+		<xsl:for-each select="c:component/c:section">
+			<xsl:comment>Debut body structure</xsl:comment>
+			<xsl:call-template name="section"/>
+			<xsl:comment>Fin body structure</xsl:comment>
+		</xsl:for-each>
+	</xsl:template>
+
+	<!-- top level component/section: display title and text,
+		and process any nested component/sections
+   -->
+	<xsl:template name="section">
+		<xsl:call-template name="section-title">
+			<xsl:with-param name="title" select="c:title"/>
+		</xsl:call-template>
+		<xsl:call-template name="section-text"/>
+		<xsl:for-each select="c:component/c:section">
+			<xsl:call-template name="nestedSection">
+				<xsl:with-param name="margin" select="2"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+	<!-- top level section title -->
+	<xsl:template name="section-title">
+		<xsl:param name="title"/>
+		<h3>
+			<xsl:value-of select="$title"/>
+		</h3>
+	</xsl:template>
+
+	<!-- top-level section Text   -->
+	<xsl:template name="section-text">
+		<div>
+			<xsl:apply-templates select="c:text"/>
+		</div>
+	</xsl:template>
+	<xsl:template name="renderTextB64">
+		<xsl:variable name="vendor" select="system-property('xsl:vendor')"/>
+		<xsl:variable name="node-set" select="function-available('exsl:node-set')"/>
+		<xsl:choose>
+			<xsl:when test="$vendor='libxslt' and $node-set">
+				<!-- Le navigateur est soit safari version 3.x et superieure 
+		soit google chrome version 2.x et superieure -->
+				<!-- On peut donc afficher le pdf -->
+				<xsl:element name="object">
+					<xsl:attribute name="type">
+						<xsl:value-of select="c:text/@mediaType"/>
+					</xsl:attribute>
+					<xsl:attribute name="width">800px></xsl:attribute>
+					<xsl:attribute name="height">600px</xsl:attribute>
+					<xsl:attribute name="data">data:<xsl:value-of select="c:text/@mediaType"
+							/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+				</xsl:element>
+			</xsl:when>
+			<xsl:when test="$vendor='Opera' and $node-set">
+				<!-- Le navigateur est opera 9.x et superieure -->
+				<!-- On peut donc afficher le pdf -->
+				<xsl:element name="object">
+					<xsl:attribute name="type">
+						<xsl:value-of select="c:text/@mediaType"/>
+					</xsl:attribute>
+					<xsl:attribute name="width">800px></xsl:attribute>
+					<xsl:attribute name="height">600px</xsl:attribute>
+					<xsl:attribute name="data">data:<xsl:value-of select="c:text/@mediaType"
+							/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+				</xsl:element>
+			</xsl:when>
+			<xsl:when test="$vendor='Transformiix' and $node-set">
+				<!-- Le navigateur est Firefox version 3.x ou superieure -->
+				<!-- Le pdf ne sera disponble que sous forme de lien -->
+				<xsl:text>Enregistrer le document PDF (clic droit "puis enregistrer sous") : </xsl:text>
+				<xsl:element name="a">
+					<xsl:attribute name="href">data:<xsl:value-of select="c:text/@mediaType"
+							/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+					<xsl:text>ici</xsl:text>
+				</xsl:element>
+			</xsl:when>
+			<xsl:otherwise>
+				<!-- Navigaeur non pris en charge -->
+				<CENTER>Ce document contient un fichier PDF qui ne peut être affiché par ce
+					navigateur</CENTER>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<!-- nested component/section -->
+	<xsl:template name="nestedSection">
+		<xsl:param name="margin"/>
+		<h4 style="margin-left : {$margin}em;">
+			<xsl:value-of select="c:title"/>
+		</h4>
+		<div style="margin-left : {$margin}em;">
+			<xsl:apply-templates select="c:text"/>
+		</div>
+		<xsl:for-each select="c:component/c:section">
+			<xsl:call-template name="nestedSection">
+				<xsl:with-param name="margin" select="2*$margin"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+	<!--   paragraph  -->
+	<xsl:template match="c:paragraph">
+		<p>
+			<xsl:apply-templates/>
+		</p>
+	</xsl:template>
+	<!--   pre format  -->
+	<xsl:template match="c:pre">
+		<pre>
+	  <xsl:apply-templates/>
+	</pre>
+	</xsl:template>
+	<!--   Content w/ deleted text is hidden -->
+	<xsl:template match="c:content[@revised='delete']"/>
+	<!--   content  -->
+	<xsl:template match="c:content">
+		<xsl:apply-templates/>
+	</xsl:template>
+	<!-- line break -->
+	<xsl:template match="c:br">
+		<xsl:element name="br">
+			<xsl:apply-templates/>
+		</xsl:element>
+	</xsl:template>
+	<!--   list  -->
+	<xsl:template match="c:list">
+		<xsl:if test="c:caption">
+			<p>
+				<b>
+					<xsl:apply-templates select="c:caption"/>
+				</b>
+			</p>
+		</xsl:if>
+		<ul>
+			<xsl:for-each select="c:item">
+				<li>
+					<xsl:apply-templates/>
+				</li>
+			</xsl:for-each>
+		</ul>
+	</xsl:template>
+	<xsl:template match="c:list[@listType='ordered']">
+		<xsl:if test="c:caption">
+			<span style="font-weight:bold; ">
+				<xsl:apply-templates select="c:caption"/>
+			</span>
+		</xsl:if>
+		<ol>
+			<xsl:for-each select="c:item">
+				<li>
+					<xsl:apply-templates/>
+				</li>
+			</xsl:for-each>
+		</ol>
+	</xsl:template>
+	<!--   caption  -->
+	<xsl:template match="c:caption">
+		<xsl:apply-templates/>
+		<xsl:text>: </xsl:text>
+	</xsl:template>
+	<!--  Tables   -->
+	<xsl:template
+		match="c:table/@*|c:thead/@*|c:tfoot/@*|c:tbody/@*|c:colgroup/@*|c:col/@*|c:tr/@*|c:th/@*|c:td/@*">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="c:table">
+		<table class="table">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</table>
+	</xsl:template>
+	<xsl:template match="c:thead">
+		<thead>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</thead>
+	</xsl:template>
+	<xsl:template match="c:tfoot">
+		<tfoot>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</tfoot>
+	</xsl:template>
+	<xsl:template match="c:tbody">
+		<tbody>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</tbody>
+	</xsl:template>
+	<xsl:template match="c:colgroup">
+		<colgroup>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</colgroup>
+	</xsl:template>
+	<xsl:template match="c:col">
+		<col>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</col>
+	</xsl:template>
+	<xsl:template match="c:tr">
+		<tr class="tr">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</tr>
+	</xsl:template>
+	<xsl:template match="c:th">
+		<th class="th">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</th>
+	</xsl:template>
+	<xsl:template match="c:td">
+		<td>
+			<xsl:choose>
+				<xsl:when test="@styleCode='Bold'">
+					<xsl:element name="b">
+						<xsl:apply-templates/>
+					</xsl:element>
+				</xsl:when>
+				<xsl:when test="@styleCode='Italics'">
+					<xsl:element name="i">
+						<xsl:apply-templates/>
+					</xsl:element>
+				</xsl:when>
+				<xsl:when test="@styleCode='Underline'">
+					<xsl:element name="u">
+						<xsl:apply-templates/>
+					</xsl:element>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:copy-of select="@*"/>
+					<xsl:apply-templates/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</td>
+	</xsl:template>
+	<xsl:template match="c:table/c:caption">
+		<span style="font-weight:bold; ">
+			<xsl:apply-templates/>
+		</span>
+	</xsl:template>
+	<!--   RenderMultiMedia 
+	this currently only handles GIF's and JPEG's.  It could, however,
+	be extended by including other image MIME types in the predicate
+	and/or by generating <object> or <applet> tag with the correct
+	params depending on the media type  @ID  =$imageRef  referencedObject
+	-->
+	<xsl:template match="c:renderMultiMedia">
+		<xsl:variable name="imageRef" select="@referencedObject"/>
+		<xsl:choose>
+			<xsl:when test="//c:regionOfInterest[@ID=$imageRef]">
+				<!-- Here is where the Region of Interest image referencing goes -->
+				<xsl:if
+					test="//c:regionOfInterest[@ID=$imageRef]//c:observationMedia/c:value[@mediaType='image/gif' or
+		  @mediaType='image/jpeg' or @mediaType='image/png']">
+					<br clear="all"/>
+					<xsl:element name="img">
+						<xsl:attribute name="src">
+							<xsl:value-of
+								select="//c:regionOfInterest[@ID=$imageRef]//c:observationMedia/c:value/c:reference/@value"
+							/>
+						</xsl:attribute>
+					</xsl:element>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<!-- Here is where the direct MultiMedia image referencing goes -->
+				<xsl:if
+					test="//c:observationMedia[@ID=$imageRef]/c:value[@mediaType='image/gif' or @mediaType='image/jpeg' or @mediaType='image/png']">
+					<br clear="all"/>
+					<xsl:element name="IMG">
+						<!--
+			<xsl:attribute name='alt'>L'image du document ne peut pas être visualisée avec ce navigateur.</xsl:attribute>
+			-->
+						<xsl:attribute name="id">
+							<xsl:value-of select="$imageRef"/>
+						</xsl:attribute>
+						<xsl:attribute name="src">data:<xsl:value-of
+								select="//c:observationMedia[@ID=$imageRef]/c:value/@mediaType"
+							/>;base64, <xsl:value-of
+								select="//c:observationMedia[@ID=$imageRef]/c:value"/>
+						</xsl:attribute>
+					</xsl:element>
+				</xsl:if>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template name="show-address">
+		<xsl:param name="address"/>
+		<xsl:choose>
+			<xsl:when test="$address">
+				<xsl:for-each select="$address/c:streetAddressLine">
+					<xsl:value-of select="."/>
+					<br/>
+				</xsl:for-each>
+				<xsl:if test="$address/c:streetName">
+					<xsl:value-of select="$address/c:streetName"/>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select="$address/c:houseNumber"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:postalCode)>0">
+					<xsl:value-of select="$address/c:postalCode"/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:city)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:city"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:state)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:state"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:country)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:country"/>
+					<br/>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>addresse non renseignée</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template name="show-telecom">
+		<xsl:param name="telecom"/>
+		<xsl:choose>
+			<xsl:when test="$telecom">
+				<xsl:variable name="type" select="substring-before($telecom/@value, ':')"/>
+				<xsl:variable name="value" select="substring-after($telecom/@value, ':')"/>
+				<xsl:if test="$type">
+					<xsl:call-template name="translateTelecomCode">
+						<xsl:with-param name="code" select="$type"/>
+					</xsl:call-template>
+					<xsl:text>: </xsl:text>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select="$value"/>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>Coordonnées téléphoniques non renseignées</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template name="translateTelecomCode">
+		<xsl:param name="code"/>
+		<xsl:choose>
+			<xsl:when test="$code='tel'">
+				<xsl:text>Tél</xsl:text>
+			</xsl:when>
+			<xsl:when test="$code='fax'">
+				<xsl:text>Fax</xsl:text>
+			</xsl:when>
+			<xsl:when test="$code='http'">
+				<xsl:text>Page Web</xsl:text>
+			</xsl:when>
+			<xsl:when test="$code='mailto'">
+				<xsl:text>e-mail</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>{$code='</xsl:text>
+				<xsl:value-of select="$code"/>
+				<xsl:text>'?}</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
+</xsl:stylesheet>

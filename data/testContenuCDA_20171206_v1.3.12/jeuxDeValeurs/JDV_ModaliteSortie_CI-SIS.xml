@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.74" displayName="JDV_ModaliteSortie_CI-SIS" version="20161219">
+        <ConceptList>
+            <Concept code="OBS_202" displayName="domicile" codeSystem="1.2.250.1.213.1.1.4.2.289"
+                codeSystemName="TA_OBS"/>
+            <Concept code="AVC-147" displayName="EHPAD" codeSystem="1.2.250.1.213.1.1.4.321"
+                codeSystemName="TA_AVC"/>
+            <Concept code="LDL-29" displayName="SSR" codeSystem="1.2.250.1.213.1.1.4.333"
+                codeSystemName="TA_LDL"/>
+            <Concept code="LDL-30" displayName="HAD" codeSystem="1.2.250.1.213.1.1.4.333"
+                codeSystemName="TA_LDL"/>
+            <Concept code="LDL-31" displayName="Autre établissement de santé"
+                codeSystem="1.2.250.1.213.1.1.4.333" codeSystemName="TA_LDL"/>
+            <Concept code="LDL-26" displayName="Autre" codeSystem="1.2.250.1.213.1.1.4.333"
+                codeSystemName="TA_LDL"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

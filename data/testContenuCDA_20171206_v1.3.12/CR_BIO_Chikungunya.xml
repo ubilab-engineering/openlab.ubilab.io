@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_CRBiologie.sch"?> 
+
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <realmCode code="FR"/>
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <!-- 
+		Déclarations de conformité pour un compte rendu d'examens biologiques en France 
+	-->
+    <templateId root="2.16.840.1.113883.2.8.2.1"/>
+    <templateId root="1.2.250.1.213.1.1.1.1"/>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3"/>
+    <!-- Identifiant unique de cette occurrence du document -->
+    <id root="1.2.250.1.213.1.1.9" extension="A7102400008_1" assigningAuthorityName="ASIP SANTE"/>
+    <!-- Type de document -->
+    <code code="11502-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+        displayName="CR d'examens biologiques"/>
+    <title>Compte rendu de biologie médicale</title>
+    <!-- Date et heure de création du document -->
+    <effectiveTime value="20100104160526+0100"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+    <languageCode code="fr-FR"/>
+    <!-- identifiant commun à toutes les versions successives du comtpe rendu -->
+    <setId root="1.2.250.1.213.1.1.9" extension="A7102400008" assigningAuthorityName="ASIP SANTE"/>
+    <!-- numéro de la version courante (entier positif), ici la première version -->
+    <versionNumber value="1"/>
+    <!-- 
+		Le patient auquel se rapporte ce compte rendu 
+		identité, INS, adresse réduite au code postal pour la santé publique, téléphone masqué
+		pour la santé publique, l'INS peut  être remplacé par un code d'anonymat
+	-->
+    <recordTarget>
+        <patientRole>
+            <!-- patient identifié par son INS-C -->
+            <id extension="0411886319605719371016" root="1.2.250.1.213.1.4.2"/>
+            <addr use="HP">
+                <postalCode>69110</postalCode>
+            </addr>
+            <telecom nullFlavor="MSK"/>
+            <patient>
+                <name>
+                    <given>ZULEIKAUN</given>
+                    <family qualifier="BR">DURANDONZE</family>
+                </name>
+                <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19710921"/>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <!-- 
+		L'auteur du compte rendu : un biologiste
+	-->
+    <author>
+        <time value="20100104131933+0100"/>
+        <assignedAuthor>
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+            <code code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <addr nullFlavor="MSK"/>
+            <telecom value="tel:+33-602030499"/>
+            <assignedPerson>
+                <name>
+                    <given>Marcel</given>
+                    <family>BIOLOPRO</family>
+                    <prefix>Dr.</prefix>
+                </name>
+            </assignedPerson>
+            <representedOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+                <name>Laboratoire des charmes</name>
+                <telecom nullFlavor="MSK"/>
+                <addr nullFlavor="MSK"/>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <!-- 
+		L'organisation émettrice du compte rendu : le laboratoire
+	-->
+    <custodian>
+        <assignedCustodian>
+            <representedCustodianOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+                <name>Laboratoire des charmes</name>
+                <telecom use="PUB" value="tel:0466666666"/>
+                <addr>
+                    <streetAddressLine>187 Rue des charmes</streetAddressLine>
+                    <streetAddressLine>38000 GRENOBLE</streetAddressLine>
+                    <streetAddressLine>FRANCE</streetAddressLine>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <!-- 
+		Le responsable de ce compte rendu, et qui en a interprété les résultats
+	-->
+    <legalAuthenticator>
+        <time value="20100104152503+0100"/>
+        <signatureCode code="S"/>
+        <assignedEntity>
+            <id root="1.2.250.1.71.4.2.1" extension="801234567899"/>
+            <addr nullFlavor="MSK"/>
+            <telecom nullFlavor="MSK"/>
+            <assignedPerson>
+                <name>
+                    <given>Robert</given>
+                    <family>RESPONSHUIT</family>
+                </name>
+            </assignedPerson>
+        </assignedEntity>
+    </legalAuthenticator>
+
+    <!-- 
+		Le médecin prescripteur des examens de biologie (ici, un gynécologue)
+		avec son identité, son identifiant, son adresse, son téléphone
+	-->
+    <participant typeCode="REF">
+        <!-- Date de l'ordonnance -->
+        <time>
+            <high value="20091231"/>
+        </time>
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="801234567892"/>
+            <code code="G15_10/C25" displayName="Médecin - Gynécologie médicale (C)"
+                codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <addr>
+                <streetAddressLine>187 Rue des charmes</streetAddressLine>
+                <streetAddressLine>38000 GRENOBLE</streetAddressLine>
+                <streetAddressLine>FRANCE</streetAddressLine>
+            </addr>
+            <telecom value="tel:0147150000" use="EC"/>
+            <associatedPerson>
+                <name>
+                    <prefix>Docteur</prefix>
+                    <given>Eva</given>
+                    <family>Gynecon</family>
+                </name>
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    <!-- 
+		Le préleveur (ici, une infirmière), et la date et heure de prélèvement
+	-->
+    <participant typeCode="DIST">
+        <functionCode code="PRELV" displayName="préleveur" codeSystem="1.2.250.1.213.1.1.4.2.280"/>
+        <!-- Date et heure de prélèvement -->
+        <time>
+            <high value="201001040735+0100"/>
+        </time>
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="801234567893"/>
+            <code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <addr nullFlavor="NASK"/>
+            <telecom nullFlavor="NASK"/>
+            <associatedPerson>
+                <name>
+                    <given>Roberta</given>
+                    <family>Bleeder</family>
+                </name>
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    <!-- 
+		Acte principal : La demande d'examens enregistrée dans le SI du laboratoire (SGL) et le 1er chapitre du compte rendu
+	-->
+    <documentationOf>
+        <serviceEvent>
+            <id root="1.2.250.1.213.1.1.9" extension="201011111123"/>
+            <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"/>
+            <lab:statusCode code="active"/>
+            <effectiveTime>
+                <!-- Date de réception de la demande et des échantillons -->
+                <low value="201001040922+0100"/>
+                <!-- Date de fin de traitement = date et heure de libération du compte rendu final -->
+                <high value="201001041605+0100"/>
+            </effectiveTime>
+            <!-- 
+				Le laboratoire exécutant avec son adresse et son téléphone
+			-->
+            <performer typeCode="PRF">
+                <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+                <time>
+                    <high value="20100104152530+0100"/>
+                </time>
+                <assignedEntity>
+                    <!-- identifiant du biologiste responsable -->
+                    <id root="1.2.250.1.71.4.2.1" extension="801234567899"/>
+                    <addr nullFlavor="MSK"/>
+                    <telecom nullFlavor="MSK"/>
+                    <assignedPerson>
+                        <name nullFlavor="MSK"/>
+                    </assignedPerson>
+                    <representedOrganization>
+                        <!-- identifiant, nom et coordonnées du laboratoire -->
+                        <id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+                        <name>Laboratoire des charmes</name>
+
+                        <telecom value="tel:+33-602030499"/>
+                        <addr>
+                            <streetAddressLine>187 Rue des charmes</streetAddressLine>
+                            <streetAddressLine>38000 GRENOBLE</streetAddressLine>
+                            <streetAddressLine>FRANCE</streetAddressLine>
+                        </addr>
+                        <!-- Cadre d'exercice : Laboratoire de ville -->
+                        <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire"
+                            codeSystem="1.2.250.1.213.1.1.4.9"/>
+                    </representedOrganization>
+                </assignedEntity>
+            </performer>
+        </serviceEvent>
+    </documentationOf>
+    <!-- 
+		Prise en charge  patient/structure de soins à laquelle se rattache ce compte rendu de biologie
+		Contexte ambulatoire : arrivée des prélèvements au laboratoire
+	-->
+    <componentOf>
+        <encompassingEncounter>
+            <code code="AMB" displayName="ambulatoire" codeSystem="2.16.840.1.113883.5.4"/>
+            <effectiveTime>
+                <high value="201001040735+0100"/>
+            </effectiveTime>
+            <!-- 
+				L'élément "location" introduit la modalité d'exercice
+			-->
+            <location>
+                <healthCareFacility>
+                    <code code="SA29" displayName="Laboratoire d'Examens de Biologie Médicale"
+                        codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+                </healthCareFacility>
+            </location>
+        </encompassingEncounter>
+    </componentOf>
+    <!-- 
+		*********************
+		Corps du compte rendu
+		*********************
+	-->
+    <component>
+        <structuredBody>
+            <component>
+                <!-- Section de premier niveau = chapitre "Biochimie" -->
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+                    <code code="18727-8" displayName="Sérologies" codeSystem="2.16.840.1.113883.6.1"
+                        codeSystemName="LOINC"/>
+                    <title>SEROLOGIE</title>
+
+                    <component>
+                        <section>
+                            <templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+                            <title>Contrôle sérologique infection Chikungunya</title>
+                            <text>
+                                <table border="1">
+                                    <thead align="center">
+                                        <tr>
+                                            <th rowspan="2"/>
+                                            <th>Résultat du jour</th>
+                                            <th rowspan="2">Interprétation</th>
+                                        </tr>
+                                        <tr>
+                                            <th>04/01/2010 10:10</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                        <tr>
+                                            <td>Sérologie IgM qualitatif</td>
+                                            <td>Positif</td>
+                                            <td/>
+                                        </tr>
+                                        <tr>
+                                            <td>Sérologie IgM quantitatif</td>
+                                            <td>0,315</td>
+                                            <td>résultat Haut</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sérologie IgG qualitatif</td>
+                                            <td>Positif</td>
+                                            <td/>
+                                        </tr>
+                                        <tr>
+                                            <td>Sérologie IgG quantitatif</td>
+                                            <td>0,408</td>
+                                            <td>résultat Haut</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protéine C-réactive</td>
+                                            <td>12 mg/L</td>
+                                            <td/>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br/>
+                                <paragraph>Interprétation :<br/> Présence d'IgM anti-virus
+                                    Chikungunya<br/> Résultat en faveur d'une infection aigüe ou
+                                    récente par un Alphavirus.<br/> Résultats validés et interprétés
+                                    par Robert RESPONSHUIT le 4 janvier 2010, 15h25</paragraph>
+                                <br/>
+                            </text>
+                            <!-- RESULTATS IMPORTABLES DANS LE SI DU CONSOMMATEUR (niveau 3 de CDA) -->
+                            <entry typeCode="DRIV">
+                                <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+                                <act classCode="ACT" moodCode="EVN">
+                                    <code code="18727-8" displayName="Sérologies"
+                                        codeSystem="2.16.840.1.113883.6.1"/>
+                                    <statusCode code="completed"/>
+                                    <participant typeCode="AUTHEN">
+                                        <templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+                                        <!-- Biologiste ayant validé les résultats de cette entrée à 11h30 -->
+                                        <time>
+                                            <high value="201001041130+0100"/>
+                                        </time>
+                                        <participantRole>
+                                            <id root="1.2.250.1.71.4.2.1" extension="801234567899"/>
+                                            <addr nullFlavor="MSK"/>
+                                            <telecom nullFlavor="MSK"/>
+                                            <playingEntity>
+                                                <name>
+                                                  <given>Robert</given>
+                                                  <family>RESPONSHUIT</family>
+                                                </name>
+                                            </playingEntity>
+                                        </participantRole>
+                                    </participant>
+                                    <entryRelationship typeCode="COMP">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                            <code code="56131-6" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC"
+                                                displayName="Chikungunya virus Ac.IgM [Arbitraire/Volume] Sérum ; Qualitatif"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime value="201001041010+0100"/>
+                                            <value xsi:type="CV" code="P" displayName="positif"
+                                                codeSystem="1.2.250.1.213.2.12.99999999"/>
+                                        </observation>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="COMP">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                            <code code="56130-8" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC"
+                                                displayName="Chikungunya virus Ac.IgM [Titre] Sérum ; Numérique"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime value="201001041010+0100"/>
+                                            <value xsi:type="PQ" value="0.315"/>
+                                            <interpretationCode code="H"
+                                                displayName="Anormalement haut"
+                                                codeSystem="2.16.840.1.113883.5.83"/>
+                                        </observation>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="COMP">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                            <code code="56129-0" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC"
+                                                displayName="Chikungunya virus Ac.IgG [Arbitraire/Volume] Sérum ; Qualitatif"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime value="201001041010+0100"/>
+                                            <value xsi:type="CV" code="P" displayName="positif"
+                                                codeSystem="1.2.250.1.213.2.12.99999999"/>
+                                        </observation>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="COMP">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                            <code code="56128-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC"
+                                                displayName="Chikungunya virus Ac.IgG [Titre] Sérum ; Numérique"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime value="201001041010+0100"/>
+                                            <value xsi:type="PQ" value="0.408"/>
+                                            <interpretationCode code="H"
+                                                displayName="Anormalement haut"
+                                                codeSystem="2.16.840.1.113883.5.83"/>
+                                        </observation>
+                                    </entryRelationship>
+                                    <entryRelationship typeCode="COMP">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                            <code code="11039-5" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC"
+                                                displayName="C Réactive protéine [Arbitraire/Volume] Sérum/Plasma ; Qualitatif"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime value="201001041010+0100"/>
+                                            <value xsi:type="PQ" value="12" unit="mg/L"/>
+                                        </observation>
+                                    </entryRelationship>
+                                </act>
+                            </entry>
+                        </section>
+                    </component>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

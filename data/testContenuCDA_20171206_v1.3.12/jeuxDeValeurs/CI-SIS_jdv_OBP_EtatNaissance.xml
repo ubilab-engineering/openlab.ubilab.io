@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.6" displayName="OBP_EtatNaissance" version="20131025">
+        <ConceptList>
+            <Concept code="OBS_111" displayName="Vivant" codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_112" displayName="Né vivant décédé avant 28 jours"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_133" displayName="Né vivant décédé≥28 jours"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="F-88450" displayName="Mort-né" codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

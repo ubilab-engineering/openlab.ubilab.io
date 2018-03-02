@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.73" displayName="JDV_ModaliteEntree_CI-SIS" version="20161219">
+        <ConceptList>
+            <Concept code="LDL-23" displayName="Urgences" codeSystem="1.2.250.1.213.1.1.4.333"
+                codeSystemName="TA_LDL"/>
+            <Concept code="LDL-24" displayName="Programmées" codeSystem="1.2.250.1.213.1.1.4.333"
+                codeSystemName="TA_LDL"/>
+            <Concept code="LDL-25" displayName="Transfert" codeSystem="1.2.250.1.213.1.1.4.333"
+                codeSystemName="TA_LDL"/>
+            <Concept code="LDL-26" displayName="Autre" codeSystem="1.2.250.1.213.1.1.4.333"
+                codeSystemName="TA_LDL"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

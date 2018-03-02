@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.33" displayName="AVC_NIHSSNeglInt" version="20131025">
+        <ConceptList>
+            <Concept code="AVC-051" displayName="normal" codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-052"
+                displayName="extinction ou négligence visuelle, tactile, auditive, spatiale ou personnelle à la stimulation bilatérale simultanée dans une des modalités"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-053"
+                displayName="héminégligence sévère ou portant sur plus d’une modalité sensorielle. Ne reconnaît pas sa propre main ou ne s’oriente que vers un côté de l’espace"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

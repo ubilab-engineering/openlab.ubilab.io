@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.4" displayName="OBP_EtatPérinée" version="20131025">
+        <ConceptList>
+            <Concept code="P1-86130" displayName="Episiotomie" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="OBS_106" displayName="Périnée Intact"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_107" displayName="Déchirure périnéale simple (1er et 2ème degré)"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_108"
+                displayName="Déchirure sphinctérienne (périnée complet et compliqué = 3ème et 4ème degré)"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

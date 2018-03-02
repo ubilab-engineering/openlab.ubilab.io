@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.21" displayName="AVC_locaThromboseVeineuse"
+        version="20131025">
+        <ConceptList>
+            <Concept code="T-49840" displayName="sinus caverneux" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="AVC-143" displayName="Sinus longitudinal supérieur partiel"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-144" displayName="Sinus longitudinal supérieur total"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-145" displayName="Sinus Latéral droit"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-146" displayName="Sinus Latéral gauche"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-147" displayName="Sinus droit" codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-148" displayName="veines corticales"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-149" displayName="veines jugulaires droite"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-150" displayName="veines jugulaires gauche"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-151" displayName="veines profondes"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

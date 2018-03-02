@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.15" displayName="OBP_AnomalieCroissance"
+        version="20131025">
+        <ConceptList>
+            <Concept code="OBS_123" displayName="Pas d'anomalie de croissance intra-utérine"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="D8-70110" displayName="Retard de croissance"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="D8-70310" displayName="Macrosomie" codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

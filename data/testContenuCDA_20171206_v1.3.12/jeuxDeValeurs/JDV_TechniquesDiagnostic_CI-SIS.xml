@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.48" displayName="JDV_TechniquesDiagnostic_CI-SIS"
+        version="20170517">
+        <ConceptList>
+            <Concept code="G-A609" displayName="autre" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="MED-081" displayName="chromosomique"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="MED-082" displayName="array-CGH" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP"/>
+            <Concept code="MED-083" displayName="séquençage ciblé"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="MED-084" displayName="séquençage de nouvelle génération (NGS)"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.37" displayName="AVC_territoireInfarctus">
+        <ConceptList>
+            <Concept code="AVC-061" displayName="Carotidien territorial"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-062" displayName="Carotidien lacunaire"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-063" displayName="VB territorial"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-064" displayName="VB lacunaire" codeSystem="1.2.250.1.213.1.1.4.321"/>
+
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

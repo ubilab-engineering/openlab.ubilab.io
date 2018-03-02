@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par lbeucherie, le 27/01/2017-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.82" displayName="StructuresDeSoins" version="20170127">
+        <ConceptList>
+            <Concept code="ORG-053" displayName="Autre professionnel(le)"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-054" displayName="Établissement de santé de référence"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-055" displayName="Centre d'hébergement"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-056" displayName="Structure(s) de coordination ville-hôpital"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-057" displayName="Organisme sociaux et de maintien dans l'emploi"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-059" displayName="Lieu d'adlinistration"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-060" displayName="Lieu de prise en charge en oncogératrie"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-061" displayName="Lieu des mesures de préservation de la fertilité"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="ORG-062" displayName="Structure(s) de soutien et d'information"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

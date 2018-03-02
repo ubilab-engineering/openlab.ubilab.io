@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.10.1" displayName="ASIP_ModeDeTransport" version="20131025">
+        <ConceptList>
+            <Concept code="0" displayName="Police" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="1" displayName="SAMU, SMUR terrestre" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="2" displayName="Ambulance publique" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="3" displayName="Ambulance privée" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="4" displayName="Taxi" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="5" displayName="Moyens Personnels" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="6" displayName="SAMU, SMUR Hélicoptère"
+                codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="7" displayName="Pompier" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="8" displayName="VSL" codeSystem="1.2.250.1.213.1.1.4.3"/>
+            <Concept code="9" displayName="Autre" codeSystem="1.2.250.1.213.1.1.4.3"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

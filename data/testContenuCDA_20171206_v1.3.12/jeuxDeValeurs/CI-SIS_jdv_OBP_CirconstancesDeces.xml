@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.18" displayName="OBP_CirconstancesDeces"
+        version="20131025">
+        <ConceptList>
+            <Concept code="D8-72100" displayName="décédé sans précision chronologique"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="D8-72200" displayName="décédé avant travail"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="D8-72300" displayName="décédé pendant travail"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="D8-78400" displayName="décédé au décours IMG"
+                codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

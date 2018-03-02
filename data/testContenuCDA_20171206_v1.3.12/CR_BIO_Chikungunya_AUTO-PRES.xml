@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl"  href="#"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="Schematrons/CI-SIS_CRBiologie.sch"?> 
+
+<xsl:stylesheet version="1.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:exsl="http://exslt.org/common" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:data="urn:asip-sante:ci-sis" 
+	xmlns:c="urn:hl7-org:v3"
+	xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2"
+	xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:xad="http://uri.etsi.org/01903/v1.2.2#">
+
+	<!-- Les données du CDA	-->
+	<data:Contenu>
+		<c:ClinicalDocument>
+			<c:realmCode code="FR"/>
+			<c:typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<!-- 
+		Déclarations de conformité pour un compte rendu d'examens biologiques en France 
+	-->
+			<c:templateId root="2.16.840.1.113883.2.8.2.1"/>
+			<c:templateId root="1.2.250.1.213.1.1.1.1"/>
+			<c:templateId root="1.3.6.1.4.1.19376.1.3.3"/>
+			<!-- Identifiant unique de cette occurrence du document -->
+			<c:id root="1.2.250.1.213.1.1.9" extension="A7102400008_1"
+				assigningAuthorityName="ASIP SANTE"/>
+			<!-- Type de document -->
+			<c:code code="11502-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+				displayName="CR d'examens biologiques"/>
+			<c:title>Compte rendu de biologie médicale</c:title>
+			<!-- Date et heure de création du document -->
+			<c:effectiveTime value="20130104160524+0100"/>
+			<c:confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+			<c:languageCode code="fr-FR"/>
+			<!-- identifiant commun à toutes les versions successives du comtpe rendu -->
+			<c:setId root="1.2.250.1.213.1.1.9" extension="A7102400008"
+				assigningAuthorityName="ASIP SANTE"/>
+			<!-- numéro de la version courante (entier positif), ici la première version -->
+			<c:versionNumber value="1"/>
+	<!-- 
+		Le patient auquel se rapporte ce compte rendu 
+		identité, INS, adresse réduite au code postal pour la santé publique, téléphone masqué
+		pour la santé publique, l'INS peut  être remplacé par un code d'anonymat
+	-->
+			<c:recordTarget>
+				<c:patientRole>
+					<!-- patient identifié par son INS-C -->
+					<c:id extension="0411886319605719371016" root="1.2.250.1.213.1.4.2"/>
+					<c:addr use="HP">
+						<c:postalCode>69110</c:postalCode>
+					</c:addr>
+					<c:telecom nullFlavor="MSK"/>
+					<c:patient>
+						<c:name>
+							<c:given>ZULEIKAUN</c:given>
+							<c:family qualifier="BR">DURANDONZE</c:family>
+						</c:name>
+						<c:administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+						<c:birthTime value="19710921"/>
+					</c:patient>
+				</c:patientRole>
+			</c:recordTarget>
+	<!-- 
+		L'auteur du compte rendu : un biologiste
+	-->
+			<c:author>
+				<c:time value="20130104131933+0100"/>
+				<c:assignedAuthor>
+					<c:id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+					<c:code code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)"
+						codeSystem="1.2.250.1.213.1.1.4.5"/>
+					<c:addr nullFlavor="MSK"/>
+					<c:telecom value="tel:+33-602030499"/>
+					<c:assignedPerson>
+						<c:name>
+							<c:given>Marcel</c:given>
+							<c:family>BIOLOPRO</c:family>
+							<c:prefix>Dr.</c:prefix>
+						</c:name>
+					</c:assignedPerson>
+					<c:representedOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+						<c:name>Laboratoire des charmes</c:name>
+						<c:telecom nullFlavor="MSK"/>
+						<c:addr nullFlavor="MSK"/>
+					</c:representedOrganization>
+				</c:assignedAuthor>
+			</c:author>
+	<!-- 
+		L'organisation émettrice du compte rendu : le laboratoire
+	-->
+			<c:custodian>
+				<c:assignedCustodian>
+					<c:representedCustodianOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+						<c:name>Laboratoire de biologie médicale des charmes</c:name>
+						<c:telecom use="PUB" value="tel:0466666666"/>
+						<c:addr>
+							<c:streetAddressLine>187 Rue des charmes</c:streetAddressLine>
+							<c:streetAddressLine>38000 GRENOBLE</c:streetAddressLine>
+							<c:streetAddressLine>FRANCE</c:streetAddressLine>
+						</c:addr>
+					</c:representedCustodianOrganization>
+				</c:assignedCustodian>
+			</c:custodian>
+	<!-- 
+		Le responsable de ce compte rendu, et qui en a interprété les résultats
+	-->
+			<c:legalAuthenticator>
+				<c:time value="20130104152503+0100"/>
+				<c:signatureCode code="S"/>
+				<c:assignedEntity>
+					<c:id root="1.2.250.1.71.4.2.1" extension="801234567899"/>
+					<c:addr nullFlavor="MSK"/>
+					<c:telecom nullFlavor="MSK"/>
+					<c:assignedPerson>
+						<c:name>
+							<c:given>Robert</c:given>
+							<c:family>RESPONSHUIT</c:family>
+						</c:name>
+					</c:assignedPerson>
+				</c:assignedEntity>
+			</c:legalAuthenticator>
+
+			<!-- 
+		Le médecin prescripteur des examens de biologie (ici, un gynécologue)
+		avec son identité, son identifiant, son adresse, son téléphone
+	-->
+			<c:participant typeCode="REF">
+				<!-- Date de l'ordonnance -->
+				<c:time>
+					<c:high value="20091231"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="801234567892"/>
+					<c:code code="G15_10/C25" displayName="Médecin - Gynécologie médicale (C)"
+						codeSystem="1.2.250.1.213.1.1.4.5"/>
+					<c:addr>
+						<c:streetAddressLine>187 Rue des charmes</c:streetAddressLine>
+						<c:streetAddressLine>38000 GRENOBLE</c:streetAddressLine>
+						<c:streetAddressLine>FRANCE</c:streetAddressLine>
+					</c:addr>
+					<c:telecom value="tel:0147150000" use="EC"/>
+					<c:associatedPerson> 
+						<c:name>
+							<c:prefix>Docteur</c:prefix>
+							<c:given>Eva</c:given>
+							<c:family>Gynecon</c:family>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<!-- 
+		Le préleveur (ici, une infirmière), et la date et heure de prélèvement
+	-->
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" displayName="préleveur" codeSystem="1.2.250.1.213.1.1.4.2.280"/>
+				<!-- Date et heure de prélèvement -->
+				<c:time>
+					<c:high value="201301040735+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="801234567893"/>
+					<c:code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5"/>
+					<c:addr nullFlavor="NASK"/>
+					<c:telecom nullFlavor="NASK"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:given>Roberta</c:given>
+							<c:family>Bleeder</c:family>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<!-- 
+		Acte principal : La demande d'examens enregistrée dans le SI du laboratoire (SGL) et le 1er chapitre du compte rendu
+	-->
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:id root="1.2.250.1.213.1.1.9" extension="201011111123"/>
+					<c:code code="18717-9" displayName="Immunohématologie"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<c:effectiveTime>
+						<!-- Date de réception de la demande et des échantillons -->
+						<c:low value="201301040922+0100"/>
+						<!-- Date de fin de traitement = date et heure de libération du compte rendu final -->
+						<c:high value="201301041605+0100"/>
+					</c:effectiveTime>
+					<!-- 
+				Le laboratoire exécutant avec son adresse et son téléphone
+			-->
+					<c:performer typeCode="PRF">
+						<c:templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+						<c:time>
+							<c:high value="20130104152530+0100"/>
+						</c:time>
+						<c:assignedEntity>
+							<!-- identifiant du biologiste responsable -->
+							<c:id root="1.2.250.1.71.4.2.1" extension="801234567899"/>
+							<c:assignedPerson>
+								<c:name nullFlavor="MSK"/>
+							</c:assignedPerson>
+							<c:representedOrganization>
+								<!-- identifiant, nom et coordonnées du laboratoire -->
+								<c:id root="1.2.250.1.71.4.2.2" extension="1120456789"/>
+								<c:name>Laboratoire des charmes</c:name>
+
+								<c:telecom value="tel:+33-602030499"/>
+								<!-- Cadre d'exercice : Laboratoire de ville -->
+								<c:standardIndustryClassCode code="AMBULATOIRE"
+									displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9"/>
+							</c:representedOrganization>
+						</c:assignedEntity>
+					</c:performer>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<!-- 
+		Prise en charge  patient/structure de soins à laquelle se rattache ce compte rendu de biologie
+		Contexte ambulatoire : arrivée des prélèvements au laboratoire
+	-->
+			<c:componentOf>
+				<c:encompassingEncounter>
+					<c:code code="AMB" displayName="ambulatoire" codeSystem="2.16.840.1.113883.5.4"/>
+					<c:effectiveTime>
+						<c:high value="201301040735+0100"/>
+					</c:effectiveTime>
+					<!-- 
+				L'élément "location" introduit la modalité d'exercice
+			-->
+					<c:location>
+						<c:healthCareFacility>
+							<c:code code="SA29"
+								displayName="Laboratoire d'Examens de Biologie Médicale"
+								codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </c:code>
+						</c:healthCareFacility>
+					</c:location>
+				</c:encompassingEncounter>
+			</c:componentOf>
+			<!-- 
+		*********************
+		Corps du compte rendu
+		*********************
+	-->
+			<c:component>
+				<c:structuredBody>
+					<c:component>
+						<!-- Section de premier niveau = chapitre "Biochimie" -->
+						<c:section>
+							<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+							<c:code code="18727-8" displayName="Sérologies"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<c:title>SEROLOGIE</c:title>
+
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:title>Contrôle sérologique infection Chikungunya</c:title>
+									<c:text>
+										<c:table border="1">
+											<c:thead align="center">
+												<c:tr>
+												<c:th rowspan="2"/>
+												<c:th>Résultat du jour</c:th>
+												<c:th rowspan="2">Interprétation</c:th>
+												</c:tr>
+												<c:tr>
+												<c:th>04/01/2010 10:10</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody align="center">
+												<c:tr>
+												<c:td>Sérologie IgM qualitatif</c:td>
+												<c:td>Positif</c:td>
+												<c:td/>
+												</c:tr>
+												<c:tr>
+												<c:td>Sérologie IgM quantitatif</c:td>
+												<c:td>0,315</c:td>
+												<c:td>résultat Haut</c:td>
+												</c:tr>
+												<c:tr>
+												<c:td>Sérologie IgG qualitatif</c:td>
+												<c:td>Positif</c:td>
+												<c:td/>
+												</c:tr>
+												<c:tr>
+												<c:td>Sérologie IgG quantitatif</c:td>
+												<c:td>0,408</c:td>
+												<c:td>résultat Haut</c:td>
+												</c:tr>
+												<c:tr>
+												<c:td>Protéine C-réactive</c:td>
+												<c:td>12 mg/L</c:td>
+												<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:br/>
+										<c:paragraph>Interprétation :<c:br/> Présence d'IgM
+											anti-virus Chikungunya<c:br/> Résultat en faveur d'une
+											infection aigüe ou récente par un Alphavirus.<c:br/>
+											Résultats validés et interprétés par Robert RESPONSHUIT
+											le 4 janvier 2010, 15h25</c:paragraph>
+										<c:br/>
+									</c:text>
+									<!-- RESULTATS IMPORTABLES DANS LE SI DU CONSOMMATEUR (niveau 3 de CDA) -->
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="18727-8" displayName="Sérologies"
+												codeSystem="2.16.840.1.113883.6.1"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<!-- Biologiste ayant validé les résultats de cette entrée à 11h30 -->
+												<c:time>
+												<c:high value="201301041130+0100"/>
+												</c:time>
+												<c:participantRole>
+												<c:id root="1.2.250.1.71.4.2.1"
+												extension="801234567899"/>
+												<c:addr nullFlavor="MSK"/>
+												<c:telecom nullFlavor="MSK"/>
+												<c:playingEntity>
+												<c:name>
+												<c:given>Robert</c:given>
+												<c:family>RESPONSHUIT</c:family>
+												</c:name>
+												</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="56131-6"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"
+												displayName="Chikungunya virus Ac.IgM [Arbitraire/Volume] Sérum ; Qualitatif"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="201301041010+0100"/>
+													<c:value xsi:type="c:CV" code="P"
+												displayName="positif"
+												codeSystem="1.2.250.1.213.2.12.99999999"/>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="56130-8"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"
+												displayName="Chikungunya virus Ac.IgM [Titre] Sérum ; Numérique"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="201301041010+0100"/>
+													<c:value xsi:type="c:PQ" value="0.315"/>
+													<c:interpretationCode code="H"
+												displayName="Anormalement haut"
+												codeSystem="2.16.840.1.113883.5.83"/>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="56129-0"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"
+												displayName="Chikungunya virus Ac.IgG [Arbitraire/Volume] Sérum ; Qualitatif"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="201301041010+0100"/>
+													<c:value xsi:type="c:CV" code="P"
+												displayName="positif"
+												codeSystem="1.2.250.1.213.2.12.99999999"/>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="56128-2"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"
+												displayName="Chikungunya virus Ac.IgG [Titre] Sérum ; Numérique"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="201301041010+0100"/>
+													<c:value xsi:type="c:PQ" value="0.408"/>
+													<c:interpretationCode code="H"
+												displayName="Anormalement haut"
+												codeSystem="2.16.840.1.113883.5.83"/>
+												</c:observation>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:observation classCode="OBS" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+													<c:code code="11039-5"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"
+												displayName="C Réactive protéine [Arbitraire/Volume] Sérum/Plasma ; Qualitatif"/>
+													<c:statusCode code="completed"/>
+													<c:effectiveTime value="201301041010+0100"/>
+													<c:value xsi:type="c:PQ" value="12" unit="mg/L"/>
+												</c:observation>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+						</c:section>
+					</c:component>
+				</c:structuredBody>
+			</c:component>
+		</c:ClinicalDocument>
+	</data:Contenu>
+	
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<!--         Feuille de style XSLT pour CR auto-présentable du LBM des Charmes  -->
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	
+	<xsl:template match="xsl:stylesheet">
+		<xsl:apply-templates select="data:Contenu/c:ClinicalDocument"/>
+	</xsl:template>
+	<xsl:template match="c:ClinicalDocument">
+		<html>
+			<head>
+				<style>
+					body {
+					    font-family : Calibri, sans-serif;
+					}
+					h1 {
+					}
+					h2 {
+					    margin : 0px;
+					}
+					table {
+					    border-collapse : collapse;
+					}
+					th {
+					    padding : 5px;
+					    border : solid black 1px;
+					    background-color : rgb(217, 217, 217);
+					    font-weight : normal;
+					}
+					td {
+					    padding : 0px 5px 0px 5px;
+					    border : solid black 1px;
+					}
+					#header img,
+					#header p,
+					#header h2 {
+					    margin : 0px 25px 0px 25px;
+					}
+					.data {
+					    font-style : italic;
+					    color : rgb(0, 112, 192);
+					}</style>
+				<title>
+					<xsl:value-of select="c:title"/>
+				</title>
+			</head>
+			<body>
+				<table id="header">
+					<tr>
+						<td>
+							<xsl:call-template name="printLogo"/>
+						</td>
+						<td>
+							<h2 class="data">
+								<xsl:value-of select="c:custodian//c:name"/>
+							</h2>
+							<p>
+								<span class="data">
+									<xsl:value-of select="c:custodian//c:telecom[@use='PUB']/@value"/>
+									<br/>
+									<xsl:value-of select="c:custodian//c:addr"/>
+								</span>
+								<br/> Médecin biologiste responsable: <xsl:call-template
+									name="printNameAndId">
+									<xsl:with-param name="ref"
+										select="c:legalAuthenticator/c:assignedEntity"/>
+								</xsl:call-template>
+							</p>
+						</td>
+					</tr>
+				</table>
+
+				<h1 class="data">
+					<xsl:value-of select="//c:title"/>
+				</h1>
+				<p> Produit le <xsl:call-template name="printDate">
+					<xsl:with-param name="date" select="c:effectiveTime/@value"/>
+					</xsl:call-template>
+					<br/> Pour <span class="data">
+						<xsl:value-of select="c:recordTarget//c:patient/c:name"/>
+					</span>
+					<br/> Identifiant: <span class="data">
+						<xsl:value-of select="c:recordTarget//c:id/@extension"/>
+					</span> , Date de naissance: <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:recordTarget//c:patient/c:birthTime/@value"/>
+					</xsl:call-template> , Sexe: <span class="data">
+						<xsl:value-of
+							select="c:recordTarget//c:patient/c:administrativeGenderCode/@code"/>
+					</span>
+				</p>
+				<p> Demande d'examens <span class="data">
+					<xsl:value-of select="c:documentationOf/c:serviceEvent/c:id/@extension"/>
+					</span> prescrite le <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:participant[@typeCode='REF']/c:time/c:high/@value"/>
+					</xsl:call-template> par <xsl:call-template name="printNameAndId">
+						<xsl:with-param name="ref"
+							select="c:participant[@typeCode='REF']/c:associatedEntity"/>
+					</xsl:call-template>
+					<br/> Réalisation du <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:low/@value"/>
+					</xsl:call-template> au <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:high/@value"/>
+					</xsl:call-template>
+				</p>
+				<p> Echantillons biologiques prélevés le <xsl:call-template name="printDate">
+						<xsl:with-param name="date"
+							select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:high/@value"/>
+					</xsl:call-template> par <xsl:call-template name="printNameAndId">
+						<xsl:with-param name="ref"
+							select="c:participant[@typeCode='DIST']/c:associatedEntity"/>
+					</xsl:call-template>
+				</p>
+				<xsl:apply-templates select="c:component/c:structuredBody"/>
+				<br/>
+				<table>
+					<tr>
+						<th>Biologistes médicaux ayant participé à
+							l'interprétation du compte rendu</th>
+						<th>Date &amp; heure</th>
+					</tr>
+
+					<xsl:for-each select="c:authenticator">
+						<tr>
+							<td>
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref" select="c:assignedEntity"/>
+								</xsl:call-template>
+
+							</td>
+							<td>
+								<xsl:call-template name="printDateAndTime">
+									<xsl:with-param name="date" select="c:time/@value"/>
+								</xsl:call-template>
+							</td>
+						</tr>
+					</xsl:for-each>
+					<xsl:if test="not(c:authenticator/c:assignedEntity)">
+						<tr>
+							<td>
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref"
+										select="c:legalAuthenticator/c:assignedEntity"/>
+								</xsl:call-template>
+								<xsl:call-template name="directeur_signe"/>
+							</td>
+							<td>
+								<xsl:call-template name="printDateAndTime">
+									<xsl:with-param name="date"
+										select="c:legalAuthenticator/c:time/@value"/>
+								</xsl:call-template>
+							</td>
+						</tr>
+					</xsl:if>
+				</table>
+			</body>
+		</html>
+	</xsl:template>
+
+	<xsl:template name="printNameAndId">
+		<xsl:param name="ref"/>
+		<span class="data">
+			<xsl:value-of select="$ref/c:assignedPerson/c:name|$ref/c:associatedPerson/c:name"/>
+		</span>
+		<xsl:text>(</xsl:text>
+		<span class="data">
+			<xsl:value-of select="$ref//c:id/@extension"/>
+		</span>
+		<xsl:text>)</xsl:text>
+	</xsl:template>
+
+	<xsl:template name="printDate">
+		<xsl:param name="date"/>
+		<span class="data">
+			<xsl:value-of select="substring($date, 7, 2)"/>
+		</span>
+		<xsl:text>/</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 5, 2)"/>
+		</span>
+		<xsl:text>/</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 1, 4)"/>
+		</span>
+	</xsl:template>
+
+	<xsl:template name="printDateAndTime">
+		<xsl:param name="date"/>
+		<xsl:call-template name="printDate">
+			<xsl:with-param name="date" select="$date"/>
+		</xsl:call-template>
+		<xsl:text> </xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 9, 2)"/>
+		</span>
+		<xsl:text>:</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 11, 2)"/>
+		</span>
+	</xsl:template>
+
+	<xsl:template name="printLogo">
+		<img
+			src="data:image/jpeg;base64,
+			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
+			eW4Gc5/gNMjRo0H/2Q==
+			"
+		/>
+	</xsl:template>
+
+	<xsl:template name="directeur_signe">
+		<xsl:text> . . . . . . . . . . . . . . </xsl:text>
+		<img
+			src="data:image/jpeg;base64,
+			/9j/4AAQSkZJRgABAQEAAQABAAD//gBKRmlsZSBzb3VyY2U6IGh0dHA6Ly9jb21tb25zLndpa2lt
+			ZWRpYS5vcmcvd2lraS9GaWxlOlRlcnJ5cy1zaWduYXR1cmUuanBn/9sAQwAGBAUGBQQGBgUGBwcG
+			CAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/8AACwgA
+			MACAAQERAP/EABwAAQADAQADAQAAAAAAAAAAAAAEBQYDAQIHCP/EADkQAAIBBAAEAgULAgcAAAAA
+			AAECAwAEBREGEiExE0EHIjNRYRQjJDJCYnFygZGhFTRSY4OSorHB/9oACAEBAAA/AP1TSh6DZrPN
+			DLxIS8k09vhfsJDIY3u/vFhplj9wBBbuTo6MKHF2fD/GmOXDWsNnb5G2mjuYYFCK7x8jJIVHdgC6
+			lu55hvehWupSlKUpXhmVBtmCj4nVQ58vjbf2+Qs4vzzqv/Zr2tMnYXn9pfWs/XXzUqt1/Q1Lqnus
+			rNNPJa4W3W6njPLJNIxSCI67FtEs33VB+JWs/wAQ32UtcricRl7mymx+Zm+TtJbwvC8PKCxVtuwZ
+			H0I97XRcd+Ya3CgKAFAAHQAeVUkn0jjSAAArZWDsx+M0ihf4hf8Aera5uYLVUa6nihV3WNTI4UM7
+			HSqN9yT0A8660rlNcwQbEsqKdb0T1/auPywyIrW9tPKGUkEr4eteR5tHr+FeAchJGdi2t3106tL5
+			ef1fOvMtpNLvmvZ0BbeolVemu3UE/wA1HXC23MWllvZiX5/nLuQjetfV5ta+Gq4rwtgFIP8ARccz
+			DqGe3RiO/mRvzP71MhxGNh9jj7OP8kKj/wAqVHDFF7KNE/KoFU91JLmMhPYW8jxWNsQt3KhKtI5A
+			PhKfLoQWYdeoA67I9sXdrDmb3C/J4reO2iimtVjXlVoWBUgD3q6tvXYMvv65z0ixzy3oFufpEWIu
+			7u1A7maGa2lUf7lX+a21ldRXtlb3Vu3NDPGssbe9WGwf2NZ/FXkKLl8q8sYlupn8BWJJMcQ5F0B1
+			IJV26D7dUM2Vi4zwHCrXOEnurbJOr3EUsfhRrzWshb2mm0CejAdwCD2rva5bLcOvHjeKryC3si3J
+			aZdtyiRd6WOdzyiOXWvWI5X8vW9WtXJiI5z9Mubu4G98rSlF/AqnKCPgd1Oht4YN+DFHHvvyqBuu
+			lKUpSlZ/gmVXxV1CzbuoL65juR5iQys3X8VZWH3WWuHGhawusJm4ejWt5Haz9dc8Fw6xMP0cxP8A
+			6dVnFd3fZe93wnbQ3N/g5y0s8z6iLFNPbADq7lH3raqG5NtsECl4SR39FkF5/UchfyW6yWNnC3Na
+			JzxzNBEpjTlYdVUEOWIrbWcWE4N4eWBXtLKyx9sC5JVPUUfWPxPv8yaxno3zDXkVha3EU802EspB
+			M8MDmKSR29QRvrlciNTvROi4HcHWrvL/ADeTtpbez4cjjilQo7Ze4RUKkaPzcfiFhr7J5d+8VO4Q
+			w0mA4etcbLdm6aHn0/KVVQWLBEBJIRQQqgkkKoGzVxSlKUpSqbI4JZr58jjbh8fk2UI80YDJMBvl
+			EqHo4Gzo9GHUBhs1AucVnspJDa5e6xoxsc8c7m1hdZJvDcOq6ZiEHMo2dkkdBre66Z7hrhppLrM5
+			Owt4ZkQyz3cZaJyFHdmQgtoDz3XyfJejiWTJ8PwY3E3Ea3KXGZysDXs8UckgkRkhEmzyS7lPrdNi
+			Lr22Nlwvw9w7dXz29tc5K2miKvdYe9WISkKQV8RihlkjDAaIkZDrWyNivpVKUpSlKUpSoGdvLuwx
+			Vxc47GzZS7QDw7SGRI2kJOtczkKB5kk9h02elY0YzjfiVLebNzYbBW8colXHRRvfMxGiplk5o1JV
+			uoUKRsAknWqu1wnEDe24tuAf8mxgUf8AJWqBleEMrkuQXedt7xYzzRG8xql4m/xI8TRsh+KkGoll
+			iPSFiJCttn8JmLTY5YchayxSKPcJVdifxYMfjU644n4hxayNl+DLyeJevi4W6juxr8j+FJ+iq1au
+			wulvbG3uo45o0mjWQJPG0cigjemVgCp94PUV3pSlKUpX/9k=
+			"
+		/>
+	</xsl:template>
+
+	<!-- 
+@mkf 10/04/2012:
+Les templates suivants ont été repris du fichier 'style.xsl' sans autres
+modifications que celles listées ci-dessous.
+ * Le template 'section-author' a été supprimé.
+ * Le lien sur les titre h3 a été supprimé.
+-->
+
+	<xsl:template match="c:component/c:structuredBody">
+		<xsl:for-each select="c:component/c:section">
+			<xsl:comment>Debut body structure</xsl:comment>
+			<xsl:call-template name="section"/>
+			<xsl:comment>Fin body structure</xsl:comment>
+		</xsl:for-each>
+	</xsl:template>
+
+	<!-- top level component/section: display title and text,
+     and process any nested component/sections
+   -->
+	<xsl:template name="section">
+		<xsl:call-template name="section-title">
+			<xsl:with-param name="title" select="c:title"/>
+		</xsl:call-template>
+		<xsl:call-template name="section-text"/>
+		<xsl:for-each select="c:component/c:section">
+			<xsl:call-template name="nestedSection">
+				<xsl:with-param name="margin" select="2"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+	<!-- top level section title -->
+	<xsl:template name="section-title">
+		<xsl:param name="title"/>
+		<h3>
+			<xsl:value-of select="$title"/>
+		</h3>
+	</xsl:template>
+
+	<!-- top-level section Text   -->
+	<xsl:template name="section-text">
+		<div>
+			<xsl:apply-templates select="c:text"/>
+		</div>
+	</xsl:template>
+	<xsl:template name="renderTextB64">
+		<xsl:variable name="vendor" select="system-property('xsl:vendor')"/>
+		<xsl:variable name="node-set" select="function-available('exsl:node-set')"/>
+		<xsl:choose>
+			<xsl:when test="$vendor='libxslt' and $node-set">
+				<!-- Le navigateur est soit safari version 3.x et superieure 
+        soit google chrome version 2.x et superieure -->
+				<!-- On peut donc afficher le pdf -->
+				<xsl:element name="object">
+					<xsl:attribute name="type">
+						<xsl:value-of select="c:text/@mediaType"/>
+					</xsl:attribute>
+					<xsl:attribute name="width">800px></xsl:attribute>
+					<xsl:attribute name="height">600px</xsl:attribute>
+					<xsl:attribute name="data">data:<xsl:value-of select="c:text/@mediaType"
+					/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+				</xsl:element>
+			</xsl:when>
+			<xsl:when test="$vendor='Opera' and $node-set">
+				<!-- Le navigateur est opera 9.x et superieure -->
+				<!-- On peut donc afficher le pdf -->
+				<xsl:element name="object">
+					<xsl:attribute name="type">
+						<xsl:value-of select="c:text/@mediaType"/>
+					</xsl:attribute>
+					<xsl:attribute name="width">800px></xsl:attribute>
+					<xsl:attribute name="height">600px</xsl:attribute>
+					<xsl:attribute name="data">data:<xsl:value-of select="c:text/@mediaType"
+					/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+				</xsl:element>
+			</xsl:when>
+			<xsl:when test="$vendor='Transformiix' and $node-set">
+				<!-- Le navigateur est Firefox version 3.x ou superieure -->
+				<!-- Le pdf ne sera disponble que sous forme de lien -->
+				<xsl:text>Enregistrer le document PDF (clic droit "puis enregistrer sous") : </xsl:text>
+				<xsl:element name="a">
+					<xsl:attribute name="href">data:<xsl:value-of select="c:text/@mediaType"
+					/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+					<xsl:text>ici</xsl:text>
+				</xsl:element>
+			</xsl:when>
+			<xsl:otherwise>
+				<!-- Navigaeur non pris en charge -->
+				<CENTER>Ce document contient un fichier PDF qui ne peut être affiché par ce
+					navigateur</CENTER>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<!-- nested component/section -->
+	<xsl:template name="nestedSection">
+		<xsl:param name="margin"/>
+		<h4 style="margin-left : {$margin}em;">
+			<xsl:value-of select="c:title"/>
+		</h4>
+		<div style="margin-left : {$margin}em;">
+			<xsl:apply-templates select="c:text"/>
+		</div>
+		<xsl:for-each select="c:component/c:section">
+			<xsl:call-template name="nestedSection">
+				<xsl:with-param name="margin" select="2*$margin"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+	<!--   paragraph  -->
+	<xsl:template match="c:paragraph">
+		<p>
+			<xsl:apply-templates/>
+		</p>
+	</xsl:template>
+	<!--   pre format  -->
+	<xsl:template match="c:pre">
+		<pre>
+      <xsl:apply-templates/>
+    </pre>
+	</xsl:template>
+	<!--   Content w/ deleted text is hidden -->
+	<xsl:template match="c:content[@revised='delete']"/>
+	<!--   content  -->
+	<xsl:template match="c:content">
+		<xsl:apply-templates/>
+	</xsl:template>
+	<!-- line break -->
+	<xsl:template match="c:br">
+		<xsl:element name="br">
+			<xsl:apply-templates/>
+		</xsl:element>
+	</xsl:template>
+	<!--   list  -->
+	<xsl:template match="c:list">
+		<xsl:if test="c:caption">
+			<p>
+				<b>
+					<xsl:apply-templates select="c:caption"/>
+				</b>
+			</p>
+		</xsl:if>
+		<ul>
+			<xsl:for-each select="c:item">
+				<li>
+					<xsl:apply-templates/>
+				</li>
+			</xsl:for-each>
+		</ul>
+	</xsl:template>
+	<xsl:template match="c:list[@listType='ordered']">
+		<xsl:if test="c:caption">
+			<span style="font-weight:bold; ">
+				<xsl:apply-templates select="c:caption"/>
+			</span>
+		</xsl:if>
+		<ol>
+			<xsl:for-each select="c:item">
+				<li>
+					<xsl:apply-templates/>
+				</li>
+			</xsl:for-each>
+		</ol>
+	</xsl:template>
+	<!--   caption  -->
+	<xsl:template match="c:caption">
+		<xsl:apply-templates/>
+		<xsl:text>: </xsl:text>
+	</xsl:template>
+	<!--  Tables   -->
+	<xsl:template match="c:table/@*|c:thead/@*|c:tfoot/@*|c:tbody/@*|c:colgroup/@*|c:col/@*|c:tr/@*|c:th/@*|c:td/@*">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="c:table">
+		<table class="narr_table">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</table>
+	</xsl:template>
+	<xsl:template match="c:thead">
+		<thead>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</thead>
+	</xsl:template>
+	<xsl:template match="c:tfoot">
+		<tfoot>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</tfoot>
+	</xsl:template>
+	<xsl:template match="c:tbody">
+		<tbody>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</tbody>
+	</xsl:template>
+	<xsl:template match="c:colgroup">
+		<colgroup>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</colgroup>
+	</xsl:template>
+	<xsl:template match="c:col">
+		<col>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</col>
+	</xsl:template>
+	<xsl:template match="c:tr">
+		<tr class="narr_tr">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</tr>
+	</xsl:template>
+	<xsl:template match="c:th">
+		<th class="narr_th">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</th>
+	</xsl:template>
+	<xsl:template match="c:td">
+		<td>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates/>
+		</td>
+	</xsl:template>
+	<xsl:template match="c:table/c:caption">
+		<span style="font-weight:bold; ">
+			<xsl:apply-templates/>
+		</span>
+	</xsl:template>
+	<!--   RenderMultiMedia 
+    this currently only handles GIF's and JPEG's.  It could, however,
+    be extended by including other image MIME types in the predicate
+    and/or by generating <object> or <applet> tag with the correct
+    params depending on the media type  @ID  =$imageRef  referencedObject
+    -->
+	<xsl:template match="c:renderMultiMedia">
+		<xsl:variable name="imageRef" select="@referencedObject"/>
+		<xsl:choose>
+			<xsl:when test="//c:regionOfInterest[@ID=$imageRef]">
+				<!-- Here is where the Region of Interest image referencing goes -->
+				<xsl:if
+					test="//c:regionOfInterest[@ID=$imageRef]//c:observationMedia/c:value[@mediaType='image/gif' or
+          @mediaType='image/jpeg' or @mediaType='image/png']">
+					<br clear="all"/>
+					<xsl:element name="img">
+						<xsl:attribute name="src">
+							<xsl:value-of
+								select="//c:regionOfInterest[@ID=$imageRef]//c:observationMedia/c:value/c:reference/@value"
+							/>
+						</xsl:attribute>
+					</xsl:element>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<!-- Here is where the direct MultiMedia image referencing goes -->
+				<xsl:if
+					test="//c:observationMedia[@ID=$imageRef]/c:value[@mediaType='image/gif' or @mediaType='image/jpeg' or @mediaType='image/png']">
+					<br clear="all"/>
+					<xsl:element name="IMG">
+						<!--
+            <xsl:attribute name='alt'>L'image du document ne peut pas être visualisée avec ce navigateur.</xsl:attribute>
+            -->
+						<xsl:attribute name="id">
+							<xsl:value-of select="$imageRef"/>
+						</xsl:attribute>
+						<xsl:attribute name="src">data:<xsl:value-of
+							select="//c:observationMedia[@ID=$imageRef]/c:value/@mediaType"
+							/>;base64, <xsl:value-of
+								select="//c:observationMedia[@ID=$imageRef]/c:value"/>
+						</xsl:attribute>
+					</xsl:element>
+				</xsl:if>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<!--    Stylecode processing   
+    Supports Bold, Underline and Italics display
+    -->
+	<xsl:template match="//*[@styleCode]">
+		<xsl:if test="@styleCode='Bold'">
+			<xsl:element name="b">
+				<xsl:apply-templates/>
+			</xsl:element>
+		</xsl:if>
+		<xsl:if test="@styleCode='Italics'">
+			<xsl:element name="i">
+				<xsl:apply-templates/>
+			</xsl:element>
+		</xsl:if>
+		<xsl:if test="@styleCode='Underline'">
+			<xsl:element name="u">
+				<xsl:apply-templates/>
+			</xsl:element>
+		</xsl:if>
+		<xsl:if
+			test="contains(@styleCode,'Bold') and contains(@styleCode,'Italics') and not (contains(@styleCode, 'Underline'))">
+			<xsl:element name="b">
+				<xsl:element name="i">
+					<xsl:apply-templates/>
+				</xsl:element>
+			</xsl:element>
+		</xsl:if>
+		<xsl:if
+			test="contains(@styleCode,'Bold') and contains(@styleCode,'Underline') and not (contains(@styleCode, 'Italics'))">
+			<xsl:element name="b">
+				<xsl:element name="u">
+					<xsl:apply-templates/>
+				</xsl:element>
+			</xsl:element>
+		</xsl:if>
+		<xsl:if
+			test="contains(@styleCode,'Italics') and contains(@styleCode,'Underline') and not (contains(@styleCode, 'Bold'))">
+			<xsl:element name="i">
+				<xsl:element name="u">
+					<xsl:apply-templates/>
+				</xsl:element>
+			</xsl:element>
+		</xsl:if>
+		<xsl:if
+			test="contains(@styleCode,'Italics') and contains(@styleCode,'Underline') and contains(@styleCode, 'Bold')">
+			<xsl:element name="b">
+				<xsl:element name="i">
+					<xsl:element name="u">
+						<xsl:apply-templates/>
+					</xsl:element>
+				</xsl:element>
+			</xsl:element>
+		</xsl:if>
+		<xsl:if
+			test="not (contains(@styleCode,'Italics') or contains(@styleCode,'Underline') or contains(@styleCode, 'Bold'))">
+			<xsl:apply-templates/>
+		</xsl:if>
+	</xsl:template>
+	<!--    Superscript or Subscript   -->
+	<xsl:template match="c:sup">
+		<xsl:element name="sup">
+			<xsl:apply-templates/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="c:sub">
+		<xsl:element name="sub">
+			<xsl:apply-templates/>
+		</xsl:element>
+	</xsl:template>
+
+	<!-- signature de l'ensemble du document -->
+
+	<ds:Signature Id="S0">
+		<ds:SignedInfo>
+			<ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+			<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+			<ds:Reference URI="">
+				<!--
+Comme pour l'exemple précédent l'URI est laissée vide afin que la signature
+porte sur l'ensemble du document à l'exclusion des commentaires et de la balise <ds:Signature/>
+(voir http://www.w3.org/TR/xmldsig-core/#sec-Same-Document).
+-->
+				<ds:Transforms>
+					<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+				</ds:Transforms>
+				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+				<ds:DigestValue> Valeur (en base 64) du condensé des données à signer:
+				</ds:DigestValue>
+			</ds:Reference>
+			<ds:Reference URI="#S0-SignedProperties">
+				<!--
+En revanche une deuxième référence est ajoutée pour signer également les attributs
+XAdES qui sont ajoutés à la signature. Ces attributs ne sont pas présents avant
+la signature  et ne sont donc pas référencés par <ds:Reference URI=""/>.
+La signature porte ici sur la balise dont l'id est 'S0-SignedProperties'.
+-->
+				<ds:Transforms>
+					<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+				</ds:Transforms>
+				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+				<ds:DigestValue> Valeur (en base 64) du condensé des propriétés signées
+					(SignedProperties) </ds:DigestValue>
+			</ds:Reference>
+		</ds:SignedInfo>
+		<ds:SignatureValue> Valeur (en base 64) de la signature numérique, calculée à partir du
+			condensé des SignedInfo </ds:SignatureValue>
+		<ds:KeyInfo>
+			<ds:X509Data>
+				<ds:X509Certificate> Certificat complet (en base 64) utilisé pour la signature
+				</ds:X509Certificate>
+			</ds:X509Data>
+		</ds:KeyInfo>
+		<ds:Object>
+			<xad:QualifyingProperties Target="#S0">
+				<xad:SignedProperties Id="S0-SignedProperties">
+					<!--
+On retrouve ici l'id référencé un peu plus haut.
+<xad:SignedProperties/> est donc également signé.
+-->
+					<xad:SignedSignatureProperties>
+						<xad:SigningTime> Date et heure de la signature (sous la forme
+							aaaa-mm-jjThh:mm:ss (temps GMT)) </xad:SigningTime>
+						<xad:SigningCertificate>
+							<xad:Cert>
+								<xad:CertDigest>
+									<ds:DigestMethod xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+										Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"> </ds:DigestMethod>
+									<ds:DigestValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+										Valeur (en base 64) du condensé du certificat utilisé pour
+										la signature </ds:DigestValue>
+								</xad:CertDigest>
+								<xad:IssuerSerial>
+									<ds:X509IssuerName xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+										> DN (en texte brut encodé UTF-8) de l'émetteur du
+										certificat utilisé pour la signature </ds:X509IssuerName>
+									<ds:X509SerialNumber
+										xmlns:ds="http://www.w3.org/2000/09/xmldsig#"> Numéro de
+										série (en chiffres décimaux) du certificat utilisé pour la
+										signature </ds:X509SerialNumber>
+								</xad:IssuerSerial>
+							</xad:Cert>
+						</xad:SigningCertificate>
+						<xad:SignaturePolicyIdentifier>
+							<xad:SignaturePolicyId>
+								<xad:SigPolicyId>
+									<xad:Identifier> URI de la politique de signature (en texte brut
+										encodé UTF-8). Cette URI est passée en paramètre </xad:Identifier>
+									<xad:Description> Description de la politique de signature (en
+										texte brut encodé UTF-8). Cette description est passée en
+										paramètre </xad:Description>
+								</xad:SigPolicyId>
+								<xad:SigPolicyHash>
+									<ds:DigestMethod xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+										Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"> </ds:DigestMethod>
+									<ds:DigestValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+										Condensé de la politique de signature (en base 64). Sa
+										valeur est passée en paramètre </ds:DigestValue>
+								</xad:SigPolicyHash>
+							</xad:SignaturePolicyId>
+						</xad:SignaturePolicyIdentifier>
+						<xad:SignatureProductionPlace>
+							<xad:City> Ville (en clair encodé UTF-8). Sa valeur est passée en
+								paramètre </xad:City>
+							<xad:PostalCode> Code postal (en clair encodé UTF-8). Sa valeur est
+								passée en paramètre </xad:PostalCode>
+							<xad:CountryName> Pays (en clair encodé UTF-8). Sa valeur est passée en
+								paramètre </xad:CountryName>
+						</xad:SignatureProductionPlace>
+						<xad:SignerRole>
+							<xad:ClaimedRoles>
+								<xad:ClaimedRole> Rôle du signataire (en clair encodé UTF-8). Sa
+									valeur est passée en paramètre </xad:ClaimedRole>
+							</xad:ClaimedRoles>
+						</xad:SignerRole>
+					</xad:SignedSignatureProperties>
+					<xad:SignedDataObjectProperties>
+						<xad:CommitmentTypeIndication>
+							<xad:CommitmentTypeId> OID du Type d'engagement. Sa valeur est passée en
+								paramètre </xad:CommitmentTypeId>
+							<xad:ObjectReference> #D0-Reference </xad:ObjectReference>
+						</xad:CommitmentTypeIndication>
+					</xad:SignedDataObjectProperties>
+				</xad:SignedProperties>
+			</xad:QualifyingProperties>
+		</ds:Object>
+	</ds:Signature>
+
+</xsl:stylesheet>

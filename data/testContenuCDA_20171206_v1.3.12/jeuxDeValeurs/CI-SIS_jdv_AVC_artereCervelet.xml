@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.16" displayName="AVC_artereCervelet">
+        <ConceptList>
+            <Concept code="T-45840" displayName="artère cérébelleuse supérieure"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-45850" displayName="artère cérébelleuse"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="AVC-129" displayName="Artère Cérébelleuse Moyenne (ACM)"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-130" displayName="Artère Cérébelleuse Inférieure (ACI)"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

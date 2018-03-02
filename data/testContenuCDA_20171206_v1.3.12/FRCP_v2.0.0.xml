@@ -1,0 +1,2162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="schematrons/CI-SIS_FRCP.sch"?>
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+   <!-- 
+      **********************************************************************************************************
+      Système : ASIP
+      Document : Fiche de Réunion de Concertation Pluridisciplinaire (FRCP)
+      Auteur : PRAS
+      Date de création : 01/03/2011
+      Mise à jour : 27/08/2015
+      Version :2.0.0
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:
+      
+      OID temporaire du LPS producteur de document: 1.2.3.4  
+      
+      03/03/17 : NMA : Ajouter la sous section obligatoire Pain Scale Assessment dans la section Coded Functional Status Assessment
+      
+      **********************************************************************************************************
+   -->
+   <realmCode code="FR"/>
+   <!-- Référencement au standard CDAr2 -->
+   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+      <!-- Conformité spécifications HL7 France -->
+   <templateId root="2.16.840.1.113883.2.8.2.1"/>
+      <!-- Conformité spécifications CI-SIS -->
+   <templateId root="1.2.250.1.213.1.1.1.1"/>
+      <!-- Conformité au modèle de document FRCP (ASIP Santé) -->
+   <templateId root="1.2.250.1.213.1.1.1.8"/>
+
+   <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+   <id extension="15078" root="1.2.3.4"/>
+      <!-- Type du document -->
+      <code code="34794-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+         displayName="CR de réunion de concertation pluridisciplinaire"/>
+      <title>RRC Aquitaine, CCC Béarn et Soule, RCP Rein</title>
+      <effectiveTime value="20110301094914+0100"/>
+   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+      codeSystemName="Confidentiality" displayName="Normal"/>
+   <languageCode code="fr-FR"/>
+
+      <!--=<<o#%@O[ Identification du patient ]O@%#o>>=-->
+      
+      <recordTarget contextControlCode="OP" typeCode="RCT">
+         <patientRole>
+            <!-- INS-C du patient pour l"INS-A on utilise root= "1.2.250.1.213.1.4.1"-->
+            <id extension="0411886319605719371016" root="1.2.250.1.213.1.4.2"/>
+            <!-- IPP du patient dans l'établissement à développer root est l'OID de l'ES-->
+            <id extension="1234567890121" root="1.2.3.4.567.8.9.10"/>
+            <addr>
+               <streetNameType>AV</streetNameType>
+               <streetName>de Breteuil</streetName>
+               <houseNumber>28</houseNumber>
+               <unitID>Escalier A</unitID>
+               <postalCode>75007</postalCode>
+               <city>PARIS</city>
+            </addr>
+            <telecom value="tel:0144534551" use="H"/>
+            <patient classCode="PSN">
+               <name>
+                  <given>Marie</given>
+                  <family qualifier="BR">DECOURCY</family>
+               </name>
+               <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+               <birthTime value="19760531"/>
+               <birthplace>
+                  <place>
+                     <addr>
+                        <postalCode>92100</postalCode>
+                        <city>Boulogne-Billancourt</city>
+                     </addr>
+                  </place>
+               </birthplace>
+            </patient>
+         </patientRole>
+      </recordTarget>
+
+      <!--=<<o#%@O[ Auteur du document = Médecin coordonateur de la RCP ]O@%#o>>=-->
+      
+   <author>
+      <time value="20080929094914+0100"/>
+      <assignedAuthor>
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+            displayName="Médecin - Oncologie option médicale (SM)"/>
+         <addr>
+            <houseNumber>4</houseNumber>
+            <streetNameType>RUE</streetNameType>
+            <streetName>de Limoges</streetName>
+            <postalCode>49933</postalCode>
+            <city>Angers</city>
+         </addr>
+         <telecom value="tel:0242515151" use="WP"/>
+         <assignedPerson>
+            <name>
+               <given>Charles </given>
+               <family>Müller</family>
+               <prefix>Dr.</prefix>
+            </name>
+         </assignedPerson>
+         <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+            <name>Cabinet du Dr.Müller</name>           
+            <addr>            
+               <streetNameType>RUE</streetNameType>
+               <streetName>de Limoges</streetName>
+               <houseNumber>4</houseNumber>
+               <postalCode>49933</postalCode>
+               <city>ANGERS</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" 
+               displayName="Établissement de santé"
+               codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+         </representedOrganization>
+      </assignedAuthor>
+   </author>
+           
+      <!--=<<o#%@O[ Organisation de santé responsable du document ]O@%#o>>=-->
+      
+      <custodian>
+         <assignedCustodian>
+            <representedCustodianOrganization>
+               <id root="1.2.250.1.71.4.2.2" 
+                  extension="1120456789" 
+                  assigningAuthorityName="ASIP Santé"/>
+               <name>Centre de Coordination en Cancérologie d'Angers</name>
+               <telecom value="tel:0442515151" use="WP"/>
+               <addr>    
+                  <streetNameType>PL</streetNameType>
+                  <streetName>du Ralliement</streetName>
+                  <houseNumber>12</houseNumber>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+               </addr>
+            </representedCustodianOrganization>
+         </assignedCustodian>
+      </custodian>
+      
+      <!--=<<o#%@O[ Responsable/Médecin Coordonateur de la RCP ]O@%#o>>=-->
+      
+      <legalAuthenticator>
+      <time value="20080929094914+0100"/>
+      <signatureCode code="S"/>
+         <assignedEntity>
+            <!-- PS identifié par son N°RPPS -->
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+            <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+               displayName="Médecin - Oncologie option médicale (SM)"/>
+            <addr>            
+               <streetNameType>RUE</streetNameType>
+               <streetName>de Limoges</streetName>
+               <houseNumber>4</houseNumber>
+               <postalCode>49933</postalCode>
+               <city>ANGERS</city>
+            </addr>
+            <telecom value="tel:0242515151" use="WP"/>
+            <assignedPerson>
+               <name>
+                  <given>Charles </given>
+                  <family>Müller</family>
+                  <prefix>Dr.</prefix>
+               </name>
+            </assignedPerson>
+            <representedOrganization>
+               <id root="1.2.250.1.71.4.2.2" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <name>Cabinet du Dr.Müller</name>
+               <addr>            
+                  <streetNameType>RUE</streetNameType>
+                  <streetName>de Limoges</streetName>
+                  <houseNumber>4</houseNumber>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+               </addr>
+               <standardIndustryClassCode code="ETABLISSEMENT" 
+                  displayName="Établissement de santé"
+                  codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+            </representedOrganization>
+         </assignedEntity>
+      </legalAuthenticator>
+           
+      <!--=<<o#%@O[ Médecin Traitant, Correspondants Médicaux, PS participants à la RCP ]O@%#o>>=-->    
+           
+      <!-- Médecin traitant -->
+     
+      <participant typeCode="INF">
+         <functionCode code="PCP" 
+            displayName="Médecin traitant" 
+            codeSystem="2.16.840.1.113883.5.88"/>        
+         <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" 
+               extension="124789224582101" 
+               assigningAuthorityName="ASIP Santé"/>
+            <code code="G15_10/SM26" 
+               displayName="Médecin - Qualifié en Médecine Générale (SM)" 
+               codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <scopingOrganization>
+               <name>Clinique Médicale du Mail</name>
+               <telecom value="tel:0442515151" use="WP"/>
+               <addr>            
+                  <streetNameType>RUE</streetNameType>
+                  <streetName>du Mail</streetName>
+                  <houseNumber>4</houseNumber>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+               </addr>
+               <standardIndustryClassCode 
+                  code="ETABLISSEMENT" 
+                  displayName="Etablissement de santé" 
+                  codeSystem="1.2.250.1.213.1.1.4.9"/>
+            </scopingOrganization>
+         </associatedEntity>
+      </participant>
+      
+      <!-- Correspondant -->
+      
+      <participant typeCode="CON">
+         <functionCode code="CORRE" 
+            displayName="Médecin correspondant" 
+            codeSystem="2.16.840.1.113883.5.88"/>        
+         <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" 
+               extension="124789224458877" 
+               assigningAuthorityName="ASIP Santé"/>
+            <code code="G15_10/SM21" 
+               displayName="Médecin - Hématologie (SM)" 
+               codeSystem="1.2.250.1.213.1.1.4.5"/>
+            <scopingOrganization>
+               <name>Clinique Médicale du Mail</name>
+               <telecom value="tel:0442515151" use="WP"/>
+               <addr>            
+                  <streetNameType>RUE</streetNameType>
+                  <streetName>du Mail</streetName>
+                  <houseNumber>4</houseNumber>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+               </addr>
+               <standardIndustryClassCode 
+                  code="ETABLISSEMENT" 
+                  displayName="Etablissement de santé" 
+                  codeSystem="1.2.250.1.213.1.1.4.9"/>
+            </scopingOrganization>
+         </associatedEntity>
+      </participant>
+      
+   <!-- PS participant à la RCP et appartenant au quorum -->
+   
+   <participant typeCode="CON">
+      <functionCode code="APSIN" 
+         displayName="Autre PS Informateur" 
+         codeSystem="2.16.840.1.113883.5.88"/>        
+      <associatedEntity classCode="PROV">
+         <!-- Identifiant RPPS du PS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <!-- spécialité  -->
+         <code code="G15_10/SM45" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="ASIP Santé"
+            displayName="Médecin - Radiothérapie (SM)"/>
+         <scopingOrganization>
+            <name>Cabinet médical du Docteur DECOURCY</name>
+            <telecom value="tel:+33-142515151" use="WP"/>
+            <addr>            
+               <streetNameType>RUE</streetNameType>
+               <streetName>Pasteur</streetName>
+               <houseNumber>25</houseNumber>
+               <postalCode>91000</postalCode>
+               <city>Evry</city>
+            </addr>
+            <standardIndustryClassCode 
+               code="ETABLISSEMENT" 
+               displayName="Etablissement de santé" 
+               codeSystem="1.2.250.1.213.1.1.4.9"/>
+         </scopingOrganization>
+      </associatedEntity>
+   </participant>
+   
+   <!-- PS participant à la RCP et n'appartenant pas au quorum -->
+   
+   <participant typeCode="SPRF">
+      <functionCode code="APSIN" 
+         displayName="Autre PS Informateur" 
+         codeSystem="2.16.840.1.113883.5.88"/>        
+      <associatedEntity classCode="PROV">
+         <id root="1.2.250.1.71.4.2.1" 
+            extension="124789224458877" 
+            assigningAuthorityName="ASIP Santé"/>
+         <code code="G15_10/SM21" 
+            displayName="Médecin - Hématologie (SM)" 
+            codeSystem="1.2.250.1.213.1.1.4.5"/>
+         <scopingOrganization>
+            <name>Clinique Médicale du Mail</name>
+            <telecom value="tel:0442515151" use="WP"/>
+            <addr>            
+               <streetNameType>RUE</streetNameType>
+               <streetName>du Mail</streetName>
+               <houseNumber>4</houseNumber>
+               <postalCode>49933</postalCode>
+               <city>ANGERS</city>
+            </addr>
+            <standardIndustryClassCode 
+               code="ETABLISSEMENT" 
+               displayName="Etablissement de santé" 
+               codeSystem="1.2.250.1.213.1.1.4.9"/>
+         </scopingOrganization>
+      </associatedEntity>
+   </participant>
+   
+   
+   
+      <!--=<<o#%@O[ Informations sur le document réalisé ]O@%#o>>=-->
+      
+   <documentationOf>
+      <serviceEvent classCode="ACT">
+         <code code="RCP_060" 
+            codeSystem="1.2.250.1.213.1.1.4.2.281" 
+            codeSystemName="TA_RCP"
+            displayName="RCP">
+         </code>
+         <!-- Date de la création du document -->
+         <effectiveTime>
+            <low value="20100329"/>
+         </effectiveTime>
+         <!-- La personne ayant réalisé l'acte principal du document  Il s'agit ici de l'auteur du document-->
+         <performer typeCode="PRF">
+            <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+            <time>
+               <high value="20100104152530+0100"/>
+            </time>
+            <assignedEntity>
+               <!-- PS identifié par son N°RPPS -->
+               <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                  displayName="Médecin - Oncologie option médicale (SM)"/>
+               <addr>            
+                  <streetNameType>RUE</streetNameType>
+                  <streetName>du Mail</streetName>
+                  <houseNumber>4</houseNumber>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+               </addr>
+               <telecom value="tel:0242515151" use="WP"/>
+               <assignedPerson>
+                  <name>
+                     <given>Charles </given>
+                     <family>Müller</family>
+                     <prefix>Dr.</prefix>
+                  </name>
+               </assignedPerson>
+               <representedOrganization>
+                  <id root="1.2.250.1.71.4.2.2" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                  <name>Cabinet du Dr.Müller</name>
+                  <addr>
+                     <streetNameType>RUE</streetNameType>
+                     <streetName>de Limoges</streetName>
+                     <houseNumber>4</houseNumber>
+                     <postalCode>49933</postalCode>
+                     <city>ANGERS</city>
+                  </addr>
+                  <standardIndustryClassCode code="ETABLISSEMENT" 
+                     displayName="Établissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+               </representedOrganization>
+            </assignedEntity>
+         </performer>
+      </serviceEvent>
+   </documentationOf>
+
+      <!--=<<o#%@O[ Contexte organisationnel de la RCP ]O@%#o>>=-->
+      
+   <componentOf>
+      <encompassingEncounter>
+         <!-- Identifiant de la rencontre: numéro de consultation, etc -->
+         <id root="1.2.250.1.213.1.1.9" extension="234567890"/>
+         <!-- Type de la rencontre -->
+         <code code="VR" displayName="Virtuelle" codeSystem="2.16.840.1.113883.5.4"/>
+         <!-- Date de la RCP -->
+         <effectiveTime>
+            <low value="20080929"/>
+         </effectiveTime>
+         
+         <!-- Responsable de la RCP (identifié par son N°RPPS) -->
+         <responsibleParty>
+            <assignedEntity classCode="ASSIGNED">
+               <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                  displayName="Médecin - Oncologie option médicale (SM)"/>
+               <addr>            
+                  <streetNameType>RUE</streetNameType>
+                  <streetName>du Mail</streetName>
+                  <houseNumber>4</houseNumber>
+                  <postalCode>49933</postalCode>
+                  <city>ANGERS</city>
+               </addr>
+               <telecom value="tel:0242515151" use="WP"/>
+               <assignedPerson>
+                  <name>
+                     <given>Charles </given>
+                     <family>Müller</family>
+                     <prefix>Dr.</prefix>
+                  </name>
+               </assignedPerson>
+               <representedOrganization>
+                  <id root="1.2.250.1.71.4.2.2" extension="1120456789" assigningAuthorityName="ASIP Santé"/>
+                  <name>Centre de Coordination en Cancérologie d'Angers</name>
+                  <telecom value="tel:0442515151" use="WP"/>
+                  <addr>            
+                     <streetNameType>PL</streetNameType>
+                     <streetName>du Ralliement</streetName>
+                     <houseNumber>12</houseNumber>
+                     <postalCode>49933</postalCode>
+                     <city>ANGERS</city>
+                  </addr>
+                  <standardIndustryClassCode code="ETABLISSEMENT" 
+                     displayName="Établissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+               </representedOrganization>
+            </assignedEntity>
+         </responsibleParty>
+         
+         <!-- PS participant à la RCP -->
+         <encounterParticipant typeCode="CON">
+            <assignedEntity classCode="ASSIGNED">
+               <!-- Identifiant RPPS du PS -->
+               <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <!-- spécialité  -->
+               <code code="G15_10/SM45" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="ASIP Santé"
+               displayName="Médecin - Radiothérapie (SM)"/>
+               <addr nullFlavor="MSK"/>
+               <telecom nullFlavor="MSK"/>
+               <assignedPerson>
+                  <name>
+                     <family>DECOURCY</family>
+                     <given>Guillaume</given>
+                     <prefix>Dr.</prefix>
+                  </name>
+               </assignedPerson>
+               <!-- Etablissement de santé d'appartenance -->
+               <representedOrganization>
+                  <!-- Identifiant de l'ES -->
+                  <id root="1.2.250.1.71.4.2.2" extension="801234588930" assigningAuthorityName="ASIP Santé"/>
+                  <name>Cabinet médical du Docteur DECOURCY</name>
+                  <telecom value="tel:+33-142515151" use="WP"/>
+                  <addr>            
+                     <streetNameType>RUE</streetNameType>
+                     <streetName>Pasteur</streetName>
+                     <houseNumber>25</houseNumber>
+                     <postalCode>91000</postalCode>
+                     <city>Evry</city>
+                  </addr>
+                  <standardIndustryClassCode code="ETABLISSEMENT" 
+                     displayName="Établissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+               </representedOrganization>
+            </assignedEntity>
+         </encounterParticipant>
+         
+         <!-- PS référent du patient à la RCP = Médecin demandeur -->
+         <encounterParticipant typeCode="REF">
+            <assignedEntity classCode="ASSIGNED">
+               <!-- Identifiant RPPS du PS -->
+               <id root="1.2.250.1.71.4.2.1" extension="8012345074432" assigningAuthorityName="ASIP Santé"/>
+               <!-- spécialité  -->
+               <code code="G15_10/SM35" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="ASIP Santé"
+               displayName="Médecin - Oncologie option onco-hématologie (SM)"/>
+               <addr nullFlavor="MSK"/>
+               <telecom nullFlavor="MSK"/>
+               <assignedPerson>
+                  <name>
+                     <family>GABRIEL</family>
+                     <given>Michel</given>
+                     <prefix>M.</prefix>
+                  </name>
+               </assignedPerson>
+               <!-- Etablissement de santé d'appartenance -->
+               <representedOrganization>
+                  <!-- Identifiant de l'ES (FINESS)-->
+                  <id root="1.2.250.1.71.4.2.2" extension="1120451789" assigningAuthorityName="ASIP Santé"/>
+                  <name>Centre de Radiothérapie de l'Ouest</name>
+                  <telecom value="tel:+33-142515421" use="WP"/>
+                  <addr>            
+                     <streetNameType>AV</streetNameType>
+                     <streetName>des Tilleuls</streetName>
+                     <houseNumber>17</houseNumber>
+                     <postalCode>91000</postalCode>
+                     <city>EVRY</city>
+                  </addr>
+                  <standardIndustryClassCode code="ETABLISSEMENT" 
+                     displayName="Établissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+               </representedOrganization>
+            </assignedEntity>
+         </encounterParticipant>                 
+         
+         <!-- Etablissement de santé au sein duquel la RCP est organisé - pas forcément présent si visioconférence  -->
+         <location>
+            <healthCareFacility>
+               <!-- Numéro FINESS -->
+               <id root="1.2.250.1.71.4.2.2" extension="1120456789" assigningAuthorityName="ASIP Santé"/>
+               <code code="SA03" displayName="Etablissement Privé PSPH"  
+                  codeSystem="1.2.250.1.71.4.2.4" codeSystemName="healthCareFacilityTypeCode"/>
+               <location>
+                  <name>Centre Hospitalier d'Angers</name>
+                  <addr>            
+                     <streetNameType>RUE</streetNameType>
+                     <streetName>Larrey</streetName>
+                     <houseNumber>4</houseNumber>
+                     <postalCode>49933</postalCode>
+                     <city>ANGERS</city>
+                  </addr>
+               </location>
+            </healthCareFacility>
+         </location>
+      </encompassingEncounter>
+   </componentOf>
+
+
+   <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+
+   <component>
+      <structuredBody>
+         
+         <!--=<<o#%@O[ Motif de la RCP (Coded Reason for Referral section) ]O@%#o>>=-->
+ 
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.1'/>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.2'/>
+               <id root='41FEABE2-D1D7-4390-8CD5-F5BC78E07B7D'/>
+               <code code='42349-1' displayName='Raison de la recommandation'
+               codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Motif du passage en RCP</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Type RCP</th><th>Appareil</th><th>Organe</th><th>Tumeur</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td><content ID='rcp007'>RCP Appareil-Organe</content></td>
+                           <td><content ID='rcp008'>Sein</content></td>
+                           <td><content ID='rcp009'>Sein</content></td>
+                           <td><content ID='rcp010'>Tumeur maligne du sein</content></td>
+                        </tr>    
+                     </tbody>
+                  </table>      
+               </text> 
+               <!-- Proposition therapeutique O/N -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='B95156E1-B262-40DA-A4BB-3C9C71D19F4F'/>
+                     <code code='RCP_027' codeSystemName='TA_RCP'
+                        displayName='Proposition de traitement (dont ajustement et surveillance)' 
+                        codeSystem='1.2.250.1.213.1.1.4.2.281'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NAV"/>
+                     <value xsi:type='BL' value="false"/>
+                  </observation> 
+               </entry>
+               <!-- Recours O/N -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='B95156E1-B262-40DA-A4BB-3C9C71D19F4F'/>
+                     <code code='RCP_030' displayName='Recours' 
+                        codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NAV"/>
+                     <value xsi:type='BL' value="false"/>
+                  </observation> 
+               </entry>
+               <!-- Oncopédiatrique O/N -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='B95156E1-B262-40DA-A4BB-3C9C71D19F4F'/>
+                     <code code='RCP_094' displayName='Oncopédiatrie' 
+                        codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NAV"/>
+                     <value xsi:type='BL' value="false"/>
+                  </observation> 
+               </entry>
+               <!-- RCP Sélectionnée : RCP Type de cancer -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='B95156E1-B262-40DA-A4BB-3C9C71D19F4F'/>
+                     <code code='RCP_100' displayName='Nature de la discussion' 
+                        codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NAV"/>
+                     <value xsi:type='CD' code="RCP_111" displayName="Type de cancer"
+                     codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                     <!-- Appareil et Organe(s) de la RCP -->
+                     <entryRelationship typeCode="SUBJ">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='B95156E1-B262-40DA-A4BB-3C9C71D19F4F'/>
+                           <code code='RCP_099' displayName='Appareil concerné' 
+                              codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='CD' code='RCP_107' displayName='VADS' 
+                              codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                           <!-- Organe(s) concerné(s) -->
+                           <entryRelationship typeCode="REFR">
+                              <observation classCode='OBS' moodCode='EVN'>
+                                 <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                                 <id root='B95156E1-B262-40DA-A4BB-3C9C71D19F4F'/>
+                                 <code code='RCP_093' displayName='Organe' 
+                                    codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                                 <statusCode code='completed'/>
+                                 <effectiveTime nullFlavor="NAV"/>
+                                 <value xsi:type='CD' code="RCP_109" displayName="Fosses nasales, sinus, oreille moy/int" codeSystem="1.2.250.1.213.2.12"/>
+                                 <!-- Tumeur -->
+                                 <targetSiteCode code="C460" displayName="Sarcome de Kaposi de la peau" codeSystem="2.16.840.1.113883.6.3"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </observation> 
+               </entry>
+               </section>
+         </component>
+         
+
+         <!--=<<o#%@O[ Diagnostic du cancer (Cancer Diagnosis section) ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.1.11"/>
+               <templateId root="1.3.6.1.4.1.19376.1.7.3.1.3.14.1"/>
+               <id root="a6617910-3abf-4b30-aaC5-d58dd3a75479"/>
+               <code code="C-DIAG" displayName="Diagnostic du cancer" codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Diagnostic du cancer</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th colspan="3">Tumeur Primitive</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>Localisation</td><td>C34.0</td><td>Hile pulmonaire et médiastin</td></tr>
+                        <tr><td>Latéralité (si applicable)</td><td colspan="2">droit</td></tr>
+                        <tr><td>Date du diagnostic initial (minimum mois et année)</td><td colspan="2">2/12/2009</td></tr>
+                     </tbody>
+                  </table>
+                  <table border="1">
+                     <thead>
+                        <tr><th colspan="3">Stade Clinique Initial</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>TNM (T)</td><td>T2</td><td ID="TNM_comment3">Précisions Extension locale Texte libre-</td></tr>
+                        <tr><td>TNM (N)</td><td>Présence de métastase(s) ganglionnaire(s) non déterminée</td><td ID="TNM_comment1">Précisions métastase ganglionnaire Texte libre</td></tr>
+                        <tr><td>TNM (M)</td><td>Absence de métastase(s) à distance</td><td ID="TNM_comment2">Précisions Métastase à distance Texte libre</td></tr>
+
+                        <tr><td>Autre stade si pertinent</td><td colspan="2" ID="TNM_comment4">Autre Stade Texte libre-</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               
+               <entry>
+                  <act classCode='ACT' moodCode='EVN'>
+                     <templateId root='2.16.840.1.113883.10.20.1.27'/>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.1'/>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.2'/>
+                     <id root="015B3222-62B8-4A27-801F-A414B285D58B"/>
+                     <code nullFlavor='NA'/>
+                     <statusCode code='active'/>
+                     <!-- Date du diagnostic -->
+                     <effectiveTime>
+                        <low value="20060101"/>
+                     </effectiveTime>
+                     <entryRelationship typeCode="SUBJ" inversionInd="false" >
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false"> 
+                           <templateId root='2.16.840.1.113883.10.20.1.28'/> 
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                           <templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.1"/>
+                           <id root="F4A5860F-5FDB-4EDE-93EF-EF8F33F245BC"/>
+                           <code code="G-1009" displayName="Diagnostic"
+                              codeSystem="1.2.250.1.213.2.12"
+                              codeSystemName="SNOMED 3.5"/>
+                           <statusCode code="completed"/>
+                           <!-- Date de diagnostic -->
+                           <effectiveTime>
+                              <low value="20110101"/> 
+                           </effectiveTime>
+                           <value xsi:type="CD" code="RCP_075" codeSystem="1.2.250.1.213.1.1.4.2.281" 
+                              codeSystemName="TA_RCP" displayName="Tumeur primitive"/>
+                           <!-- Localisation cf. ICD-10 chapitre 2 -->
+                           <targetSiteCode code="C34" displayName="Tumeur maligne des bronches et du poumon" 
+                              codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10">
+                              <!-- Lateralié cf. SNOMED 3.5 VF 1.1 Table G Modificateurs -->
+                              <qualifier>
+                                 <name code="G-C171" displayName="Latéralité" 
+                                    codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                 <value code="G-A100" displayName="Droit" 
+                                    codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                                    <originalText><reference value="#rcp017"></reference></originalText>
+                                 </value>
+                              </qualifier>
+                           </targetSiteCode>
+                           
+                            <!--TNM Stage Information-->
+                           <entryRelationship typeCode="SUBJ" inversionInd="false">
+                              <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                 <templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.2"/>
+                                 <code code="21908-9" displayName="Stade TNM Clinique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime><low value="20110101"/></effectiveTime>
+                                 <value xsi:type="CD" nullFlavor="NAV"/>       
+                                 
+                                 <!-- 6.3.4.62 TNM Clinical Tumor Observation-->
+                                 <entryRelationship typeCode="COMP">
+                                    <observation classCode="OBS" moodCode="EVN">
+                                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                       <id root="02DF6527-DEF2-45CB-BB8C-D9A9E5AB6872"/>
+                                       <code code="21905-5" displayName="TNM Clinique T" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                       <statusCode code="completed"/>
+                                       <effectiveTime nullFlavor="NAV"/>
+                                       <value xsi:type="CD"  code="T1b" displayName="2-3cm" 
+                                          codeSystem="1.2.250.1.213.2.47" codeSystemName="TNM_UICC" codeSystemVersion="7"/>
+                                                    
+                                    </observation>
+                                 </entryRelationship>
+                                 
+                                 <!--6.3.4.63 TNM Clinical Nodes Observation -->
+                                 <entryRelationship typeCode="COMP">
+                                    <observation classCode="OBS" moodCode="EVN">
+                                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                       <id root="351A3E1F-A1EC-4211-8863-E3C24EBECAE5"/>
+                                       <code code="21906-3" displayName="TNM Clinique N" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                       <statusCode code="completed"/>
+                                       <effectiveTime nullFlavor="NAV"/>
+                                       <value xsi:type="CD" code="N1" displayName="ipsolatéral péribronchique, ipsolatéral hilaire"
+                                          codeSystem="1.2.250.1.213.2.47" codeSystemName="TNM_UICC" codeSystemVersion="7"/>                                       
+                                    </observation>
+                                 </entryRelationship>
+                                 
+                                 <!--6.3.4.64 TNM Clinical Metastases Observation-->
+                                 <entryRelationship typeCode="COMP">
+                                    <observation classCode="OBS" moodCode="EVN">
+                                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                       <id root="AE14D1C8-2268-4468-B015-EE7EA7A495AA"/>
+                                       <code code="21907-1" displayName="TNM Clinique M" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                       <statusCode code="completed"/>
+                                       <effectiveTime nullFlavor="NAV"/>
+                                       <value xsi:type="CD" code="M1" displayName="Métastases distantes"
+                                          codeSystem="1.2.250.1.213.2.47" codeSystemName="TNM_UICC" codeSystemVersion="7"/>
+                                    </observation>
+                                 </entryRelationship>
+                              </observation>
+                           </entryRelationship>
+                           
+                           <!-- Autre stade si pertinent -->
+                           <entryRelationship typeCode="SUBJ" inversionInd="true">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.2"/>
+                                 <code code="21918-8" displayName="Autre classification du stade" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <statusCode code="completed"/>
+                                 <value xsi:type="CD" nullFlavor="NAV">
+                                    <originalText>
+                                       <reference value="#TNM_comment4"></reference>
+                                    </originalText>
+                                 </value>
+                              </observation>
+                           </entryRelationship>
+                           
+                           <!-- Mode de découverte du cancer -->
+                           <entryRelationship typeCode="SUBJ" inversionInd="true">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.7.3.1.4.14.2"/>
+                                 <code code="P2-06020" displayName="Dépistage du Cancer" 
+                                    codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                 <statusCode code="completed"/>
+                                 <value xsi:type="BL" value="true"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+
+         <!--=<<o#%@O[ ATCD Médicaux (History of past illness section) ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+               <id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+               <code code="11348-0" displayName="Historique des maladies"
+                  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Antécédents (ceux notables pour l'avis)</title>
+               <text>
+                  <table border="1">
+                     <thead align="center">
+                        <tr>
+                           <th align="center" colspan="3">Antécédents Médicaux</th>
+                        </tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td><content ID="rcp001">1978 Mastectomie</content></td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <!--  -->
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                     <id root="69131720-e562-4425-ae7b-bb55fee5eb20"/>
+                     <code nullFlavor="NA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="1980"/><high value="1980"/></effectiveTime>
+                     <entryRelationship typeCode="SUBJ" inversionInd="false">
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                           <id root="3b2120c7-547a-40e9-a0ca-b8b9ec7b12e3"/>
+                           <code code="G-1009" displayName="Diagnostic"
+                              codeSystem="1.2.250.1.213.2.12"
+                              codeSystemName="SNOMED 3.5"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                              <low nullFlavor="NAV"/>
+                           </effectiveTime>
+                           <value xsi:type="CD" nullFlavor="NAV">
+                              <originalText mediaType="text/xml">
+                                 <reference value="#rcp001"/>
+                              </originalText>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         
+
+         <!--=<<o#%@O[ Comorbidités (Active Problems section) ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.1.11"/>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+               <id root="a6617910-3abf-4b30-aaC5-d58dd3a75479"/>
+               <code code="11450-4" displayName="Liste des problèmes actifs" codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Comorbidités</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th colspan="3">Comorbidités</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>2/12/2009</td><td><content ID="rcp002">Diabète sucré</content></td></tr>
+                        <tr><td>12/04/2010</td><td><content ID="rcp003">Epilepsie</content></td></tr>
+                        
+                     </tbody>
+                  </table>           
+               </text>
+               <!-- 1..* comorbidités (date + Texte libre) -->
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                     <id root="BC632FDC-0919-46C8-9FCF-E12F8CD3C49C"/>
+                     <code nullFlavor="NA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20091202"/><high nullFlavor="NAV"/></effectiveTime>
+                     <!-- Comorbidité (Diabète)  -->
+                     <entryRelationship typeCode="SUBJ" inversionInd="false">
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                           <id root="46C0F5C0-2D0A-4BBF-93E5-512EFC399A22"/>
+                           <code code="G-1009" displayName="Diagnostic"
+                              codeSystem="1.2.250.1.213.2.12"
+                              codeSystemName="SNOMED 3.5"/>    
+                           <statusCode code="completed"/>
+                           <effectiveTime><low value="20091202"/><high nullFlavor="NAV"/></effectiveTime>
+                           <value xsi:type="CD" nullFlavor="NAV">
+                              <originalText mediaType="text/xml">
+                                 <reference value="#rcp002"/></originalText>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                     <!-- Problem Act template -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                     <id root="BC632FDC-0919-46C8-9FCF-E12F8CD3C49C"/>
+                     <code nullFlavor="NA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20100410"/><high nullFlavor="NAV"/></effectiveTime>
+                     <!-- Comorbidité (Epilepsie)  -->
+                     <entryRelationship typeCode="SUBJ" inversionInd="false">
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                           <id root="46C0F5C0-2D0A-4BBF-93E5-512EFC399A22"/>
+                           <code code="G-1009" displayName="Diagnostic"
+                              codeSystem="1.2.250.1.213.2.12"
+                              codeSystemName="SNOMED 3.5"/>     
+                           <statusCode code="completed"/>
+                           <effectiveTime><low value="20100410"/><high nullFlavor="NAV"/></effectiveTime>
+                           <value xsi:type="CD" nullFlavor="NAV">
+                              <originalText mediaType="text/xml">
+                                 <reference value="#rcp003"/>
+                              </originalText>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>                                                   
+
+         <!--=<<o#%@O[ Evaluation du statut fonctionnel (Coded Functional Status Assessment section) ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.17'/>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.2.1'/>
+               <id root='C4544707-DA56-4AD5-8672-37E2B0A3AAC3'/>
+               <code code='47420-5' displayName='Evaluation du statut fonctionnel'
+               codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Évaluation du statut fonctionnel</title>
+               <text></text> 
+               
+               
+               <component>
+                  <section>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.2.2'/>
+                     <id root='ac8531a8-5115-4b78-9d33-432923bb1860'/>
+                     <code code='38208-5' displayName='Pain severity'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                     <text/>
+                     
+                     <entry>
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='1eaed7ff-cdb8-4bd6-924d-5131bdca4758'/>
+                              <code code="38208-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Pain severity">
+                              </code>
+                              <statusCode code='completed'/>
+                              <effectiveTime nullFlavor="UNK"/>
+                              <value xsi:type='CO' nullFlavor="UNK"/>
+                        </observation>
+                     </entry>
+                  </section>
+               </component>
+               
+               
+               
+               <!-- Minimum data set subsection -->
+               <component>
+                  <section>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.2.5'/>
+                     <id root='C949ED42-E76D-4F42-A3F0-9AF56B14836E'/>
+                     <code code='46006-3' displayName='Physiologie et problèmes structuraux'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                     <title nullFlavor="MSK"/>
+                     <text>
+                        <table border="1">
+                           <thead><tr><th>Date</th><th>Performance Status (OMS)</th><th>Libellé</th></tr></thead>
+                           <tbody>
+                              <tr><td>28/05/2010</td><td>Grade 0</td><td>Capable d'une activité identique à celle précédant la maladie sans aucune restriction.</td></tr>
+                           </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <table border="1">
+                           <thead><tr><th>Date</th><th>Évaluation onco-gériatrique</th></tr></thead>
+                           <tbody>
+                              <tr><td>28/05/2010</td><td><content ID="frcp011">Evaluation onco-gériatrique --Texte libre</content></td></tr>
+                           </tbody>
+                        </table>
+                     </text>    
+                     <entry>
+                        <!--  OMS Performance Status -->
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                           <id root='8BD1C820-95A6-44ED-80C3-4399F97E5D37'/>
+                           <code code='RCP_082' displayName="Echelle de performance OMS"  
+                           codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20100528'/>
+                           <value xsi:type='CD' code="RCP_069" 
+                              displayName="Echelle de Performance OMS Stade 0"
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <interpretationCode code="RCP_001" 
+                              displayName="Capable d'une activité identique à celle précédant la maladie sans aucune restriction." 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                        </observation>
+                     </entry>
+                     <entry>
+                        <!--  Évaluation Onco-gériatrique (personnes agées) -->
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                           <id root='7640E0DE-7EC8-4D3A-B3B0-DF976E22DD51'/>
+                           <code code="RCP_042" displayName="Évaluation onco-gériatrique"
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20100528'/>
+                           <value xsi:type='CD' nullFlavor="NAV">
+                              <originalText><reference value='#frcp011'/></originalText>
+                           </value>
+                        </observation>
+                     </entry>   
+                  </section>
+               </component>
+            </section>
+         </component>
+         
+         <!-- Section Résumé des investigations pratiquées (éléments paracliniques)
+         (Relevant diagnostic tests and/or laboratory data  - 1.3.6.1.4.1.19376.1.5.3.1.3.28) -->
+         <component>
+         <section>
+            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+            <id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+            <code code="30954-2" displayName="Résumé des investigations pratiquées"
+               codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+            <title>Eléments para-cliniques</title>
+            <text>
+               <list>
+                  <item>Résultats de biologie/génétique : Texte Résultats de biologie/génétique [...]
+                  </item>
+               </list>
+            </text>
+            <entry>
+               <observation classCode='OBS' moodCode='EVN'>
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                  <id root='dd16f451-0b6a-44fd-911b-7e1c3ca422a0'/>
+                  <code code='33558-8' displayName='Clairance de la créatinine'
+                     codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                  <statusCode code='completed'/>
+                  <effectiveTime>
+                     <low value="20140202"/>
+                     <high value="20140203"/>
+                  </effectiveTime>
+                  <value xsi:type='ST'>Créatinine normale</value>
+                  <informant>
+                     <assignedEntity classCode="ASSIGNED">
+                        <id root="1.2.250.1.71.4.2.1" extension="801234567897" 
+                           assigningAuthorityName="ASIP Santé"/>
+                        <addr>
+                           <houseNumber>43</houseNumber>
+                           <streetNameType>rue</streetNameType>
+                           <streetName>Paul Langevin</streetName>
+                           <postalCode>92100</postalCode>
+                           <city>Boulogne-Billancourt</city>
+                        </addr>
+                        <telecom nullFlavor="NASK"/>
+                        <assignedPerson>
+                           <name>
+                              <given>Michel</given>
+                              <family>CARNOT</family>
+                              <prefix>Dr.</prefix>
+                           </name>
+                        </assignedPerson>
+                        <representedOrganization>
+                           <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                           <name>Laboratoire d'Analyse Médicales du Mail</name>
+                        </representedOrganization>
+                     </assignedEntity>
+                  </informant>
+                  </observation>
+                  </entry>
+         </section>     
+            </component>
+         
+         <!--=<<o#%@O[ Note de progression (Coded Progress Note section) ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.7'/>
+               <templateId root='1.2.250.1.213.1.1.2.25'/>
+               <id root='172602A2-8E13-4AE0-A636-6DD1FEAAF129'/>
+               <code code='18733-6' displayName='Evaluation de la progression'
+               codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Cas présenté en RCP</title>
+               <text>
+                  <table border="1">
+                     <thead><tr><th align="center" colspan="4">Cas proposé en RCP (discuté ou non)</th></tr></thead>
+                     <tbody>
+                        <tr><td>Phase</td><td>Rechute du cancer</td><td>27/02/2012</td></tr>
+                        <tr><td rowspan="3">Progression</td><td>Locale</td><td>Oui</td></tr>
+                        <tr><td>Régionale</td><td>Oui</td></tr>
+                        <tr><td>A distance</td><td>Non</td></tr>
+                        <tr><td>Commentaires et précisions 
+                           (si possible date et nature des examens de référence établissant 
+                           la phase clinique de la maladie)</td>
+                           <td colspan="3"><content ID="frcp012">10/02/2012 - IRM médiastin</content></td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='B1D68C8E-4A83-4ED5-A5E3-60B55B54B016'/>
+                     <code code='RCP_051' displayName='Phase du cancer'  codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value='20120227'/>
+                     <value xsi:type='CD' code="RCP_052" 
+                        displayName="Rechute du cancer"  codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                     <entryRelationship typeCode='SUBJ' inversionInd='true'>
+                        <act classCode='ACT' moodCode='EVN'>
+                           <templateId root='2.16.840.1.113883.10.20.1.40'/>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.2'/>
+                           <code code='48767-8' displayName='Annotation Comment'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                           <text><reference value="#frcp012"></reference></text>
+                           <statusCode code='completed' />
+                           <effectiveTime value="20101211"/>
+                        </act>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+               <!-- Progression du cancer -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='B1D68C8E-4A83-4ED5-A5E3-60B55B54B016'/>
+                     <code code='RCP_059' displayName='Progression du cancer'  codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value='20120227'/>
+                     <value xsi:type='BL' value="true"/>
+                     <!-- locale -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='B1D68C8E-4A83-4ED5-A5E3-60B55B54B016'/>
+                           <code code='RCP_055' displayName='Progression locale du cancer'  codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20120227'/>
+                           <value xsi:type='BL' value="true"/>
+                        </observation>
+                     </entryRelationship>
+                     <!-- régionale -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='B1D68C8E-4A83-4ED5-A5E3-60B55B54B016'/>
+                           <code code='RCP_056' displayName='Progression régionale du cancer'  codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20120227'/>
+                           <value xsi:type='BL' value="true"/>
+                        </observation>
+                     </entryRelationship>
+                     <!-- à distance -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='B1D68C8E-4A83-4ED5-A5E3-60B55B54B016'/>
+                           <code code='RCP_057' displayName='Progression à distance du cancer'  codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20120227'/>
+                           <value xsi:type='BL' value="false"/>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Résultats d'examens - Results section ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+               <id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+               <code code="30954-2" displayName="Résumé des investigations pratiquées"
+                  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Examens para-cliniques</title>
+               <text>
+                  <list>
+                     <item>Résultats de biologie/génétique : Texte Résultats de biologie/génétique [...] </item>
+                  </list>
+               </text>
+               <informant>
+                  <assignedEntity classCode="ASSIGNED">
+                     <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                     <addr>
+                        <houseNumber>43</houseNumber>
+                        <streetNameType>RUE</streetNameType>
+                        <streetName>Paul Langevin</streetName>
+                        <postalCode>92100</postalCode>
+                        <city>Boulogne-Billancourt</city>
+                     </addr>
+                     <telecom nullFlavor="NASK"/>
+                     <assignedPerson>
+                     <name>
+                           <given>Michel</given>
+                           <family>CARNOT</family>
+                           <prefix>Dr.</prefix>
+                        </name>
+                     </assignedPerson>
+                     <representedOrganization>
+                        <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                        <name>Laboratoire d'Analyse Médicales du Mail</name>
+                     </representedOrganization>
+                  </assignedEntity>
+               </informant>
+            </section>
+         </component>   
+         
+         
+
+         <!--=<<o#%@O[  Section Importation Conclusion CR ]O@%#o>>=--> 
+         
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.34"/>
+               <id root="0169A5B6-0884-4514-AB85-AFB7FF699011"/>
+               <code code="30954-2" displayName="Studies summary"
+               codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               
+               <title>Importation compte-rendu</title>
+               <text>
+                  <list>
+                     <item>Date de prélèvement: 14/08/2011</item>
+                     <item>Date de l'examen: 14/08/2011</item>
+                  </list>
+                  
+               </text>
+               <!-- Sous-section Procédures et interventions -->
+
+               <component>
+                  <section>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11'/>
+                   
+                     <!--14/11/16 : NMA : Modification du code
+                       
+                       <code code="29544-3" displayName="Interventions"
+                     codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>-->
+                     <code code="29554-3" displayName="Interventions"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                     <entry>
+                        <procedure classCode='PROC' moodCode='EVN' negationInd='false'>
+                           <templateId root='2.16.840.1.113883.10.20.1.29'/>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                           <id root='194AE3B0-FA7D-49D6-8C90-86139E9AF5BE'/>
+                           <code code='P3-02000' displayName="Prélèvement d'échantillon" 
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                           <statusCode code='active'/>
+                           <effectiveTime value="20110814"/>
+                           <!-- Chirurgien ayant pratiqué l'exérèse -->
+                           <author>
+                              <time nullFlavor="NAV"/>
+                              <assignedAuthor>
+                                 <id root="1.2.250.1.71.4.2.1" extension="801234568875" assigningAuthorityName="ASIP Santé"/>
+                                 <code code="G15_10/SCH10" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                                    displayName="Médecin - Chirurgie générale (SCH)"/>
+                                 <addr>            
+                                    <streetNameType>RUE</streetNameType>
+                                    <streetName>Jacques Cathelineau</streetName>
+                                    <houseNumber>18</houseNumber>
+                                    <postalCode>49933</postalCode>
+                                    <city>ANGERS</city>
+                                 </addr>
+                                 <telecom value="tel:0242514747" use="WP"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <family>Dautzenberger</family>
+                                       <given>Michel</given>
+                                    </name>
+                                 </assignedPerson>
+                              </assignedAuthor>
+                           </author>
+                        </procedure>
+                     </entry>
+                     <entry>
+                        <procedure classCode='PROC' moodCode='EVN' negationInd='false'>
+                           <templateId root='2.16.840.1.113883.10.20.1.29'/>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                           <id root='194AE3B0-FA7D-49D6-8C90-86139E9AF5BE'/>
+                           <code code='P3_44440' displayName="Examen microscopique et diagnostique d'un spécimen chirurgical préalablement traité" 
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5' />
+                           <statusCode code='active'/>
+                           <effectiveTime value="20110815"/>  
+                           <!-- Anatomopathologiste ayant réalisé l'analyse -->
+                           <author>
+                              <time nullFlavor="NAV"/>
+                              <assignedAuthor>
+                                 <id root="1.2.250.1.71.4.2.1" extension="801234567844" assigningAuthorityName="ASIP Santé"/>
+                                 <code code="G15_10/SM01" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                                    displayName="Médecin - Anatomie et cytologie pathologiques (SM)"/>
+                                 <addr>            
+                                    <streetNameType>RUE</streetNameType>
+                                    <streetName>du Prieuré</streetName>
+                                    <houseNumber>4</houseNumber>
+                                    <postalCode>49933</postalCode>
+                                    <city>ANGERS</city>
+                                 </addr>
+                                 <telecom value="tel:0242515151" use="WP"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <family>Durand</family>
+                                       <given>Jean-Jacques</given>
+                                    </name>
+                                 </assignedPerson>
+                              </assignedAuthor>
+                           </author>
+                        </procedure>
+                     </entry>
+                    
+                  </section>
+               </component>
+               
+               <!-- Sous-section conclusion CR-ACP -->
+               <component>
+                  <section>
+                     <templateId root="1.3.6.1.4.1.19376.1.8.1.2.5"/>
+                     <code code="22637-3" displayName="Conclusion - Diagnostic"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                     <title>Conclusion du compte-rendu anatomo-cyto-pathologique (ACP) </title>
+                     <text>
+                        <table border="1">
+                           <tbody>
+                              <tr><th colspan="4">Tumorectomie</th></tr>
+                              <tr><td colspan="4">
+                                 <paragraph>
+                                    <caption styleCode="Bold">Tumeur infiltrante</caption><br/>
+                                    Type histologique (de la composante infiltrante la plus représentée) : carcinome canalaire infiltrant
+                                 </paragraph><br/>
+                                 <paragraph>
+                                    <caption styleCode="Bold">Tumeur in situ</caption><br/>
+                                    Type histologique (de la composante in situ) : Carcinome canalaire in situ sans micro-invasion
+                                 </paragraph></td></tr>
+                           </tbody>
+                        </table>
+                        <table border="1">
+                           <tbody>
+                              <tr><th colspan="4">Curage Axillaire</th></tr>
+                              <tr><td colspan="4">Type histologique de la lésion ganglionaire : adénocarcinome métastatique</td></tr>
+                           </tbody>
+                        </table>
+                        <table border="1">
+                           <tbody>
+                              <tr><th colspan="4">Conclusion générale</th></tr>
+                              <tr><td colspan="4">Au total, carcinome canalaire infiltrant de grade 2.</td></tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     
+                     <author contextControlCode="OP" typeCode="AUT">
+                        <time value="20120129094914+0100"/>
+                        <assignedAuthor classCode="ASSIGNED">
+                           <!-- PS identifié par son N°RPPS -->
+                           <id root="1.2.250.1.71.4.2.1" extension="801234567892" assigningAuthorityName="ASIP Santé"/>
+                           <code code="G15_10/SM01" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                              displayName="Médecin - Anatomie et cytologie pathologiques (SM)"/>
+                           <addr>            
+                              <streetNameType>AV</streetNameType>
+                              <streetName>Rapp</streetName>
+                              <houseNumber>80</houseNumber>
+                              <postalCode>75007</postalCode>
+                              <city>PARIS</city>
+                           </addr>
+                           <telecom value="tel:0242515151" use="WP"/>
+                           <assignedPerson>
+                              <name>
+                                 <given>Jacques</given>
+                                 <family>Lallement</family>
+                                 <prefix>Dr.</prefix>
+                              </name>
+                           </assignedPerson>
+                           <representedOrganization>
+                              <id root="1.2.250.1.71.4.2.2" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                              <name>Clinique Rapp - Laboratoire d'Anatomo-cytopathologie</name>
+                              <addr>            
+                                 <streetNameType>AV</streetNameType>
+                                 <streetName>Rapp</streetName>
+                                 <houseNumber>80</houseNumber>
+                                 <postalCode>75007</postalCode>
+                                 <city>PARIS</city>
+                              </addr>
+                              <standardIndustryClassCode code="ETABLISSEMENT" 
+                                 displayName="Établissement de santé"
+                                 codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                           </representedOrganization>
+                        </assignedAuthor>
+                     </author>
+                     
+                     <!-- 
+                        Entrée regroupant les observations sur le premier prélèvement : La pièce de tumorectomie mammaire
+                     -->
+                     <entry>
+                        <templateId root="1.3.6.1.4.1.19376.1.8.1.3.5"/>
+                        <!-- Specimen Information Organizer  -->
+                        <organizer classCode="CLUSTER" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.8.1.4.4"/>
+                           <statusCode code="completed"/>
+                           <component>
+                              <!-- Specimen collection procedure -->
+                              <procedure classCode="PROC" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+                                 <!-- La localisation du prélèvement -->
+                                 <targetSiteCode code="663"
+                                    codeSystem="1.3.6.1.4.1.19376.1.8.2.1"
+                                    codeSystemName="PathLex"
+                                    displayName="quadrant supéro-externe du sein">
+                                    <qualifier>
+                                       <name code="G-171" codeSystem="1.2.250.1.213.2.12"
+                                          displayName="latéralité"
+                                          codeSystemName="SNOMED Internationale"/>
+                                       <value code="G-A101" codeSystem="1.2.250.1.213.2.12"
+                                          displayName="gauche"
+                                          codeSystemName="SNOMED Internationale"/>
+                                    </qualifier>
+                                 </targetSiteCode>
+                                 <!-- La pièce prélevée -->
+                                 <participant typeCode="PRD">
+                                    <participantRole classCode="SPEC">
+                                       <!-- specimen ids -->
+                                       <id root="1.2.250.1.213.1.1.9" extension="0102030405"/>
+                                       <playingEntity/>
+                                    </participantRole>
+                                 </participant>
+                              </procedure>
+                           </component>
+                           <!--
+                              Problem organizer : 1er problème = Tumeur infiltrante
+                           -->
+                           <component>
+                              <organizer classCode="BATTERY" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.8.1.4.8"/>
+                                 <statusCode code="completed"/>
+                                 <component>
+                                    <observation classCode="OBS" moodCode="EVN">
+                                       <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                                       <code code="21" codeSystem="1.3.6.1.4.1.19376.1.8.2.1"
+                                          codeSystemName="PathLex"
+                                          displayName="Type histologique de tumeur maligne invasive"/>
+                                       <statusCode code="completed"/>
+                                       <effectiveTime value="20100321063000.0000+0100"/>
+                                       <value xsi:type="CD" code="688"
+                                          displayName="carcinome canalaire infiltrant"
+                                          codeSystem="1.3.6.1.4.1.19376.1.8.2.1"
+                                          codeSystemName="PathLex">
+                                          <translation xsi:type="CD" code="M-85003"
+                                             displayName="Adénocarcinome canalaire infiltrant, SAI"
+                                             codeSystem="1.2.250.1.213.2.12"
+                                             codeSystemName="SNOMED Internationale"/>
+                                          <translation xsi:type="CD" code="A7B2"
+                                             displayName="ADENOCARCINOME CANALAIRE INFILTRANT (SAI)"
+                                             codeSystem="1.2.250.1.213.2.12"
+                                             codeSystemName="ADICAP"/>
+                                       </value>
+                                    </observation>
+                                 </component>
+                              </organizer>
+                           </component>
+                           <!--
+                              Problem organizer : 2ème problème = Tumeur in situ
+                           -->
+                           <component>
+                              <organizer classCode="BATTERY" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.8.1.4.8"/>
+                                 <statusCode code="completed"/>
+                                 <component>
+                                    <observation classCode="OBS" moodCode="EVN">
+                                       <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                                       <code code="21" codeSystem="1.3.6.1.4.1.19376.1.8.2.1"
+                                          codeSystemName="PathLex"
+                                          displayName="Type histologique de tumeur in situ"/>
+                                       <statusCode code="completed"/>
+                                       <effectiveTime value="20100321063000.0000+0100"/>
+                                       <value xsi:type="CD" code="2307"
+                                          displayName="carcinome canalaire in situ sans micro-invasion"
+                                          codeSystem="1.3.6.1.4.1.19376.1.8.2.1"
+                                          codeSystemName="PathLex">
+                                          <translation xsi:type="CD" code="M-85002"
+                                             displayName="carcinome intracanalaire non infiltrant, SAI"
+                                             codeSystem="1.2.250.1.213.2.12"
+                                             codeSystemName="SNOMED Internationale"/>
+                                          <translation xsi:type="CD" code="A5B2"
+                                             displayName="ADENOCARCINOME INTRACANALAIRE IN SITU"
+                                             codeSystem="1.2.250.1.213.2.12"
+                                             codeSystemName="ADICAP"/>
+                                       </value>
+                                    </observation>
+                                 </component>
+                              </organizer>
+                           </component>
+                        </organizer>
+                     </entry>
+                     <!-- 
+                        Entrée regroupant les observations sur le second prélèvement : ganglionnaire
+                     -->
+                     <entry>
+                        <templateId root="1.3.6.1.4.1.19376.1.8.1.3.5"/>
+                        <!-- 
+                           Specimen Information Organizer
+                        -->
+                        <organizer classCode="CLUSTER" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.8.1.4.4"/>
+                           <statusCode code="completed"/>
+                           <component>
+                              <!--
+                                 Specimen collection procedure
+                              -->
+                              <procedure classCode="PROC" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+                                 <!-- La localisation du prélèvement -->
+                                 <targetSiteCode code="673"
+                                    codeSystem="1.3.6.1.4.1.19376.1.8.2.1"
+                                    codeSystemName="PathLex"
+                                    displayName="Prolongement axillaire">
+                                    <qualifier>
+                                       <name code="G-171" codeSystem="1.2.250.1.213.2.12"
+                                          displayName="latéralité"
+                                          codeSystemName="SNOMED Internationale"/>
+                                       <value code="G-A101" codeSystem="1.2.250.1.213.2.12"
+                                          displayName="gauche"
+                                          codeSystemName="SNOMED Internationale"/>
+                                    </qualifier>
+                                    <translation code="SGAX" codeSystem="1.2.250.1.213.2.12"
+                                       displayName="GANGLIONS AXILLAIRES (SAI)"/>
+                                 </targetSiteCode>
+                                 <!-- La pièce prélevée -->
+                                 <participant typeCode="PRD">
+                                    <participantRole classCode="SPEC">
+                                       <!-- specimen ids -->
+                                       <id root="1.2.250.1.213.1.1.9" extension="0102030405"/>
+                                       <playingEntity/>
+                                    </participantRole>
+                                 </participant>
+                              </procedure>
+                           </component>
+                           <!--
+                              Problem organizer : 1 problème = lésion ganglionnaire
+                           -->
+                           <component>
+                              <organizer classCode="BATTERY" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.8.1.4.8"/>
+                                 <statusCode code="completed"/>
+                                 <component>
+                                    <observation classCode="OBS" moodCode="EVN">
+                                       <templateId root="1.3.6.1.4.1.19376.1.8.1.4.9"/>
+                                       <code code="21" codeSystem="1.3.6.1.4.1.19376.1.8.2.1"
+                                          codeSystemName="PathLex"
+                                          displayName="Type histologique de lésion"/>
+                                       <statusCode code="completed"/>
+                                       <effectiveTime value="20100321063000.0000+0100"/>
+                                       <value xsi:type="CD" code="AMA0"
+                                          displayName="METASTASE D'UN ADENOCARCINOME"
+                                          codeSystem="1.2.250.1.213.2.12"
+                                          codeSystemName="ADICAP">
+                                          <translation code="M-81406"
+                                             displayName="Adénocarcinome métastatique, SAI"
+                                             codeSystem="1.2.250.1.213.2.12"> </translation>
+                                       </value>
+                                    </observation>
+                                 </component>
+                              </organizer>
+                           </component>
+                        </organizer>
+                     </entry>
+                  </section>
+               </component>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Section Conclusion du CRO (Document CRO = 34874-8) ]O@%#o>>=-->
+
+
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.26"/>
+               <id root="FB8038FD-CC24-4B85-BE3D-D39FDC50EE2C"/>
+               <code code="22033-5" displayName="Text: Diagnostic Intervention"
+               codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Conclusion du compte-rendu opératoire (CRO)</title>
+               <text>
+                  <table border="1">
+                     <tbody>
+                        <tr><th colspan="4">Compte-rendu opératoire 29/01/2012</th></tr>
+                        <tr><td colspan="4">
+                           <paragraph>
+                              <caption styleCode="Bold">Mastectomie partielle Gauche</caption><br/>                     
+                              Voie d'abord directe. 
+                              Pas d'exérèse de la peau en regard de la tumeur réalisée.
+                              Mastectomie partielle emportant la tumeur en totalité avec des berges macroscopiquement
+                              saines, marge de tissu sain de 12 mm. L'exérèse est effectuée sur toute l'épaisseur du
+                              tissu mammaire jusqu'au plan musculaire. Pièce non morcelée. 
+                              Examen radiologique per-opératoire de contrôle.
+                           </paragraph><br/>
+                           <paragraph>
+                              <caption styleCode="Bold">Curage ganglionnaire</caption><br/>
+                              Ablation du tissu cellulo-ganglionnaire axillaire compris entre la veine axillaire en haut, 
+                              le grand dorsal en dehors et le grand dentelé en dedans. 
+                              Ablation de 10 ganglions.
+                           </paragraph></td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <!-- Chirurgien ayant pratiqué l'exérèse -->
+               <author>
+                  <time value="20120129094914+0100"/>
+                  <assignedAuthor>
+                     <id root="1.2.250.1.71.4.2.1" extension="801234568875" assigningAuthorityName="ASIP Santé"/>
+                     <code code="G15_10/SCH10" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                        displayName="Médecin - Chirurgie générale (SCH)"/>
+                     <addr>            
+                        <streetNameType>RUE</streetNameType>
+                        <streetName>Jacques Cathelineau</streetName>
+                        <houseNumber>18</houseNumber>
+                        <postalCode>49933</postalCode>
+                        <city>ANGERS</city>
+                     </addr>
+                     <telecom value="tel:0242514747" use="WP"/>
+                     <assignedPerson>
+                        <name>
+                           <family>Dautzenberger</family>
+                           <given>Michel</given>
+                        </name>
+                     </assignedPerson>
+                     <representedOrganization>
+                        <id root="1.2.250.1.71.4.2.2" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                        <name>Clinique Rapp - Chirurgie Générale</name>
+                        <addr>            
+                           <streetNameType>AV</streetNameType>
+                           <streetName>Rapp</streetName>
+                           <houseNumber>80</houseNumber>
+                           <postalCode>75007</postalCode>
+                           <city>PARIS</city>
+                        </addr>
+                        <standardIndustryClassCode code="ETABLISSEMENT" 
+                           displayName="Établissement de santé"
+                           codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                     </representedOrganization>
+                  </assignedAuthor>
+               </author>     
+            </section>
+         </component>
+         
+
+         <!--=<<o#%@O[ Section Procédures et interventions ]O@%#o>>=-->
+
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11'/>
+               <id root='9DC19D96-2054-48CE-97A1-E384ED77F4FC'/>
+               <!--14/11/16 : NMA : Modification du code
+                       
+                       <code code="29544-3" displayName="Interventions"
+                     codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>-->
+               <code code="29554-3" displayName="Interventions"
+                  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Prise en charge thérapeutique antérieure</title>
+               <text>
+                  <table border="1">
+                     <thead><tr><th align="center" colspan="3">Prise en charge thérapeutique du cas présenté en RCP</th></tr></thead>
+                     <tbody>
+                        <tr><td>Prise en charge</td><td>active</td></tr>
+                        <tr><td>Type</td><td>Chimiothérapie</td></tr>
+                        <tr><td>Type</td><td><content ID="frcp013">Autre traitement</content></td></tr>
+                     </tbody>
+                  </table>
+               </text>   
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="false">                    
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                     <!-- template utilisé pour le moodCode="EVN" -->
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="75C517FE-D623-4B2E-AADF-22A906371428"/>
+                     <code code="P2-67010" displayName="Chimiothérapie conventionnelle"
+                     codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                     </code>
+                     <!-- Statut de la prise en charge: Déjà traitée (completed) En cours (active) -->
+                     <statusCode code="active"/>
+                     <effectiveTime nullFlavor="NAV"/>
+                     <entryRelationship typeCode="SUBJ" inversionInd="true">
+                        <act classCode="ACT" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                           <code code="48767-8" displayName="Annotation Comment"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <text>Commentaires de la prise en charge</text>
+                           <statusCode code="completed"/>
+                        </act>
+                     </entryRelationship>
+                  </procedure>
+               </entry>
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                  <!-- template utilisé pour le moodCode="EVN" -->
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <id root="75C517FE-D623-4B2E-AADF-22A906371428"/>
+                  <code code="P0-0044D" displayName="Autres soins"
+                     codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                     <originalText>
+                        <reference value="#frcp013"></reference>
+                     </originalText>
+                  </code>
+                  <!-- Statut de la prise en charge: Déjà traitée (completed) En cours (active) -->
+                  <statusCode code="active"/>
+                  <effectiveTime nullFlavor="NAV"/>
+                  <entryRelationship typeCode="SUBJ" inversionInd="true">
+                     <act classCode="ACT" moodCode="EVN">
+                        <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                        <code code="48767-8" displayName="Annotation Comment"
+                           codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                        <text>Commentaires de la prise en charge</text>
+                        <statusCode code="completed"/>
+                     </act>
+                  </entryRelationship>
+                  </procedure>
+               </entry>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ History of present illness - Synthèse du cas proposé et question proposée à la RCP ]O@%#o>>=-->
+        
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.4'/>
+               <id root='11DAC22A-77DD-448B-8D67-BC22941D60EA'/>
+               <code code='10164-2' displayName='Histoire de la maladie'
+               codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Synthèse du cas proposé et question proposée à la RCP - Autres données indispensables à l'avis de la RCP</title>
+               <text>
+                  <list>
+                     <item>Synthèse du cas proposé et question proposée à la RCP 
+                        <paragraph><content></content> 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                           Synthèse du cas proposé et question proposée à la RCP - 
+                        </paragraph>
+                     </item>
+                     <item>Autres données indispensables à l'avis de la RCP
+                     <paragraph>
+                        données indispensables données indispensables données indispensables
+                        données indispensables données indispensables données indispensables
+                        données indispensables données indispensables données indispensables
+                        données indispensables données indispensables données indispensables
+                     </paragraph>
+                     </item>
+                  </list>
+               </text>
+            </section>
+         </component>
+         
+
+         <!--=<<o#%@O[ Care Plan section - Proposition de prise en charge ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.1.10"/>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+               <id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+               <code code="18776-5" displayName="Plan de soins" codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Plan de soins</title>
+               <!--  
+               <text>
+                  <table border="1">
+                     <thead><tr><th align="center" colspan="4">Proposition de prise en charge</th></tr></thead>
+                     <tbody>
+                        <tr><td>Proposition de prise en charge</td><td colspan="3">Oui</td></tr>
+                        <tr><td>Commentaires</td><td colspan="3"><content ID="frcp044"></content>Txt-Txt-Txt</td></tr>
+                        <tr><td>Plan de traitement</td><td colspan="3">Plan de traitement texte</td></tr>
+                        <tr><td rowspan="5">Type de traitement</td>
+                           <td rowspan="2">Radiothérapie</td>
+                           <td>Application de la recommandation/référentiel de pratique clinique</td><td>Oui</td></tr>
+                        <tr><td>Incluable dans un essai clinique</td><td>Oui</td></tr>
+                        <tr><td>Si pas de proposition thérapeutique, raison:</td><td colspan="3"> - </td></tr>
+                        <tr><td>Passage en RCP de recours</td><td colspan="3" ID="rcp80002">Demande de passage en RCP de recours</td></tr>
+                        <tr><td rowspan="3">Examen et/ou expertise complémentaire</td>
+                           <td colspan="3">Évaluation onco-gériatrique</td></tr>
+                        <tr><td colspan="3" ID="frcp80003">Consultation génétique</td></tr>
+                        <tr><td colspan="3" ID="frcp045">Planification d'une évaluation XYZ avant avril 2013</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               -->
+               <text>
+                  <table border="1">
+                     <thead><tr><th align="center" colspan="2">Proposition de prise en charge</th></tr></thead>
+                     <tbody>
+                        <tr><td>Proposition de prise en charge</td><td>Oui</td></tr>
+                        <tr><td>Commentaires</td><td><content ID="frcp044"></content>Txt-Txt-Txt</td></tr>
+                     </tbody>
+                  </table>	
+                  
+                  <table border="1">
+                     <thead><tr><th ID="rcp80002">Passage en RCP de recours</th></tr></thead>
+                     <tbody><tr><td>entre le 15/10/2013 et le 30/10/2013</td></tr></tbody>
+                  </table>
+                  
+                  <table border="1">
+                     <thead><tr><th>Surveillance</th></tr></thead>
+                     <tbody><tr><td>Active depuis le 02/10/2013</td></tr></tbody>
+                  </table>
+                  
+                  <table border="1">
+                     <thead>
+                        <tr><th align="center" colspan="3">Examens / expertises complémentaires</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr styleCode="bold"><td>Type</td><td>Date début souhaitée</td><td>Date fin souhaitée</td></tr>
+                        <tr><td ID="frcp80004">Evaluation onco-gériatrique</td><td>15/10/2013</td><td>30/10/2013</td></tr>
+                        <tr><td ID="frcp80003">Consultation génétique</td><td>15/10/2013</td><td>30/10/2013</td></tr>
+                        <tr><td ID="frcp045">Evaluation XYZ</td><td>15/10/2013</td><td>30/10/2013</td></tr>
+                     </tbody>
+                  </table>
+                  
+                  <table border="1">
+                     <thead><tr><th align="center" colspan="5">Plan de traitement</th></tr></thead>
+                     <tbody>
+                        <tr styleCode="bold"><td>Type</td><td>Date début souhaitée</td><td>Date fin souhaitée</td><td> Recommandation/référentiel de pratique clinique</td><td>Essai clinique</td></tr>
+                        <tr><td>Radiothérapie</td><td>15/10/2013</td><td>30/10/2013</td><td>Oui</td><td>Oui</td></tr>
+                        <tr><td>Autres Soins - <content ID="frcp050">Autre traitement XYZ</content></td><td>15/10/2013</td><td>30/10/2013</td><td>Non</td><td>Non</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               
+               <!-- Proposition thérapeutique de la RCP -->
+               
+               
+               <!-- Proposition de passage en RCP de recours -->
+               
+               <entry>
+                  <encounter classCode="ENC" moodCode="ARQ">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.14"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                     <id root="DE0D1EE6-F3E3-45DA-92DA-3606F912A51E"/>
+                     <code code="RCP_036" displayName="Passage en RCP recours"
+                        codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                     <text mediaType="text/xml">
+                        <reference value="#frcp80002"/>
+                     </text>
+                     <statusCode code="completed"/>
+                     <!-- Proposition de date (intervalle) -->
+                     <effectiveTime>
+                        <low value="20130201"/>
+                        <high value="20130215"/>
+                     </effectiveTime>
+                  </encounter>
+               </entry>
+               
+               <!-- demande d'expertise complémentaire : évaluation gériatrique -->
+               <entry>
+                  <observation classCode='OBS' moodCode='PRP'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                     <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                     <id root='5042333E-F929-4B07-BB09-B65ED98BFAF0'/>
+                     <code code="RCP_042" displayName="Évaluation onco-gériatrique"
+                           codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                     <text><reference value='#xxx'/></text>
+                     <statusCode code='active'/>
+                     <effectiveTime value='20110314'/>
+                  </observation>
+               </entry>
+               
+               <!-- demande d'expertise complémentaire : Consultation génétique -->
+               <entry>
+                  <observation classCode='OBS' moodCode='PRP'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                     <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                     <id root='5042333E-F929-4B07-BB09-B65ED98BFAF0'/>
+                     <code code="RCP_050" displayName="Consultation génétique"
+                        codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                     <text mediaType="text/xml"><reference value="#rcp80003"/></text>
+                     <statusCode code='active'/>
+                     <effectiveTime value='20110314'/>
+                  </observation>
+               </entry>
+
+               <!-- demande d'expertise complémentaire : Autre -->
+               <entry>
+                  <observation classCode='OBS' moodCode='PRP'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                     <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                     <id root='5042333E-F929-4B07-BB09-B65ED98BFAF0'/>
+                     <code code="RCP_062" displayName="Autre examen/expertise complémentaire"
+                        codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                     <text>
+                        <reference value='#frcp045'/></text>
+                     <statusCode code='active'/>
+                     <effectiveTime value='20110314'/>
+                  </observation>
+               </entry>
+               
+               <!-- Surveillance -->
+               <entry>
+                  <procedure classCode='PROC' moodCode='INT' negationInd='false'>
+                     <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                     <id root='194AE3B0-FA7D-49D6-8C90-86139E9AF5BE'/>
+                     <code code='RCP_061' displayName="Surveillance seule" 
+                        codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP' />
+                     <statusCode code='active'/>
+                     <effectiveTime value="20110814"/>
+                  </procedure>
+               </entry>
+               
+             
+               <!-- Proposition thérapeutique -->
+               <entry>
+                  <procedure classCode='PROC' moodCode='INT' negationInd='false'>                 
+                     <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                     <id root='194AE3B0-FA7D-49D6-8C90-86139E9AF5BE'/>
+                     <code code='P5-C0300' displayName="Radiothérapie" codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5' />
+                     <statusCode code='active'/>
+                     <effectiveTime value="20110814"/>
+                     <entryRelationship typeCode='RSON'>
+                        <observation classCode="OBS" moodCode="INT">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='1A8E2BE6-E115-4ECA-90CA-CE4A1ADEEE8E'/>                      
+                           <code code="RCP_048" displayName="Recommandation/référentiel de pratique clinique" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='BL' value="true"/>
+                           <entryRelationship typeCode="REFR">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                 <id root="607DC674-E21D-4D25-A24D-4492AD6515ED"/>
+                                 <code nullFlavor="NAV"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NAV"/>
+                                 <value xsi:type='ST'>Recommandation XYZ</value>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>                
+                     <entryRelationship typeCode='RSON'>
+                        <observation classCode="OBS" moodCode="INT">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='534329A4-AAAC-4D2C-A135-190C8986C0CA'/>
+                           <code code="RCP_049" displayName="Patient pouvant être inclus dans un essai clinique" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='BL' value="true"/> 
+                        </observation>
+                     </entryRelationship>
+                  </procedure>
+               </entry>
+
+               <!-- Proposition thérapeutique de la RCP 2ème traitement -->
+               <entry>
+                  <procedure classCode='PROC' moodCode='INT' negationInd='false'>                 
+                     <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                     <id root='194AE3B0-FA7D-49D6-8C90-86139E9AF5BE'/>
+                     <code code="P0-0044D" displayName="Autre Soins"
+                     codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                        <originalText>
+                           <reference value="#frcp050"></reference>
+                        </originalText>
+                     </code>
+                     <statusCode code='active'/>
+                     <effectiveTime value="20110814"/>
+                     <priorityCode/>
+                     <entryRelationship typeCode='RSON'>
+                        <observation classCode="OBS" moodCode="INT">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='1A8E2BE6-E115-4ECA-90CA-CE4A1ADEEE8E'/>                      
+                           <code code="RCP_048" displayName="Recommandation/référentiel de pratique clinique" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='BL' value="false"/>
+                        </observation>
+                     </entryRelationship>                
+                     <entryRelationship typeCode='RSON'>
+                        <observation classCode="OBS" moodCode="INT">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='534329A4-AAAC-4D2C-A135-190C8986C0CA'/>
+                           <code code="RCP_049" displayName="Patient pouvant être inclus dans un essai clinique" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" codeSystemName="TA_RCP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='BL' value="false"/> 
+                        </observation>
+                     </entryRelationship>
+                  </procedure>
+               </entry>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Statut de la RCP ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.33"/>
+               <id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+               <code code="21874-3" displayName="Statut de la présentation" 
+                  codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Statut de la FRCP</title>
+               <text>
+               </text>
+               <entry>
+                  <organizer classCode="CLUSTER" moodCode="EVN">
+                     <templateId root='1.2.250.1.213.1.1.3.7'/>
+                     <code code='RCP_101' displayName='Information FRCP' codeSystem='1.2.250.1.213.1.1.4.2.281' codeSystemName='TA_RCP'/>
+                     <statusCode code="completed"/>
+                     <!-- Dossier complet O/N -->
+                     <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id/>
+                           <code code="RCP_121" 
+                              displayName="Dossier Complet" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" 
+                              codeSystemName="TA_RCP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='BL' value='true'/>
+                        </observation>
+                     </component>
+                     <!-- Quorum RCP -->
+                     <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id/>
+                           <code code="RCP_086" 
+                              displayName="Quorum RCP" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" 
+                              codeSystemName="TA_RCP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='CD' code="RCP_089" 
+                              displayName="Quorum atteint" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" 
+                              codeSystemName="TA_RCP"/>
+                        </observation>
+                     </component>
+                     <!-- Statut du cas présenté -->
+                     <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id/>
+                           <code code="RCP_087" 
+                              displayName="Statut du cas présenté" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" 
+                              codeSystemName="TA_RCP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NAV"/>
+                           <value xsi:type='CD' code="RCP_091" 
+                              displayName="Cas enregistré" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.281" 
+                              codeSystemName="TA_RCP"/>
+                        </observation>
+                     </component>
+                     
+                  </organizer>
+               </entry>
+            </section>            
+         </component>
+         
+         <!--=<<o#%@O[ Statut du document ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.35"/>
+               <id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+               <code code="33557-0" displayName="Niveau de complétion" 
+                  codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Statut du Document</title>
+               <text>Statut du document : validé</text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id/>
+                     <code code="CDA_001" 
+                        displayName="Statut du document" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.286" 
+                        codeSystemName="TA_CDA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value='20110314'/>
+                     <value xsi:type="CD" code="GEN-066" displayName="En cours" codeSystem="1.2.250.1.213.1.1.4.322"/>
+                  </observation>
+               </entry>
+            </section>            
+         </component>
+         
+         <!--=<<o#%@O[ Commentaire ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.47"/>
+               <id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+               <code code="48767-8" displayName="Commentaire" 
+                  codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Commentaires</title>
+               <text> 
+                  <table border="1">
+                     <thead>
+                        <tr><th colspan="3">Commentaires</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>Médecin traitant</td><td>--</td></tr>
+                        <tr><td>Correspondant</td><td><content ID="rcp090">Commentaires sur le correspondant</content></td></tr>
+                        <tr><td>RCP</td><td>--</td></tr>
+                        <tr><td>Session RCP et inscription</td><td>--</td></tr>
+                        <tr><td>Médecin coordonateur de session</td><td>--</td></tr>
+                        <tr><td>PS participant à la session de RCP</td><td>--</td></tr>
+                     </tbody>
+                  </table> 
+               </text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id/>
+                     <code code="CDA_008" 
+                        displayName="Objet du commentaire" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.286" 
+                        codeSystemName="TA_CDA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value='20110314'/>
+                     <value xsi:type='CD' code="CDA_013" 
+                        displayName="Correspondant" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.286" 
+                        codeSystemName="TA_CDA">
+                        <originalText><reference value="#frcp090"/></originalText>
+                     </value>
+                  </observation>
+               </entry>
+            </section>            
+         </component>
+         
+         
+      </structuredBody>
+   </component>
+</ClinicalDocument>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.29" displayName="OBP_TypeInterventionVoieBasse"
+        version="20131025">
+        <ConceptList>
+            <Concept code="OBS_222" displayName="spatules" codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_223" displayName="autre manœuvre siège"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_224" displayName="manœuvre pour dystocie des épaules"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_225" displayName="autre manœuvre voie basse"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="P1-86E31" displayName="grande extraction siège"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-86E32" displayName="petite extraction siège"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-86E50" displayName="forceps" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-86E80" displayName="version par manœuvre interne"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-86EA0" displayName="ventouse" codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

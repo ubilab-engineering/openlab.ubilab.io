@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+
+<?oxygen SCHSchema="Schematrons/CI-SIS_DLU_DLU.sch"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd">
+
+	<realmCode code="FR"/>
+	<!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!-- Conformité spécifications HL7 France -->
+	<templateId root="2.16.840.1.113883.2.8.2.1"/>
+	<!-- Conformité spécifications au CI-SIS de l'ASIP Santé -->
+	<templateId root="1.2.250.1.213.1.1.1.1"/>
+	<!-- Admission en UNV (AUNV)-->
+	<templateId root="1.2.250.1.213.1.1.1.15"/>
+
+
+	<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+	<id extension="A7102400008_040" root="1.2.250.1.213.1.1.9"/>
+	<code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+		displayName="Synthèse d'épisode de soins"/>
+	<title>DOCUMENT DE LIAISON D'URGENCE</title>
+
+	<effectiveTime value="20170417"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+		codeSystemName="Confidentiality" displayName="Normal"/>
+	<languageCode code="fr-FR"/>
+
+	<!-- Patient concerné par le document -->
+	<recordTarget>
+		<patientRole>
+			<!-- pour l"INS-C de production root= "1.2.250.1.213.1.4.2"-->
+			<id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+			<!-- identifiant local du patient -->
+			<id extension="594823495435" root="e7a123f2-ee7f-4bd5-84e4-5e698a42c7af"/>
+			<!--Identification via le NIR-->
+			<id extension="2401192050628" root="1.2.250.1.213.1.4.8"/>
+			
+			<addr use="H">
+				<houseNumber>3</houseNumber>
+				<streetNameType>rue</streetNameType>
+				<streetName>Petit Pont</streetName>
+				<postalCode>75005</postalCode>
+				<city>Paris</city>
+				<country>France</country>
+			</addr>
+			<telecom nullFlavor="UNK"/>
+			<patient classCode="PSN">
+				<name>
+					<given>Jeanne</given>
+					<family qualifier="SP">Dupont</family>
+					<family qualifier="BR">Martin</family>
+				</name>
+				<administrativeGenderCode code="F" displayName="Féminin"
+					codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19401110"/>
+				<guardian classCode="GUARD">
+					<telecom value="tel:0650242352" use="MC"/>
+
+					<guardianPerson>
+						<name>
+							<family qualifier="BR">MOISSON</family>
+							<given>Patrick</given>
+						</name>
+					</guardianPerson>
+
+				</guardian>
+			</patient>
+		</patientRole>
+	</recordTarget>
+
+	<!-- Auteur du document -->
+	<author>
+		<time value="20120328111700+0100"/>
+		<assignedAuthor>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+			<addr nullFlavor="NASK"/>
+			<telecom nullFlavor="NASK"/>
+			<assignedPerson>
+				<name>
+					<prefix>Dr</prefix>
+					<given>Charles</given>
+					<family>BOILEAU</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+
+
+	<!-- Référent de l’entourage du patient -->
+	<informant>
+		<relatedEntity classCode="CON">
+			<code code="SON" displayName="Fils" codeSystem="2.16.840.1.113883.5.111"
+				codeSystemName="RoleCode"/>
+			<addr nullFlavor="NASK"/>
+			<telecom value="tel:0650242352" use="MC"/>
+			<relatedPerson>
+				<name>
+					<family>Vin</family>
+					<given>Camille</given>
+				</name>
+			</relatedPerson>
+		</relatedEntity>
+	</informant>
+
+	<!-- Personne de confiance -->
+	<informant>
+		<relatedEntity classCode="QUAL">
+			<code code="SIS" displayName="Soeur" codeSystem="2.16.840.1.113883.5.111"
+				codeSystemName="RoleCode"/>
+			<addr nullFlavor="NASK"/>
+			<telecom value="tel:0647150100" use="MC"/>
+			<relatedPerson>
+				<name>
+					<family>DECOURCY</family>
+					<given>Sophie</given>
+				</name>
+			</relatedPerson>
+		</relatedEntity>
+	</informant>
+
+
+	<!--=<<o#%@O[ Organisation de santé responsable du document ]O@%#o>>=-->
+
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="GIP-CPS" extension="1120456789" root="1.2.250.1.71"/>
+				<name>Clinique du Belvédère</name>
+				<telecom use="WP" value="tel:0442515151"/>
+				<addr>
+					<houseNumber>142</houseNumber>
+					<streetNameType>rue</streetNameType>
+					<streetName>Belvédère</streetName>
+					<postalCode>92100</postalCode>
+					<city>Boulogne-Billancourt</city>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+	<!-- Signataire légal du document -->
+	<legalAuthenticator>
+		<time value="20080929094914+0100"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+			<addr nullFlavor="NASK"/>
+			<telecom nullFlavor="NASK"/>
+			<assignedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Charles</given>
+					<family>BOILEAU</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</legalAuthenticator>
+
+
+	<!-- Médecin traitant =-->
+	<participant typeCode="INF">
+		<functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" displayName="Médecin Traitant"/>
+		<time value="20120328111700+0100"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<addr>
+				<houseNumber>3</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>Petit Pont</streetName>
+				<postalCode>75005</postalCode>
+				<city>Paris</city>
+			</addr>
+			<telecom value="tel:0147150000" use="WP"/>
+			<associatedPerson>
+				<name>
+					<prefix>Dr.</prefix>
+					<given>Stéphane</given>
+					<family>MEDIONI</family>
+				</name>
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+
+
+
+	<!-- Acte documenté par le document (contient aussi le contact 24h/24h en EHPAD) -->
+	<documentationOf>
+		<serviceEvent>
+			<code code="34117-2" displayName="Historique et clinique"
+				codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+			<effectiveTime>
+				<low value="20120328111700+0100"/>
+			</effectiveTime>
+			<performer typeCode="PRF">
+				<assignedEntity>
+					<!-- N° RPPS du PS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<addr nullFlavor="NASK"/>
+					<telecom nullFlavor="NASK"/>
+					<assignedPerson>
+						<name>
+							<given>Charles </given>
+							<family>BOILEAU</family>
+							<prefix>Dr.</prefix>
+						</name>
+					</assignedPerson>
+					<!-- Numéro FINESS de l'ES  -->
+					<representedOrganization>
+						<id root="1.2.250.1.71.4.2.2" extension="101238887"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>Centre de soins du Belvédère</name>
+						<telecom value="tel:0131931902" use="EC"/>
+						<addr>
+							<houseNumber>142</houseNumber>
+							<streetNameType>rue</streetNameType>
+							<streetName>Belvédère</streetName>
+							<postalCode>92100</postalCode>
+							<city>Boulogne-Billancourt</city>
+						</addr>
+						<standardIndustryClassCode code="ETABLISSEMENT"
+							displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+							codeSystemName="practiceSettingCode"/>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+		</serviceEvent>
+	</documentationOf>
+
+
+	<!-- Contexte de la prise en charge -->
+	<componentOf>
+		<encompassingEncounter>
+			<code code="IMP" displayName="Consultation interne à la structure de soins"
+				codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActEncounterCode"/>
+			<effectiveTime>
+				<high value="20161101"/>
+			</effectiveTime>
+			<responsibleParty>
+				<assignedEntity>
+					<!-- N° RPPS du PS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<addr nullFlavor="NASK"/>
+					<telecom nullFlavor="NASK"/>
+					<assignedPerson>
+						<name>
+							<given>Charles </given>
+							<family>BOILEAU</family>
+							<prefix>Dr.</prefix>
+						</name>
+					</assignedPerson>
+					<!-- Numéro FINESS de l'ES  -->
+					<representedOrganization>
+						<id root="1.2.250.1.71.4.2.2" extension="101238887"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>Centre de soins du Belvédère</name>
+						<telecom value="tel:0131931902" use="DIR"/>
+						<telecom value="tel:0605061902" use="EC"/>
+						<addr>
+							<houseNumber>142</houseNumber>
+							<streetNameType>rue</streetNameType>
+							<streetName>du Belvédère</streetName>
+							<postalCode>92100</postalCode>
+							<city>Boulogne-Billancourt</city>
+						</addr>
+						<standardIndustryClassCode code="ETABLISSEMENT"
+							displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+							codeSystemName="practiceSettingCode"/>
+					</representedOrganization>
+				</assignedEntity>
+			</responsibleParty>
+			<location>
+				<healthCareFacility>
+					<code code="SA17" displayName="Etablissement Personnes Agées"
+						codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"/>
+				</healthCareFacility>
+			</location>
+		</encompassingEncounter>
+	</componentOf>
+
+	<component>
+		<structuredBody>
+			<!-- Etablissement de santé de préférence -->
+			<component>
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.10"/>
+					<code code="11302-7" displayName="Etablissement de santé de préférence"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Etablissement de santé de préférence</title>
+					<text> Text as described above </text>
+					<!-- Encounter Disposition Entry -->
+					<entry>
+						<act classCode="ACT" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.10.4.2"/>
+							<id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE"/>
+							<code code="11302-7" displayName="Etablissement de santé de préférence"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<text> </text>
+							<statusCode code="normal"/>
+							<effectiveTime nullFlavor="NAV"/>
+							<participant typeCode="RCV">
+								<time nullFlavor="NAV"/>
+								<participantRole classCode="ROL">
+									<!-- Numéro FINESS de l'ES  -->
+									<id root="1.2.250.1.71.4.2.2" extension="101765376"
+										assigningAuthorityName="ASIP Santé"/>
+									<addr>
+										<houseNumber>22</houseNumber>
+										<streetNameType>rue</streetNameType>
+										<streetName>du Paradis</streetName>
+										<postalCode>92100</postalCode>
+										<city>Boulogne-Billancourt</city>
+									</addr>
+									<telecom value="tel:0131931902" use="EC"/>
+									<playingEntity>
+										<name>Centre de soins du Belvédère</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</act>
+					</entry>
+				</section>
+			</component>
+
+
+
+			<!-- Section Pathologies actives -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.11"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+					<id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+					<code code="11450-4" displayName="Liste des problèmes actifs"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Pathologie en cours</title>
+					<text>
+						<list>
+							<item>20/06/2016 : Bronchite chronique simple</item>
+						</list>
+					</text>
+					<!-- Bronchite chronique simple -->
+					<entry>
+
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+							<id root="6c4c6a5c-ce23-4afd-9fc2-8b0fa6e829ff"/>
+							<code nullFlavor="NA"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low value="20160620"/>
+								<high nullFlavor="NA"/>
+							</effectiveTime>
+							<entryRelationship typeCode="SUBJ" inversionInd="false">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<templateId root="2.16.840.1.113883.10.20.1.28"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+									<id root="b47243f7-6470-43dc-97fa-4fa67a384bf4"/>
+									<code code="G-1009" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Diagnostic"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20160620"/>
+										<high nullFlavor="NA"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="J41.0"
+										codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"
+										displayName="Bronchite chronique simple"/>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+				</section>
+			</component>
+
+
+			<component>
+				<!-- Section Antécédents Médicaux -->
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+					<code code="11348-0" displayName="Historique des maladies"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Antécédents médicaux</title>
+					<text>
+						<list>
+							<item>11/08/2008 : Infarctus aigu du myocarde </item>
+							<item>11/08/2005 : Glaucome </item>
+						</list>
+					</text>
+
+					<!-- Infarctus aigu du myocarde -->
+					<entry>
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+							<id root="371df16d-96a7-49f9-9365-d748dd506b6c"/>
+							<code nullFlavor="NA"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low value="20080811"/>
+								<high nullFlavor="NA"/>
+							</effectiveTime>
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<templateId root="2.16.840.1.113883.10.20.1.28"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+									<id root="836a9ebc-767e-4077-8b21-ee8796572e5f"/>
+									<code code="G-1009" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Diagnostic"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20080811"/>
+										<high nullFlavor="NA"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="I21"
+										codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"
+										displayName="Infarctus aigu du myocarde"/>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+				</section>
+
+			</component>
+
+
+
+			<component>
+
+
+				<!-- Section Allergies et intolérances -->
+
+				<section>
+
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
+					<templateId root="2.16.840.1.113883.10.20.1.2"/>
+					<id root="3d2663d9-bbac-412e-9cb7-ec0ae63b4123"/>
+					<code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="Allergies, effets indésirables, alertes"/>
+					<title>Allergies, effets indésirables, alertes</title>
+					<text mediaType="text/x-hl7-text+xml">
+						<table>
+							<thead>
+								<tr>
+									<th>Date début</th>
+									<th>Date fin</th>
+									<th>Type d'allergie</th>
+									<th>Description clinique</th>
+									<th>Agent</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>30/06/2014</td>
+									<td>17/07/2014</td>
+									<td>Allergie alimentaire</td>
+									<td>Dermite due à l'ingestion d'aliments</td>
+									<td>Fraise</td>
+								</tr>
+								<tr>
+									<td>07/01/2014</td>
+									<td/>
+									<td>Allergie médicamenteuse</td>
+									<td>Éruption généralisée due à des médicaments</td>
+									<td>PARACETAMOL</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+
+					<entry>
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+							<id root="b0287e90-8ed1-4c3c-bfbe-110c01650498"/>
+							<code nullFlavor="NA"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low nullFlavor="NA"/>
+								<high nullFlavor="NA"/>
+							</effectiveTime>
+
+							<!-- 1ère allergie/intolérance -->
+							<entryRelationship typeCode="SUBJ" inversionInd="false">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.28"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+									<id root="19815241-10cd-47c4-9b32-cd98d2b01b2a"/>
+									<code code="FALG" codeSystem="2.16.840.1.113883.5.4"
+										codeSystemName="HL7:ObservationIntoleranceType"
+										displayName="Allergie alimentaire"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20140630"/>
+										<high value="20140717"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="L27.2"
+										codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"
+										displayName="Dermite due à l'ingestion d'aliments"/>
+									<participant typeCode="CSM">
+										<participantRole classCode="MANU">
+											<playingEntity classCode="MMAT">
+												<code code="C-F0271" codeSystem="1.2.250.1.213.2.12"
+												codeSystemName="SNOMED 3.5" displayName="Fraise"/>
+											</playingEntity>
+										</participantRole>
+									</participant>
+								</observation>
+							</entryRelationship>
+
+							<!-- 2ème allergie/intolérance -->
+							<entryRelationship typeCode="SUBJ" inversionInd="false">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.1.28"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+									<id root="c0be19dc-4445-4b40-8355-a6564eb3813c"/>
+									<code code="DALG" codeSystem="2.16.840.1.113883.5.4"
+										codeSystemName="HL7:ObservationIntoleranceType"
+										displayName="Allergie médicamenteuse"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20140107"/>
+										<high nullFlavor="NA"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="L27.0"
+										codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"
+										displayName="Éruption généralisée due à des médicaments"/>
+									<participant typeCode="CSM">
+										<participantRole classCode="MANU">
+											<playingEntity classCode="MMAT">
+												<code code="2202" codeSystem="1.2.250.1.213.2.3.2"
+												codeSystemName="CIS_Composition"
+												displayName="PARACETAMOL"> </code>
+											</playingEntity>
+										</participantRole>
+									</participant>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+				</section>
+
+			</component>
+
+			<component>
+
+				<!-- Section Plan de traitement -->
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.32"/>
+					<id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+					<code code="18776-5" displayName="Plan de traitement"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Traitement au long cours</title>
+					<text/>
+					<!-- sous-section Médication -->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+							<templateId root="2.16.840.1.113883.10.20.1.8"/>
+							<id root="e66eddb1-a7bd-4b5d-8420-1b6d4dd38522"/>
+							<code code="10160-0" displayName="Historique de la prise médicamenteuse"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Médications</title>
+							<text mediaType="text/x-hl7-text+xml">
+								<table>
+									<thead>
+										<tr>
+											<th>Date de début</th>
+											<th>Date de fin</th>
+											<th>Médicament</th>
+											<th colspan="5">Dose</th>
+											<th colspan="3">Périodicité</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>02/03/2015</td>
+											<td>09/03/2015</td>
+											<td>
+												<content ID="trtmed2">AMPICILLINE PANPHARMA 500 mg,
+												gélule</content>
+											</td>
+											<td>de</td>
+											<td>2</td>
+											<td>à</td>
+											<td>4</td>
+											<td>
+												<content ID="trtdose2">CP</content>
+											</td>
+											<td>par</td>
+											<td>1</td>
+											<td>jour(s)</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+							<!-- entrées de type Medications -->
+							<entry>
+								<substanceAdministration classCode="SBADM" moodCode="INT">
+									<templateId root="2.16.840.1.113883.10.20.1.24"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+									<id root="ad366b24-96f4-4aa6-9783-9fd445fdd17c"/>
+									<statusCode code="completed"/>
+									<effectiveTime xsi:type="IVL_TS">
+										<low value="20150302"/>
+										<high value="20150309"/>
+									</effectiveTime>
+									<effectiveTime xsi:type="PIVL_TS" operator="A">
+										<period value="1" unit="J"/>
+									</effectiveTime>
+									<doseQuantity value="2">
+										<translation>
+											<originalText>
+												<reference value="#trtdose2"/>
+											</originalText>
+										</translation>
+									</doseQuantity>
+									<maxDoseQuantity>
+										<numerator value="4"/>
+										<denominator value="1" unit="J"/>
+									</maxDoseQuantity>
+									<consumable typeCode="CSM">
+										<manufacturedProduct>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+											<templateId root="2.16.840.1.113883.10.20.1.53"/>
+											<manufacturedMaterial classCode="MMAT">
+												<code code="64996379"
+												codeSystem="1.2.250.1.213.2.3.1"
+												codeSystemName="CIS_Spécialités"
+												displayName="AMPICILLINE PANPHARMA 500 mg, gélule">
+												<originalText>
+												<reference value="#trtmed2"/>
+												</originalText>
+												</code>
+											</manufacturedMaterial>
+										</manufacturedProduct>
+									</consumable>
+								</substanceAdministration>
+							</entry>
+						</section>
+					</component>
+				</section>
+
+
+
+			</component>
+
+
+
+
+
+
+
+
+
+
+			<component>
+				<!-- Section Directives anticipées -->
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.34"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.35"/>
+					<!-- id pas obligatoire -->
+					<code code="42348-3" codeSystem="2.16.840.1.113883.6.1"
+						displayName="Directives anticipées" codeSystemName="LOINC"/>
+					<title>Directives anticipées</title>
+					<text> Soins palliatifs : non Directives anticipées : oui </text>
+
+					<!-- Soins palliatifs (O/N) -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<templateId root="2.16.840.1.113883.10.20.1.17"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7"/>
+							<id root="eb98426a-18af-4d64-ae2d-592c04302205"/>
+							<code code="P2-00200" codeSystem="1.2.250.1.213.2.12"
+								displayName="En soins palliatifs" codeSystemName="SNOMED 3.5"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20130225"/>
+							<value xsi:type="BL" value="false"/>
+						</observation>
+					</entry>
+
+					<!-- Directives anticipées (O/N) -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<templateId root="2.16.840.1.113883.10.20.1.17"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7"/>
+							<id root="eb45376a-18af-4d64-ae2d-592c04302205"/>
+							<code code="42348-3" codeSystem="2.16.840.1.113883.6.1"
+								displayName="Directives anticipées" codeSystemName="LOINC"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20130225"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+				</section>
+
+			</component>
+
+			<component>
+
+				<!-- Section Evènements résultants -->
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+					<templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+					<id root="eb1b1040-79fc-4fd8-a115-803977b2329d"/>
+					<code code="42545-4" displayName="Evènements resultants"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Evènements resultants</title>
+					<text> Etat Psychique du patient : <content ID="evr1">peut alerter :
+							non</content>
+						<content ID="evr2">orienté : oui</content>
+						<content ID="evr3">désorienté : non</content>
+						<content ID="evr4">agité : oui</content>
+						<content ID="evr5">opposant : oui</content>
+						<content ID="evr6">risque suicidaire : oui</content> Handicaps / Déficits :
+							<content ID="evr7">visuel : oui</content>
+						<content ID="evr8">auditif : oui</content>
+						<content ID="evr9">langage : oui</content> Déplacements / transferts :
+							<content ID="evr10">chute : oui</content>
+						<content ID="evr11">déambulation : oui</content>
+						<content ID="evr12">fugue : non</content>
+						<content ID="evr13">contention : non</content> Autres : <content ID="evr14"
+							>risques d’escarre : oui</content>
+						<content ID="evr15">risques de fausse route : non</content>
+					</text>
+
+					<!-- le patient peut alerter -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="0d1629b3-cc69-4632-81f3-2301fd4c318b"/>
+							<code code="DLU_001" displayName="Peut Alerter"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+							<text>
+								<reference value="#evr1"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="false"/>
+						</observation>
+					</entry>
+
+					<!-- le patient est orienté -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="ccf80a78-0212-43ef-89e5-f37f3b30c3af"/>
+							<code code="F-91200" displayName="Orienté"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr2"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- le patient est désorienté -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="1483fa34-3810-4c2d-a611-9be5e4d1a703"/>
+							<code code="F-91210" displayName="Désorienté"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr3"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="false"/>
+						</observation>
+					</entry>
+
+					<!-- le patient est agité -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="8449d1af-c44b-4598-ac0b-ce0df77575a5"/>
+							<code code="F-92540" displayName="Agité" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr4"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- le patient est opposant -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="3cc2a9bf-ee87-492f-87dd-e7cbc71e94ed"/>
+							<code code="F91.3" displayName="Opposant"
+								codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"/>
+							<text>
+								<reference value="#evr5"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+
+
+					<!-- le patient est à risque suicidaire -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="4511aa1c-fd6e-463e-8f33-2a3865a81799"/>
+							<code code="F-94034" displayName="Risque suicidaire"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr6"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- Handicap visuel -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="b4f9f29b-ee99-4b56-a7ef-b939dc190989"/>
+							<code code="DA-74910" displayName="Handicap visuel"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr7"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- Handicap auditif -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="e6a2fd17-bf64-412b-a978-255a50167827"/>
+							<code code="DA-95000" displayName="Handicap auditif"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr8"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- Handicap de langage -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="114ffedc-6968-499d-95a5-f6e8408f8354"/>
+							<code code="F-94800" displayName="Handicap de langage"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr9"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- Chute -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="dbf786aa-eb03-460f-8eea-7d7708d9d2d8"/>
+							<code code="A-A1800" displayName="Chute" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr10"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+
+					<!-- Déambulation -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="301d8ac8-4ce5-45be-a2a5-c087eb0ffaac"/>
+							<code code="F-18000" displayName="Déambulation"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr11"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- Fugue -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f7fd31cf-a595-4531-b693-9d048b5f1270"/>
+							<code code="F-95250" displayName="Fugue" codeSystem="1.2.250.1.213.2.12"
+								codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr12"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="false"/>
+						</observation>
+					</entry>
+
+					<!-- Contention -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="3546908f-75c7-4996-92dd-9133e3d626af"/>
+							<code code="PA-10130" displayName="Contention"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr13"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- Risque d'escarre -->
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="226aa75d-b25a-406c-9e8c-f37ade42db40"/>
+							<code code="M-36784" displayName="Risque d'escarre"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr14"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<!-- Risque de fausses routes -->
+					<entry>
+						<observation classCode="OBS" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="79c1467d-bc99-454e-ba8e-dd3cc0eade57"/>
+							<code code="M-39280" displayName="Risque de fausses routes"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+							<text>
+								<reference value="#evr15"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="false"/>
+						</observation>
+					</entry>
+
+				</section>
+
+
+			</component>
+
+			<component>
+				<!-- Section Résultats d’examens -->
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+					<code code="30954-2" displayName="Résumé des examens pratiqués"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Résultats d’examens</title>
+					<text>
+						<content ID="bmr1">BMR : non</content>
+					</text>
+
+
+
+					<!-- Simple Observation -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id/>
+							<code code="U83.71" codeSystem="2.16.840.1.113883.6.3"
+								codeSystemName="CIM10" displayName="Bactérie Multi Résistante"/>
+							<text>
+								<reference value="#bmr1"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NASK"/>
+							<value xsi:type="BL" value="false"/>
+						</observation>
+					</entry>
+				</section>
+
+			</component>
+
+
+
+			<component>
+				<!-- Section Vaccination -->
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.6"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.23"/>
+					<code code="11369-6" displayName="Vaccinations"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Vaccination du patient</title>
+					<text>Les vaccins du patient sont :</text>
+
+					<!-- Vaccin tétanos -->
+					<entry>
+						<substanceAdministration classCode="SBADM" moodCode="EVN"
+							negationInd="false">
+							<templateId root="2.16.840.1.113883.10.20.1.24"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+							<id root="11f78c7b-4ef8-456f-94ac-200107da9de9"/>
+							<code code="IMMUNIZ" displayName="Immunization"
+								codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NASK"/>
+							<routeCode code="IM" displayName="Voie Intramusculaire"
+								codeSystem="2.16.840.1.113883.5.112"
+								codeSystemName="routeofAdministration"/>
+							<consumable typeCode="CSM">
+								<manufacturedProduct classCode="MANU">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+									<templateId root="2.16.840.1.113883.10.20.1.53"/>
+
+									<manufacturedMaterial>
+										<code code="68747507"
+											displayName="VACCIN TETANIQUE PASTEUR, suspension injectable en seringue préremplie vaccin tétanique adsorbé"
+											codeSystem="1.2.250.1.213.2.3.1"
+											codeSystemName="CIS_Spécialités"/>
+										<lotNumberText>765378</lotNumberText>
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+						</substanceAdministration>
+					</entry>
+
+					<!-- Vaccin grippe -->
+					<entry>
+						<substanceAdministration classCode="SBADM" moodCode="EVN"
+							negationInd="false">
+							<templateId root="2.16.840.1.113883.10.20.1.24"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+							<id root="0513dae8-b97a-4aaf-8448-71dae0c7f662"/>
+							<code code="IMMUNIZ" displayName="Immunization"
+								codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NASK"/>
+							<routeCode code="IM" displayName="Voie Intramusculaire"
+								codeSystem="2.16.840.1.113883.5.112"
+								codeSystemName="routeofAdministration"/>
+							<consumable typeCode="CSM">
+								<manufacturedProduct classCode="MANU">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+									<templateId root="2.16.840.1.113883.10.20.1.53"/>
+									<manufacturedMaterial>
+										<code code="62482112"
+											displayName="VAXIGRIP, suspension injectable en seringue préremplie, vaccin grippal inactivé à virion fragmenté"
+											codeSystem="1.2.250.1.213.2.3.1"
+											codeSystemName="CIS_Spécialités"/>
+										<lotNumberText>0076543</lotNumberText>
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+						</substanceAdministration>
+					</entry>
+
+					<!-- Vaccin pneumocoque -->
+					<entry>
+						<substanceAdministration classCode="SBADM" moodCode="EVN"
+							negationInd="false">
+							<templateId root="2.16.840.1.113883.10.20.1.24"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.12"/>
+							<id root="b98b8203-408a-4948-9bc3-6270dbbe3c7c"/>
+							<code code="IMMUNIZ" displayName="Immunization"
+								codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NASK"/>
+							<routeCode code="IM" displayName="Voie Intramusculaire"
+								codeSystem="2.16.840.1.113883.5.112"
+								codeSystemName="routeofAdministration"/>
+							<consumable typeCode="CSM">
+								<manufacturedProduct classCode="MANU">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+									<templateId root="2.16.840.1.113883.10.20.1.53"/>
+									<manufacturedMaterial>
+										<code code="66229252"
+											displayName="PNEUMOVAX en flacon. Vaccin pneumococcique polyosidique"
+											codeSystem="1.2.250.1.213.2.3.1"
+											codeSystemName="CIS_Spécialités"/>
+										<lotNumberText>0012345</lotNumberText>
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+						</substanceAdministration>
+					</entry>
+				</section>
+
+			</component>
+
+			<!-- Section Commentaires -->
+			<component>
+
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.47"/>
+					<code code="48767-8" displayName="Commentaire"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Commentaires</title>
+					<text> Commentaires: <content ID="cmnt">Le commentaire en lui-même</content>
+					</text>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f6f98c74-93f9-4f29-ac7a-769ee5c5a464"/>
+							<code code="CDA_008" displayName="Commentaires"
+								codeSystem="1.2.250.1.213.1.1.4.2.286" codeSystemName="TA_CDA"/>
+							<text>
+								<reference value="#cmnt"/>
+							</text>
+							<statusCode code="completed"/>
+							<effectiveTime value="20130526"/>
+							<value xsi:type="CD" code="DLU" codeSystem="1.2.250.1.213.1.1.4.322"
+								displayName="Document de Liaison d'Urgence" codeSystemName="TA_ASIP"
+							> </value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!-- Section Éléments cliniques rapportés -->
+			<component>
+				<section>
+					<!-- template Eléments cliniques rapportés (OID ASIP Santé) -->
+					<templateId root="1.2.250.1.213.1.1.2.46"/>
+					<!-- code LOINC Document ajouté -->
+					<code code="55107-7" displayName="Document ajouté"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Checklist des documents annexés au DLU</title>
+					<text> Checklist des documents annexés au DLU : <content ID="doc1">Attestation
+							de la carte vitale (oui)</content>
+						<content ID="doc2">Attestation de mutuelle (oui)</content>
+						<content ID="doc3">Photocopie de la carte d’identité (oui)</content>
+						<content ID="doc4">Grille AGGIR (la plus récente) (oui)</content>
+						<content ID="doc5">Photocopie des directives anticipées (oui)</content>
+						<content ID="doc6">Photocopies des ordonnances en cours (oui)</content>
+						<content ID="doc7">Tableau d’administration des médicaments (oui)</content>
+						<content ID="doc8">Résultats récents de biologie (1 à 3 mois) avec clairance
+							de la créatinine et INR (si AVK) (oui)</content>
+						<content ID="doc9">CR de la dernière hospitalisation (non)</content>
+						<content ID="doc10">Fiche BMR (bactérie multi-résistante) (oui)</content>
+						<content ID="doc11">Fiche ou carnet de suivi des soins (glycémie,
+							pansements, perfusion, ventilation, nutrition, etc.) (oui)</content>
+						<content ID="doc12">Carnet de suivi du pacemaker ou du défibrilateur
+							implentable (oui)</content>
+						<content ID="doc13">Carte de groupe sanguin (si à jour) (oui)</content>
+						<content ID="doc14">Liste des capacités en soins de l’EHPAD (oui)</content>
+					</text>
+
+					<!-- Attestation de la carte vitale -->
+					<entry>
+						<organizer classCode="CLUSTER" moodCode="EVN">
+							<templateId root="1.2.250.1.213.1.1.3.18"/>
+							<id root="88beb395-3b4c-37f5-9a31-03bea73a8d8b"/>
+							<code code="55107-7" displayName="Document attaché"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<statusCode code="completed"/>
+							<component>
+								<!-- et ensuite autant d’entries de type <observation> que de type de document dans le jeu de valeur JDV_ChecklistDLU_CI-SIS -->
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="0d1629b3-cc69-4632-81f3-2301fd4c318b"/>
+									<code code="DLU_006"
+										displayName="Attestation de la carte vitale"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text><reference value="#doc1"/></text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NA"/>
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+
+
+
+
+
+				</section>
+			</component>
+
+		</structuredBody>
+	</component>
+</ClinicalDocument>

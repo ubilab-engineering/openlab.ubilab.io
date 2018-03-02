@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par nmahraz, le 01/03/2017-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.84" displayName="MotifDiagnostic" version="test">
+        <ConceptList>
+            <Concept code="G-A304" displayName="Clinique" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="MED-110" displayName="Mammographique"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="MED-111" displayName="Clinique et Mammographique"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

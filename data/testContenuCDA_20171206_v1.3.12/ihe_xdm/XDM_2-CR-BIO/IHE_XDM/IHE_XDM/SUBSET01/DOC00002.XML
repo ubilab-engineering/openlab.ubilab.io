@@ -1,0 +1,1909 @@
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3">
+  <realmCode code="FR" />
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <templateId root="2.16.840.1.113883.2.8.2.1" />
+  <templateId root="1.2.250.1.213.1.1.1.1" />
+  <templateId root="1.3.6.1.4.1.19376.1.3.3" />
+  <!-- Identifiant unique de cette occurrence du document -->
+  <id root="1.2.250.1.213.1.1.9.8.1.63451613409007762772" extension="100" assigningAuthorityName="ASIP SANTE DEMO" />
+  <!-- Type de document -->
+  <code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <title>CR d'examens biologiques - Labo des Charmes</title>
+  <!-- Date et heure de création du document -->
+  <effectiveTime value="20150104160527+0100" />
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal" />
+  <languageCode code="fr-FR" />
+  <!-- identifiant commun à toutes les versions successives du comtpe rendu -->
+  <setId root="1.2.250.1.213.1.1.9" extension="A7102400009" assigningAuthorityName="ASIP SANTE" />
+  <!-- numéro de la version courante (entier positif), ici la première version -->
+  <versionNumber value="1" />
+  <!-- 
+			Le patient auquel se rapporte ce compte rendu 
+		-->
+  <recordTarget>
+    <patientRole>
+      <!-- patient identifié par son INS-C -->
+      <id extension="0218805328320789819507" root="1.2.250.1.213.1.4.2" />
+      <addr use="HP">
+        <streetAddressLine>16 Chemin du Buala</streetAddressLine>
+        <streetAddressLine>75016 PARIS</streetAddressLine>
+      </addr>
+      <telecom value="tel:0798132265" use="MC" />
+      <telecom value="tel:0156443321" use="H" />
+      <patient>
+        <name>
+          <prefix>Mlle</prefix>
+          <given>Sylvaine</given>
+          <family qualifier="BR">SAUVEUR</family>
+        </name>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
+        <birthTime value="19750301" />
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <!-- 
+			L'auteur du compte rendu
+		-->
+  <author>
+    <time value="20150104131933+0100" />
+    <assignedAuthor>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567897" />
+      <code code="G15_10/SM03" displayName="Médecin - Biologie médicale (SM)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <addr nullFlavor="MSK" />
+      <telecom value="tel:+33-602030499" />
+      <assignedPerson>
+        <name>
+          <given>Marcel</given>
+          <family>BIOLOPRO</family>
+          <prefix>Dr.</prefix>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Laboratoire des charmes</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <!-- 
+			L'organisation émettrice
+		-->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+        <name>Laboratoire des charmes</name>
+        <telecom use="PUB" value="tel:0466666666" />
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <!-- 
+			Le responsable de ce compte rendu 
+		-->
+  <legalAuthenticator>
+    <time value="20150104152503+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567899" />
+      <assignedPerson>
+        <name>
+          <given>Robert</given>
+          <family>RESPONSHUIT</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </legalAuthenticator>
+  <!-- 
+			Un biologiste ayant validé des résultats présents sur le compte rendu
+		-->
+  <authenticator>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5" />
+    <time value="201501041120+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567898" />
+      <assignedPerson>
+        <name>
+          <given>JEANNE</given>
+          <family>BIOLOVALSEPT</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+  <!-- 
+			Un biologiste ayant validé des résultats présents sur le compte rendu
+		-->
+  <authenticator>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5" />
+    <time value="201501041130+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567866" />
+      <assignedPerson>
+        <name>
+          <given>JANINE</given>
+          <family>BIOCHIVALSEPT</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+  <!-- 
+			Un biologiste ayant validé des résultats présents sur le compte rendu
+		-->
+  <authenticator>
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5" />
+    <time value="201501041600+0100" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="1.2.250.1.71.4.2.1" extension="801234567879" />
+      <assignedPerson>
+        <name>
+          <given>JULES</given>
+          <family>BACTERVALSEPT</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+  <!-- 
+			Le médecin prescripteur des examens de biologie (ici, un gynécologue)
+		-->
+  <participant typeCode="REF">
+    <!-- Date de l'ordonnance -->
+    <time>
+      <high value="20091231" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567892" />
+      <code code="G15_10/C25" displayName="Médecin - Gynécologie médicale (C)" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <telecom value="tel:0147150000" use="EC" />
+      <associatedPerson>
+        <name>
+          <prefix>Docteur</prefix>
+          <given>Eva</given>
+          <family>Gynecon</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+  <!-- 
+			Le préleveur (ici, une infirmière)
+		-->
+  <participant typeCode="DIST">
+    <functionCode code="PRELV" displayName="préleveur" codeSystem="1.2.250.1.213.1.1.4.2.280" />
+    <!-- Date et heure de prélèvement -->
+    <time>
+      <high value="201501040735+0100" />
+    </time>
+    <associatedEntity classCode="PROV">
+      <id root="1.2.250.1.71.4.2.1" extension="801234567893" />
+      <code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5" />
+      <associatedPerson>
+        <name>
+          <given>Roberta</given>
+          <family>Bleeder</family>
+        </name>
+      </associatedPerson>
+    </associatedEntity>
+  </participant>
+  <!-- 
+			Identifiant de la prescription électronique d'examens de biologie reçue par le laboratoire 
+		-->
+  <inFulfillmentOf>
+    <order>
+      <id root="1.2.250.1.213.1.1.9" extension="2010123456789" />
+    </order>
+  </inFulfillmentOf>
+  <!-- 
+			Acte principal : La demande d'examens enregistrée dans le SI du laboratoire (SGL) et le 1er chapitre du compte rendu
+		-->
+  <documentationOf>
+    <serviceEvent>
+      <id root="1.2.250.1.213.1.1.9" extension="201011111123" />
+      <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+      <effectiveTime>
+        <!-- Date de réception de la demande et des échantillons -->
+        <low value="201501040922+0100" />
+        <!-- Date de fin de traitement = date et heure de libération du compte rendu final -->
+        <high value="201501041605+0100" />
+      </effectiveTime>
+      <!-- 
+					Le laboratoire exécutant 
+				-->
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+        <time>
+          <high value="20150104152530+0100" />
+        </time>
+        <assignedEntity>
+          <!-- identifiant du directeur -->
+          <id root="1.2.250.1.71.4.2.1" extension="801234567899" />
+          <assignedPerson>
+            <name nullFlavor="MSK" />
+          </assignedPerson>
+          <representedOrganization>
+            <!-- identifiant, nom et coordonnées du laboratoire -->
+            <id root="1.2.250.1.71.4.2.2" extension="1120456789" />
+            <name>Laboratoire des charmes</name>
+            <!-- Cadre d'exercice : Laboratoire de ville -->
+            <standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire" codeSystem="1.2.250.1.213.1.1.4.9" />
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <!-- 
+			Acte secondaire pour l'alimentation de la métadonnée eventCodeList
+		-->
+  <documentationOf>
+    <serviceEvent>
+      <code code="18723-7" displayName="Hématologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+    </serviceEvent>
+  </documentationOf>
+  <!-- 
+			Acte secondaire pour l'alimentation de la métadonnée eventCodeList
+		-->
+  <documentationOf>
+    <serviceEvent>
+      <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+    </serviceEvent>
+  </documentationOf>
+  <!-- 
+			Prise en charge  patient/structure de soins à laquelle se rattache ce compte rendu de biologie
+			Contexte ambulatoire : arrivée des prélèvements au laboratoire
+		-->
+  <componentOf>
+    <encompassingEncounter>
+      <code code="AMB" displayName="ambulatoire" codeSystem="2.16.840.1.113883.5.4" />
+      <effectiveTime>
+        <high value="201501040735+0100" />
+      </effectiveTime>
+      <!-- 
+					L'élément "location" introduit la modalité d'exercice
+				-->
+      <location>
+        <healthCareFacility>
+          <code code="SA25" displayName="Laboratoire de Biologie Médicale" codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"></code>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!-- 
+			*********************
+			Corps du compte rendu
+			*********************
+		-->
+  <component>
+    <structuredBody>
+      <component>
+        <!-- Section de premier niveau = chapitre "Biochimie" -->
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
+          <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>BIOCHIMIE</title>
+          <component>
+            <!-- Section de second niveau = examen de biologie, ici "électrophorèse des protéines" -->
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.3.3.2.2" />
+              <code code="14340-4" displayName="Electrophorèse des protéines" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <title>Electrophorèse des protéines sériques :</title>
+              <text>
+                <table>
+                  <thead align="center">
+                    <tr>
+                      <th align="left" colspan="3">Protéinogramme</th>
+                    </tr>
+                    <tr>
+                      <th />
+                      <th align="center">04/01/2010 13:19:33</th>
+                      <th align="center">Valeurs de référence</th>
+                    </tr>
+                  </thead>
+                  <tbody align="center">
+                    <tr>
+                      <td align="left">Protéines totales (g/L)</td>
+                      <td align="center">75,0</td>
+                      <td align="center">63,00 - 83,00</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Albumine (%)</td>
+                      <td align="center">60,0</td>
+                      <td align="center">40 - 80</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Albumine (g/L)</td>
+                      <td align="center">45,0</td>
+                      <td align="center">36,00 - 48,00</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Alpha 1 globulines (%)</td>
+                      <td align="center">5,0</td>
+                      <td align="center" />
+                    </tr>
+                    <tr>
+                      <td align="left">Alpha1 (g/L)</td>
+                      <td align="center">3,8</td>
+                      <td align="center">0,80 - 3,20</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Alpha 2 globulines (%)</td>
+                      <td align="center">9,0</td>
+                      <td align="center">8,3 - 10,1</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Alpha2 (g/L)</td>
+                      <td align="center">6,8</td>
+                      <td align="center">4,50 - 10,50</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Béta globulines (%)</td>
+                      <td align="center">11,0</td>
+                      <td align="center">6 - 12</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Béta (g/L)</td>
+                      <td align="center">8,3</td>
+                      <td align="center">3,50 - 9,50</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Gamma globulines (%)</td>
+                      <td align="center">15,0</td>
+                      <td align="center">8 - 17</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Gamma (g/L)</td>
+                      <td align="center">11,3</td>
+                      <td align="center">6,50 - 14,50</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Ratio albumine / globuline</td>
+                      <td align="center">1,50</td>
+                      <td align="center">1 - 5</td>
+                    </tr>
+                    <tr>
+                      <td align="left">Conclusion</td>
+                      <td align="center" ID="CONCL">Bisalbuminémie</td>
+                      <td align="center" />
+                    </tr>
+                  </tbody>
+                </table>
+                <renderMultiMedia referencedObject="ELECTROPHORESE" />
+                <br />
+                <paragraph>Résultats validés par JEANNE BIOLOVALSEPT - 4 janvier
+										2010, 11h20</paragraph>
+                <br />
+              </text>
+              <!-- RESULTATS DE L'ELECTROPHORESE IMPORTABLES DANS LE SI DU CONSOMMATEUR (niveau 3 de CDA) -->
+              <entry typeCode="DRIV">
+                <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="14340-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Electrophorèse des protéines" />
+                  <statusCode code="completed" />
+                  <performer>
+                    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+                    <time value="201501041050+0100" />
+                    <assignedEntity>
+                      <id root="1.2.250.1.71.4.2.1" extension="801234567833" />
+                      <addr nullFlavor="MSK" />
+                      <telecom nullFlavor="MSK" />
+                      <assignedPerson>
+                        <name>
+                          <family>BIO-RESPONSABLE</family>
+                          <given>SOUS-TRAITE</given>
+                        </name>
+                      </assignedPerson>
+                      <representedOrganization>
+                        <id root="1.2.250.1.71.4.2.2" extension="1120456733" />
+                        <name>LABORATOIRE SOUS-TRAITANT</name>
+                        <telecom nullFlavor="MSK" />
+                        <addr nullFlavor="MSK" />
+                      </representedOrganization>
+                    </assignedEntity>
+                  </performer>
+                  <!-- Biologiste ayant validé les résultats de cette entrée à 11h20 -->
+                  <participant typeCode="AUTHEN">
+                    <templateId root="1.3.6.1.4.1.19376.1.8.1.4.7" />
+                    <time>
+                      <high value="201501041120+0100" />
+                    </time>
+                    <participantRole>
+                      <id root="1.2.250.1.71.4.2.1" extension="801234567898" />
+                      <addr nullFlavor="MSK" />
+                      <telecom nullFlavor="MSK" />
+                      <playingEntity>
+                        <name>
+                          <given>JEANNE</given>
+                          <family>BIOLOGISTE-VALIDEUR</family>
+                        </name>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <!-- Acte de prélèvement et échantillon prélevé -->
+                  <entryRelationship typeCode="COMP">
+                    <procedure classCode="PROC" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.2" />
+                      <code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Ponction veineuse" codeSystemName="NABM" />
+                      <!-- Date et heure  prélèvement -->
+                      <effectiveTime>
+                        <high value="201501040735+0100" />
+                      </effectiveTime>
+                      <!-- Préleveur -->
+                      <performer>
+                        <assignedEntity>
+                          <id root="1.2.250.1.71.4.2.1" extension="801234567893" />
+                          <code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5" />
+                          <addr nullFlavor="NASK" />
+                          <telecom nullFlavor="NASK" />
+                          <assignedPerson>
+                            <name>
+                              <given>Roberta</given>
+                              <family>Bleeder</family>
+                            </name>
+                          </assignedPerson>
+                          <!-- Organisation pour laquelle travaille le préleveur -->
+                          <representedOrganization>
+                            <name>Cabinet infirmier</name>
+                          </representedOrganization>
+                        </assignedEntity>
+                      </performer>
+                      <!-- Echantillon biologique prélevé -->
+                      <participant typeCode="PRD">
+                        <participantRole classCode="SPEC">
+                          <!-- identifiant (code barré) -->
+                          <id root="d5a9ef50-d05e-11dd-ad8b-0800200c9a66" extension="12345678A" />
+                          <playingEntity>
+                            <!-- Nature d’échantillon -->
+                            <code code="BLD" codeSystem="2.16.840.1.113883.5.129" displayName="sang total" />
+                          </playingEntity>
+                        </participantRole>
+                      </participant>
+                    </procedure>
+                  </entryRelationship>
+                  <entryRelationship typeCode="COMP">
+                    <organizer classCode="BATTERY" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                      <statusCode code="completed" />
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="2885-2" codeSystem="2.16.840.1.113883.6.1" displayName="Protéines [Masse/Volume] Sérum/Plasma ; Numérique" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="75.0" unit="g/L" />
+                          <referenceRange>
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="63.000000" unit="g/L" />
+                                <high value="83.000000" unit="g/L" />
+                              </value>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="13980-8" codeSystem="2.16.840.1.113883.6.1" displayName="Albumine/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="60.0" unit="%" />
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="2862-1" codeSystem="2.16.840.1.113883.6.1" displayName="Albumine [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="45.0" unit="g/L" />
+                          <referenceRange>
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="36.000000" unit="g/L" />
+                                <high value="48.000000" unit="g/L" />
+                              </value>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="13978-2" codeSystem="2.16.840.1.113883.6.1" displayName="Alpha-1 globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="5.0" unit="%" />
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="2865-4" codeSystem="2.16.840.1.113883.6.1" displayName="Alpha-1 globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="3.8" unit="g/L" />
+                          <interpretationCode code="H" codeSystem="2.16.840.1.113883.5.83" displayName="Anormalement haut" />
+                          <referenceRange>
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="0.800000" unit="g/L" />
+                                <high value="3.200000" unit="g/L" />
+                              </value>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="13981-6" codeSystem="2.16.840.1.113883.6.1" displayName="Alpha-2 globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="9.0" unit="%" />
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="2868-8" codeSystem="2.16.840.1.113883.6.1" displayName="Alpha-2 globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="6.8" unit="g/L" />
+                          <referenceRange>
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="4.500000" unit="g/L" />
+                                <high value="10.500000" unit="g/L" />
+                              </value>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="13982-4" codeSystem="2.16.840.1.113883.6.1" displayName="Bêta globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="11.0" unit="%" />
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="2871-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bêta globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="8.3" unit="g/L" />
+                          <referenceRange>
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="3.500000" unit="g/L" />
+                                <high value="9.500000" unit="g/L" />
+                              </value>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="13983-2" codeSystem="2.16.840.1.113883.6.1" displayName="Gamma globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="15.0" unit="%" />
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="2874-6" codeSystem="2.16.840.1.113883.6.1" displayName="Gamma globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="11.3" unit="g/L" />
+                          <referenceRange>
+                            <observationRange>
+                              <value xsi:type="IVL_PQ">
+                                <low value="6.500000" unit="g/L" />
+                                <high value="14.500000" unit="g/L" />
+                              </value>
+                            </observationRange>
+                          </referenceRange>
+                        </observation>
+                      </component>
+                      <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                          <code code="1759-0" codeSystem="2.16.840.1.113883.6.1" displayName="Albumine/globulines [Masse/Masse{entité}] Sérum/Plasma ; Numérique" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20150104131933+0100" />
+                          <value xsi:type="PQ" value="1.50" />
+                        </observation>
+                      </component>
+                      <!-- COMMENTAIRE SUR L'ELECTROPHORESE -->
+                      <component>
+                        <act classCode="ACT" moodCode="EVN">
+                          <templateId root="2.16.840.1.113883.10.20.1.40" />
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                          <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Commentaire" />
+                          <text>
+                            <reference value="#CONCL" />
+                          </text>
+                          <statusCode code="completed" />
+                        </act>
+                      </component>
+                      <component>
+                        <observationMedia ID="ELECTROPHORESE" moodCode="EVN" classCode="OBS">
+                          <templateId root="1.3.6.1.4.1.19376.1.8.1.4.10" />
+                          <value mediaType="image/png" representation="B64">iVBORw0KGgoAAAANSUhEUgAAAlgAAAEsBAMAAAGaFOAzAAAAD1BMVEX///8AAH9/f3+/AAAAAL+m
+													cZSiAAAAAXRSTlMAQObYZgAACCxJREFUeJztnQmuozoURLG8ASP1QpBYwZfe/tf0gxl9AdtFDFxC
+													ne6MEFMcjBnCc6rqGHVt6s/t4KerzA8+f7S6vmGiwGjt1aNpF8LRThvNlF70Nre0xj+Ljr6YaJM3
+													Wry0qRAbKc7llXYBepJoJlYzyE+T1dYUHq3sNIkge21ejKjCtfvg7zzfleX34p1xn/91cgPtXF0I
+													X9p3ycNkLAsvq1BlVj2PWstqyuxLlCvLlM9VCJZ1V1mf9t4/lmkonOKySm3XdS7HkmUZpbn6skod
+													oQ25ihR3ui/b32JnGrbLGmp90/0fz2zMa8LxmTeRl0bMgtt9cQkaK3O/W++6Ar/ev0f4rNol9+8J
+													IUqoi+4yVarLKnmalqd8iXZK7iKU3b1/ETobHau2rHK8oawifPYBuHIT8j1NwbW7SFnj/n2JsqZG
+													Ql0LRu6ldIVoxGMB5nOa3/MpxM7lfTHzzZynbaYCD0ba+Pzy1G9qE3/eLoA4tSt2NmLnfXm+MAM3
+													/DPTs/mfjlhuCuRuj3US7lPJFdZWU/XfF6iEsRAYC4GxEBgLgbEQ1MVabRN1fJdj/B7EIpamo2z1
+													sazSWDemWKFuTexhLIRlLB0Nl2eO1TBWEsZCUBdLbqpVhBp5QLulCMZCWMZStGujPZZVG0sRjIXA
+													WHk4eVStY2tdr8/La4jVw1gI2mM1ldpYemAshAfsnSpijGWnOxUwVh79wX6t8xgjqPJKY+lhjKWr
+													NX1GrEi4a3OHdWt/2s21q0PqMts2MfwkwlhbU2+Gu0uXYrgQZaymmv54/VrcPP0103ogBrft2epE
+													c9pPrq9Q8o/7rXjzzGg7rbxdZpoW4aoP0Jy+Qw/QHey3YdlLB6nVdBjcCrJ7eNwnsk00saEuNmUX
+													zRWZZM61ikb2ySCmvDvUJIrfHxqdWfI2XDVfR+yGV0pQcpW1wEzOTFWgzSrIuCjH5/dRO//PB5nu
+													/Tu1pkX568Q2LrdhfKxSvd2Uwq/N6nRpal0WMBYCYyEwFgJjITAWAmMhMBYCYyEwFgJjITwnlobv
+													7sz6TLKSWBoP9texVHx/vq5bjLXPY2KpYCOWBl2MhbCOdfGVDtswFgJjITwn1g0pVjxn46MBxkJg
+													LATGQmAsBKP3S2F5sK9gq2iGb/YnrJJYAsaKwFgIjIXwoFgKYCyEp8TSAWMhbMVSUL0YC4GxEBgL
+													gbEQVrEU7ANWG4evWmL1B/vT33NpiVWHp0a0xBIwVgTGQmAshKfE0sFmrPuNMRYCYyE8JJbfYWas
+													HRgL4SGxlMBYCIyFYETfKvevhB55sK8mVniwryZWiOZY9593YyyEzXaLsXZgLAR0m3hRuyZipT1d
+													kwuOdQ1gLHtR8O26tVpSduq9T1Ws8beHrtqS562Jl1c5ESvRLayNj1KO/FjAKN+zvRC3Ftplpjry
+													Y62H2faknjtlLCsexcBAVhs8FCaMFS6kobGS3Zz6kRb9wp6xZCMNxPCDQ7OO8Vkr+os9QVgQa152
+													zXDL+6FO2a3t9/Sx+h4IF6Xb8cXmBJdv9gXYA8ZiF+mPtpzd7kU4M1aH7LM2lTQn1gOJRY91l2sO
+													99BbD4XGOzmIDT3aXW4d76E3PeHjsVxkaLTj4AdXLUIS+N46h0dTO9M91rXrnvvHrgUanw/j+MdX
+													4sSt/000s3OrpsdX0tee+bFy1VSjxto0P3dDR7Yv1bVds5yoSWbRf/eLa1Yoy4jVUK6SL18Nya/S
+													bY1Tv6hBBroNjzOfdoANQRpnZln0FSVc+SgrCmUBUBYAZQFQFgBlAVAWAGUBUBYAZQFQFgBlAVAW
+													AGUBUBYAZQFQFgBlAVAWAGUBUBYAZQHkyNLyRzS3kyPrtEvxn4bvHy3xJStlDXQXic2yNi8Ss9f9
+													MYpyxmtC+gtDNmsWZY1ktFmUNUJZABmyGsoaoCyALFncK+2hLIC0LMvjnRHKAqAsAMoCoCwAygKg
+													LIAsWdyF70nLGnufIJSFQFkAlAVAWQCUBUBZAJQFQFkAlAVgkn8j3YniwaHHeF+xr+8pa8JfGBL7
+													+t5OdyTZZlHWDGUBUBYAZQFQFgBlAVAWQJ4sHu94KAuAsgAoCyApq1ncvx3KAsiUxX2HDsoCoCwA
+													ygKgLADKAqAsAMoCoCwAygJIfW84WuLxTiW/kaasKMZXK8rKItVmUdYCygKgLADKAqAsAMoCoCyA
+													lKxGPL4aygLIlcUj6YqyICgLgLIAKAuAsgASsuzqyZuhLADKAqAsgISsZuPZe6EsAMoCoCwAygJI
+													9NpNWUu8p91vpBc7DJRFWRDxNouyArJlcReesiAoCyAua9FQURZlQVAWAGUBZMs6tqP1W7+cFZUV
+													1KYjsn7sJ3vOlfVjvxVyqqxf6/D7dFm/VLWisgI/GXPdiI80eR97DCVl+dEX27+f6z8jX1Zyrhsx
+													ms372IOIyRJ1KTHXVjyO4//QegjIis/1PFRK+p2qFZMl5jIqazmwCT/9CllSTkyWXb2w28P8G23b
+													DI/POhyKyFrViP0qIn00+0eVrSzFPkfYvqx1RZpns5vjeR7Xc2vDD/evxgq1Zu99bezLWs+AbLI7
+													SXZzRu16FU5tS5/gK5RVz0+3wvfvLearmZ5G99CqyLmaOQC6Pq4vgM3EpEdJfdB3cd6vKdvV5UPb
+													hjVgrkApWbtbB5H80+bnrpS3y/r79/f33194+9ffbnhbDprerm/ie98vxRwTZoarJfAPVuNFFijj
+													b0ng1NXRSYoV/6Cs6qisrleJY8mro7JMfXT5dJMMXh9rM03dX4xz4INuuDAM/qQ7OMn5WrRjkyTk
+													DP4HW/K+LDjdqU4AAAAASUVORK5CYII= </value>
+                        </observationMedia>
+                      </component>
+                    </organizer>
+                  </entryRelationship>
+                </act>
+              </entry>
+            </section>
+          </component>
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.3.3.2.2" />
+              <title>Autres examens de biochimie sanguine :</title>
+              <text>
+                <table border="1">
+                  <thead align="center">
+                    <tr>
+                      <th rowspan="2" />
+                      <th>Résultat du jour</th>
+                      <th rowspan="2">Interprétation</th>
+                      <th rowspan="2">Valeurs de référence</th>
+                      <th colspan="2">Résultats antérieurs</th>
+                    </tr>
+                    <tr>
+                      <th>04/01/2010 10:10</th>
+                      <th>12/09/2009 08:15</th>
+                      <th>03/01/2009 08:12</th>
+                    </tr>
+                  </thead>
+                  <tbody align="center">
+                    <tr>
+                      <td>Urée sanguine</td>
+                      <td>10.02 mmol/L (0.60 g/L)</td>
+                      <td>Haut, croissant</td>
+                      <td>[3.5 - 8.0] mmol/L</td>
+                      <td>8.5 mmol/L (0.51 g/L)</td>
+                      <td>7.9 mmol/L (0.48 g/L)</td>
+                    </tr>
+                    <tr>
+                      <td>Glycémie à jeun</td>
+                      <td>7.2 mmol/L (1.30 g/L)</td>
+                      <td>Haut</td>
+                      <td>[3.9 - 6.1] mmol/L</td>
+                      <td>7.2 mmol/L (1.30 g/L)</td>
+                      <td>6.0 mmol/L (1.08 g/L)</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+                <paragraph>Résultats validés par JANINE BIOCHIVALSEPT - 4 janvier
+										2010, 11h30</paragraph>
+                <br />
+              </text>
+              <!-- RESULTATS DE BIOCHIMIE IMPORTABLES DANS LE SI DU CONSOMMATEUR (niveau 3 de CDA) -->
+              <entry typeCode="DRIV">
+                <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="18719-5" codeSystem="2.16.840.1.113883.6.1" displayName="Biochimie" />
+                  <statusCode code="completed" />
+                  <participant typeCode="AUTHEN">
+                    <templateId root="1.3.6.1.4.1.19376.1.8.1.4.7" />
+                    <time>
+                      <high value="201501041130+0100" />
+                    </time>
+                    <participantRole>
+                      <id root="1.2.250.1.71.4.2.1" extension="801234567866" />
+                      <addr nullFlavor="MSK" />
+                      <telecom nullFlavor="MSK" />
+                      <playingEntity>
+                        <name>
+                          <given>JANINE</given>
+                          <family>BIOCHIMISTE-VALIDEUR</family>
+                        </name>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="22664-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Urée [Moles/Volume] Sérum/Plasma ; Numérique" />
+                      <statusCode code="completed" />
+                      <!-- Biologiste ayant validé les résultats de cette entrée à 11h30 -->
+                      <effectiveTime value="201501041010+0100" />
+                      <value xsi:type="PQ" value="10.02" unit="mmol/L">
+                        <!-- unité principale -->
+                        <translation value="0.60" code="g/L" />
+                        <!-- unité secondaire -->
+                      </value>
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <interpretationCode code="U" displayName="Augmentation significative par rapport au résultat antérieur" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="22664-7" displayName="Urée [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="200909120815+0100" />
+                          <value xsi:type="PQ" value="8.5" unit="mmol/L">
+                            <!-- unité principale -->
+                            <translation value="0.51" code="g/L" />
+                            <!-- unité secondaire -->
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 03/01/09 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="22664-7" displayName="Urée [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="200901030812+0100" />
+                          <value xsi:type="PQ" value="7.9" unit="mmol/L">
+                            <!-- unité principale -->
+                            <translation value="0.48" code="g/L" />
+                            <!-- unité secondaire -->
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <!-- Intervalle de valeurs de référence -->
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="IVL_PQ">
+                            <low value="3.50" unit="mmol/L">
+                              <translation value="0.21" code="g/L" />
+                            </low>
+                            <high value="8" unit="mmol/L">
+                              <translation value="0.48" code="g/L" />
+                            </high>
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="40193-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Glucose a jeun [Moles/Volume] Sérum/Plasma ; Numérique" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="201501041010+0100" />
+                      <value xsi:type="PQ" value="7.2" unit="mmol/L">
+                        <!-- unité principale -->
+                        <translation value="1.30" code="g/L" />
+                        <!-- unité secondaire -->
+                      </value>
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="22664-7" displayName="Glucose a jeun [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="200909120815+0100" />
+                          <value xsi:type="PQ" value="7.2" unit="mmol/L">
+                            <!-- unité principale -->
+                            <translation value="1.30" code="g/L" />
+                            <!-- unité secondaire -->
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 03/01/09 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="22664-7" displayName="Glucose a jeun [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="200901030812+0100" />
+                          <value xsi:type="PQ" value="6.0" unit="mmol/L">
+                            <!-- unité principale -->
+                            <translation value="1.08" code="g/L" />
+                            <!-- unité secondaire -->
+                          </value>
+                        </observation>
+                      </entryRelationship>
+                      <!-- Intervalle de valeurs de référence -->
+                      <referenceRange typeCode="REFV">
+                        <observationRange classCode="OBS" moodCode="EVN.CRT">
+                          <value xsi:type="IVL_PQ">
+                            <low value="3.9" unit="mmol/L">
+                              <!-- normale inférieure -->
+                              <translation value="0.7" code="g/L" />
+                            </low>
+                            <high value="6.1" unit="mmol/L">
+                              <!-- normale supérieure -->
+                              <translation value="1.10" code="g/L" />
+                            </high>
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </entryRelationship>
+                </act>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+      <!-- Section de premier niveau = chapitre "Hématologie", sans section de second niveau -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
+          <code code="18723-7" displayName="Hématologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>HEMATOLOGIE</title>
+          <text>
+            <table border="1">
+              <thead align="center">
+                <tr>
+                  <th colspan="5" styleCode="Bold">Hémogramme</th>
+                </tr>
+                <tr>
+                  <th />
+                  <th>04/01/10 11:30</th>
+                  <th>Valeurs de référence</th>
+                  <th>Interprétation</th>
+                  <th>12/09/2009 08:15</th>
+                </tr>
+              </thead>
+              <tbody align="center">
+                <tr>
+                  <td align="left">leucocytes (10*3/mm3)</td>
+                  <!-- LOINC : 6690-2 -->
+                  <td>8.2</td>
+                  <td>4-10</td>
+                  <td />
+                  <td>5.8</td>
+                </tr>
+                <tr>
+                  <td align="left">érythrocytes (10*6/mm3)</td>
+                  <!-- LOINC : 789-8 -->
+                  <td>4.95</td>
+                  <td>4.50-6.00</td>
+                  <td />
+                  <td>4.85</td>
+                </tr>
+                <tr>
+                  <td align="left">hémoglobine (g/dL)</td>
+                  <!-- LOINC : 20509-6 -->
+                  <td>13.4</td>
+                  <td>11.5-14.5</td>
+                  <td />
+                  <td>13.3</td>
+                </tr>
+                <tr>
+                  <td align="left">hématocrite (%)</td>
+                  <!-- LOINC : 4544-3 -->
+                  <td>45</td>
+                  <td>40.0-54.0</td>
+                  <td />
+                  <td>45</td>
+                </tr>
+                <tr>
+                  <td align="left">volume globulaire moyen (fL)</td>
+                  <!-- LOINC : 787-2 -->
+                  <td>97</td>
+                  <td>85-95</td>
+                  <td>Haut, croissant</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td align="left">indice de distribution erythrocytaire (%)</td>
+                  <!-- LOINC : 788-0 -->
+                  <td>17.5</td>
+                  <td>11.5-14.5</td>
+                  <td>Haut</td>
+                  <td>13.0</td>
+                </tr>
+                <tr>
+                  <td align="left">concentration corpusculaire moyenne en
+											hémoglobine (g/dL)</td>
+                  <!-- LOINC : 786-4 -->
+                  <td>33.0</td>
+                  <td>32-36</td>
+                  <td />
+                  <td>32.5</td>
+                </tr>
+                <tr>
+                  <td align="left">teneur corpusculaire moyenne en hémoglobine
+											(pg)</td>
+                  <!-- LOINC : 785-6 -->
+                  <td>31.0</td>
+                  <td>27-31</td>
+                  <td />
+                  <td>32.5</td>
+                </tr>
+                <tr>
+                  <td align="left">plaquettes (10*9/L)</td>
+                  <!-- LOINC : 777-3 -->
+                  <td>220</td>
+                  <td>150-400</td>
+                  <td />
+                  <td>210</td>
+                </tr>
+                <tr>
+                  <td align="left">volume plaquettaire moyen (fL)</td>
+                  <!-- LOINC : 32623-1 -->
+                  <td>8</td>
+                  <td>7-10</td>
+                  <td />
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td align="left">indice de distribution des plaquettes (%)</td>
+                  <!-- LOINC : 51631-0 -->
+                  <td>12</td>
+                  <td />
+                  <td />
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td align="left">polynuclaires neutrophiles (%)</td>
+                  <!-- LOINC : 770-8 -->
+                  <td>72</td>
+                  <td>45-70</td>
+                  <td>Haut</td>
+                  <td>70</td>
+                </tr>
+                <tr>
+                  <td align="left">polynuclaires éosinophiles (%)</td>
+                  <!-- LOINC : 713-8 -->
+                  <td>2</td>
+                  <td>1-3</td>
+                  <td />
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td align="left">polynuclaires basophiles (%)</td>
+                  <!-- LOINC : 706-2 -->
+                  <td>0</td>
+                  <td>0.5</td>
+                  <td />
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td align="left">lymphocytes (%)</td>
+                  <!-- LOINC : 736-9 -->
+                  <td>20</td>
+                  <td>20-40</td>
+                  <td />
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td align="left">monocytes (%)</td>
+                  <!-- LOINC : 5905-5 -->
+                  <td>6</td>
+                  <td>3-7</td>
+                  <td />
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <paragraph styleCode="bold" ID="ANISO">Interprétation :
+								Anisocytose</paragraph>
+            <paragraph>Résultats validés par JEANNE BIOLOVALSEPT - 4 janvier 2010,
+								11h20</paragraph>
+            <br />
+          </text>
+          <!-- RESULTATS DE L'HEMOGRAMME IMPORTABLES DANS LE SI DU CONSOMMATEUR (niveau 3 de CDA) -->
+          <entry typeCode="DRIV">
+            <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+            <act classCode="ACT" moodCode="EVN">
+              <code code="18723-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Hématologie" />
+              <statusCode code="completed" />
+              <!-- Biologiste ayant validé les résultats de cette entrée à 11h20 -->
+              <participant typeCode="AUTHEN">
+                <templateId root="1.3.6.1.4.1.19376.1.8.1.4.7" />
+                <time>
+                  <high value="201501041120+0100" />
+                </time>
+                <participantRole>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567898" />
+                  <addr nullFlavor="MSK" />
+                  <telecom nullFlavor="MSK" />
+                  <playingEntity>
+                    <name>
+                      <given>JEANNE</given>
+                      <family>BIOLOVALSEPT</family>
+                    </name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <code code="58410-2" displayName="Hémogramme complet sur automate" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <statusCode code="completed" />
+                  <component>
+                    <!-- DENOMBREMENT LEUCOCYTES -->
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="6690-2" codeSystem="2.16.840.1.113883.6.1" displayName="Leucocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="8.2" unit="10*3/mm3" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="6690-2" displayName="Leucocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="5.8" unit="10*3/mm3" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="4" unit="10*3/mm3" />
+                            <high value="10" unit="10*3/mm3" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- DENOMBREMENT ERYTHROCYTES -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="789-8" codeSystem="2.16.840.1.113883.6.1" displayName="Erythtocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="4.95" unit="10*6/mm3" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="789-8" displayName="Erythtocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="4.85" unit="10*6/mm3" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="4.50" unit="10*6/mm3" />
+                            <high value="6.00" unit="10*6/mm3" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- HEMOGLOBINE -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="20509-6" codeSystem="2.16.840.1.113883.6.1" displayName="Hémoglobine [Masse/Volume] Sang ; Numérique ; Résultat calculé" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="13.4" unit="g/dL" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="20509-6" displayName="Hémoglobine [Masse/Volume] Sang ; Numérique ; Résultat calculé" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="13.3" unit="g/dL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="11.5" unit="g/dL" />
+                            <high value="14.5" unit="g/dL" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- HEMATOCRITE -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="4544-3" codeSystem="2.16.840.1.113883.6.1" displayName="Hématocrite [Fraction volumique] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="45" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="4544-3" displayName="Hématocrite [Fraction volumique] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="45" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="40" unit="%" />
+                            <high value="54" unit="%" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- VGM -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="787-2" codeSystem="2.16.840.1.113883.6.1" displayName="Volume globulaire moyen [Volume d'entité] Erythrocytes ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="97" unit="fL" />
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <interpretationCode code="U" displayName="Augmentation significative par rapport au résultat antérieur" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="787-2" displayName="Volume globulaire moyen [Volume d'entité] Erythrocytes ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="90" unit="fL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="85" unit="fL" />
+                            <high value="95" unit="fL" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- IDR -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="788-0" codeSystem="2.16.840.1.113883.6.1" displayName="Indice de distribution érythrocytaire [Ratio] Erythrocytes ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="17.5" unit="%" />
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="788-0" displayName="Indice de distribution érythrocytaire [Ratio] Erythrocytes ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="13.0" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="11.5" unit="%" />
+                            <high value="14.5" unit="%" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- CCMH : Concentration corpusculaire moyenne en hémoglobine -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="786-4" codeSystem="2.16.840.1.113883.6.1" displayName="Indice de distribution érythrocytaire [Ratio] Erythrocytes ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="33.0" unit="g/dL" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="786-4" displayName="Indice de distribution érythrocytaire [Ratio] Erythrocytes ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="32.5" unit="g/dL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="32.0" unit="g/dL" />
+                            <high value="36.0" unit="g/dL" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- TCMH : Teneur corpusculaire moyenne en hémoglobine -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="785-6" codeSystem="2.16.840.1.113883.6.1" displayName="Teneur corpusculaire moyenne en hémoglobine [Masse d'entité] Erythrocytes ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="31.0" unit="pg" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="785-6" displayName="Teneur corpusculaire moyenne en hémoglobine [Masse d'entité] Erythrocytes ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="32.5" unit="pg" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="27" unit="pg" />
+                            <high value="31" unit="pg" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- NUMERATION PLAQUETTAIRE -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="777-3" codeSystem="2.16.840.1.113883.6.1" displayName="Plaquettes [Nombre/Volume] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="220" unit="10*9/L" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="777-3" displayName="Plaquettes [Nombre/Volume] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="210" unit="10*9/L" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="150" unit="10*9/L" />
+                            <high value="400" unit="10*9/L" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- VPM : VOLUME PLAQUETTAIRE MOYEN -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="32623-1" codeSystem="2.16.840.1.113883.6.1" displayName="Volume moyen plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="8" unit="fL" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="32623-1" displayName="Volume moyen plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="8" unit="fL" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="7" unit="fL" />
+                            <high value="10" unit="fL" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- IDP : INDICE DE DISTRIBUTION PLAQUETTAIRE -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="51631-0" codeSystem="2.16.840.1.113883.6.1" displayName="Indice de distribution plaquettaire [Ratio] Plaquettes ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="12" unit="%" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="51631-0" displayName="Indice de distribution plaquettaire [Ratio] Plaquettes ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="12" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                    </observation>
+                  </component>
+                  <!-- NEUTROPHILES -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="770-8" codeSystem="2.16.840.1.113883.6.1" displayName="Polynuclaires neutrophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="72" unit="%" />
+                      <interpretationCode code="H" displayName="Anormalement haut" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="770-8" displayName="Polynuclaires neutrophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="70" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="45" unit="%" />
+                            <high value="70" unit="%" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- EOSINOPHILES -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="713-8" codeSystem="2.16.840.1.113883.6.1" displayName="Polynuclaires éosinophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="2" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="713-8" displayName="Polynuclaires éosinophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="2" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="1" unit="%" />
+                            <high value="3" unit="%" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- BASOPHILES -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="706-2" codeSystem="2.16.840.1.113883.6.1" displayName="Polynuclaires basophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="0" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="706-2" displayName="Polynuclaires basophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="0.5" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="0.5" unit="%" />
+                            <high value="0.5" unit="%" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- LYMPHOCYTES -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="736-9" codeSystem="2.16.840.1.113883.6.1" displayName="Lymphocytes/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="20" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="736-9" displayName="Lymphocytes/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="20" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="20" unit="%" />
+                            <high value="40" unit="%" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- MONOCYTES -->
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="5905-5" codeSystem="2.16.840.1.113883.6.1" displayName="Monocytes/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104113000+0100" />
+                      <value xsi:type="PQ" value="6" unit="%" />
+                      <interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" />
+                      <entryRelationship typeCode="REFR">
+                        <!-- résultat antérieur du 12/09/09 à 8h15 -->
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="5905-5" displayName="Monocytes/100 leucocytes [Fraction de nombres] Sang ; Numérique ; Comptage automate" codeSystem="2.16.840.1.113883.6.1" />
+                          <statusCode code="completed" />
+                          <effectiveTime value="20090912081500+0100" />
+                          <value xsi:type="PQ" value="5" unit="%" />
+                        </observation>
+                      </entryRelationship>
+                      <referenceRange>
+                        <observationRange>
+                          <value xsi:type="IVL_PQ">
+                            <low value="3" unit="%" />
+                            <high value="7" unit="%" />
+                          </value>
+                        </observationRange>
+                      </referenceRange>
+                    </observation>
+                  </component>
+                  <!-- COMMENTAIRE SUR L'HEMOGRAMME -->
+                  <component>
+                    <act classCode="ACT" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.40" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Commentaire" />
+                      <text>
+                        <reference value="#ANISO" />
+                      </text>
+                      <statusCode code="completed" />
+                    </act>
+                  </component>
+                </organizer>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!-- Section de premier niveau = chapitre "Microbiologie", sans section de second niveau -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1" />
+          <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>CYTOBACTERIOLOGIE URINAIRE</title>
+          <text>
+            <table border="1">
+              <thead>
+                <tr>
+                  <th align="center">Action</th>
+                  <th align="center" colspan="4">
+                    <content ID="CBU_RECUEIL">Observations sur échantillon
+											urinaire recueilli par voie naturelle 04/01/10 à 07:35</content>
+                  </th>
+                </tr>
+              </thead>
+              <tbody align="center">
+                <tr>
+                  <td align="left">Site de prélèvement / localisation</td>
+                  <td align="center" colspan="4">Voie naturelle</td>
+                </tr>
+                <tr>
+                  <td align="left">
+                    <content ID="CBU_EXDIR">Examen direct :</content>
+                  </td>
+                  <td colspan="4" />
+                </tr>
+                <tr>
+                  <td />
+                  <td align="center" colspan="4">Couleur : paille</td>
+                </tr>
+                <tr>
+                  <td />
+                  <td align="center" colspan="4">Aspect : clair</td>
+                </tr>
+                <tr>
+                  <td align="left">
+                    <content ID="CBU_MICRO">Microscopie :</content>
+                  </td>
+                  <td colspan="4" />
+                </tr>
+                <tr>
+                  <td align="center">Leucocytes</td>
+                  <td align="center" colspan="4">500 /mL</td>
+                </tr>
+                <tr>
+                  <td align="center">Erythtocytes</td>
+                  <td align="center" colspan="4">200 /mL</td>
+                </tr>
+                <tr>
+                  <td align="center">Cellules épithéliales</td>
+                  <td align="center" colspan="4">absence</td>
+                </tr>
+                <tr>
+                  <td align="center">Coloration de Gram</td>
+                  <td align="center" colspan="4">nombreux Gram - ; quelques Gram
+											+</td>
+                </tr>
+                <tr>
+                  <td align="left">
+                    <content ID="CBU_AERO">Culture aérobie</content>
+                  </td>
+                  <td colspan="4">Deux germes identifiés : Escherichia coli,
+											Streptococcus D</td>
+                </tr>
+                <tr>
+                  <td align="left">Isolat :</td>
+                  <td colspan="2">Escherichia coli</td>
+                  <td colspan="2">Streptococcus D.</td>
+                </tr>
+                <tr>
+                  <td align="center">Dénombrement de germes</td>
+                  <td colspan="2">100 000 /mL</td>
+                  <td colspan="2">200 000 /mL</td>
+                </tr>
+                <tr>
+                  <td align="left">Antibiogramme</td>
+                  <td>CMI (mg/L)</td>
+                  <td>clinique</td>
+                  <td>CMI (mg/L)</td>
+                  <td>clinique</td>
+                </tr>
+                <tr>
+                  <td align="center">Amoxicilline :</td>
+                  <td>12</td>
+                  <td>R</td>
+                  <td>3</td>
+                  <td>S</td>
+                </tr>
+                <tr>
+                  <td align="center">Ampicilline :</td>
+                  <td>11</td>
+                  <td>R</td>
+                  <td>6</td>
+                  <td>I</td>
+                </tr>
+                <tr>
+                  <td align="center">5-fluorocytosine :</td>
+                  <td>1,3</td>
+                  <td>S</td>
+                  <td>2,5</td>
+                  <td>S</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <paragraph styleCode="bold" ID="C_ECBU">Traitement 5-fluorocytosine
+								immédiat</paragraph>
+            <paragraph>Résultats validés par JULES BACTERVALSEPT - 4 janvier 2010,
+								16h00</paragraph>
+            <br />
+          </text>
+          <!-- RESULTATS DE L'ECBU IMPORTABLES DANS LE SI DU CONSOMMATEUR (niveau 3 de CDA) -->
+          <entry typeCode="DRIV">
+            <templateId root="1.3.6.1.4.1.19376.1.3.1" />
+            <act classCode="ACT" moodCode="EVN">
+              <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Microbiologie" />
+              <statusCode code="completed" />
+              <!-- Biologiste ayant validé les résultats de cette entrée à 12h50 -->
+              <participant typeCode="AUTHEN">
+                <templateId root="1.3.6.1.4.1.19376.1.8.1.4.7" />
+                <time>
+                  <high value="201501041600+0100" />
+                </time>
+                <participantRole>
+                  <id root="1.2.250.1.71.4.2.1" extension="801234567879" />
+                  <addr nullFlavor="MSK" />
+                  <telecom nullFlavor="MSK" />
+                  <playingEntity>
+                    <name>
+                      <given>JULES</given>
+                      <family>BACTERIOLOGISTE-VALIDEUR</family>
+                    </name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+              <!-- Echantillon d'urine -->
+              <entryRelationship typeCode="COMP">
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.2" />
+                  <code>
+                    <originalText>
+                      <reference value="#CBU_RECUEIL" />
+                    </originalText>
+                  </code>
+                  <!-- Date et heure  prélèvement -->
+                  <effectiveTime>
+                    <high value="201501040735+0100" />
+                  </effectiveTime>
+                  <!-- Echantillon biologique prélevé -->
+                  <participant typeCode="PRD">
+                    <participantRole classCode="SPEC">
+                      <playingEntity>
+                        <!-- Nature d’échantillon -->
+                        <code code="UR" codeSystem="2.16.840.1.113883.5.129" displayName="urine"></code>
+                      </playingEntity>
+                    </participantRole>
+                  </participant>
+                  <entryRelationship typeCode="COMP">
+                    <act classCode="ACT" moodCode="EVN">
+                      <code code="SPRECEIVE" displayName="réception spécimen au laboratoire" codeSystem="1.3.5.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
+                      <effectiveTime value="201501040752+0100" />
+                    </act>
+                  </entryRelationship>
+                </procedure>
+              </entryRelationship>
+              <!-- EXAMEN DIRECT -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <code>
+                    <originalText>
+                      <reference value="#CBU_EXDIR" />
+                    </originalText>
+                  </code>
+                  <statusCode code="completed" />
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="5778-6" codeSystem="2.16.840.1.113883.6.1" displayName="Couleur [Type] Urine ;" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104131933+0100" />
+                      <value xsi:type="ED">paille</value>
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="5767-9" codeSystem="2.16.840.1.113883.6.1" displayName="Aspect [Aspect] Urine ;" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104131933+0100" />
+                      <value xsi:type="ED">clair</value>
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- MICROSCOPIE -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <code>
+                    <originalText>
+                      <reference value="#CBU_MICRO" />
+                    </originalText>
+                  </code>
+                  <statusCode code="completed" />
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="24122-4" codeSystem="2.16.840.1.113883.6.1" displayName="Leucocytes [Nombre/Volume] Urine ; Numérique ; Comptage manuel" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104131933+0100" />
+                      <value xsi:type="PQ" value="500" unit="/mL" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="799-7" codeSystem="2.16.840.1.113883.6.1" displayName="Erythrocytes [Nombre/Volume] Urine ; Numérique ; Comptage manuel" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104131933+0100" />
+                      <value xsi:type="PQ" value="200" unit="/mL" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="24123-2" codeSystem="2.16.840.1.113883.6.1" displayName="Cellules épithéliales [Nombre/Volume] Urine ; Numérique ; Comptage manuel" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104131933+0100" />
+                      <value xsi:type="ED">absence</value>
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="653-6" codeSystem="2.16.840.1.113883.6.1" displayName="Observation microscopique [Identification] Urine ;  ; Coloration Gram" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104131933+0100" />
+                      <value xsi:type="ED">nombreux gram -</value>
+                      <value xsi:type="ED">quelques gram +</value>
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- CULTURE -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="BATTERY" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.4" />
+                  <code>
+                    <originalText>
+                      <reference value="#CBU_AERO" />
+                    </originalText>
+                  </code>
+                  <statusCode code="completed" />
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="630-4" codeSystem="2.16.840.1.113883.6.1" displayName="Bactéries identification [Identification] Urine ;  ; Culture" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104131933+0100" />
+                      <value xsi:type="CD" displayName="Escherichia coli (organisme)" code="L-15601" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED International" />
+                      <value xsi:type="CD" displayName="Streptococcus groupe D (organisme)" code="L-25131" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED International" />
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- 1ER ISOLAT : ESCHERICHIA COLI : Dénombrement de germes et antibiogramme -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="CLUSTER" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.5" />
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150104155000+0100" />
+                  <specimen typeCode="SPC">
+                    <specimenRole classCode="SPEC">
+                      <id extension="55584739" root="1.3.6.1.4.1.19376.1.3.4" />
+                      <specimenPlayingEntity classCode="MIC">
+                        <code displayName="Escherichia coli (organisme)" code="L-15601" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED International" />
+                      </specimenPlayingEntity>
+                    </specimenRole>
+                  </specimen>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="51480-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bactérie [Dénombrement] Urine ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="100000" unit="/mL" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="20-8" codeSystem="2.16.840.1.113883.6.1" displayName="Amoxicilline+clavulanate [Susceptibilité] Isolat ; Alphanumérique ; CMI" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="12" unit="/mg/L" />
+                      <interpretationCode code="R" displayName="Résistant" codeSystem="2.16.840.1.113883.5.83" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="28-1" codeSystem="2.16.840.1.113883.6.1" displayName="Ampicilline [Susceptibilité] Isolat ; Alphanumérique ; CMI" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="11" unit="/mg/L" />
+                      <interpretationCode code="R" displayName="Résistant" codeSystem="2.16.840.1.113883.5.83" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="253-5" codeSystem="2.16.840.1.113883.6.1" displayName="5-fluorocytosine [Susceptibilité] Isolement ; Alphanumérique ; CMI" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="1.3" unit="/mg/L" />
+                      <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- 2EME ISOLAT : STREPTOCOCCUS D : Dénombrement de germes et antibiogramme -->
+              <entryRelationship typeCode="COMP">
+                <organizer classCode="CLUSTER" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1.5" />
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150104155000+0100" />
+                  <specimen typeCode="SPC">
+                    <specimenRole classCode="SPEC">
+                      <id extension="55584739" root="1.3.6.1.4.1.19376.1.3.4" />
+                      <specimenPlayingEntity classCode="MIC">
+                        <code displayName="Streptococcus groupe D (organisme)" code="L-25131" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED International" />
+                      </specimenPlayingEntity>
+                    </specimenRole>
+                  </specimen>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="51480-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bactérie [Dénombrement] Urine ; Numérique ; Comptage automate" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="200000" unit="/mL" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="20-8" codeSystem="2.16.840.1.113883.6.1" displayName="Amoxicilline+clavulanate [Susceptibilité] Isolat ; Alphanumérique ; CMI" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="3" unit="/mg/L" />
+                      <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="28-1" codeSystem="2.16.840.1.113883.6.1" displayName="Ampicilline [Susceptibilité] Isolat ; Alphanumérique ; CMI" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="6" unit="/mg/L" />
+                      <interpretationCode code="I" displayName="Intermédiaire" codeSystem="2.16.840.1.113883.5.83" />
+                    </observation>
+                  </component>
+                  <component>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.3.1.6" />
+                      <code code="253-5" codeSystem="2.16.840.1.113883.6.1" displayName="5-fluorocytosine [Susceptibilité] Isolement ; Alphanumérique ; CMI" />
+                      <statusCode code="completed" />
+                      <effectiveTime value="20150104155000+0100" />
+                      <value xsi:type="PQ" value="2.5" unit="/mg/L" />
+                      <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
+                    </observation>
+                  </component>
+                </organizer>
+              </entryRelationship>
+              <!-- COMMENTAIRE SUR L'ECBU -->
+              <entryRelationship typeCode="SUBJ">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.40" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2" />
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Commentaire" />
+                  <text>
+                    <reference value="#C_ECBU" />
+                  </text>
+                  <statusCode code="completed" />
+                </act>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

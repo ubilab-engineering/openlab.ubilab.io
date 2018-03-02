@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="Schematrons/CI-SIS_DLU_FLUDR.sch"?>	
+
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd">
+
+	<realmCode code="FR"/>
+	<!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!-- Conformité spécifications HL7 France -->
+	<templateId root="2.16.840.1.113883.2.8.2.1"/>
+	<!-- Conformité spécifications au CI-SIS -->
+	<templateId root="1.2.250.1.213.1.1.1.1"/>
+	<!-- Conformité au Fiche de Liaison d'Urgence - Document de Transfert (FLUDR) -->
+	<templateId root="1.2.250.1.213.1.1.1.24"/>
+
+
+
+	<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+	<id extension="A7102400008_040" root="1.2.250.1.213.1.1.9"/>
+	<code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+		displayName="Synthèse d'épisode de soins"/>
+	<title>FICHE DE LIAISON D'URGENCE/DOCUMENT DE RETOUR DU SERVICE DES URGENCES VERS
+		L’EHPAD</title>
+	<effectiveTime value="20170417"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+		codeSystemName="Confidentiality" displayName="Normal"/>
+	<languageCode code="fr-FR"/>
+
+	<!-- Patient concerné par le document -->
+	<recordTarget>
+		<patientRole>
+			<!-- pour l"INS-C de production root= "1.2.250.1.213.1.4.2"-->
+			<id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+			<!-- identifiant local du patient -->
+			<id extension="594823495435" root="11c0216e-2ac0-447d-8302-6b045f687f24"/>
+			<!--Identification via le NIR-->
+			<id extension="2401192050628" root="1.2.250.1.213.1.4.8"/>
+			
+			<addr use="H">
+				<houseNumber>3</houseNumber>
+				<streetNameType>rue</streetNameType>
+				<streetName>Petit Pont</streetName>
+				<postalCode>75005</postalCode>
+				<city>Paris</city>
+				<country>France</country>
+			</addr>
+			<telecom nullFlavor="UNK"/>
+			<patient classCode="PSN">
+				<name>
+					<given>Jeanne</given>
+					<family qualifier="SP">Dupont</family>
+					<family qualifier="BR">Martin</family>
+				</name>
+				<administrativeGenderCode code="F" displayName="Féminin"
+					codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19401110"/>
+				<guardian classCode="GUARD">
+					<telecom value="tel:0650242352" use="MC"/>
+					<telecom value="tel:0120232524"/>
+					<guardianPerson>
+						<name>
+							<family qualifier="BR">MOISSON</family>
+							<given>Patrick</given>
+						</name>
+					</guardianPerson>
+				</guardian>
+			</patient>
+		</patientRole>
+	</recordTarget>
+
+
+	<!-- Auteur du document -->
+	<author>
+		<time value="20080929094914+0100"/>
+		<assignedAuthor>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234545872"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+			<addr nullFlavor="NASK"/>
+			<telecom nullFlavor="NASK"/>
+			<assignedPerson>
+				<name>
+					<prefix>Dr</prefix>
+					<given>Pierre</given>
+					<family>PETIT</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+
+
+
+	<!-- Organisation de santé responsable du document -->
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id root="1.2.250.1.71.4.2.2" extension="1137051849"
+					assigningAuthorityName="ASIP Santé"/>
+				<name>CHU DE NANTERRE</name>
+				<telecom value="tel:0175693567" use="WP"/>
+				<addr>
+					<houseNumber>38</houseNumber>
+					<streetNameType>rue</streetNameType>
+					<streetName>Jean Moulin</streetName>
+					<postalCode>92000</postalCode>
+					<city>NANTERRE</city>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+
+	<!-- Personnes prévenues du retour en EHPAD (l'EHPAD) -->
+	<informationRecipient>
+		<intendedRecipient>
+			<id extension="801234567897" root="1.2.250.1.71.4.2.1"/>
+			<informationRecipient>
+				<name nullFlavor="NA"/>
+			</informationRecipient>
+			<receivedOrganization>
+				<id extension="1120456789" root="1.2.250.1.71.4.2.2"/>
+				<name>L'EHPAD</name>
+				<telecom value="tel:0125422102" use="WP"/>
+			</receivedOrganization>
+		</intendedRecipient>
+	</informationRecipient>
+
+
+	<!-- Signataire légal du document -->
+	<legalAuthenticator>
+		<time value="20080929094914+0100"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234545872"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+			<addr nullFlavor="NASK"/>
+			<telecom nullFlavor="NASK"/>
+			<assignedPerson>
+				<name>
+					<prefix>Dr</prefix>
+					<given>Pierre</given>
+					<family>PETIT</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</legalAuthenticator>
+
+
+
+	<!-- Acte documenté par le document -->
+	<documentationOf>
+		<serviceEvent>
+			<code code="28651-8" displayName="Retour du résident à l'EHPAD"
+				codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+			<effectiveTime>
+				<low value="20080929094914+0100"/>
+			</effectiveTime>
+			<performer typeCode="PRF">
+				<assignedEntity>
+					<!-- PS identifié par son N°RPPS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234545872"
+						assigningAuthorityName="ASIP Santé"/>
+					<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5"
+						codeSystemName="RPPS"
+						displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+					<addr nullFlavor="NASK"/>
+					<telecom nullFlavor="NASK"/>
+					<assignedPerson>
+						<name>
+							<prefix>Dr</prefix>
+							<given>Pierre</given>
+							<family>PETIT</family>
+						</name>
+					</assignedPerson>
+					<!-- Numéro FINESS de l'ES  -->
+					<representedOrganization>
+						<id root="1.2.250.1.71.4.2.2" extension="1137051849"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>CHU DE NANTERRE</name>
+						<telecom value="tel:0175693567" use="WP"/>
+						<addr>
+							<houseNumber>38</houseNumber>
+							<streetNameType>rue</streetNameType>
+							<streetName>Jean Moulin</streetName>
+							<postalCode>92000</postalCode>
+							<city>NANTERRE</city>
+						</addr>
+						<standardIndustryClassCode code="ETABLISSEMENT"
+							displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+							codeSystemName="practiceSettingCode"/>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+		</serviceEvent>
+	</documentationOf>
+
+
+
+	<!-- Contexte de la prise en charge -->
+	<componentOf>
+		<encompassingEncounter>
+			<code code="IMP" displayName="Consultation interne à la structure de soins"
+				codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7:ActEncounterCode"/>
+			<effectiveTime>
+				<high value="20080929"/>
+			</effectiveTime>
+			<responsibleParty>
+				<assignedEntity>
+					<!-- PS identifié par son N°RPPS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234545872"
+						assigningAuthorityName="ASIP Santé"/>
+					<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5"
+						codeSystemName="RPPS"
+						displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+					<addr nullFlavor="NASK"/>
+					<telecom nullFlavor="NASK"/>
+					<assignedPerson>
+						<name>
+							<prefix>Dr</prefix>
+							<given>Pierre</given>
+							<family>PETIT</family>
+						</name>
+					</assignedPerson>
+					<!-- Numéro FINESS de l'ES  -->
+					<representedOrganization>
+						<id root="1.2.250.1.71.4.2.2" extension="1137051849"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>CHU DE NANTERRE</name>
+						<telecom value="tel:0175693567" use="WP"/>
+						<addr>
+							<houseNumber>38</houseNumber>
+							<streetNameType>rue</streetNameType>
+							<streetName>Jean Moulin</streetName>
+							<postalCode>92000</postalCode>
+							<city>NANTERRE</city>
+						</addr>
+						<standardIndustryClassCode code="ETABLISSEMENT"
+							displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+							codeSystemName="practiceSettingCode"/>
+					</representedOrganization>
+				</assignedEntity>
+			</responsibleParty>
+			<location>
+				<healthCareFacility>
+					<code code="SA01" displayName="Etablissement Public de santé"
+						codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"/>
+				</healthCareFacility>
+			</location>
+		</encompassingEncounter>
+	</componentOf>
+
+
+	<component>
+		<structuredBody>
+			<component>
+				<!-- Section Diagnostic de sortie (structurée) -->
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.5"/>
+					<id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+					<code code="11535-2" displayName="Diagnostic de sortie"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Diagnostic ou RPU</title>
+					<text> Résumé du passage aux urgences <list>
+							<item>20/06/2016 : Bronchite chronique simple</item>
+						</list>
+					</text>
+					<!-- Bronchite chronique simple -->
+					<entry>
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+							<id root="6c4c6a5c-ce23-4afd-9fc2-8b0fa6e829ff"/>
+							<code nullFlavor="NA"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low value="20080929"/>
+								<high nullFlavor="NA"/>
+							</effectiveTime>
+							<entryRelationship typeCode="SUBJ" inversionInd="false">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<templateId root="2.16.840.1.113883.10.20.1.28"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+									<id root="b47243f7-6470-43dc-97fa-4fa67a384bf4"/>
+									<code code="G-1009" codeSystem="1.2.250.1.213.2.12"
+										codeSystemName="SNOMED 3.5" displayName="Diagnostic"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20080929"/>
+										<high nullFlavor="NA"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="J41.0"
+										codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10"
+										displayName="Bronchite chronique simple"/>
+								</observation>
+							</entryRelationship>
+						</act>
+					</entry>
+				</section>
+
+			</component>
+			<component>
+				<!-- Section Ordonnance de sortie (structurée) -->
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.22"/>
+					<code code="10183-2" displayName="Ordonnance de sortie"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Prescriptions:</title>
+					<text mediaType="text/x-hl7-text+xml">
+						<table>
+							<thead>
+								<tr>
+									<th>Date de début</th>
+									<th>Date de fin</th>
+									<th>Médicament</th>
+									<th colspan="5">Dose</th>
+									<th colspan="3">Périodicité</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>29/09/2008</td>
+									<td>09/10/2008</td>
+									<td>
+										<content ID="trtmed2">AMPICILLINE PANPHARMA 500 mg,
+											gélule</content>
+									</td>
+									<td>de</td>
+									<td>2</td>
+									<td>à</td>
+									<td>4</td>
+									<td>
+										<content ID="trtdose2">CP</content>
+									</td>
+									<td>par</td>
+									<td>1</td>
+									<td>jour(s)</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- entrées de type Medications -->
+					<entry>
+						<substanceAdministration classCode="SBADM" moodCode="INT">
+							<templateId root="2.16.840.1.113883.10.20.1.24"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+							<id root="ad366b24-96f4-4aa6-9783-9fd445fdd17c"/>
+							<statusCode code="completed"/>
+							<effectiveTime xsi:type="IVL_TS">
+								<low value="20080929"/>
+								<high value="20081009"/>
+							</effectiveTime>
+							<effectiveTime xsi:type="PIVL_TS" operator="A">
+								<period value="1" unit="J"/>
+							</effectiveTime>
+							<doseQuantity value="2">
+								<translation>
+									<originalText>
+										<reference value="#trtdose2"/>
+									</originalText>
+								</translation>
+							</doseQuantity>
+							<maxDoseQuantity>
+								<numerator value="4"/>
+								<denominator value="1" unit="J"/>
+							</maxDoseQuantity>
+							<consumable typeCode="CSM">
+								<manufacturedProduct>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+									<templateId root="2.16.840.1.113883.10.20.1.53"/>
+									<manufacturedMaterial classCode="MMAT">
+										<code code="64996379" codeSystem="1.2.250.1.213.2.3.1"
+											codeSystemName="CIS_Spécialités"
+											displayName="AMPICILLINE PANPHARMA 500 mg, gélule">
+											<originalText>
+												<reference value="#trtmed2"/>
+											</originalText>
+										</code>
+									</manufacturedMaterial>
+								</manufacturedProduct>
+							</consumable>
+						</substanceAdministration>
+					</entry>
+				</section>
+
+			</component>
+
+			<component>
+
+				<!-- Section Prothèses et objets personnels -->
+				<section>
+					<!-- template Prothèse et objet personnel -->
+					<templateId root="1.2.250.1.213.1.1.2.53"/>
+					<!-- code LOINC History of medical device use -->
+					<code code="46264-8" displayName="Prothèse et objet personnel à l'aller"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<!-- Lunettes du patient -->
+					<title>Liste des prothèses et objets personnels (lors du retour du SU vers
+						l’EHPAD)</title>
+					<text/>
+					<!-- Lunettes du patient -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<!-- Template Simple Observations -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<!-- Template Prothèse et objet personnel -->
+							<templateId root="1.2.250.1.213.1.1.3.12"/>
+							<id root="29d020aa-168f-4d98-a706-d6ad009eece1"/>
+							<code code="A-04242" displayName="Lunettes"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"> </code>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<targetSiteCode nullFlavor="NASK"/>
+						</observation>
+					</entry>
+					<!-- Prothèse dentaire haute du patient -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<!-- Template Simple Observations -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<!-- Template Prothèse et objet personnel -->
+							<templateId root="1.2.250.1.213.1.1.3.12"/>
+							<id root="00845861-509f-432a-96b7-1898e3574609"/>
+							<code code="A-04200" displayName="Prothèses dentaires"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"> </code>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<targetSiteCode code="G-A373" displayName="Haut"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+						</observation>
+					</entry>
+					<!-- Prothèse dentaire basse du patient -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<!-- Template Simple Observations -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<!-- Template Prothèse et objet personnel -->
+							<templateId root="1.2.250.1.213.1.1.3.12"/>
+							<id root="bc760d09-4f49-41f0-8529-3ed75f5ca9c5"/>
+							<code code="A-04200" displayName="Prothèses dentaires"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"> </code>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<targetSiteCode code="G-A374" displayName="Bas"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+						</observation>
+					</entry>
+					<!-- Prothèse auditive droite du patient -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<!-- Template Simple Observations -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<!-- Template Prothèse et objet personnel -->
+							<templateId root="1.2.250.1.213.1.1.3.12"/>
+							<id root="2603e6c3-1ed7-4505-a2c9-ae97e53c8b1d"/>
+							<code code="A-04236" displayName="Prothèses auditives"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"> </code>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<targetSiteCode code="G-A100" displayName="Droit"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+						</observation>
+					</entry>
+					<!-- Prothèse auditive gauche du patient -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<!-- Template Simple Observations -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<!-- Template Prothèses et objets personnels -->
+							<templateId root="1.2.250.1.213.1.1.3.12"/>
+							<id root="3aebd44a-0a9b-403b-8748-53bb788a740e"/>
+							<code code="A-04236" displayName="Prothèses auditives"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"> </code>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<targetSiteCode code="G-A101" displayName="Gauche"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+						</observation>
+					</entry>
+					<!-- Autres dispositifs ou objets personnels -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<!-- Template Simple Observations -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<!-- Template Prothèses et objets personnels -->
+							<templateId root="1.2.250.1.213.1.1.3.12"/>
+							<id root="591bfac8-4850-4324-b6d3-443a4aae481d"/>
+							<code code="A-00100"
+								displayName="Autres dispositifs ou objets personnels"
+								codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"> </code>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<targetSiteCode nullFlavor="NASK"/>
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!-- Template Simple Observations -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="fed30749-050c-4039-b5d8-9d82bfac5bbc"/>
+									<code code="A-00100"
+										displayName="Autres dispositifs ou objets personnels"
+										codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NASK"/>
+									<!-- Autres dispositifs ou objets personnels -->
+									<value xsi:type="ST"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+				</section>
+
+
+
+			</component>
+
+			<component>
+
+				<!-- Section Éléments cliniques rapportés -->
+				<section>
+					<!-- template Eléments cliniques rapportés (OID ASIP Santé) -->
+					<templateId root="1.2.250.1.213.1.1.2.46"/>
+					<!-- code LOINC Document ajouté -->
+					<code code="55107-7" displayName="Document ajouté"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Checklist des documents annexés à la FLUDR</title>
+					<text> Checklist des documents annexés à la FLUDR : <content ID="doc1"
+							>Ordonnance de sortie (oui)</content>
+						<content ID="doc2">Copie du dossier des urgences (oui)</content>
+					</text>
+
+					<!-- Ordonnance de sortie -->
+					<entry>
+						<organizer classCode="CLUSTER" moodCode="EVN">
+							<templateId root="1.2.250.1.213.1.1.3.18"/>
+							<id root="88beb395-3b4c-37f5-9a31-03bea73a8d8b"/>
+							<code code="55107-7" displayName="Document attaché"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<statusCode code="completed"/>
+							<component>
+
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="0d1629b3-cc69-4632-81f3-2301fd4c318b"/>
+									<code code="DLU_020" displayName="Ordonnance de sortie"
+										codeSystem="1.2.250.1.213.1.1.4.322"
+										codeSystemName="TA_ASIP"/>
+									<text><reference value="#doc1"/></text>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NA"/>
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+
+					<!-- Copie du dossier des urgences -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="0d1629b3-cc69-4632-81f3-2301fd4c318b"/>
+							<code code="DLU_021" displayName="Copie du dossier des urgences"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+							<text><reference value="#doc2"/></text>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+				</section>
+
+
+			</component>
+
+		</structuredBody>
+	</component>
+</ClinicalDocument>

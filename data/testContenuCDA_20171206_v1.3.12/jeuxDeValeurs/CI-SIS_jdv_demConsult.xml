@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    22/11/17 : NMA : Mise à jour des codes TA_CS ==> TA_ASIP
+-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.265" displayName="CSE_DemConsult" version="20100802">
+        <ConceptList>
+            <Concept code="ORG-084" displayName="Examen médical spécialisé"
+                codeSystem="1.2.250.1.213.1.1.4.322"/> 
+            <Concept code="ORG-083" displayName="Demande de contact médecin PMI"
+                codeSystem="1.2.250.1.213.1.1.4.322"/> 
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

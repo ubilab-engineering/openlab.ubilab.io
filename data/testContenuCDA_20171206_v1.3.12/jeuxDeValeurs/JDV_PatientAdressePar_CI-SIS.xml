@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.38" displayName="JDV_PatientAdressePar_CI-SIS"
+        version="20160805">
+        <ConceptList>
+            <Concept code="SDMMR-25" displayName="venu de lui-même"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-26" displayName="association de patients"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-27" displayName="pédiatre ville"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-28" displayName="pédiatre hôpital"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-29" displayName="centre de protection maternelle et infantile"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-30" displayName="autre spécialiste"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-31" displayName="centre de prise en charge"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-32" displayName="centre pluridisciplinaire de diagnostic prénatal"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+            <Concept code="SDMMR-33" displayName="centre de dépistage prénatal"
+                codeSystem="1.2.250.1.213.1.1.4.324" codeSystemName="TA_SDMMR"/>
+
+            <Concept code="G15_10/SM54" displayName="généraliste" codeSystem="1.2.250.1.213.1.1.4.5"
+                codeSystemName="ASIP-SANTE_authorSpecialty"/>
+            <Concept code="G15_10/C72" displayName="généticien" codeSystem="1.2.250.1.213.1.1.4.5"
+                codeSystemName="ASIP-SANTE_authorSpecialty"/>
+            <Concept code="G15_10/C23" displayName="gynéco/obstétricien"
+                codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="ASIP-SANTE_authorSpecialty"/>
+            <Concept code="G-A609" displayName="autre" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

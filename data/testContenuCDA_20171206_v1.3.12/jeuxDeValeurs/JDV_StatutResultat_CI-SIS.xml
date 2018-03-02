@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par NMA, le 31/05/2017-->
+
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1" displayName="StatutResultat" version="test">
+        <ConceptList>
+            <Concept code="GEN-068" displayName="validé" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="GEN-075" displayName="non validé" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="GEN-076" displayName="modifié, corrigé" codeSystem="1.2.250.1.213.1.1.4.322"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

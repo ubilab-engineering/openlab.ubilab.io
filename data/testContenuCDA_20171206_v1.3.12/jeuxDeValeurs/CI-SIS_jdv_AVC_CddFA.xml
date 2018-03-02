@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.10" displayName="AVC_CddFA" version="20131025">
+        <ConceptList>
+            <Concept code="G-A541" displayName="permanent" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="G-A468" displayName="paroxystique" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="G-A464" displayName="connu" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="AVC-007" displayName="Découverte à l’admission"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

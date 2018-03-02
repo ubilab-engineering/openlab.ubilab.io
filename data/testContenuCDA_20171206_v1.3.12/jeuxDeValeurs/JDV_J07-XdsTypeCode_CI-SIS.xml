@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par nmahraz, le 02/11/2017-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.7" displayName="J07-XdsTypeCode" version="test">
+        <ConceptList>
+            <Concept code="BIL_AUTO" displayName="CR de bilan d'évaluation de la perte d'autonomie"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="CERT_DECL" displayName="Certificat, déclaration"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="DISP_AUT" displayName="Dispensation (autre)"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="EXPPAT_1" displayName="Volontés et droits du patient"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="EXPPAT_2" displayName="Document du patient"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="PROT_ALD" displayName="Protocole de soins ALD"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="REMB" displayName="Données de remboursement"
+                codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="SYNTH" displayName="Synthèse" codeSystem="1.2.250.1.213.1.1.4.12"/>
+            <Concept code="11488-4" displayName="CR ou fiche de consultation ou de visite"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="11490-0"
+                displayName="Lettre de liaison à la sortie d'un établissement de soins"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="34112-3" displayName="CR hospitalier (séjour)"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="11502-2" displayName="CR d'examens biologiques"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="11505-5" displayName="CR d'acte thérapeutique (autre)"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="11506-3"
+                displayName="CR ou fiche de suivi de soins par auxiliaire médical"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="11526-1" displayName="CR d'anatomie et de cytologie pathologiques"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="15507-7" displayName="CR de passage aux urgences"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="15508-5" displayName="CR d'accouchement"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="18776-5" displayName="Plan personnalisé de soins"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="18748-4" displayName="CR d'imagerie médicale"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="18761-7"
+                displayName="Note de transfert (dont lettre de liaison à l'entrée en établissement de soins)"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="34133-9" displayName="Synthèse d'épisode de soins"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="34749-2" displayName="CR de consultation pré-anesthésique"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="34794-8" displayName="CR de réunion de concertation pluridisciplinaire"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="34874-8" displayName="CR opératoire" codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="47420-5" displayName="CR de bilan fonctionnel (par auxiliaire médical)"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="57828-6" displayName="Prescription (autre)"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="57832-8" displayName="Prescription de soins"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="57833-6" displayName="Prescription de médicaments"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="60591-5" displayName="Synthèse du dossier médical"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="60593-1" displayName="Dispensation médicamenteuse"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="67851-6" displayName="CR d'admission" codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="70004-7" displayName="CR d'acte diagnostique (autre)"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="75482-0" displayName="CR d'acte thérapeutique à visée préventive"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="75492-9"
+                displayName="CR d'acte diagnostique à visée préventive ou de dépistage"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="75497-8" displayName="CR de télé-médecine"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="77436-4" displayName="CR d'anesthésie" codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="80565-5" displayName="CR d'administration de médicaments"
+                codeSystem="2.16.840.1.113883.6.1"/>
+            <Concept code="E1762" displayName="Full document" codeSystem="ASTM"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

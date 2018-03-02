@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ns5:SubmitObjectsRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ns5="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0">
+    <RegistryObjectList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+        <ns2:RegistryPackage id="SubmissionSet01"
+            xmlns:ns2="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+            <!-- id de registryPackage est l'identifiant utilisé pour faire référence au lot de soumission dans les classifications et les associations, il peut être sous la forme d'un UUID respectant la RFC 4122 ou sous une forme symbolique (i.e. une chaine de caractères non signifiante). Pour cet exemple, l'id est sous la forme symbolique "submissionset01" afin de faciliter l'identification des endroits où cet identifiant est utilisé. Cet id peut être réutilisé tel quel pour une soumission-->
+            <ns2:Slot name="submissionTime">
+                <ns2:ValueList>
+                    <ns2:Value>20160712133440</ns2:Value>
+                    <!-- Heure de la soumission au format AAAAMMJJHHMMSS éventuellement avec l'offset UTC, à renseigner avec l'heure de constitution du fichier metadata.xml -->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <!-- L'élément name est optionnel et peut être supprimé-->
+            <!-- name est optionnel et peut-être supprimé-->
+            <ns2:Name>
+                <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                    value="Comptes rendus / Prescriptions"/>
+                <!-- Libellé de la classe de document. Pour les CR de Biologie, valeur fixée à "comptes rendus / Prescriptions" -->
+            </ns2:Name>
+            <ns2:Description>
+                <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Lot de documents"/>
+                <!-- Titre du lot de soumission. Pour un lot de soumission monodocument, peut reprendre le titre du document -->
+            </ns2:Description>
+            <ns2:Classification id="SubmissionSet01_c001"
+                classificationScheme="urn:uuid:a7058bb9-b4e4-4307-ba5b-e3f0ab85e12d"
+                classifiedObject="SubmissionSet01" nodeRepresentation="">
+                <!-- id de classification est l'identifiant de l'objet classification, il peut être sous la forme d'un UUID respectant la RFC 4122 ou sous une forme symbolique (i.e. une chaine de caractères non signifiante). Pour cet exemple, les id des classification sont sous des formes symboliques afin de faciliter l'appréhension de cette notion. Ces identifiants peuvent être réutilisés tels quels pour une soumission contenant un unique document -->
+                <ns2:Slot name="authorPerson">
+                    <ns2:ValueList>
+                        <ns2:Value>00B1057294^MEDECIN5729^PAUL^^^^^^&amp;1.2.250.1.71.4.2.1&amp;ISO^D^^^IDNPS</ns2:Value>
+                        <!-- Identification de la structure où exerce l'auteur du document, à renseigner avec des valeurs issues du CDA concaténées comme suit: "author/assignedAuthor/id@extension" + "^" + "author/assignedAuthor/assignedPerson/name/family" + "^" + "author/assignedAuthor/assignedPerson/name/given" + "^^^^^^&amp;" + "author/assignedAuthor/id@root" + "&amp;ISO^D^^^" + ("EI" si l'idntifiant comporte le caractère / ou "IDNPS" dans le cas contraire) -->
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Slot name="authorSpecialty">
+                    <ns2:ValueList>
+                        <ns2:Value>G15_10/SM26^Médecin - Qualifié en Médecine Générale
+                            (SM)^1.2.250.1.213.1.1.4.5</ns2:Value>
+                        <!-- Specialité de l'auteur, à renseigner avec des valeurs issues du CDA concaténées comme suit: "author/assignedAuthor/code@code" + "^" + "author/assignedAuthor/code@displayName" + "^" + "author/assignedAuthor/code@codeSystem -->
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Slot name="authorInstitution">
+                    <ns2:ValueList>
+                        <ns2:Value>CABINET M.
+                            MEDECIN5729^^^^^&amp;1.2.250.1.71.4.2.2&amp;ISO^^^^00B105729400</ns2:Value>
+                        <!-- Identification de la structure où exerce l'auteur du document, à renseigner avec des valeurs issues du CDA concaténées comme suit: "author/assignedAuthor/representedOrganization/name" + "^^^^^&amp;" + "author/assignedAuthor/representedOrganization/id@root" + "&amp;ISO^IDNST^^^" + "author/assignedAuthor/representedOrganization/id@extension" -->
+                    </ns2:ValueList>
+                </ns2:Slot>
+            </ns2:Classification>
+            <ns2:Classification id="SubmissionSet01_c002"
+                classificationScheme="urn:uuid:aa543740-bdda-424e-8c96-df4873be8500"
+                classifiedObject="SubmissionSet01" nodeRepresentation="SA07">
+                <!-- nodeRepresentation correspond à la classe du document, à renseigner par une valeur déduite du type de document indiqué dans cod@code dans le CDA selon les regroupements présentés dans le document "Matrice d'ahbilitation des PS en lecture". Pour les CR de Rétinographie, valeur fixée à "10" -->
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.2.250.1.71.4.2.4</ns2:Value>
+                        <!-- OID de la nomenclature utilisé pour coder le contentTypeCode, à renseigner avec la valeur de componentOf/encompassingEncounter/location/healthCareFacility/code@codeSystem dans le CDA si le code est compris entre "SA01" et "SA35" ou entre "SA50" et "SA54" sinon prendre l'OID correspondant au code utilisé dans le jeu de valeur "contentTypeCode" du CI-SIS-->
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Cabinet individuel"/>
+                    <!-- Libellé de contentTypeCode, à renseigner avec la valeur de componentOf/encompassingEncounter/location/healthCareFacility/code@displayName dans le CDA si le code est compris entre "SA01" et "SA35" ou entre "SA50" et "SA54" sinon prendre le libellé correspondant au code utilisé dans le jeu de valeur "contentTypeCode" du CI-SIS-->
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="SubmissionSet01_c003" classifiedObject="SubmissionSet01"
+                classificationNode="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd"/>
+            <!-- value correspond à l'identifiant du patient, à renseigner avec des valeurs issues du CDA concatenées comme suit: "recordTarget/patientRole/id@extension" + "^^^&amp;" + "recordTarget/patientRole/id@extension" + "&amp;ISO" -->
+            <ns2:ExternalIdentifier id="SubmissionSet01_e005" registryObject="SubmissionSet01"
+                identificationScheme="urn:uuid:6b5aea1a-874d-4603-a4bc-96a0a7b38446"
+                value="0218805328320789819507^^^&amp;1.2.250.1.213.1.4.2&amp;ISO">
+                <!-- identifiant unique du lot de soumission, à renseigner avec un OID valide attribué par le système générant le lot de soumission -->
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="XDSSubmissionSet.patientId"/>
+                </ns2:Name>
+            </ns2:ExternalIdentifier>
+            <ns2:ExternalIdentifier id="SubmissionSet01_e004" registryObject="SubmissionSet01"
+                identificationScheme="urn:uuid:554ac39e-e3fe-47fe-b233-965d2a147832"
+                value="1.2.250.1.213.1.1.9.8.1.635973781821450393810">
+                <!-- Identifiant de la source du document. A renseginer avec des valeurs issues du CDA concaténées comme suit: "custodian/assignedCustodian/representedCustodianOrganization/id@root" + "." + "custodian/assignedCustodian/representedCustodianOrganization/id@extension" -->
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="XDSSubmissionSet.sourceId"/>
+                </ns2:Name>
+            </ns2:ExternalIdentifier>
+            <ns2:ExternalIdentifier id="SubmissionSet01_e003" registryObject="SubmissionSet01"
+                identificationScheme="urn:uuid:96fdda7c-d067-4183-912e-bf5ee74998a8"
+                value="1.2.250.1.213.1.1.9.8.1.2.635973781821450393810.20160712153440331412">
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="XDSSubmissionSet.uniqueId"/>
+                </ns2:Name>
+            </ns2:ExternalIdentifier>
+        </ns2:RegistryPackage>
+        <ns2:ExtrinsicObject id="70e100f6-3ee8-466c-a81e-33fe8a9e128e"
+            objectType="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1" mimeType="text/xml"
+            xmlns:ns2="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+            <ns2:Slot name="hash">
+                <ns2:ValueList>
+                    <ns2:Value>6adf25a04eef5cb1557b3341e0f33ebc775c98dc</ns2:Value>
+                    <!-- Hash du document en SHA1 -->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="size">
+                <ns2:ValueList>
+                    <ns2:Value>144745</ns2:Value>
+                    <!-- Taille en octet du document-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="URI">
+                <ns2:ValueList>
+                    <ns2:Value>DOC00001.XML</ns2:Value>
+                    <!-- Nom du fichier CDA dans le zip-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="creationTime">
+                <ns2:ValueList>
+                    <ns2:Value>20160104150525</ns2:Value>
+                    <!-- Date de création du document, à renseigner avec la valeur de effectiveTime@value dans le CDA-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="languageCode">
+                <ns2:ValueList>
+                    <ns2:Value>fr-FR</ns2:Value>
+                    <!-- Code de la langue, à renseigner avec la valeur de languageCode@code dans le CDA-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="legalAuthenticator">
+                <ns2:ValueList>
+                    <ns2:Value>00B1057294^MEDECIN5729^PAUL^^^^^^&amp;1.2.250.1.71.4.2.1&amp;ISO^D^^^IDNPS</ns2:Value>
+                    <!-- Responsable du document, à renseigner avec des valeurs issues du CDA concaténées comme suit: "legalAuthenticator/assignedEntity/id@extension" + "^" + "legalAuthenticator/assignedEntity/assignedPerson/name/family" + "^" + "legalAuthenticator/assignedEntity/assignedPerson/name/given" + "^^^^^^&amp;" + "legalAuthenticator/assignedEntity/id@root" + "&amp;ISO^D^^^" + ("EI" si l'idntifiant comporte le caractère / ou "IDNPS" dans le cas contraire)-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <!-- Le slot serviceStopTime n'est à renseigner que s'il est indiquer dans le CDA-->
+            <ns2:Slot name="serviceStartTime">
+                <ns2:ValueList>
+                    <ns2:Value>20160104150525</ns2:Value>
+                    <!-- Heure de début de prise en charge, à renseigner avec la valeur de documentationOf/serviceEvent/effectiveTime@low dans le CDA -->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <!-- Le slot serviceStopTime n'est à renseigner que s'il est indiquer dans le CDA-->
+            <ns2:Slot name="serviceStopTime">
+                <ns2:ValueList>
+                    <ns2:Value>20160104150525</ns2:Value>
+                    <!-- Heure de fin de prise en charge, à renseigner avec la valeur de documentationOf/serviceEvent/effectiveTime@high dans le CDA-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="sourcePatientId">
+                <ns2:ValueList>
+                    <ns2:Value>0218805328320789819507^^^&amp;1.2.250.1.213.1.4.2&amp;ISO</ns2:Value>
+                    <!-- Identifiant du patient, à renseigner avec des valeurs issues du CDA concatenées comme suit: "recordTarget/patientRole/id@extension" + "^^^&amp;" + "recordTarget/patientRole/id@extension" + "&amp;ISO"-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <!-- Le slot sourcePatientInfo est optionnel et peut être supprimé-->
+            <ns2:Slot name="sourcePatientInfo">
+                <ns2:ValueList>
+                    <ns2:Value>PID-5|SAUVEUR^Sylvaine^^^^^L</ns2:Value>
+                    <!-- Nom du patient, à renseigner avec des valeurs issues du CDA concaténées comme suit: "recordTarget/patientRole/patient/name/family" + "^" + "recordTarget/patientRole/patient/name/given" + "^^^^^" + ("D" si recordTarget/patientRole/patient/name/given@qualifier=SP ou "L" si recordTarget/patientRole/patient/name/given@qualifier=BR ou "S" si recordTarget/patientRole/patient/name/given@qualifier=CL ou "U" dans tous les autres cas-->
+                    <ns2:Value>PID-7|19750301</ns2:Value>
+                    <!-- Date de naissance du patient; à renseigner avec la valeur de recordTarget/patientRole/patient/birthTime@value -->
+                    <ns2:Value>PID-8|F</ns2:Value>
+                    <!-- Sexe du patient, à renseigner avec la valeur de recordTarget/patientRole/patient/administrativeGenderCode@code -->
+                    <!-- D'autres segment PID peuvent être ajoutés par exemple pour l'adresse ou le numéro de téléphone, se reporter au document "Contraintes sur les types de données HL7 v2.5 applicables aux profils d’intégration du cadre technique IT Infrastructure dans le périmètre d’IHE France v1.4" pour plus de détails-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Name>
+                <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                    value="Compte rendu de biologie médicale"/>
+            </ns2:Name>
+            <ns2:Description>
+                <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                    value="Compte rendu de biologie médicale"/>
+                <!-- Titre du document, à renseigner avec la valeur de title dans le CDA-->
+            </ns2:Description>
+            <ns2:Classification id="cla11"
+                classificationScheme="urn:uuid:93606bcf-9494-43ec-9b4e-a7748d1a838d"
+                classifiedObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e" nodeRepresentation="">
+                <!-- id de classification est l'identifiant de l'objet classification, il peut être sous la forme d'un UUID respectant la RFC 4122 ou sous une forme symbolique (i.e. une chaine de caractères non signifiante). Pour cet exemple, les id des classification sont sous des formes symboliques afin de faciliter l'appréhension de cette notion. Ces identifiants peuvent être réutilisés tels quels pour une soumission contenant un unique document -->
+                <ns2:Slot name="authorPerson">
+                    <ns2:ValueList>
+                        <ns2:Value>00B1057294^MEDECIN5729^PAUL^^^^^^&amp;1.2.250.1.71.4.2.1&amp;ISO^D^^^IDNPS</ns2:Value>
+                        <!-- Identification de la structure où exerce l'auteur du document, à renseigner avec des valeurs issues du CDA concaténées comme suit: "author/assignedAuthor/id@extension" + "^" + "author/assignedAuthor/assignedPerson/name/family" + "^" + "author/assignedAuthor/assignedPerson/name/given" + "^^^^^^&amp;" + "author/assignedAuthor/id@root" + "&amp;ISO^D^^^" + ("EI" si l'idntifiant comporte le caractère / ou "IDNPS" dans le cas contraire) -->
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Slot name="authorSpecialty">
+                    <ns2:ValueList>
+                        <ns2:Value>G15_10/SM26^Médecin - Qualifié en Médecine Générale
+                            (SM)^1.2.250.1.213.1.1.4.5</ns2:Value>
+                        <!-- Specialité de l'auteur, à renseigner avec des valeurs issues du CDA concaténées comme suit: "author/assignedAuthor/code@code" + "^" + "author/assignedAuthor/code@displayName" + "^" + "author/assignedAuthor/code@codeSystem -->
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Slot name="authorInstitution">
+                    <ns2:ValueList>
+                        <ns2:Value>CABINET M.
+                            MEDECIN5729^^^^^&amp;1.2.250.1.71.4.2.2&amp;ISO^^^^00B105729400</ns2:Value>
+                        <!-- Identification de la structure où exerce l'auteur du document, à renseigner avec des valeurs issues du CDA concaténées comme suit: "author/assignedAuthor/representedOrganization/name" + "^^^^^&amp;" + "author/assignedAuthor/representedOrganization/id@root" + "&amp;ISO^IDNST^^^" + "author/assignedAuthor/representedOrganization/id@extension" -->
+                    </ns2:ValueList>
+                </ns2:Slot>
+            </ns2:Classification>
+            <ns2:Classification id="cla12"
+                classificationScheme="urn:uuid:41a5887f-8865-4c09-adf7-e362475b143a"
+                classifiedObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e" nodeRepresentation="10">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.2.250.1.213.1.1.4.1</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Comptes rendus"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla13"
+                classificationScheme="urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f"
+                classifiedObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e" nodeRepresentation="N">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>2.16.840.1.113883.5.25</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Normal"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla14"
+                classificationScheme="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d"
+                classifiedObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e"
+                nodeRepresentation="urn:ihe:lab:xd-lab:2008">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.3.6.1.4.1.19376.1.2.3</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="Compte rendu structuré d'examens de biologie médicale"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla15"
+                classificationScheme="urn:uuid:f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1"
+                classifiedObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e" nodeRepresentation="SA07">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.2.250.1.71.4.2.4</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Cabinet individuel"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla16"
+                classificationScheme="urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead"
+                classifiedObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e"
+                nodeRepresentation="AMBULATOIRE">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.2.250.1.213.1.1.4.9</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Ambulatoire"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla17"
+                classificationScheme="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983"
+                classifiedObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e" nodeRepresentation="11502-2">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>2.16.840.1.113883.6.1</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="CR d'examens biologiques"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:ExternalIdentifier id="ei11" registryObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e"
+                identificationScheme="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427"
+                value="0218805328320789819507^^^&amp;1.2.250.1.213.1.4.2&amp;ISO">
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="XDSDocumentEntry.patientId"/>
+                </ns2:Name>
+            </ns2:ExternalIdentifier>
+            <ns2:ExternalIdentifier id="ei12" registryObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e"
+                identificationScheme="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab"
+                value="1.2.250.1.213.1.1.9^CHARMES_1">
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="XDSDocumentEntry.uniqueId"/>
+                </ns2:Name>
+            </ns2:ExternalIdentifier>
+        </ns2:ExtrinsicObject>
+        <ns2:ExtrinsicObject id="dd9da595-ebd5-44d2-885f-1972f55c2339"
+            objectType="urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1" mimeType="text/xml"
+            xmlns:ns2="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+            <ns2:Slot name="hash">
+                <ns2:ValueList>
+                    <ns2:Value>79654569d512d6459fda4c3cdea2f6d587295803</ns2:Value>
+                    <!-- Hash du document en SHA1 -->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="size">
+                <ns2:ValueList>
+                    <ns2:Value>103561</ns2:Value>
+                    <!-- Taille en octet du document-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="URI">
+                <ns2:ValueList>
+                    <ns2:Value>DOC00002.XML</ns2:Value>
+                    <!-- Nom du fichier CDA dans le zip-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="creationTime">
+                <ns2:ValueList>
+                    <ns2:Value>20150104150527</ns2:Value>
+                    <!-- Date de création du document, à renseigner avec la valeur de effectiveTime@value dans le CDA-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="languageCode">
+                <ns2:ValueList>
+                    <ns2:Value>fr-FR</ns2:Value>
+                    <!-- Code de la langue, à renseigner avec la valeur de languageCode@code dans le CDA-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="legalAuthenticator">
+                <ns2:ValueList>
+                    <ns2:Value>00B1057294^MEDECIN5729^PAUL^^^^^^&amp;1.2.250.1.71.4.2.1&amp;ISO^D^^^IDNPS</ns2:Value>
+                    <!-- Responsable du document, à renseigner avec des valeurs issues du CDA concaténées comme suit: "legalAuthenticator/assignedEntity/id@extension" + "^" + "legalAuthenticator/assignedEntity/assignedPerson/name/family" + "^" + "legalAuthenticator/assignedEntity/assignedPerson/name/given" + "^^^^^^&amp;" + "legalAuthenticator/assignedEntity/id@root" + "&amp;ISO^D^^^" + ("EI" si l'idntifiant comporte le caractère / ou "IDNPS" dans le cas contraire)-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="serviceStartTime">
+                <ns2:ValueList>
+                    <ns2:Value>20150104150527</ns2:Value>
+                    <!-- Heure de début de prise en charge, à renseigner avec la valeur de documentationOf/serviceEvent/effectiveTime@low dans le CDA -->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <!-- Le slot serviceStopTime n'est à renseigner que s'il est indiquer dans le CDA-->
+            <ns2:Slot name="serviceStopTime">
+                <ns2:ValueList>
+                    <ns2:Value>20150104150527</ns2:Value>
+                    <!-- Heure de fin de prise en charge, à renseigner avec la valeur de documentationOf/serviceEvent/effectiveTime@high dans le CDA-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Slot name="sourcePatientId">
+                <ns2:ValueList>
+                    <ns2:Value>0218805328320789819507^^^&amp;1.2.250.1.213.1.4.2&amp;ISO</ns2:Value>
+                    <!-- Identifiant du patient, à renseigner avec des valeurs issues du CDA concatenées comme suit: "recordTarget/patientRole/id@extension" + "^^^&amp;" + "recordTarget/patientRole/id@extension" + "&amp;ISO"-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <!-- Le slot sourcePatientInfo est optionnel et peut être supprimé-->
+            <ns2:Slot name="sourcePatientInfo">
+                <ns2:ValueList>
+                    <ns2:Value>PID-5|SAUVEUR^Sylvaine^^^^^L</ns2:Value>
+                    <!-- Nom du patient, à renseigner avec des valeurs issues du CDA concaténées comme suit: "recordTarget/patientRole/patient/name/family" + "^" + "recordTarget/patientRole/patient/name/given" + "^^^^^" + ("D" si recordTarget/patientRole/patient/name/given@qualifier=SP ou "L" si recordTarget/patientRole/patient/name/given@qualifier=BR ou "S" si recordTarget/patientRole/patient/name/given@qualifier=CL ou "U" dans tous les autres cas-->
+                    <ns2:Value>PID-7|19750301</ns2:Value>
+                    <!-- Date de naissance du patient; à renseigner avec la valeur de recordTarget/patientRole/patient/birthTime@value -->
+                    <ns2:Value>PID-8|F</ns2:Value>
+                    <!-- Sexe du patient, à renseigner avec la valeur de recordTarget/patientRole/patient/administrativeGenderCode@code -->
+                    <!-- D'autres segment PID peuvent être ajoutés par exemple pour l'adresse ou le numéro de téléphone, se reporter au document "Contraintes sur les types de données HL7 v2.5 applicables aux profils d’intégration du cadre technique IT Infrastructure dans le périmètre d’IHE France v1.4" pour plus de détails-->
+                </ns2:ValueList>
+            </ns2:Slot>
+            <ns2:Name>
+                <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                    value="CR d'examens biologiques - Labo des Charmes"/>
+            </ns2:Name>
+            <ns2:Description>
+                <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                    value="CR d'examens biologiques - Labo des Charmes"/>
+            </ns2:Description>
+            <ns2:Classification id="cla11"
+                classificationScheme="urn:uuid:93606bcf-9494-43ec-9b4e-a7748d1a838d"
+                classifiedObject="dd9da595-ebd5-44d2-885f-1972f55c2339" nodeRepresentation="">
+                <ns2:Slot name="authorPerson">
+                    <ns2:ValueList>
+                        <ns2:Value>00B1057294^MEDECIN5729^PAUL^^^^^^&amp;1.2.250.1.71.4.2.1&amp;ISO^D^^^IDNPS</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Slot name="authorSpecialty">
+                    <ns2:ValueList>
+                        <ns2:Value>G15_10/SM26^Médecin - Qualifié en Médecine Générale
+                            (SM)^1.2.250.1.213.1.1.4.5</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Slot name="authorInstitution">
+                    <ns2:ValueList>
+                        <ns2:Value>CABINET M.
+                            MEDECIN5729^^^^^&amp;1.2.250.1.71.4.2.2&amp;ISO^^^^00B105729400</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+            </ns2:Classification>
+            <ns2:Classification id="cla12"
+                classificationScheme="urn:uuid:41a5887f-8865-4c09-adf7-e362475b143a"
+                classifiedObject="dd9da595-ebd5-44d2-885f-1972f55c2339" nodeRepresentation="10">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.2.250.1.213.1.1.4.1</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Comptes rendus"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla13"
+                classificationScheme="urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f"
+                classifiedObject="dd9da595-ebd5-44d2-885f-1972f55c2339" nodeRepresentation="N">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>2.16.840.1.113883.5.25</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Normal"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla14"
+                classificationScheme="urn:uuid:a09d5840-386c-46f2-b5ad-9c3699a4309d"
+                classifiedObject="dd9da595-ebd5-44d2-885f-1972f55c2339"
+                nodeRepresentation="urn:ihe:lab:xd-lab:2008">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.3.6.1.4.1.19376.1.2.3</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="Compte rendu structuré d'examens de biologie médicale"/>
+                    <!-- Titre du lot de soumission. Pour un lot de soumission monodocument, peut reprendre le titre du document -->
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla15"
+                classificationScheme="urn:uuid:f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1"
+                classifiedObject="dd9da595-ebd5-44d2-885f-1972f55c2339" nodeRepresentation="SA07">
+                <!-- nodeRepresentation correspond au contentTypeCode à renseigner avec la valeur de componentOf/encompassingEncounter/location/healthCareFacility/code@code dans le CDA si le code est compris entre "SA01" et "SA35" ou entre "SA50" et "SA54" sinon choisir la valeur la plus adaptée dans le jeu de valeur "contentTypeCode" du CI-SIS-->
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.2.250.1.71.4.2.4</ns2:Value>
+                        <!-- OID de la nomenclature utilisé pour coder le contentTypeCode, à renseigner avec la valeur de componentOf/encompassingEncounter/location/healthCareFacility/code@codeSystem dans le CDA si le code est compris entre "SA01" et "SA35" ou entre "SA50" et "SA54" sinon prendre l'OID correspondant au code utilisé dans le jeu de valeur "contentTypeCode" du CI-SIS-->
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Cabinet individuel"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla16"
+                classificationScheme="urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead"
+                classifiedObject="dd9da595-ebd5-44d2-885f-1972f55c2339"
+                nodeRepresentation="AMBULATOIRE">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>1.2.250.1.213.1.1.4.9</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8" value="Ambulatoire"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:Classification id="cla17"
+                classificationScheme="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983"
+                classifiedObject="dd9da595-ebd5-44d2-885f-1972f55c2339" nodeRepresentation="11502-2">
+                <ns2:Slot name="codingScheme">
+                    <ns2:ValueList>
+                        <ns2:Value>2.16.840.1.113883.6.1</ns2:Value>
+                    </ns2:ValueList>
+                </ns2:Slot>
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="CR d'examens biologiques"/>
+                </ns2:Name>
+            </ns2:Classification>
+            <ns2:ExternalIdentifier id="ei21" registryObject="dd9da595-ebd5-44d2-885f-1972f55c2339"
+                identificationScheme="urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427"
+                value="0218805328320789819507^^^&amp;1.2.250.1.213.1.4.2&amp;ISO">
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="XDSDocumentEntry.patientId"/>
+                </ns2:Name>
+            </ns2:ExternalIdentifier>
+            <ns2:ExternalIdentifier id="ei22" registryObject="dd9da595-ebd5-44d2-885f-1972f55c2339"
+                identificationScheme="urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab"
+                value="1.2.250.1.213.1.1.9.8.1.63451613409007762772^100">
+                <!-- identifiant unique du lot de soumission, à renseigner avec un OID valide attribué par le système générant le lot de soumission -->
+                <ns2:Name>
+                    <ns2:LocalizedString xml:lang="FR" charset="UTF8"
+                        value="XDSDocumentEntry.uniqueId"/>
+                </ns2:Name>
+            </ns2:ExternalIdentifier>
+        </ns2:ExtrinsicObject>
+        <ns2:Association id="association1" objectType="Original"
+            associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember"
+            sourceObject="SubmissionSet01" targetObject="70e100f6-3ee8-466c-a81e-33fe8a9e128e"
+            xmlns:ns2="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+            <ns2:Slot name="SubmissionSetStatus">
+                <ns2:ValueList>
+                    <ns2:Value>Original</ns2:Value>
+                </ns2:ValueList>
+            </ns2:Slot>
+        </ns2:Association>
+        <ns2:Association id="association2" objectType="Original"
+            associationType="urn:oasis:names:tc:ebxml-regrep:AssociationType:HasMember"
+            sourceObject="SubmissionSet01" targetObject="dd9da595-ebd5-44d2-885f-1972f55c2339"
+            xmlns:ns2="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+            <!-- id d'association est l'identifiant de l'objet association, il peut être sous la forme d'un UUID respectant la RFC 4122 ou sous une forme symbolique (i.e. une chaine de caractères non signifiante). Pour cet exemple, l'id de l'association est sous une forme symbolique afin de faciliter l'appréhension de cette notion. Cet identifiant peut être réutilisé tel quel pour une soumission contenant un unique document-->
+            <ns2:Slot name="SubmissionSetStatus">
+                <ns2:ValueList>
+                    <ns2:Value>Original</ns2:Value>
+                </ns2:ValueList>
+            </ns2:Slot>
+        </ns2:Association>
+    </RegistryObjectList>
+</ns5:SubmitObjectsRequest>

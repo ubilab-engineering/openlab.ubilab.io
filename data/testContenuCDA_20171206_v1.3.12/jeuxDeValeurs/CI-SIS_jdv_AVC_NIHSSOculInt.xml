@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.26" displayName="AVC_NIHSSOculInt" version="20131025">
+        <ConceptList>
+            <Concept code="AVC-020" displayName="normal" codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-021"
+                displayName="paralysie partielle (ce score est attribué quand l'oculomotricité est anormale pour 1 ou 2 yeux, mais sans déviation forcée, ni paralysie complète)."
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-022"
+                displayName="déviation forcée ou paralysie complète non vaincue par les manœuvres oculo céphaliques."
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>
+<!-- 
+
+AVC_NIHSSPfInt(1.2.250.1.213.1.1.4.321.28)
+AVC_NIHSSMsInt(1.2.250.1.213.1.1.4.321.29)
+AVC_NIHSSMiInt (1.2.250.1.213.1.1.4.321.30)
+AVC_NIHSSAtaxInt (1.2.250.1.213.1.1.4.321.31)
+AVC_NIHSSSensInt (1.2.250.1.213.1.1.4.321.34)
+AVC_NIHSSLangInt (1.2.250.1.213.1.1.4.321.32)
+AVC_NIHSSDysInt (1.2.250.1.213.1.1.4.321.35)
+-->

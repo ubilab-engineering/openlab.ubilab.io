@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_VSM_CDA_n3.sch"?>
+
+<ClinicalDocument xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <realmCode code="FR"/>
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <templateId root="2.16.840.1.113883.2.8.2.1"/>
+    <templateId root="1.2.250.1.213.1.1.1.1"/>
+    <templateId root="1.2.250.1.213.1.1.1.13"/>
+    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="-1.-1"/>
+    <code code="SYNTH" codeSystem="1.2.250.1.213.1.1.4.12" displayName="Synthèse"/>
+    <title>Synthèse Médicale</title>
+    <effectiveTime value="201707031640+0200"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+    <languageCode code="fr-FR"/>
+    <recordTarget typeCode="RCT">
+        <patientRole classCode="PAT">
+            <id root="1.2.250.1.213.1.4.2" extension="0657400393579161268045"/>
+            <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.11577"/>
+            <addr>
+                <streetAddressLine>18 rue du pré jaune</streetAddressLine>
+                <streetAddressLine>37100 Tours</streetAddressLine>
+            </addr>
+            <telecom use="MC" value="tel:0612753167"/>
+            <patient classCode="PSN">
+                <name>
+                    <family qualifier="BR">SILLON</family>
+                    <family qualifier="SP">SILLON</family>
+                    <given>ANTOINE</given>
+                    <prefix>Monsieur</prefix>
+                </name>
+                <administrativeGenderCode code="M"/>
+                <birthTime value="19581001"/>
+                <birthplace>
+                    <place>
+                        <addr>
+                            <country>FRANCE</country>
+                            <postalCode>33000</postalCode>
+                        </addr>
+                    </place>
+                </birthplace>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <author typeCode="AUT">
+        <time value="201707031640+0200"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <id root="1.2.250.1.71" extension="899700025036" assigningAuthorityName="ASIP Santé"/>
+            <addr>
+                <streetAddressLine>45 bd de la reine</streetAddressLine>
+                <streetAddressLine>37100 Tours FRANCE</streetAddressLine>
+            </addr>
+            <telecom value="tel:0512154544"/>
+            <telecom value="tel:0611111109"/>
+            <assignedPerson classCode="PSN">
+                <name>
+                    <family qualifier="BR">MEDECIN RPPS-ADELI</family>
+                    <given>VIRGINIE</given>
+                    <prefix>Madame</prefix>
+                </name>
+            </assignedPerson>
+            <representedOrganization classCode="ORG">
+                <id root="1.2.250.1.71.4.2.2" extension="3000000000266666"/>
+                <name>
+                    <suffix>CABINET MME MEDECIN2666</suffix>
+                </name>
+                <standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <custodian typeCode="CST">
+        <assignedCustodian>
+            <representedCustodianOrganization classCode="ORG">
+                <id root="1.2.250.1.71.4.2.2" extension="3000000000266666"/>
+                <name>
+                    <suffix>CABINET MME MEDECIN2666</suffix>
+                </name>
+                <telecom nullFlavor="NASK"/>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <legalAuthenticator typeCode="LA">
+        <time value="201707031640+0200"/>
+        <signatureCode code="S"/>
+        <assignedEntity classCode="ASSIGNED">
+            <id root="1.2.250.1.71" extension="899700025036"/>
+            <assignedPerson>
+                <name>
+                    <family qualifier="BR">MEDECIN RPPS-ADELI</family>
+                    <given>VIRGINIE</given>
+                    <prefix>Madame</prefix>
+                </name>
+            </assignedPerson>
+            <representedOrganization classCode="ORG">
+                <id root="1.2.250.1.71.4.2.2" extension="3000000000266666"/>
+                <name>
+                    <suffix>CABINET MME MEDECIN2666</suffix>
+                </name>
+                <standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+            </representedOrganization>
+        </assignedEntity>
+    </legalAuthenticator>
+    <documentationOf>
+        <serviceEvent moodCode="EVN">
+            <code code="SYNTH" codeSystem="1.2.250.1.213.1.1.4.12" displayName="Synthèse"/>
+            <effectiveTime>
+                <low value="20170703"/>
+            </effectiveTime>
+            <performer typeCode="PRF">
+                <assignedEntity classCode="ASSIGNED">
+                    <id root="1.2.250.1.71" extension="899700025036"/>
+                    <assignedPerson>
+                        <name>
+                            <family qualifier="BR">MEDECIN RPPS-ADELI</family>
+                            <given>VIRGINIE</given>
+                            <prefix>Madame</prefix>
+                        </name>
+                    </assignedPerson>
+                    <representedOrganization classCode="ORG">
+                        <id root="1.2.250.1.71.4.2.2" extension="3000000000266666"/>
+                        <name>
+                            <suffix>CABINET MME MEDECIN2666</suffix>
+                        </name>
+                        <standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+                    </representedOrganization>
+                </assignedEntity>
+            </performer>
+        </serviceEvent>
+    </documentationOf>
+    <componentOf>
+        <encompassingEncounter>
+            <code code="EXTERNE" codeSystem="1.2.250.1.213.1.1.4.2.291" displayName="acte et consultation externe"/>
+            <effectiveTime>
+                <low value="20170703"/>
+            </effectiveTime>
+            <location>
+                <healthCareFacility>
+                    <code code="SA08" codeSystem="1.2.250.1.71.4.2.4" displayName="Cabinet de groupe"/>
+                </healthCareFacility>
+            </location>
+        </encompassingEncounter>
+    </componentOf>
+    <component>
+        <structuredBody>
+            <component>
+                <section>
+                    <templateId root="1.2.250.1.213.1.1.2.29"/>
+                    <code code="46612-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Conclusions de synthèse"/>
+                    <title>Pathologies en cours, antécédents, allergies et facteurs de risque</title>
+                    <component>
+                        <section>
+                            <templateId root="1.2.250.1.213.1.1.2.30"/>
+                            <code code="34117-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Historique et physique"/>
+                            <title>Pathologies en cours, antécédents et allergies</title>
+                            <text>Antécédents chirurgicaux : 
+Appendicite aiguë
+. 
+Allergies : 
+Allergie au cacao
+Paracétamol (sous forme de paracétamol RHODAPAP DCP3)
+</text>
+                            <component>
+                                <section>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+                                    <templateId root="2.16.840.1.113883.10.20.1.11"/>
+                                    <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Liste des problèmes actifs"/>
+                                    <title>Pathologies actives</title>
+                                    <text>
+                                        <list>
+                                            <item> 2000 : 
+                                                <content ID="vsm0001">Syndrome d'épidermolyse staphylococcique du nourrisson</content>
+                                            </item>
+                                            <item> 1990 : 
+                                                <content ID="vsm0002">Asthme</content>
+                                            </item>
+                                        </list>
+                                    </text>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.346172"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime nullFlavor="NA"/>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.346172"/>
+                                                    <code xsi:type="CE" code="G-1009" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" displayName="Diagnostic"/>
+                                                    <statusCode code="completed"/>
+                                                    <effectiveTime>
+                                                        <low value="2000"/>
+                                                    </effectiveTime>
+                                                    <value xsi:type="CD" code="L00" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Syndrome d'épidermolyse staphylococcique du nourrisson">
+                                                        <originalText>Syndrome d'épidermolyse staphylococcique du nourrisson
+                                                            <reference value="#vsm0001"/>
+                                                        </originalText>
+                                                    </value>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.346528"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime nullFlavor="NA"/>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.346528"/>
+                                                    <code xsi:type="CE" code="G-1009" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" displayName="Diagnostic"/>
+                                                    <statusCode code="completed"/>
+                                                    <effectiveTime>
+                                                        <low value="1990"/>
+                                                    </effectiveTime>
+                                                    <value xsi:type="CD" code="J45" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Asthme">
+                                                        <originalText>Asthme
+                                                            <reference value="#vsm0002"/>
+                                                        </originalText>
+                                                    </value>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                </section>
+                            </component>
+                            <component>
+                                <section>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+                                    <code code="11348-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Historique des maladies"/>
+                                    <title>Antécédents médicaux</title>
+                                    <text>
+                                        <list>
+                                            <item> 1999 : 
+                                                <content ID="vsm0003">Abcès de l'oreille externe</content>
+                                            </item>
+                                            <item> 2014 : 
+                                                <content ID="vsm0004">Arthrose secondaire multiple</content>
+                                            </item>
+                                            <item> 2015 : 
+                                                <content ID="vsm0005">Brûlure du tronc, degré non précisé</content>
+                                            </item>
+                                            <item>
+                                                <content ID="vsm0006">Trouble de l'audition (SF sudité H84)</content>
+                                            </item>
+                                        </list>
+                                    </text>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.346501"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime nullFlavor="NA"/>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.346501"/>
+                                                    <code xsi:type="CE" code="F-01000" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" displayName="Problème"/>
+                                                    <statusCode code="completed"/>
+                                                    <effectiveTime>
+                                                        <low value="1999"/>
+                                                    </effectiveTime>
+                                                    <value xsi:type="CD" code="H60.0" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Abcès de l'oreille externe">
+                                                        <originalText>Abcès de l'oreille externe
+                                                            <reference value="#vsm0003"/>
+                                                        </originalText>
+                                                    </value>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.348855"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime nullFlavor="NA"/>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.348855"/>
+                                                    <code xsi:type="CE" code="G-1009" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" displayName="Diagnostic"/>
+                                                    <statusCode code="completed"/>
+                                                    <effectiveTime>
+                                                        <low value="2014"/>
+                                                    </effectiveTime>
+                                                    <value xsi:type="CD" code="M15.3" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Arthrose secondaire multiple">
+                                                        <originalText>Arthrose secondaire multiple
+                                                            <reference value="#vsm0004"/>
+                                                        </originalText>
+                                                    </value>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.347089"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime nullFlavor="NA"/>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.347089"/>
+                                                    <code xsi:type="CE" code="F-01000" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" displayName="Problème"/>
+                                                    <statusCode code="completed"/>
+                                                    <effectiveTime>
+                                                        <low value="2015"/>
+                                                    </effectiveTime>
+                                                    <value xsi:type="CD" code="T21.0" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Brûlure du tronc, degré non précisé">
+                                                        <originalText>Brûlure du tronc, degré non précisé
+                                                            <reference value="#vsm0005"/>
+                                                        </originalText>
+                                                    </value>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                    <entry>
+                                        <act classCode="ACT" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                                            <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.347767"/>
+                                            <code nullFlavor="NA"/>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime nullFlavor="NA"/>
+                                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                                    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.347767"/>
+                                                    <code xsi:type="CE" code="F-01000" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" displayName="Problème"/>
+                                                    <text>Trouble de l'audition (SF sudité H84)
+                                                        <reference value="#vsm0006"/>
+                                                    </text>
+                                                    <statusCode code="completed"/>
+                                                    <effectiveTime>
+                                                        <low nullFlavor="UNK"/>
+                                                    </effectiveTime>
+                                                    <value xsi:type="CD" nullFlavor="NA"/>
+                                                </observation>
+                                            </entryRelationship>
+                                        </act>
+                                    </entry>
+                                </section>
+                            </component>
+                        </section>
+                    </component>
+                    <component>
+                        <section>
+                            <templateId root="1.2.250.1.213.1.1.2.31"/>
+                            <code code="57207-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Facteurs de risque présents ou passés affectant l'état de santé et/ou une circonstance."/>
+                            <title>Facteurs de risque</title>
+                            <text>Habitus, mode de vie :
+Consommation d'alcool (Nature + ,), Tabagisme (, Type Tabagisme actif)
+</text>
+                            <component>
+                                <section>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.1"/>
+                                    <code code="10161-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Historique de l'expérience professionnelle"/>
+                                    <title>Facteurs de risques professionnels</title>
+                                    <text>
+                                        <paragraph>Catégories professionnelles à risque: (Industrie du papier, Industrie du papier),Maladies professionnelles respiratoires: (Arsénic et ses composés minéraux (n°20), Arsénic et ses composés minéraux (n°20))</paragraph>
+                                    </text>
+                                </section>
+                            </component>
+                            <component>
+                                <section>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.14"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.15"/>
+                                    <code code="10157-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Historique des pathologies familiales"/>
+                                    <title>Antécédents Familiaux</title>
+                                    <text>
+                                        <list>
+                                            <item>
+                                                <content ID="vsm0007">Sténose aortique rhumatismale</content>
+                                            </item>
+                                        </list>
+                                    </text>
+                                    <entry>
+                                        <organizer classCode="CLUSTER" moodCode="EVN">
+                                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.15"/>
+                                            <templateId root="2.16.840.1.113883.10.20.1.23"/>
+                                            <statusCode code="completed"/>
+                                            <subject typeCode="SBJ">
+                                                <relatedSubject classCode="PRS">
+                                                    <code nullFlavor="UNK"/>
+                                                    <subject>
+                                                        <administrativeGenderCode nullFlavor="UNK"/>
+                                                    </subject>
+                                                </relatedSubject>
+                                            </subject>
+                                            <component typeCode="COMP">
+                                                <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.3"/>
+                                                    <templateId root="2.16.840.1.113883.10.20.1.22"/>
+                                                    <id root="1.2.250.1.197.1.1.2.25.272356145460841410657382495661510846643" extension="12.346521"/>
+                                                    <code xsi:type="CE" code="F-01000" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5" displayName="Problème"/>
+                                                    <statusCode code="completed"/>
+                                                    <effectiveTime>
+                                                        <low nullFlavor="UNK"/>
+                                                    </effectiveTime>
+                                                    <value xsi:type="CD" code="I06.0" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10" displayName="Sténose aortique rhumatismale">
+                                                        <originalText>Sténose aortique rhumatismale
+                                                            <reference value="#vsm0007"/>
+                                                        </originalText>
+                                                    </value>
+                                                </observation>
+                                            </component>
+                                        </organizer>
+                                    </entry>
+                                </section>
+                            </component>
+                        </section>
+                    </component>
+                </section>
+            </component>
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+                    <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Résumé des investigations pratiquées"/>
+                    <title>Points de vigilance</title>
+                    <text>
+                        <list>
+                            <item>Allergie respiratoire à contrôler
+</item>
+                        </list>
+                    </text>
+                </section>
+            </component>
+            <component>
+                <section>
+                    <templateId root="1.2.250.1.213.1.1.2.32"/>
+                    <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Plan de traitement"/>
+                    <title>Traitement au long cours</title>
+                    <text>VENTOLINE 100MCG/DOSE INHAL 200  1 boîte 
+1 bouffée.
+FORADIL 12MCG GELULE+INHALAT 60  1 boîte 
+1 gélule à inhaler  matin et soir.
+</text>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

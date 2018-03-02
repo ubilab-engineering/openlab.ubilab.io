@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+ <?oxygen SCHSchema="Schematrons/CI-SIS_OBP_SNM.sch"?> 
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+
+   <!-- 
+      **********************************************************************************************************
+      Système : ASIP
+      Document :  Synthèse Salle de Naissance Mère (SNM)
+      Auteur : PRAS (CRI), CNGOF
+      Date de création : 28/03/2012
+      Version : 0.0.1
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:
+      - TemplateId des documents:
+            Synthèse antepartum (SAP): 1.2.250.1.213.1.1.1.12.1
+            Synthèse Salle de Naissance Mère (SNM): 1.2.250.1.213.1.1.1.12.2
+            Synthèse Salle de Naissance Enfant (SNE): 1.2.250.1.213.1.1.1.12.3
+            Synthèse Suites de Couches Mère (SCM): 1.2.250.1.213.1.1.1.12.4
+            Synthèse Suites de Couches Enfant (SCE): 1.2.250.1.213.1.1.1.12.4
+
+      - Type de documents (Matrice)
+            SNM et SNE entre dans la catégorie "Compte-rendu d'accouchement" de code LOINC 15508-5
+            SAP, SCM, SCE entrent dans la catégorie "Synthèse d'épisode de soins" de code LOINC 34133-9
+      - OID temporaire du LPS producteur de document: root="1.2.250.1.213.1.1.9" 
+      - Domaine de vocabulaire ASIP pour l'obstétrique = TA_OBS (1.2.250.1.213.1.1.4.2.289)
+      
+      
+      **********************************************************************************************************
+   -->
+   
+   <realmCode code="FR"/>
+   <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+   <!-- Conformité spécifications HL7 France -->
+   <templateId root="2.16.840.1.113883.2.8.2.1"/>
+   <!-- Conformité spécifications au CI-SIS de l'ASIP Santé -->
+   <templateId root="1.2.250.1.213.1.1.1.1"/>
+   <!--  Synthèse Salle de Naissance Mère (SNM)-->
+   <templateId root="1.2.250.1.213.1.1.1.12.2"/>
+
+
+   <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+   <id root="1.2.250.1.213.1.1.9" extension="A7102400008_0444"/>
+   <code code="15508-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+      displayName="Compte-rendu d'accouchement"/>
+   <title>SYNTHESE DE TRAVAIL ET DE L'ACCOUCHEMENT</title>
+   <effectiveTime value="20120328111700+0100"/>
+   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+      codeSystemName="Confidentiality" displayName="Normal"/>
+   <languageCode code="fr-FR"/>
+
+   <!--=<<o#%@O[ Identification ]O@%#o>>=-->
+   
+   <recordTarget>
+      <patientRole>
+         <!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+         <id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+         <addr use="H">
+            <houseNumber>24</houseNumber>
+            <streetNameType>AV</streetNameType>
+            <streetName>Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>Paris</city>
+         </addr>
+         <!-- Portable -->
+         <telecom value="tel:0686970800" use="MC"/>
+         <!-- Domicile -->
+         <telecom value="tel:0186940900" use="H"/>
+         <patient classCode="PSN">
+            <name>
+               <given>Marie</given>
+               <family qualifier="BR">DECOURCY</family>
+               <family qualifier="SP" nullFlavor="NAV"/>
+            </name>
+            <administrativeGenderCode code="F"/>
+            <birthTime value="19800315"/>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   
+   <!--=<<o#%@O[ Auteur du document - Clinicien ayant suivi la patiente ]O@%#o>>=-->
+   
+   <author>
+      <time value="20120328111700+0100"/>
+      <assignedAuthor classCode="ASSIGNED">
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+            displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+         <addr nullFlavor="NASK"/>
+         <telecom nullFlavor="NASK"/>
+         <assignedPerson>
+            <name>
+               <given>Charles </given>
+               <family>BOILEAU</family>
+               <prefix>Dr.</prefix>
+            </name>
+         </assignedPerson>
+         <!-- Numéro FINESS de l'ES (optionnel)  -->
+         <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+            <name>Clinique du Belvédère</name>
+            <telecom nullFlavor="NAV"/>
+            <addr>
+               <houseNumber>142</houseNumber>
+               <streetNameType>rue</streetNameType>
+               <streetName>Belvédère</streetName>
+               <postalCode>92100</postalCode>
+               <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" 
+               displayName="Établissement de santé"
+               codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+         </representedOrganization>
+      </assignedAuthor>
+   </author>
+   
+   <!--=<<o#%@O[ Personne à prévenir en cas d'urgence ]O@%#o>>=-->
+   
+   <informant>
+      <relatedEntity classCode="ECON">
+         <code code="AUNT" displayName="Tante"/>
+         <addr nullFlavor="NAV"/>
+         <telecom value="tel:0647150100" use="MC"/>
+         <relatedPerson>
+            <name>
+               <family>DECOURCY</family>
+               <given>Sophie</given>
+            </name>
+         </relatedPerson>
+      </relatedEntity>
+   </informant>
+   
+   <!--=<<o#%@O[ Organisation de santé responsable du document ]O@%#o>>=-->
+
+   <custodian typeCode="CST">
+      <assignedCustodian classCode="ASSIGNED">
+         <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+            <id root="1.2.250.1.71" extension="1120456789" assigningAuthorityName="GIP-CPS"/>
+            <name>Clinique du Belvédère</name>
+            <telecom value="tel:0442515151" use="WP"/>
+            <addr>
+               <houseNumber>142</houseNumber>
+               <streetNameType>rue</streetNameType>
+               <streetName>Belvédère</streetName>
+               <postalCode>92100</postalCode>
+               <city>Boulogne-Billancourt</city>
+            </addr>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   
+   <!--=<<o#%@O[ Responsable de la validation de la synthèse ]O@%#o>>=-->
+   
+   <legalAuthenticator>
+      <time value="20120329094914-0100"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <realmCode code="FR"/>
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+         displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+         <assignedPerson>
+            <name>
+               <given>Jacques </given>
+               <family>BIDEAULT</family>
+               <prefix>Pr.</prefix>
+               <suffix/>
+            </name>
+         </assignedPerson>
+      </assignedEntity>
+   </legalAuthenticator>
+   
+   <!--=<<o#%@O[ Médecin traitant ]O@%#o>>=-->
+   <participant typeCode="INF">
+      <functionCode code="PCP"/>
+      <associatedEntity classCode="PROV">
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+         <addr>
+            <houseNumber>3</houseNumber>
+            <streetNameType>rue</streetNameType>
+            <streetName>Petit Pont</streetName>
+            <postalCode>75005</postalCode>
+            <city>Paris</city>
+         </addr>
+         <telecom value="tel:0147150000" use="EC"/>
+         <associatedPerson>
+            <name>
+               <family>MEDIONI</family>
+               <given>Jacques</given>
+               <prefix>Docteur</prefix>
+            </name>
+         </associatedPerson>         
+      </associatedEntity>
+   </participant>
+   
+   
+   <!--=<<o#%@O[ Informations sur sur le document ]O@%#o>>=-->
+   
+   <documentationOf>
+      <serviceEvent classCode="ACT">
+         <id root="5A931FFC-E3D3-4153-953F-4C314500A410"/>
+         <code code="15508-5" displayName="Compte-rendu d'accouchement" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+         <effectiveTime>
+            <low value="20120328111700+0100"/>
+            <high value="20120330111700+0100"/>
+         </effectiveTime>
+         <performer typeCode="PRF">
+            <assignedEntity>
+               <realmCode code="FR"/>
+               <!-- PS identifié par son N°RPPS -->
+               <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                  displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+               <assignedPerson>
+                  <name>
+                     <given>Jacques </given>
+                     <family>BIDEAULT</family>
+                     <prefix>Docteur</prefix>
+                     <suffix/>
+                  </name>
+               </assignedPerson>
+               <representedOrganization>
+                  <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                  <name>Clinique du Belvédère</name>
+                  <telecom nullFlavor="NAV"/>
+                  <addr>
+                     <houseNumber>142</houseNumber>
+                     <streetNameType>rue</streetNameType>
+                     <streetName>Belvédère</streetName>
+                     <postalCode>92100</postalCode>
+                     <city>Boulogne-Billancourt</city>
+                  </addr>
+                  <standardIndustryClassCode code="ETABLISSEMENT" 
+                     displayName="Établissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+               </representedOrganization>
+            </assignedEntity>
+         </performer>
+         
+         
+      </serviceEvent>
+   </documentationOf>
+
+   <!--=<<o#%@O[ Informations sur les circonstances de la "rencontre" ]O@%#o>>=-->
+   
+   <componentOf>
+      <encompassingEncounter>
+         <code code='EXTERNE' displayName='acte et consultation externe (établissement)' codeSystem="1.2.250.1.213.1.1.4.2.291"/>
+         <effectiveTime>
+            <high value="20120328111700+0100"/>
+         </effectiveTime>
+         <location>
+            <healthCareFacility>
+               <id root="1.2.250.1.213.1.1.9" extension="11223344"
+                  assigningAuthorityName="Clinique de Breteuil"/>
+               <code code="SA04" displayName="Etablissement Privé Non PSPH"
+                  codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+            </healthCareFacility>
+         </location>
+      </encompassingEncounter>
+   </componentOf>
+
+
+   <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+   
+
+   <component>
+      <structuredBody>
+         
+         <!--=<<o#%@O[ Section Pathologie active ]O@%#o>>=-->
+         <component>
+            <section>
+               <!--  CCD Problem Section templateId -->
+               <templateId root="2.16.840.1.113883.10.20.1.11"/>
+               <!-- Active problem section templateId -->
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+               <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+               <code code="11450-4" displayName="Liste des problèmes actifs"
+                  codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Pathologies Actives</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Date</th><th>Pathologie</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>&#160;</td><td>Grossesse prolongée</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN" negationInd="false">
+                     <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                     <id root='12da3a06-18e7-40b7-9397-1fa5b1552472'/>
+                     <code nullFlavor="NA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime nullFlavor="NA"/>
+                     <entryRelationship typeCode='SUBJ' inversionInd='false'>
+                        <observation classCode='OBS' moodCode='EVN' negationInd='false'>
+                           <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                           <id root="22680c83-43c0-49cb-91c5-05b8049793e4"/>
+                           <code code='G-1009' displayName='Diagnostic'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime><low value='20090812'/></effectiveTime>
+                           <value xsi:type='CD' code='D8-12200' displayName='Grossesse prolongée'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         
+
+         <!--=<<o#%@O[ PCC Labor and Delivery Events section ]O@%#o>>=-->
+                
+         <component>
+            <section>
+               <!-- PCC Labor and Delivery Events Section template Id -->
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.3"/>
+               <id root="1B465436-2243-445F-959E-A421D96C1522"/>
+               <code code="57074-7" displayName="Episodes du travail et de l'accouchement"
+                  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Travail et Accouchement</title>
+               <text>
+                  <table border="1">
+                     <thead align="center">
+                        <tr><th>Acte</th><th>Réalisé</th><th>Objet</th><th>Commentaire</th></tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td>Déclenchement</td><td>Oui</td><td>Grossesse prolongée</td><td></td></tr>
+                        <tr><td>Analgésie avant la naissance</td><td>Oui</td><td>Anesthésie générale</td><td></td></tr>
+                        <tr><td>Analgésie après la naissance</td><td>Oui</td><td>Anesthésie générale</td><td></td></tr>
+                        <tr><td rowspan="2">Acte associés réalisés en postpartum</td><td rowspan="2">Oui</td><td>Révision utérine isolée</td><td></td></tr>
+                        <tr><td>autre acte réalisé en postpartum immédiat</td><td><content ID="OBS_10">Embolisation artérielle pour hémorragie PP</content><br/></td></tr>
+                        <tr><td>Transfusion de produits sanguins</td><td>Non</td><td></td><td></td></tr>
+                        <tr><td>Début de travail</td><td></td><td>Césarienne</td><td></td></tr>
+                        <tr><td>Nombre d'enfants vivants</td><td></td><td>1</td><td></td></tr>
+                        <tr><td rowspan="2">Complication(s) de l'anesthésie au cours du travail et de l'accouchement</td><td rowspan="2">Oui</td>
+                           <td>Complications intéressant le système nerveux central dues à l'anesthésie au cours du travail et de l'accouchement</td><td rowspan="2">Commentaire sur les complications de l'anesthésie</td></tr>     
+                        <tr><td>Complications cardiaques de l'anesthésie au cours du travail et de l'accouchement</td></tr>
+                        <tr><td>Pathologies durant le travail</td><td></td><td>Déchirure du périnée, du premier degré</td><td></td></tr>
+                        <tr><td>Lésion obstétricale d'un organe pelvien</td><td></td><td>Déchirure obstétricale du col de l'utérus</td><td></td></tr>
+                        <tr><td>Hémorragie post partum immédiat (>500cc)</td><td></td><td>Coagulation intravasculaire disséminée</td><td></td></tr>
+                        <tr><td>Autres pathologies du post partum immédiat</td><td>Oui</td><td></td><td>Autre pathologie...</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               
+               <!--====%[ PCC Procedures & Interventions subsection ]%====-->
+               
+               <component>
+                  <section>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+                     <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+                     <code code="29554-3" displayName="PROCEDURES"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+
+                     
+
+                     
+                     <!-- 0..1 Déclenchement et cause du déclenchement -->
+                     <entry>
+                        <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                           <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                           <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                           <code code="F-84610" displayName="Déclenchement"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                           <entryRelationship typeCode="RSON" inversionInd="false">
+                              <act classCode="ACT" moodCode="EVN" negationInd="false">
+                                 <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1"/>
+                                 <id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+                                 <code code="D8-12200" displayName='Grossesse prolongée'
+                                    codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime>
+                                    <low nullFlavor="UNK"/>
+                                 </effectiveTime>
+                              </act>
+                           </entryRelationship>
+                        </procedure>
+                     </entry>
+                     
+                     <!--0..1 Anesthésie avant la naissance -->
+                     <entry>
+                        <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                           <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                           <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                           <code code="OBS_029" displayName="Analgésie avant la naissance"
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                           <entryRelationship typeCode="SUBJ" inversionInd="false">
+                              <procedure classCode="PROC" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                                 <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                                 <code code="P1-C0010" displayName="Anesthésie générale"
+                                    codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                              </procedure>
+                           </entryRelationship>
+                           
+                           <entryRelationship typeCode="SUBJ">
+                              <act classCode="ACT" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                 <code code="48767-8" displayName="Annotation Comment"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <text><reference value="#OBS_2"/></text>
+                                 <statusCode code="completed"/>
+                              </act>
+                           </entryRelationship>
+                        </procedure>
+                     </entry>
+                     
+                     <!-- Anesthésie après la naissance -->
+                     <entry>
+                        <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                           <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                           <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                           <code code="OBS_031" displayName="Analgésie après la naissance"
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                           <entryRelationship typeCode="SUBJ" inversionInd="false">
+                              <procedure classCode="PROC" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                                 <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                                 <code code="P1-C0400" displayName="Anesthésie générale"
+                                    codeSystem="1.2.250.1.213.1.1.4.12" codeSystemName="SNOMED 3.5"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                              </procedure>
+                           </entryRelationship>
+                           <entryRelationship typeCode="SUBJ">
+                              <act classCode="ACT" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                 <code code="48767-8" displayName="Annotation Comment"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <text><reference value="#OBS_2"/></text>
+                                 <statusCode code="completed"/>
+                              </act>
+                           </entryRelationship>
+                        </procedure>
+                     </entry>
+                     
+                     
+                     <!-- Acte Post-partum -->
+                     <entry>
+                        <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                           <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                           <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                           <code code="OBS_033" displayName="Actes associés pratiqués lors du post partum"
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                           <!-- 1..* actes associés -->
+                           <entryRelationship typeCode="SUBJ" inversionInd="false">
+                              <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                                 <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                                 <code code="OBS_210" displayName="révision utérine isolée"
+                                    codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                              </procedure>
+                           </entryRelationship>
+                           <entryRelationship typeCode="SUBJ" inversionInd="false">
+                              <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                                 <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                                 <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                                 <code code="OBS_212" displayName="autre acte réalisé en postpartum immédiat"
+                                    codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS">
+                                    <originalText><reference value="#OBS_10"/>Acte associé blah blah</originalText>
+                                 </code>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                              </procedure>
+                           </entryRelationship>
+                        </procedure>
+                     </entry>
+                     
+                     <!-- Transfusion -->
+                     <entry>
+                        <procedure classCode="PROC" moodCode="EVN" negationInd="true" >
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                           <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                           <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                           <code code="EDAP_008" displayName="Transfusion de produits sanguins"
+                              codeSystem="1.2.250.1.213.1.1.4.2.285" codeSystemName="TA-EDAP"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime><low nullFlavor="NA"/></effectiveTime>
+                        </procedure>
+                     </entry>
+                  </section>
+               </component>
+               
+               
+               
+               <!--====%[ PCC Coded Event Outcome Subsection ]%====-->
+               <component>
+                  <section>
+                     <!-- PCC Coded Event Outcomes Section template Id -->
+                     <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+                     <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+                     <code code="42545-4" displayName="Event Outcome"
+                     codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                     
+                     <!-- Mode de début de travail -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type="CD" code="F-84640" displayName="Mode de début du travail"
+                              codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                 <id root="931f140c-0c95-43ae-8918-d1dd003efe15"/> 
+                                 <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NA"/>
+                                 <value xsi:type="CD" code="P1-86310" displayName="Cesarienne"
+                                 codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                 <entryRelationship typeCode="SUBJ" inversionInd="true">
+                                    <act classCode="ACT" moodCode="EVN">
+                                       <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                       <code code="48767-8" displayName="Annotation Comment"
+                                          codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                       <text><reference value="#OBS_2"/></text>
+                                       <statusCode code="completed"/>
+                                       <effectiveTime nullFlavor="NA"/>
+                                    </act>
+                                 </entryRelationship>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+                     
+                     <!-- Nombre d'enfants nés -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="11636-8" displayName="Nombre d'enfants vivants"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <text/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="UNK"/>
+                           <value xsi:type='INT' value="1"/>
+                        </observation>
+                        
+                     </entry>
+                     
+                     <!-- Complications de l'anesthésie -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type="CD" code="O74" displayName="Complications de l'anesthésie au cours du travail et de l'accouchement"
+                              codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                           <!--  0..* complications -->
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                 <id root="931f140c-0c95-43ae-8918-d1dd003efe15"/> 
+                                 <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NA"/>
+                                 <value xsi:type="CD" code="O74.3" displayName="Complications intéressant le système nerveux central dues à l'anesthésie au cours du travail et de l'accouchement"
+                                    codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                 <id root="931f140c-0c95-43ae-8918-d1dd003efe15"/> 
+                                 <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NA"/>
+                                 <value xsi:type="CD" code="O74.2" displayName="Complications cardiaques de l'anesthésie au cours du travail et de l'accouchement"
+                                    codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship typeCode="SUBJ">
+                              <act classCode="ACT" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                 <code code="48767-8" displayName="Annotation Comment"
+                                 codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <text><reference value="#OBS_2"/></text>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NA"/>
+                              </act>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+
+                     
+                     <!-- Pathologie(s) durant le travail -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type="CD" code="OBS_028" displayName="Pathologie durant le travail"
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                           <!-- 0..* pathologies -->
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                 <id root="931f140c-0c95-43ae-8918-d1dd003efe15"/>
+                                 <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NA"/>
+                                 <value xsi:type="CD" code="O70.0" displayName="Déchirure du périnée, du premier degré"
+                                    codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+                  
+  
+                     
+                     <!-- Pathologie(s) du postpartum immédiat -->
+                     <!-- Hémorragies du post-partum -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="D8-34020" displayName="Hémorragie post partum immédiat (>500cc)"
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="SNOMED 3.5"/>
+                           <text/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="UNK"/>
+                           <value xsi:type="BL" value="true"/>
+                           <!-- 0..* causes de l'hémorragie -->
+                           <entryRelationship typeCode="CAUS">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                 <id root="931f140c-0c95-43ae-8918-d1dd003efe15"/>
+                                 <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NA"/>
+                                 <value xsi:type="CD" code="D65" displayName="Coagulation intravasculaire disséminée"
+                                    codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+                     <!-- Lésions des parties molles -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="D8-33358" displayName="Lésion obstétricale d'un organe pelvien"
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="SNOMED 3.5"/>
+                           <text/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="UNK"/>
+                           <value xsi:type="BL" value="true"/>
+                           <!-- 0..* description des lésions -->
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                 <id root="931f140c-0c95-43ae-8918-d1dd003efe15"/>
+                                 <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime nullFlavor="NA"/>                                 
+                                 <value xsi:type="CD" code="O71.3" displayName="Déchirure obstétricale du col de l'utérus"
+                                    codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM 10"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+                     <!-- Autres pathologies du post partum immédiat -->
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <!-- PCC Simple Observation template Id -->
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="OBS_032" displayName="Autres pathologies du post partum immédiat"
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                           <text/>
+                           <statusCode code="completed"/>
+                           <effectiveTime nullFlavor="UNK"/>
+                           <value xsi:type="BL" value="true"/>
+                           <!-- Commentaire pathologies PP immédiat -->
+                           <entryRelationship typeCode="SUBJ" inversionInd="true">
+                              <act classCode="ACT" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.40"/>
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
+                                 <code code="48767-8" displayName="Annotation Comment"
+                                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                 <text><reference value="#OBS_2"/></text>
+                                 <statusCode code="completed"/>
+                              </act>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+                     <!-- Transfert (ou mutation) du patient -->
+                     <entry>
+                        <act classCode="ACT" moodCode="EVN" negationInd="false">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.25.1.4.1"/>
+                           <id root="528775c1-e1a2-4953-ae99-e535c9090e02"/>
+                           <code code="OBS_005" displayName="Transfert ou mutation" 
+                              codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="SNOMED 3.5"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime><low value="20130811"/><high nullFlavor="NA"/></effectiveTime>
+                           <participant typeCode="DST">
+                              <templateId root="destinationLocation"/>
+                              <participantRole classCode="SDLOC">
+                                 <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>                      
+                                 <code  code="ETABLISSEMENT" displayName="Établissement de santé"
+                                    codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                                 <addr>
+                                    <houseNumber>142</houseNumber>
+                                    <streetNameType>rue</streetNameType>
+                                    <streetName>Belvédère</streetName>
+                                    <postalCode>92100</postalCode>
+                                    <city>Boulogne-Billancourt</city>
+                                 </addr>
+                                 <telecom nullFlavor="NAV"/>
+                                 <playingEntity classCode="ENT">
+                                    <name>Clinique du Belvédère</name>
+                                 </playingEntity>
+                              </participantRole>
+                           </participant>
+                        </act>
+                     </entry>
+                  </section>
+               </component>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ PCC Medications Administered Section ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.21'/>
+               <id root='4A402640-1CF6-4153-B5BA-D56B623004C8'/>
+               <code code='18610-6' displayName='MEDICATION ADMINISTERED'
+                  codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Médicaments administrés pendant la grossesse</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Médicament administré</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td><content ID="sap0072">PLAVIX 75mg</content></td></tr>
+                     </tbody>
+                  </table>
+               </text>   
+               <entry typeCode="DRIV">
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                     <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A"/>
+                     <statusCode code="completed"/>
+                     <consumable>
+                        <manufacturedProduct>
+                           <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                           <!-- Product template -->
+                           <manufacturedMaterial>
+                              <code code="66871876" codeSystem="1.2.250.1.213.2.3.1"
+                                 codeSystemName="CIS"
+                                 displayName="SOLUPRED 20 mg, comprimé effervescent">
+                                 <originalText mediaType="text/xml">
+                                    <reference value="#zz0004"/>
+                                 </originalText>
+                              </code>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                  </substanceAdministration>
+               </entry>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Section Importation de Conclusion de CR ACP ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.34"/>
+               <id root="08eea6e4-c2f8-4e1d-9160-166ac774c69e"/>
+               <code code='30954-2' displayName='Résumé des investigations pra-tiquées'
+                  codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Importation du compte rendu ACP</title>
+               <text/>
+               <!-- Sous-section procedures et interventions  -->
+               <component>
+                  <section>
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+                     <id root="b4e4715d-3fa0-442d-8b14-c3d22d566a72"/>
+                     <code code='29554-3' displayName='Intervention'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                     <text/>
+                     <entry>
+                        <procedure classCode="PROC" moodCode="EVN">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.29'/>
+                           <id root="063f9578-07cc-474e-a3e4-f534a3db006c"/>
+                           <code code='P3-02000' displayName="Prélèvement d'échantillon"
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="201308112036"/>
+                           <author>
+                              <time value="20120328111700+0100"/>
+                              <assignedAuthor classCode="ASSIGNED">
+                                 <!-- PS identifié par son N°RPPS -->
+                                 <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                                 <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                                    displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+                                 <addr nullFlavor="NASK"/>
+                                 <telecom nullFlavor="NASK"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <given>Jacques</given>
+                                       <family>BIDEAULT</family>
+                                       <prefix>Docteur</prefix>
+                                    </name>
+                                 </assignedPerson>
+                                 <!-- Numéro FINESS de l'ES (optionnel)  -->
+                                 <representedOrganization>
+                                    <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                                    <name>Clinique du Belvédère</name>
+                                    <telecom nullFlavor="NAV"/>
+                                    <addr>
+                                       <houseNumber>142</houseNumber>
+                                       <streetNameType>rue</streetNameType>
+                                       <streetName>Belvédère</streetName>
+                                       <postalCode>92100</postalCode>
+                                       <city>Boulogne-Billancourt</city>
+                                    </addr>
+                                    <standardIndustryClassCode code="ETABLISSEMENT" 
+                                       displayName="Établissement de santé"
+                                       codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                                 </representedOrganization>
+                              </assignedAuthor>
+                           </author>
+                        </procedure>
+                     </entry>
+                     <entry>
+                        <procedure classCode="PROC" moodCode="EVN">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.29'/>
+                           <id root="063f9578-07cc-474e-a3e4-f534a3db006c"/>
+                           <code code='P3_44440' displayName="Examen microscopique et diagnostique d'un spécimen chirurgical préalablement traité"
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="201308112036"/>
+                           <author contextControlCode="OP" typeCode="AUT">
+                              <time value="20120129094914+0100"/>
+                              <assignedAuthor classCode="ASSIGNED">
+                                 <!-- PS identifié par son N°RPPS -->
+                                 <id root="1.2.250.1.71.4.2.1" extension="801234567892" assigningAuthorityName="ASIP Santé"/>
+                                 <code code="G15_10/SM01" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                                    displayName="Médecin - Anatomie et cytologie pathologiques (SM)"/>
+                                 <addr>            
+                                    <streetNameType>AV</streetNameType>
+                                    <streetName>Rapp</streetName>
+                                    <houseNumber>80</houseNumber>
+                                    <postalCode>75007</postalCode>
+                                    <city>PARIS</city>
+                                 </addr>
+                                 <telecom value="tel:0242515151" use="WP"/>
+                                 <assignedPerson>
+                                    <name>
+                                       <given>Jacques</given>
+                                       <family>Lallement</family>
+                                       <prefix>Dr.</prefix>
+                                    </name>
+                                 </assignedPerson>
+                                 <representedOrganization>
+                                    <id root="1.2.250.1.71.4.2.2" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                                    <name>Clinique Rapp - Laboratoire d'Anatomo-cytopathologie</name>
+                                    <addr>            
+                                       <streetNameType>AV</streetNameType>
+                                       <streetName>Rapp</streetName>
+                                       <houseNumber>80</houseNumber>
+                                       <postalCode>75007</postalCode>
+                                       <city>PARIS</city>
+                                    </addr>
+                                    <standardIndustryClassCode code="ETABLISSEMENT" 
+                                       displayName="Établissement de santé"
+                                       codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                                 </representedOrganization>
+                              </assignedAuthor>
+                           </author>
+                        </procedure>
+                     </entry>
+                  </section>
+               </component>
+               <!-- Sous-section Conclusion-diagnostic du CR-ACP -->
+               <component>
+                  <section>
+                     <templateId root="1.3.6.1.4.1.19376.1.8.1.2.5"/>
+                     <id root="abf339ae-96ed-414f-b61c-d8216e404067"/>
+                     <code code='22637-3' displayName='Conclusion - Diagnostic'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                     <title>Conclusion du compte-rendu anatomo-cyto-pathologique (ACP)</title>
+                     <text/>
+                     <!-- Auteur = saisie manuelle des conclusions du CR-ACP -->
+                     <author>
+                        <time value="20120328111700+0100"/>
+                        <assignedAuthor classCode="ASSIGNED">
+                           <!-- PS identifié par son N°RPPS -->
+                           <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                           <code code="G15_10/SM20" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                              displayName="Médecin - Gynécologie-obstétrique (SM)"/>
+                           <addr nullFlavor="NASK"/>
+                           <telecom nullFlavor="NASK"/>
+                           <assignedPerson>
+                              <name>
+                                 <given>Jacques</given>
+                                 <family>BIDEAULT</family>
+                                 <prefix>Docteur</prefix>
+                              </name>
+                           </assignedPerson>
+                           <!-- Numéro FINESS de l'ES (optionnel)  -->
+                           <representedOrganization>
+                              <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                              <name>Clinique du Belvédère</name>
+                              <telecom nullFlavor="NAV"/>
+                              <addr>
+                                 <houseNumber>142</houseNumber>
+                                 <streetNameType>rue</streetNameType>
+                                 <streetName>Belvédère</streetName>
+                                 <postalCode>92100</postalCode>
+                                 <city>Boulogne-Billancourt</city>
+                              </addr>
+                              <standardIndustryClassCode code="ETABLISSEMENT" 
+                                 displayName="Établissement de santé"
+                                 codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                           </representedOrganization>
+                        </assignedAuthor>
+                     </author>
+                     <!-- Anatomopathologiste ayant réalisé l'analyse -->
+                     <informant>
+                        <assignedEntity>
+                           <!-- PS identifié par son N°RPPS -->
+                           <id root="1.2.250.1.71.4.2.1" extension="801234567892" assigningAuthorityName="ASIP Santé"/>
+                           <code code="G15_10/SM01" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                              displayName="Médecin - Anatomie et cytologie pathologiques (SM)"/>
+                           <addr>            
+                              <streetNameType>AV</streetNameType>
+                              <streetName>Rapp</streetName>
+                              <houseNumber>80</houseNumber>
+                              <postalCode>75007</postalCode>
+                              <city>PARIS</city>
+                           </addr>
+                           <telecom value="tel:0242515151" use="WP"/>
+                           <assignedPerson>
+                              <name>
+                                 <given>Jacques</given>
+                                 <family>Lallement</family>
+                                 <prefix>Dr.</prefix>
+                              </name>
+                           </assignedPerson>
+                        </assignedEntity>
+                     </informant>
+                     <!-- 
+                     <entry/>
+                     Voir le volet CR-ACP ou le volet FRCP
+                     pour l'implémentation des conclusions du CR ACP
+                     -->
+                  </section>
+               </component>
+               
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Coded Results Section ]O@%#o>>=-->
+         
+         <!-- 
+            
+            Note: Pour relier un résultat au document auquel il se réfère, on utilise un lien par référence
+            ce dernier élément étant l'identifiant unique et obligatoire "ClinicalDocument/id" pour tout
+            document compatible au CI-SIS de l'ASIP Santé. 
+            Cette valeur se retrouve également pour tout document faisant partie d'un DMP au niveau de la 
+            métadonnée XDS "XDSDocumentEntry/uniqueId" 
+            
+         -->
+         
+         <component>
+            <section>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+               <id root="c7ee790c-4b17-40ad-b7b3-b3ad54820014"/>
+               <code code="30954-2" displayName="STUDIES SUMMARY" codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Resultats d'examens</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Examen</th><th>Demandé</th><th>Référence</th></tr>
+                     </thead>
+                     <tbody>
+                        
+                        <tr><td>Examen bactériologique</td><td>Non</td><td><linkHtml ID="a3" href="http://reference/exemple.pdf">reference</linkHtml></td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               
+               <!-- Examen Bactério -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="OBS_035" displayName="Examen bactériologique"
+                        codeSystem="1.2.250.1.213.1.1.4.2.289" codeSystemName="TA_OBS"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD" nullFlavor="NAV"/>
+                  </observation>
+               </entry>
+               <!-- Document de référence Bactério -->
+               <entry>
+                  <act classCode='ACT' moodCode='EVN'> 
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.4'/>
+                     <id root='1E2DF585-ACF2-4004-B179-3010A99DD158'/>
+                     <code nullFlavor='NA' />
+                     <text><reference value='#OBS_3'/></text>
+                     <reference typeCode='REFR'>
+                        <externalDocument classCode='DOC' moodCode='EVN'>
+                           <!-- Identifiant unique du document de référence -->
+                           <id root="1.2.250.1.213.1.1.9" extension="A7102400008_640" assigningAuthorityName="ASIP SANTE"/>
+                           <text><reference value='#a3'/></text>
+                        </externalDocument>
+                     </reference>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <!--=<<o#%@O[ Section Statut du document ]O@%#o>>=-->
+         <component>
+            <section>
+               <templateId root="1.2.250.1.213.1.1.2.35"/>
+               <id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+               <code code="33557-0" displayName="Niveau de complétion" 
+                  codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Statut du Document</title>
+               <text>Statut du document : validé</text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id/>
+                     <code code="CDA_001" 
+                        displayName="Statut du document" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.286" 
+                        codeSystemName="TA_CDA"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value='20110314'/>
+                     <value xsi:type='CD' code="CDA_002" 
+                        displayName="En cours" 
+                        codeSystem="1.2.250.1.213.1.1.4.2.286" 
+                        codeSystemName="TA_CDA"/>
+                  </observation>
+               </entry>
+            </section>            
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

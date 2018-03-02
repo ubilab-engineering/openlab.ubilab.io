@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.13" displayName="AVC_artereAnt">
+        <ConceptList>
+            <Concept code="AVC-152" displayName="artère cérébrale antérieure territoire superficiel"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-153" displayName="artère cérébrale antérieure territoire profond"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-154" displayName="artère cérébrale antérieure territoires complets"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-155" displayName="artère cérébrale moyenne territoire superficiel"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-156" displayName="artère cérébrale moyenne territoire profond"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-157" displayName="artère cérébrale moyenne territoires complets"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-139" displayName="Perforantes Directes de la Carotide"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="T-45340" displayName="artère choroïdienne antérieure"
+                codeSystem="1.2.250.1.213.2.12"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

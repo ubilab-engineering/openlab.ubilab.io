@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.35" displayName="AVC_NIHSSDysInt" version="20131025">
+        <ConceptList>
+            <Concept code="AVC-057" displayName="normal" codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-058"
+                displayName="discrète à modérée; le patient n’articule pas bien au moins quelques mots et, au pire, peut être compris avec quelques difficultés"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-059"
+                displayName="sévère: le discours du patient est tellement mal articulé qu'il devient inintelligible en l'absence ou hors de proportion avec toute éventuelle aphasie ou est mutique, anarthrique"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-060" displayName=" intubation, autre obstacle mécanique (expliquer)"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

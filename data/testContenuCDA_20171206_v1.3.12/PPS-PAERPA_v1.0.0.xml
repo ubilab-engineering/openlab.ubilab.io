@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="schematrons/CI-SIS_PPS.sch"?>
+   
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+
+	<!-- 
+      **********************************************************************************************************
+      Système : ASIP Santé
+      Document : Plan Personnalisé de Santé - PAERPA (PPS-PAERPA) - 1.2.250.1.213.1.1.1.20
+      Auteur : DAM
+      Date de création : 14/08/2014
+      Mise à jour : 07/03/2017
+      Version : 1.0.0 post concertation
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:   
+      Value sets PPS 1.2.250.1.213.1.1.4.324.1 à X
+      
+      **********************************************************************************************************
+   -->
+	<realmCode code="FR"/>
+	<!-- Référencement au standard CDAr2 -->
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<!-- Conformité spécifications HL7 France -->
+	<templateId root="2.16.840.1.113883.2.8.2.1"/>
+	<!-- Conformité spécifications CI-SIS -->
+	<templateId root="1.2.250.1.213.1.1.1.1"/>
+	<!-- Conformité au modèle de document PPS (ASIP Santé) -->
+	<templateId root="1.2.250.1.213.1.1.1.20"/>
+	<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+	<id extension="15078" root="1.2.3.4"/>
+	<!-- Type du document -->
+	<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+		displayName="Plan Personnalisé de Santé"/>
+	<title>PPS-PAERPA : Plan Personnalisé de Santé</title>
+	<effectiveTime value="20110301094914+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+		codeSystemName="Confidentiality" displayName="Normal"/>
+	<languageCode code="fr-FR"/>
+	<!--=<<o#%@O[ Identification du patient ]O@%#o>>=-->
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole>
+			<!-- INS-C du patient -->
+			<id extension="0411886319605719371016" root="1.2.250.1.213.1.4.2"/>
+			<addr>
+				<streetNameType>AV</streetNameType>
+				<streetName>de Breteuil</streetName>
+				<houseNumber>28</houseNumber>
+				<unitID>Escalier A</unitID>
+				<postalCode>75007</postalCode>
+				<city>PARIS</city>
+			</addr>
+			<telecom value="tel:0144534551" use="H"/>
+			<patient classCode="PSN">
+				<name>
+					<given>Marie</given>
+					<family qualifier="BR">DECOURCY</family>
+				</name>
+				<administrativeGenderCode code="F" displayName="Féminin"
+					codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19760531"/>
+				<birthplace>
+					<place>
+						<addr>
+							<postalCode>92100</postalCode>
+							<city>Boulogne-Billancourt</city>
+						</addr>
+					</place>
+				</birthplace>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<!--=<<o#%@O[ Auteur du document = réferent du PPS (souvent le médecin traitant) ]O@%#o>>=-->
+	<author>
+		<time value="20080929094914+0100"/>
+		<assignedAuthor>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Oncologie option médicale (SM)"/>
+			<addr>
+				<houseNumber>4</houseNumber>
+				<streetNameType>RUE</streetNameType>
+				<streetName>de Limoges</streetName>
+				<postalCode>49933</postalCode>
+				<city>Angers</city>
+			</addr>
+			<telecom value="tel:0242515151" use="WP"/>
+			<assignedPerson>
+				<name>
+					<given>Charles </given>
+					<family>Müller</family>
+					<prefix>Dr.</prefix>
+				</name>
+			</assignedPerson>
+			<representedOrganization>
+				<id root="1.2.250.1.71.4.2.2" extension="801234567897"
+					assigningAuthorityName="ASIP Santé"/>
+				<name>Cabinet du Dr.Müller</name>
+				<addr>
+					<streetNameType>RUE</streetNameType>
+					<streetName>de Limoges</streetName>
+					<houseNumber>4</houseNumber>
+					<postalCode>49933</postalCode>
+					<city>ANGERS</city>
+				</addr>
+				<standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé"
+					codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+
+	<!-- Référents amicaux -->
+	<informant>
+		<relatedEntity classCode="CON">
+			<code code="FRND" displayName="Ami">
+				<originalText>
+					<reference value="pps"/>
+				</originalText>
+			</code>
+			<addr>
+				<streetNameType>rue</streetNameType>
+				<streetName>de Paris</streetName>
+				<houseNumber>52</houseNumber>
+				<postalCode>49000</postalCode>
+				<city>ANGERS</city>
+			</addr>
+			<telecom value="tel:0242515181" use="WP"/>
+			<relatedPerson>
+				<name>
+					<family>Dupont</family>
+					<given>François</given>
+				</name>
+			</relatedPerson>
+		</relatedEntity>
+	</informant>
+
+	<!-- Référents familiaux -->
+	<informant>
+		<relatedEntity classCode="CON">
+			<code code="FAMMEMB" displayName="Membre de la famille">
+				<originalText>
+					<reference value="pps"/>
+				</originalText>
+			</code>
+			<addr>
+				<streetNameType>rue</streetNameType>
+				<streetName>de Paris</streetName>
+				<houseNumber>52</houseNumber>
+				<postalCode>49000</postalCode>
+				<city>ANGERS</city>
+			</addr>
+			<telecom value="tel:0242515181" use="WP"/>
+			<relatedPerson>
+				<name>
+					<family>Dupont</family>
+					<given>François</given>
+				</name>
+			</relatedPerson>
+		</relatedEntity>
+	</informant>
+
+	<!-- Personne de confiance -->
+	<informant>
+		<relatedEntity classCode="QUAL">
+			<code code="SON" displayName="Fils">
+				<originalText>Fils</originalText>
+			</code>
+			<addr>
+				<streetNameType>rue</streetNameType>
+				<streetName>de Paris</streetName>
+				<houseNumber>40</houseNumber>
+				<postalCode>49000</postalCode>
+				<city>ANGERS</city>
+			</addr>
+			<telecom value="tel:0242515151" use="WP"/>
+			<relatedPerson>
+				<name>
+					<family>Martin</family>
+					<given>François</given>
+				</name>
+			</relatedPerson>
+		</relatedEntity>
+	</informant>
+
+
+	<!-- Contacts utiles : pharmacien ne participant pas à l'élaboration du PPS -->
+	<informant>
+		<assignedEntity classCode="ASSIGNED">
+			<id root="1.2.250.1.71.4.2.1" extension="787987897987"/>
+			<addr nullFlavor="NASK"/>
+			<telecom value="mailto:jean.martin@pharmacien-xxxx.fr"/>
+			<telecom value="tel:02784400"/>
+			<assignedPerson>
+				<name>
+					<family>Martin</family>
+					<given>Jean</given>
+					<prefix>Docteur</prefix>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</informant>
+
+
+	<!--=<<o#%@O[ Organisation de santé responsable du document ]O@%#o>>=-->
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id root="1.2.250.1.71.4.2.2" extension="1120456789"
+					assigningAuthorityName="ASIP Santé"/>
+				<name>Centre de Coordination en Cancérologie d'Angers</name>
+				<telecom value="tel:0442515151" use="WP"/>
+				<addr>
+					<streetNameType>PL</streetNameType>
+					<streetName>du Ralliement</streetName>
+					<houseNumber>12</houseNumber>
+					<postalCode>49933</postalCode>
+					<city>ANGERS</city>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+	<!--=<<o#%@O[ Professionnel de santé : médecin traitant ]O@%#o>>=-->
+	<legalAuthenticator>
+		<time value="20080929094914+0100"/>
+		<signatureCode code="S"/>
+		<assignedEntity>
+			<!-- PS identifié par son N°RPPS -->
+			<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+				displayName="Médecin - Oncologie option médicale (SM)"/>
+			<addr>
+				<streetNameType>RUE</streetNameType>
+				<streetName>de Limoges</streetName>
+				<houseNumber>4</houseNumber>
+				<postalCode>49933</postalCode>
+				<city>ANGERS</city>
+			</addr>
+			<telecom value="tel:0242515151" use="WP"/>
+			<assignedPerson>
+				<name>
+					<given>Charles </given>
+					<family>Müller</family>
+					<prefix>Dr.</prefix>
+				</name>
+			</assignedPerson>
+			<representedOrganization>
+				<id root="1.2.250.1.71.4.2.2" extension="801234567897"
+					assigningAuthorityName="ASIP Santé"/>
+				<name>Cabinet du Dr.Müller</name>
+				<addr>
+					<streetNameType>RUE</streetNameType>
+					<streetName>de Limoges</streetName>
+					<houseNumber>4</houseNumber>
+					<postalCode>49933</postalCode>
+					<city>ANGERS</city>
+				</addr>
+				<standardIndustryClassCode code="ETABLISSEMENT" displayName="Établissement de santé"
+					codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+			</representedOrganization>
+		</assignedEntity>
+	</legalAuthenticator>
+
+	<!--=<<o#%@O[ Correspondants Médicaux ]O@%#o>>=-->
+	<!-- Médecin traitant -->
+	<participant typeCode="INF">
+		<functionCode code="PCP" displayName="Médecin traitant" codeSystem="2.16.840.1.113883.5.88"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="124789224582101"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM26" displayName="Médecin - Qualifié en Médecine Générale (SM)"
+				codeSystem="1.2.250.1.213.1.1.4.5"/>
+			<scopingOrganization>
+				<name>Clinique Médicale du Mail</name>
+				<telecom value="tel:0442515151" use="WP"/>
+				<addr>
+					<streetNameType>RUE</streetNameType>
+					<streetName>du Mail</streetName>
+					<houseNumber>4</houseNumber>
+					<postalCode>49933</postalCode>
+					<city>ANGERS</city>
+				</addr>
+				<standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+					codeSystem="1.2.250.1.213.1.1.4.9"/>
+			</scopingOrganization>
+		</associatedEntity>
+	</participant>
+
+
+	<!-- Contacts utiles: Autres PS: Infirmier -->
+	<participant typeCode="REFT">
+		<time value="20080929094914+0100"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="124789224582101"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_60" displayName="Infirmier" codeSystem="1.2.250.1.213.1.1.4.5"/>
+			<addr>
+				<streetNameType>avenue</streetNameType>
+				<streetName>Georges Clemenceau</streetName>
+				<houseNumber>3</houseNumber>
+				<postalCode>40000</postalCode>
+				<city>MONT DE MARSAN</city>
+			</addr>
+			<telecom value="tel:0556537597" use="WP"/>
+			<associatedPerson>
+				<name>
+					<given>Isabelle</given>
+					<family>LEFRANC</family>
+					<prefix>Mme</prefix>
+				</name>
+			</associatedPerson>
+			<scopingOrganization>
+				<id/>
+				<name>Cabinet d’infirmières du Sud</name>
+				<telecom value="tel:0556537597" use="WP"/>
+				<addr>
+					<streetNameType>avenue</streetNameType>
+					<streetName>Georges Clemenceau</streetName>
+					<houseNumber>3</houseNumber>
+					<postalCode>40000</postalCode>
+					<city>MONT DE MARSAN</city>
+				</addr>
+				<standardIndustryClassCode code="AMBULATOIRE" displayName="Ambulatoire"
+					codeSystem="1.2.250.1.213.1.1.4.9"/>
+			</scopingOrganization>
+		</associatedEntity>
+	</participant>
+
+	<!-- Correspondant -->
+	<participant typeCode="CON">
+		<functionCode code="CORRE" displayName="Médecin correspondant"
+			codeSystem="2.16.840.1.113883.5.88"/>
+		<associatedEntity classCode="PROV">
+			<id root="1.2.250.1.71.4.2.1" extension="124789224458877"
+				assigningAuthorityName="ASIP Santé"/>
+			<code code="G15_10/SM21" displayName="Médecin - Hématologie (SM)"
+				codeSystem="1.2.250.1.213.1.1.4.5"/>
+			<scopingOrganization>
+				<name>Clinique Médicale du Mail</name>
+				<telecom value="tel:0442515151" use="WP"/>
+				<addr>
+					<streetNameType>RUE</streetNameType>
+					<streetName>du Mail</streetName>
+					<houseNumber>4</houseNumber>
+					<postalCode>49933</postalCode>
+					<city>ANGERS</city>
+				</addr>
+				<standardIndustryClassCode code="ETABLISSEMENT" displayName="Etablissement de santé"
+					codeSystem="1.2.250.1.213.1.1.4.9"/>
+			</scopingOrganization>
+		</associatedEntity>
+	</participant>
+
+
+
+	<!-- Contacts utiles : centre médicopsychologique participant à l'élaboration du PPS -->
+	<participant typeCode="AUTHEN">
+		<associatedEntity classCode="ASSIGNED">
+			<id root="1.2.250.1.71.4.2.1" extension="787987897987"/>
+			<scopingOrganization>
+				<name>CMP d'Angers</name>
+				<telecom value="mailto:contact@cmpangers.fr"/>
+			</scopingOrganization>
+		</associatedEntity>
+	</participant>
+
+	<!--=<<o#%@O[ Informations sur le document réalisé: le PPS ]O@%#o>>=-->
+	<documentationOf>
+		<serviceEvent classCode="ACT">
+			<code code="PPS_018" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"
+				displayName="Plan Personnalisé de Santé (PPS)"/>
+			<!-- Date de la création du document -->
+			<effectiveTime>
+				<low value="20100329"/>
+			</effectiveTime>
+			<!-- La personne ayant réalisé l'acte principal du document : le référent -->
+			<performer typeCode="PRF">
+				<templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+				<time>
+					<high value="20100104152530+0100"/>
+				</time>
+				<assignedEntity>
+					<!-- PS identifié par son N°RPPS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5"
+						codeSystemName="RPPS" displayName="Médecin - Oncologie option médicale (SM)"/>
+					<addr>
+						<streetNameType>RUE</streetNameType>
+						<streetName>du Mail</streetName>
+						<houseNumber>4</houseNumber>
+						<postalCode>49933</postalCode>
+						<city>ANGERS</city>
+					</addr>
+					<telecom value="tel:0242515151" use="WP"/>
+					<assignedPerson>
+						<name>
+							<given>Charles </given>
+							<family>Müller</family>
+							<prefix>Dr.</prefix>
+						</name>
+					</assignedPerson>
+					<representedOrganization>
+						<id root="1.2.250.1.71.4.2.2" extension="801234567897"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>Cabinet du Dr.Müller</name>
+						<addr>
+							<streetNameType>RUE</streetNameType>
+							<streetName>de Limoges</streetName>
+							<houseNumber>4</houseNumber>
+							<postalCode>49933</postalCode>
+							<city>ANGERS</city>
+						</addr>
+						<standardIndustryClassCode code="ETABLISSEMENT"
+							displayName="Établissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+							codeSystemName="practiceSettingCode"/>
+					</representedOrganization>
+				</assignedEntity>
+			</performer>
+		</serviceEvent>
+	</documentationOf>
+
+	<!--=<<o#%@O[ Contexte organisationnel du PPS ]O@%#o>>=-->
+	<componentOf>
+		<encompassingEncounter>
+			<!-- Type de la rencontre -->
+			<code code="VR" displayName="Virtuelle" codeSystem="2.16.840.1.113883.5.4"/>
+			<!-- Date de la réunion du PPS -->
+			<effectiveTime>
+				<low value="20080929"/>
+			</effectiveTime>
+			<!-- Référent du PPS -->
+			<responsibleParty>
+				<assignedEntity classCode="ASSIGNED">
+					<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<code code="G15_10/SM36" codeSystem="1.2.250.1.213.1.1.4.5"
+						codeSystemName="RPPS" displayName="Médecin - Oncologie option médicale (SM)"/>
+					<addr>
+						<streetNameType>RUE</streetNameType>
+						<streetName>du Mail</streetName>
+						<houseNumber>4</houseNumber>
+						<postalCode>49933</postalCode>
+						<city>ANGERS</city>
+					</addr>
+					<telecom value="tel:0242515151" use="WP"/>
+					<assignedPerson>
+						<name>
+							<given>Charles </given>
+							<family>Müller</family>
+							<prefix>Dr.</prefix>
+						</name>
+					</assignedPerson>
+				</assignedEntity>
+			</responsibleParty>
+			<!-- Lieu de prise en charge  -->
+			<location typeCode="LOC">
+				<healthCareFacility>
+					<code code="SA51" codeSystem="1.2.250.1.71.4.2.4" displayName="Réseau de santé"
+					/>
+				</healthCareFacility>
+			</location>
+		</encompassingEncounter>
+	</componentOf>
+	<!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+	<component>
+		<structuredBody>
+			<component>
+				<!-- Dispositions médico-sociales - section spécifique -->
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.44"/>
+					<id root="a6617910-3abf-4b30-aaC5-d58dd3a75479"/>
+					<code code="34841-7" displayName="Dispositions médico-sociales"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Dispositions médico-sociales</title>
+					<text>
+						<table>
+							<tbody>
+								<tr>
+									<th colspan="3">La personne et ses contacts utiles</th>
+								</tr>
+								<tr>
+									<td>ALD</td>
+									<td>Oui</td>
+									<td>Nombre d'ALD: 3 </td>
+								</tr>
+								<tr>
+									<th colspan="3">Informations sur la personne</th>
+								</tr>
+								<tr>
+									<td>Caisse de retraite</td>
+									<td>Pension</td>
+									<td>
+										<content ID="cretraite1">Caisse de retraite
+											d'Angers</content>
+									</td>
+								</tr>
+								<tr>
+									<td>Mutuelle</td>
+									<td>Oui</td>
+									<td>
+										<content ID="mutuelle1">Mutuelle dd'Angers</content>
+									</td>
+								</tr>
+								<tr>
+									<td>Recherche d'hébergement en cours</td>
+									<td>Non</td>
+									<td/>
+								</tr>
+								<tr>
+									<td>Aide aux Personnes Âgées (APA)</td>
+									<td>Oui</td>
+									<td>Classe GIR: 2</td>
+								</tr>
+								<tr>
+									<td>Directives anticipées</td>
+									<td>Non</td>
+									<td/>
+								</tr>
+								<tr>
+									<th colspan="3">La personne</th>
+								</tr>
+								<tr>
+									<td>Préférences de la personne</td>
+									<td colspan="2"><content ID="pref">Aucune</content></td>
+								</tr>
+								<tr>
+									<td>Priorité actuelle de la personne</td>
+									<td colspan="2"><content ID="priorite">Aucune</content></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!-- Affections de Longue Durée -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="11450-4" displayName="Affections de Longue Durée (ALD)"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="UNK"/>
+							<value xsi:type="BL" value="true"/>
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<!-- PCC Simple Observation template Id -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="f4ba4e58-a270-47b9-b270-26003761cra5"/>
+									<code code="11450-4"
+										displayName="Affections de Longue Durée (ALD)"
+										codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="UNK"/>
+									<value xsi:type="INT" value="3"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!-- Caisse de retraite -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="PPS_013" displayName="Caisse de retraite"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="UNK"/>
+							<value xsi:type="CD" nullFlavor="NAV">
+								<originalText>
+									<reference value="#cretraite1"/>
+								</originalText>
+							</value>
+							<!-- 0..3 - pension, pension de reversion, ASPA -->
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<!-- PCC Simple Observation template Id -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="f4ba4e58-a270-47b9-b270-26003761cea6"/>
+									<code code="PPS_015" displayName="Pension"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NA"/>
+									<value xsi:type="BL" value="true"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!-- Mutuelle -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="PPS_14" displayName="Mutuelle"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<!-- PCC Simple Observation template Id -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="f4ba4e58-a270-47b9-b270-26003761cea6"/>
+									<code code="PPS_14" displayName="Mutuelle"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NA"/>
+									<value xsi:type="CD" nullFlavor="NAV">
+										<originalText>
+											<reference value="#mutuelle1"/>
+										</originalText>
+									</value>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!-- Recherche d'hébergement en cours -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="PPS_19" displayName="Recherche d'hébergement en cours"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<text/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="UNK"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+
+					<entry>
+						<!-- APA - Aide aux Personnes Âgées -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="PPS_20" displayName="Aide aux Personnes Âgées (APA)"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<text/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="UNK"/>
+							<value xsi:type="BL" value="true"/>
+							<!-- Classe GIR -->
+							<entryRelationship typeCode="SUBJ">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<!-- PCC Simple Observation template Id -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+									<id root="f4ba4e58-a270-47b9-b270-26003761cea6"/>
+									<code code="PPS_21" displayName="Aide aux Personnes Âgées (APA)"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="UNK"/>
+									<value xsi:type="INT" value="2"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!-- Directives anticipées -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="42348-3" displayName="Directives anticipées"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<text/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="UNK"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+					<entry>
+						<!-- Préférences de la personne -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="PPS_022" displayName="Préférences de la personne"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="UNK"/>
+							<value xsi:type="CD" nullFlavor="NAV">
+								<originalText>
+									<reference value="#pref"/>
+								</originalText>
+							</value>
+						</observation>
+					</entry>
+					<entry>
+						<!-- Priorité actuelle de la personne -->
+						<observation classCode="OBS" moodCode="EVN" negationInd="false">
+							<!-- PCC Simple Observation template Id -->
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+							<code code="PPS_023" displayName="Priorité actuelle de la personne"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="UNK"/>
+							<value xsi:type="CD" nullFlavor="NAV">
+								<originalText>
+									<reference value="#priorite"/>
+								</originalText>
+							</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+
+			<component>
+				<!-- Contacts utiles, accès aux informations PPS - Coded Advance Directives Section 1.3.6.1.4.1.19376.1.5.3.1.3.35 -->
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.34"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.35"/>
+					<id root="a6617910-3abf-4b30-aaC5-d58dd3a75479"/>
+					<code code="42348-3" displayName="Accès aux informations"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Contacts utiles, accès aux informations</title>
+					<text>
+						<table>
+							<tbody>
+								<tr>
+									<th>Catégorie professionnelle</th>
+									<th>Nom / Prénom</th>
+									<th>Accès aux informations</th>
+									<th>Téléphone</th>
+									<th>Mail</th>
+								</tr>
+								<tr>
+									<td>Pharmacien</td>
+									<td>Jean Martin</td>
+									<td>Oui</td>
+									<td>02.78.44.00.00</td>
+									<td>jean.martin@pharmacien-xxxx.fr</td>
+								</tr>
+								<tr>
+									<td>Infirmier</td>
+									<td>Jean Dupont</td>
+									<td>Oui</td>
+									<td>03.78.44.00.00</td>
+									<td>jean.dupont@infimier-xxxx.fr</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- Une entrée par contact -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<templateId root="2.16.840.1.113883.10.20.1.17"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7"/>
+							<id nullFlavor="NA"/>
+							<code code="PPS_025"
+								displayName="Accès aux informations des contacts utiles"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<informant>
+								<assignedEntity classCode="ASSIGNED">
+									<id root="1.2.250.1.71.4.2.1" extension="787987897987"/>
+									<telecom value="mailto:jean.martin@pharmacien-xxxx.fr"/>
+									<telecom value="tel:02.78.44.00.00"/>
+									<assignedPerson>
+										<name>
+											<family>Martin</family>
+											<given>Jean</given>
+											<prefix>Docteur</prefix>
+										</name>
+									</assignedPerson>
+								</assignedEntity>
+							</informant>
+						</observation>
+					</entry>
+					<!-- Une entrée par contact -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<templateId root="2.16.840.1.113883.10.20.1.17"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.7"/>
+							<id root="a6617910-3abf-4b30-aaC5-d58dd3a75379"/>
+							<code code="PPS_025" displayName="Accès aux informations"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+							<informant>
+								<assignedEntity classCode="ASSIGNED">
+									<id root="1.2.250.1.71.4.2.1" extension="787987897987"/>
+									<telecom value="mailto:jean.dupont@infirmier-xxxx.fr"/>
+									<telecom value="tel:03.78.44.00.00"/>
+									<assignedPerson>
+										<name>
+											<family>Dupont</family>
+											<given>Jean</given>
+										</name>
+									</assignedPerson>
+								</assignedEntity>
+							</informant>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+			<component>
+				<!-- Consentement à l'échange d'information -  Section Patient Education and Consents 1.3.6.1.4.1.19376.1.5.3.1.1.9.39 -->
+				<section>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.38"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.39"/>
+					<id root="7E359CA6-5689-49E1-B453-3B16E8F1AB41"/>
+					<code code="34895-3" displayName="Note d éducation"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Consentement à l’échange d’informations contenues dans le PPS </title>
+					<text>consentement à l’échange d’informations contenues dans le PPS : Oui</text>
+					<!-- Procédure documentée : échange d'information -->
+					<entry>
+						<procedure classCode="PROC" moodCode="INT">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="01D4EA1E-95E8-4FE4-ABF1-1DB97DCE085C"/>
+							<code code="IDAP_10" displayName="Don d'Organe" codeSystemName="TA_IDAP"
+								codeSystem="1.2.250.1.213.1.1.4.2.285"/>
+							<statusCode code="active"/>
+							<effectiveTime/>
+						</procedure>
+					</entry>
+					<!-- Consentement à l'échange (prise de connaissance) -->
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id root="A0D8D588-A0A9-4B9F-A9B8-FFA6F9C02F2E"/>
+							<code code="IDAP_11"
+								displayName="Prise de connaissance de l'information"
+								codeSystemName="TA_IDAP" codeSystem="1.2.250.1.213.1.1.4.2.285"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="BL" value="true"/>
+						</observation>
+					</entry>
+					<!-- Référence externe -->
+				</section>
+			</component>
+
+
+
+
+			<!-- Plan de soins - section Active Problem (liste des problèmes actifs) -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.11"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+					<id root="a6617910-3abf-4b30-aaC5-d58dd3a75479"/>
+					<code code="11450-4" displayName="Liste des problèmes actifs"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Plan de soins</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Num</th>
+									<th>Date de l'observation</th>
+									<th>Problèmes classés par priorité</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>2/12/2009</td>
+									<td>
+										<content ID="PPS_005">PPS_005: Problème de
+											mobilité</content>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- 1..1 Problem Concern Entry (problème) -->
+					<entry>
+						<act classCode="ACT" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.1.27"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+							<id root="BC632FDC-0919-46C8-9FCF-E12F8CD3C49C"/>
+							<code nullFlavor="NA"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NAV"/>
+							<!-- Problem Entry (problèmes classés par priorité) -->
+							<entryRelationship typeCode="SUBJ" inversionInd="false">
+								<observation classCode="OBS" moodCode="EVN" negationInd="false">
+									<templateId root="2.16.840.1.113883.10.20.1.28"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+									<!-- uid référencé par l’entrée « Internal References » -->
+									<id root="9c2b5ddb-bfb2-4207-97cd-dc5a3c91df3f"/>
+									<code code="F-01000" displayName="Problème"
+										codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20091202"/>
+										<high nullFlavor="NAV"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="PPS_005"
+										displayName="Problème de mobilité"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+								</observation>
+							</entryRelationship>
+
+						</act>
+					</entry>
+				</section>
+			</component>
+
+			<!-- Plan de soins - section Coded Care Plan -->
+			<component>
+				<section>
+					<templateId root="2.16.840.1.113883.10.20.1.10"/>
+					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.31"/>
+					<id root="41FEABE2-D1D7-4390-8CD5-F5BC78E07B7D"/>
+					<code code="18776-5" displayName="Plan de Soins"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title/>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Num</th>
+									<th>Objectifs partagés</th>
+									<th>Libellé des actions dont ETP</th>
+									<th>Intervenants</th>
+									<th>Critères d'atteinte des résultats</th>
+									<th>Bilan d'étape (avec date)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>
+										<content ID="objpart01">Objectifs 1, 2, 3</content>
+									</td>
+									<td>
+										<content ID="actions01">Actions 1, 2, 3</content>
+									</td>
+									<td>Intervenants 1, 2, 3</td>
+									<td>Critères 1, 2, 3</td>
+									<td>
+										<content ID="biletap01">Bilan 1, 2, 3</content>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- Entrée de type Observation Request [1..*] -->
+					<entry>
+						<observation classCode="OBS" moodCode="GOL">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+							<templateId root="2.16.840.1.113883.10.20.1.25"/>
+							<id root="6a486a7a-5f4b-46c4-8bb6-e342f59d4a53"/>
+							<code code="PPS_005" displayName="Problème de mobilité"
+								codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+							<statusCode code="active"/>
+							<effectiveTime nullFlavor="NA"/>
+							<value xsi:type="CD" nullFlavor="NAV">
+								<originalText>
+									<reference value="#objpart01"/>
+								</originalText>
+							</value>
+							<!-- Procedure (plan de soins / plan d'aide) [1..1] -->
+							<entryRelationship typeCode="SUBJ">
+								<procedure classCode="PROC" moodCode="EVN" negationInd="false">
+									<templateId root="2.16.840.1.113883.10.20.1.29"/>
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+									<id root="194AE3B0-FA7D-49D6-8C90-86139E9AF5BE"/>
+									<code code="PPS_01" displayName="Prise en charge médicale"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+									<statusCode code="active"/>
+									<effectiveTime nullFlavor="NAV"/>
+								</procedure>
+							</entryRelationship>
+							<!-- Référence interne à "Problem Entry" : "internal reference" [1..1] -->
+							<entryRelationship typeCode="REFR" inversionInd="false">
+								<act classCode="ACT" moodCode="EVN">
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1"/>
+									<!-- Référence interne à "Problem Entry" -->
+									<id root="9c2b5ddb-bfb2-4207-97cd-dc5a3c91df3f"/>
+									<code code="PPS_005" displayName="Problème de mobilité"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+								</act>
+							</entryRelationship>
+							<!-- Libéllé des actions [0..*] -->
+							<entryRelationship typeCode="SPRT">
+								<observation classCode="OBS" moodCode="GOL">
+									<code code="PPS_026" displayName="Actions dont ETP"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+									<effectiveTime nullFlavor="NA"/>
+									<value xsi:type="CD" nullFlavor="NAV">
+										<originalText>
+											<reference value="#actions01"/>
+										</originalText>
+									</value>
+								</observation>
+							</entryRelationship>
+							<!-- Bilan d'étape [0..*] -->
+							<entryRelationship typeCode="GEVL">
+								<observation classCode="OBS" moodCode="EVN">
+									<code code="PPS_012" displayName="Bilan d'étape"
+										codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA"/>
+									<effectiveTime value="20140814"/>
+									<value xsi:type="CD" nullFlavor="NAV">
+										<originalText>
+											<reference value="#biletap01"/>
+										</originalText>
+									</value>
+									<precondition>
+										<criterion>
+											<text>Critère d'atteinte #1, Critère d'atteinte #2,
+												Critère d'atteinte #3</text>
+										</criterion>
+									</precondition>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+
+			<!--=<<o#%@O[ Statut du document en cours / validé ]O@%#o>>=-->
+			<component>
+				<section>
+					<templateId root="1.2.250.1.213.1.1.2.35"/>
+					<id root="a6c982f6-acae-4cdc-a901-c400ab8972e6"/>
+					<code code="33557-0" displayName="Niveau de complétion"
+						codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Statut du Document</title>
+					<text>Statut du document : validé</text>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+							<id/>
+							<code code="CDA_001" displayName="Statut du document"
+								codeSystem="1.2.250.1.213.1.1.4.2.286" codeSystemName="TA_CDA"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20110314"/>
+							<value xsi:type="CD" code="CDA_002" displayName="En cours"
+								codeSystem="1.2.250.1.213.1.1.4.2.286" codeSystemName="TA_CDA"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

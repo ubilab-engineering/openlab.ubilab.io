@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.18" displayName="AVC_hemisphereLobaire">
+        <ConceptList>
+            <Concept code="T-A2200" displayName="lobe frontal" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-A2300" displayName="lobe pariétal" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-A2400" displayName="lobe occipital" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-A2500" displayName="lobe temporal" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="AVC-134" displayName="Carrefour" codeSystem="1.2.250.1.213.1.1.4.321"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

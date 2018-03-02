@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.254" displayName="CSE_causeAccidentDom" version="20120306">
+        <ConceptList>
+            <Concept code="T50" displayName="Intoxication" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10"/> 
+            <Concept code="T30" displayName="Brûlures" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10"/>
+            <Concept code="A-A1800" displayName="Chutes/traumatisme" codeSystem="1.2.250.1.213.2.12"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

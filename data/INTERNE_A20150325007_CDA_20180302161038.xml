@@ -1,0 +1,2279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="#"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="urn:asip-sante:ci-sis" xmlns:c="urn:hl7-org:v3" xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xad="http://uri.etsi.org/01903/v1.2.2#">
+	<data:Contenu>
+		<c:ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<c:realmCode code="FR"/>
+			<c:typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+			<c:templateId root="2.16.840.1.113883.2.8.2.1"/>
+			<c:templateId root="1.2.250.1.213.1.1.1.1"/>
+			<c:templateId root="1.3.6.1.4.1.19376.1.3.3"/>
+			<c:id root="1.2.250.1.312.9000.1" extension="29637.2"/>
+			<c:code code="11502-2" codeSystem="2.16.840.1.113883.6.1" displayName="CR d'examens biologiques" codeSystemName="LOINC"/>
+			<c:title>Compte-rendu d'examens biologiques - Demande A20150325007</c:title>
+			<c:effectiveTime value="20180302161037+0100"/>
+			<c:confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"/>
+			<c:languageCode code="fr-FR"/>
+			<c:setId root="1.2.250.1.312.9000.1" extension="29637"/>
+			<c:versionNumber value="2"/>
+			<c:recordTarget>
+				<c:patientRole>
+					<c:id root="1.2.250.1.213.1.4.2" extension="1331953144463791197363"/>
+					<c:id root="1.2.250.1.312.9000.2" extension="87086"/>
+					<c:addr>
+						<c:streetAddressLine>67200 </c:streetAddressLine>
+					</c:addr>
+					<c:telecom value="tel:+33679512970" use="MC"/>
+					<c:patient>
+						<c:name>
+							<c:given>Philippe</c:given>
+							<c:family qualifier="SP">FAMILLEDEUX</c:family>
+							<c:prefix>M.</c:prefix>
+						</c:name>
+						<c:administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" displayName="Masculin"/>
+						<c:birthTime value="19661901"/>
+						<c:birthplace>
+							<c:place/>
+						</c:birthplace>
+					</c:patient>
+				</c:patientRole>
+			</c:recordTarget>
+			<c:author>
+				<c:functionCode code="ASPEC" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Autre spécialiste">
+					<c:originalText>Biologiste</c:originalText>
+				</c:functionCode>
+				<c:time value="20150325121715+0100"/>
+				<c:assignedAuthor>
+					<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+					<c:code code="DISPOSITIF" codeSystem="1.2.250.1.213.1.1.4.6" displayName="Dispositif médical"/>
+					<c:assignedPerson>
+						<c:name>
+							<c:given>PETRO AL</c:given>
+							<c:family>CHIMIE</c:family>
+						</c:name>
+					</c:assignedPerson>
+					<c:representedOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+						<c:name>Laboratoire Biologie Médicale</c:name>
+						<c:telecom value="tel:+33368461628" use="PUB"/>
+						<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+						<c:telecom value="fax:+33368461628" use="PUB"/>
+						<c:addr>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+						</c:addr>
+						<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+					</c:representedOrganization>
+				</c:assignedAuthor>
+			</c:author>
+			<c:custodian>
+				<c:assignedCustodian>
+					<c:representedCustodianOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+						<c:name>Laboratoire Biologie Médicale</c:name>
+						<c:telecom value="tel:+33368461628" use="PUB"/>
+						<c:addr>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+						</c:addr>
+					</c:representedCustodianOrganization>
+				</c:assignedCustodian>
+			</c:custodian>
+			<c:legalAuthenticator>
+				<c:time value="20150325121715+0100"/>
+				<c:signatureCode code="S"/>
+				<c:assignedEntity>
+					<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+					<c:assignedPerson>
+						<c:name>
+							<c:given>AL</c:given>
+							<c:family>CHIMIE PETRO</c:family>
+						</c:name>
+					</c:assignedPerson>
+					<c:representedOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+						<c:name>Laboratoire Biologie Médicale</c:name>
+						<c:telecom value="tel:+33368461628" use="PUB"/>
+						<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+						<c:telecom value="fax:+33368461628" use="PUB"/>
+						<c:addr>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+						</c:addr>
+						<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+					</c:representedOrganization>
+				</c:assignedEntity>
+			</c:legalAuthenticator>
+			<c:authenticator>
+				<c:templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
+				<c:time value="20150325121715+0100"/>
+				<c:signatureCode code="S"/>
+				<c:assignedEntity>
+					<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+					<c:assignedPerson>
+						<c:name>
+							<c:given>PETRO AL</c:given>
+							<c:family>CHIMIE</c:family>
+						</c:name>
+					</c:assignedPerson>
+					<c:representedOrganization>
+						<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+						<c:name>Laboratoire Biologie Médicale</c:name>
+						<c:telecom value="tel:+33368461628" use="PUB"/>
+						<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+						<c:telecom value="fax:+33368461628" use="PUB"/>
+						<c:addr>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+							<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+						</c:addr>
+						<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+					</c:representedOrganization>
+				</c:assignedEntity>
+			</c:authenticator>
+			<c:participant typeCode="REF">
+				<c:functionCode code="CORRE" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Médecin"/>
+				<c:time>
+					<c:high value="20150325"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0789243888"/>
+					<c:code code="G15_10/SM01" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Anatomie et cytologie pathologiques (SM)"/>
+					<c:telecom value="tel:+33679512970" use="PUB"/>
+					<c:telecom value="tel:+33679512970" use="MC"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>ARDANSé</c:family>
+							<c:given>YVES</c:given>
+							<c:prefix>Dr</c:prefix>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="REFB">
+				<c:functionCode code="CORRE" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Correspondant"/>
+				<c:time/>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="849398439494"/>
+					<c:code code="G15_21" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Pharmacien"/>
+					<c:telecom value="tel:+33679512970" use="MC"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>Corresptest</c:family>
+							<c:given nullFlavor="UNK"/>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+				<c:time>
+					<c:high value="201503250000+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0359843596"/>
+					<c:code code="G15_60" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Infirmier"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>BREMAUD</c:family>
+							<c:given>Marc</c:given>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+				<c:time>
+					<c:high value="201503250000+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0359843596"/>
+					<c:code code="G15_60" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Infirmier"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>BREMAUD</c:family>
+							<c:given>Marc</c:given>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+				<c:time>
+					<c:high value="201503250000+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0359843596"/>
+					<c:code code="G15_60" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Infirmier"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>BREMAUD</c:family>
+							<c:given>Marc</c:given>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+				<c:time>
+					<c:high value="201503250000+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0359843596"/>
+					<c:code code="G15_60" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Infirmier"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>BREMAUD</c:family>
+							<c:given>Marc</c:given>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+				<c:time>
+					<c:high value="201503250000+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0123876450"/>
+					<c:code code="G15_10/SM03" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Biologie médicale (SM)"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>LARGET-PIET</c:family>
+							<c:given>Anne-Elisabeth</c:given>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+				<c:time>
+					<c:high value="201503250000+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0123876450"/>
+					<c:code code="G15_10/SM03" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Biologie médicale (SM)"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>LARGET-PIET</c:family>
+							<c:given>Anne-Elisabeth</c:given>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:participant typeCode="DIST">
+				<c:functionCode code="PRELV" codeSystem="1.2.250.1.213.1.1.4.2.280" displayName="Préleveur"/>
+				<c:time>
+					<c:high value="201503250000+0100"/>
+				</c:time>
+				<c:associatedEntity classCode="PROV">
+					<c:id root="1.2.250.1.71.4.2.1" extension="0123876450"/>
+					<c:code code="G15_10/SM03" codeSystem="1.2.250.1.213.1.1.4.5" displayName="Médecin - Biologie médicale (SM)"/>
+					<c:associatedPerson>
+						<c:name>
+							<c:family>LARGET-PIET</c:family>
+							<c:given>Anne-Elisabeth</c:given>
+							<c:prefix nullFlavor="UNK"/>
+						</c:name>
+					</c:associatedPerson>
+				</c:associatedEntity>
+			</c:participant>
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:id root="1.2.250.1.213.1.1.9" extension="A20150325007"/>
+					<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+					<c:effectiveTime>
+						<c:low value="20150325121151+0100"/>
+						<c:high value="20150325121715+0100"/>
+					</c:effectiveTime>
+					<c:performer typeCode="PRF">
+						<c:templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+						<c:time>
+							<c:low value="20150325121100+0100"/>
+							<c:high value="20150325121715+0100"/>
+						</c:time>
+						<c:assignedEntity>
+							<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+							<c:addr>
+								<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+								<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+								<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+							</c:addr>
+							<c:telecom value="tel:+33368461628" use="PUB"/>
+							<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+							<c:telecom value="fax:+33368461628" use="PUB"/>
+							<c:assignedPerson>
+								<c:name nullFlavor="MSK"/>
+							</c:assignedPerson>
+							<c:representedOrganization>
+								<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+								<c:name>Laboratoire Biologie Médicale</c:name>
+								<c:telecom value="tel:+33368461628" use="PUB"/>
+								<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+								<c:telecom value="fax:+33368461628" use="PUB"/>
+								<c:addr>
+									<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+									<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+									<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+								</c:addr>
+								<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+							</c:representedOrganization>
+						</c:assignedEntity>
+					</c:performer>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:code code="18719-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biochimie"/>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<c:documentationOf>
+				<c:serviceEvent>
+					<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+				</c:serviceEvent>
+			</c:documentationOf>
+			<c:relatedDocument typeCode="RPLC">
+				<c:parentDocument>
+					<c:id root="1.2.250.1.312.9000.1.29637.2"/>
+				</c:parentDocument>
+			</c:relatedDocument>
+			<c:componentOf>
+				<c:encompassingEncounter>
+					<c:code code="AMB" codeSystem="2.16.840.1.113883.5.4" displayName="Ambulatoire"/>
+					<c:effectiveTime>
+						<c:low value="20150325121100+0100"/>
+						<c:high value="20150325121715+0100"/>
+					</c:effectiveTime>
+					<c:location>
+						<c:healthCareFacility>
+							<c:code code="SA25" codeSystem="1.2.250.1.71.4.2.4" displayName="Laboratoire de Biologie Médicale"/>
+							<c:location>
+								<c:name>Laboratoire Biologie Médicale</c:name>
+								<c:addr>
+									<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+									<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+									<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+								</c:addr>
+							</c:location>
+						</c:healthCareFacility>
+					</c:location>
+				</c:encompassingEncounter>
+			</c:componentOf>
+			<c:component>
+				<c:structuredBody>
+					<c:component>
+						<c:section>
+							<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+							<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+							<c:title>Biologie</c:title>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:text>
+										<c:paragraph styleCode="top">
+											<c:br/>Le 25-03-2015 par Marc BREMAUD - Prélèvement par ponction veineuse directe (biologiste/infirmière)</c:paragraph>
+										<c:table>
+											<c:thead>
+												<c:tr>
+													<c:th/>
+													<c:th>Résultats</c:th>
+													<c:th>Références</c:th>
+													<c:th colspan="5">Antécédents</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:table>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td styleCode="Bold"/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td align="left" styleCode="BG_8 FG_1">Chlore</c:td>
+													<c:td>102 mmol/L</c:td>
+													<c:td>(101-109)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td/>
+													<c:td styleCode="SmallFont">102 mEql/L</c:td>
+													<c:td styleCode="SmallFont">(101-109)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<c:time value="20150325121715+0100"/>
+												<c:participantRole>
+													<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+													<c:playingEntity>
+														<c:name>
+															<c:given>AL</c:given>
+															<c:family>CHIMIE PETRO</c:family>
+														</c:name>
+													</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:procedure classCode="PROC" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+													<c:code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Prélèvement par ponction veineuse directe (biologiste/infirmière)" codeSystemName="NABM"/>
+													<c:effectiveTime>
+														<c:high value="20150325000000+0100"/>
+													</c:effectiveTime>
+													<c:performer>
+														<c:assignedEntity>
+															<c:id root="1.2.250.1.71.4.2.1" extension="95"/>
+															<c:telecom value="tel:+33954950000" use="PUB"/>
+															<c:telecom value="tel:+33954950006" use="MC"/>
+															<c:telecom value="fax:+33100000000" use="PUB"/>
+															<c:assignedPerson>
+																<c:name>
+																	<c:given>Marc</c:given>
+																	<c:family>BREMAUD</c:family>
+																</c:name>
+															</c:assignedPerson>
+															<c:representedOrganization>
+																<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+																<c:name>Laboratoire Biologie Médicale</c:name>
+																<c:telecom value="tel:+33368461628" use="PUB"/>
+																<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+																<c:telecom value="fax:+33368461628" use="PUB"/>
+																<c:addr>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+																</c:addr>
+																<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+															</c:representedOrganization>
+														</c:assignedEntity>
+													</c:performer>
+													<c:participant typeCode="PRD">
+														<c:participantRole classCode="SPEC">
+															<c:playingEntity>
+																<c:code nullFlavor="UNK">
+																	<c:originalText>Urine</c:originalText>
+																</c:code>
+															</c:playingEntity>
+														</c:participantRole>
+													</c:participant>
+												</c:procedure>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="CL[1]" codeSystem="1.2.250.1.312.9000.8" codeSystemName="KALISIL_9000" displayName="Chlore"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime>
+																<c:high value="20150325000000+0100"/>
+															</c:effectiveTime>
+															<c:value xsi:type="c:PQ" value="102" unit="mmol/L">
+																<c:translation value="102" code="mEql/L"/>
+															</c:value>
+															<c:interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+															<c:referenceRange typeCode="REFV">
+																<c:observationRange classCode="OBS" moodCode="EVN.CRT">
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="101" unit="mmol/L">
+																			<c:translation value="" code="mEql/L"/>
+																		</c:low>
+																		<c:high value="109" unit="mmol/L">
+																			<c:translation value="" code="mEql/L"/>
+																		</c:high>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+						</c:section>
+					</c:component>
+					<c:component>
+						<c:section>
+							<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+							<c:code code="18719-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biochimie"/>
+							<c:title>Biochimie</c:title>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:text>
+										<c:paragraph styleCode="top">
+											<c:br/>Le 25-03-2015 par Marc BREMAUD - Prélèvement par ponction veineuse directe (biologiste/infirmière)<c:br/>Le 25-03-2015 par Anne-Elisabeth LARGET-PIET - Ponction arterielle</c:paragraph>
+										<c:table>
+											<c:thead>
+												<c:tr>
+													<c:th/>
+													<c:th>Résultats</c:th>
+													<c:th>Références</c:th>
+													<c:th colspan="5">Antécédents</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:paragraph>
+											<c:br/>
+										</c:paragraph>
+										<c:table>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td styleCode="Bold"/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td align="left" styleCode="BG_8 FG_1">Créatinine</c:td>
+													<c:td>7.0 mg/L</c:td>
+													<c:td>(6.7-11.7)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td styleCode="Italics SmallFont">
+														<c:content ID="TEC_CREA_0100">(Méthode Jaffé Standard. Hitachi 917)</c:content>
+													</c:td>
+													<c:td styleCode="SmallFont">61.9 µmol/L</c:td>
+													<c:td styleCode="SmallFont">(59.2-103.4)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:paragraph>
+											<c:br/>
+										</c:paragraph>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="18719-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biochimie"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<c:time value="20150325121715+0100"/>
+												<c:participantRole>
+													<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+													<c:playingEntity>
+														<c:name>
+															<c:given>AL</c:given>
+															<c:family>CHIMIE PETRO</c:family>
+														</c:name>
+													</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:procedure classCode="PROC" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+													<c:code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Prélèvement par ponction veineuse directe (biologiste/infirmière)" codeSystemName="NABM"/>
+													<c:effectiveTime>
+														<c:high value="20150325000000+0100"/>
+													</c:effectiveTime>
+													<c:performer>
+														<c:assignedEntity>
+															<c:id root="1.2.250.1.71.4.2.1" extension="95"/>
+															<c:telecom value="tel:+33954950000" use="PUB"/>
+															<c:telecom value="tel:+33954950006" use="MC"/>
+															<c:telecom value="fax:+33100000000" use="PUB"/>
+															<c:assignedPerson>
+																<c:name>
+																	<c:given>Marc</c:given>
+																	<c:family>BREMAUD</c:family>
+																</c:name>
+															</c:assignedPerson>
+															<c:representedOrganization>
+																<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+																<c:name>Laboratoire Biologie Médicale</c:name>
+																<c:telecom value="tel:+33368461628" use="PUB"/>
+																<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+																<c:telecom value="fax:+33368461628" use="PUB"/>
+																<c:addr>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+																</c:addr>
+																<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+															</c:representedOrganization>
+														</c:assignedEntity>
+													</c:performer>
+													<c:participant typeCode="PRD">
+														<c:participantRole classCode="SPEC">
+															<c:playingEntity>
+																<c:code nullFlavor="UNK">
+																	<c:originalText/>
+																</c:code>
+															</c:playingEntity>
+														</c:participantRole>
+													</c:participant>
+												</c:procedure>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="CREA[1]" codeSystem="1.2.250.1.312.9000.8" codeSystemName="KALISIL_9000" displayName="Créatinine"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime>
+																<c:high value="20150325000000+0100"/>
+															</c:effectiveTime>
+															<c:value xsi:type="c:PQ" value="7.0" unit="mg/L">
+																<c:translation value="61.9" code="µmol/L"/>
+															</c:value>
+															<c:interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+															<c:methodCode>
+																<c:originalText>
+																	<c:reference value="#TEC_CREA_0100"/>
+																</c:originalText>
+															</c:methodCode>
+															<c:referenceRange typeCode="REFV">
+																<c:observationRange classCode="OBS" moodCode="EVN.CRT">
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="6.7" unit="mg/L">
+																			<c:translation value="" code="µmol/L"/>
+																		</c:low>
+																		<c:high value="11.7" unit="mg/L">
+																			<c:translation value="" code="µmol/L"/>
+																		</c:high>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:text>
+										<c:paragraph>
+											<c:caption styleCode="BG_8 FG_1">zgh'irgheg (1)</c:caption>
+										</c:paragraph>
+										<c:table>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td styleCode="Bold">25-03-2015</c:td>
+													<c:td styleCode="Bold">25-03-2015</c:td>
+													<c:td styleCode="Bold">25-03-2015</c:td>
+													<c:td styleCode="Bold">25-03-2015</c:td>
+													<c:td styleCode="Bold">25-03-2015</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td align="left" styleCode="BG_8 FG_1">Potassium</c:td>
+													<c:td>3.00 mEq/L</c:td>
+													<c:td>(2.00-3.25)</c:td>
+													<c:td>3.00</c:td>
+													<c:td>3.00</c:td>
+													<c:td>3.00</c:td>
+													<c:td>3.00</c:td>
+													<c:td>3.00</c:td>
+												</c:tr>
+												<c:tr>
+													<c:td/>
+													<c:td styleCode="SmallFont">6.00 mmol/L</c:td>
+													<c:td styleCode="SmallFont">(4.00-6.50)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="18719-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biochimie"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<c:time value="20150325121715+0100"/>
+												<c:participantRole>
+													<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+													<c:playingEntity>
+														<c:name>
+															<c:given>AL</c:given>
+															<c:family>CHIMIE PETRO</c:family>
+														</c:name>
+													</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:procedure classCode="PROC" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+													<c:code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Prélèvement par ponction veineuse directe (biologiste/infirmière)" codeSystemName="NABM"/>
+													<c:effectiveTime>
+														<c:high value="20150325000000+0100"/>
+													</c:effectiveTime>
+													<c:performer>
+														<c:assignedEntity>
+															<c:id root="1.2.250.1.71.4.2.1" extension="95"/>
+															<c:telecom value="tel:+33954950000" use="PUB"/>
+															<c:telecom value="tel:+33954950006" use="MC"/>
+															<c:telecom value="fax:+33100000000" use="PUB"/>
+															<c:assignedPerson>
+																<c:name>
+																	<c:given>Marc</c:given>
+																	<c:family>BREMAUD</c:family>
+																</c:name>
+															</c:assignedPerson>
+															<c:representedOrganization>
+																<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+																<c:name>Laboratoire Biologie Médicale</c:name>
+																<c:telecom value="tel:+33368461628" use="PUB"/>
+																<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+																<c:telecom value="fax:+33368461628" use="PUB"/>
+																<c:addr>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+																</c:addr>
+																<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+															</c:representedOrganization>
+														</c:assignedEntity>
+													</c:performer>
+													<c:participant typeCode="PRD">
+														<c:participantRole classCode="SPEC">
+															<c:playingEntity>
+																<c:code nullFlavor="UNK">
+																	<c:originalText/>
+																</c:code>
+															</c:playingEntity>
+														</c:participantRole>
+													</c:participant>
+												</c:procedure>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="K[1]" codeSystem="1.2.250.1.312.9000.8" codeSystemName="KALISIL_9000" displayName="Potassium"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime>
+																<c:high value="20150325000000+0100"/>
+															</c:effectiveTime>
+															<c:value xsi:type="c:PQ" value="3.00" unit="mEq/L">
+																<c:translation value="6.00" code="mmol/L"/>
+															</c:value>
+															<c:interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+															<c:referenceRange typeCode="REFV">
+																<c:observationRange classCode="OBS" moodCode="EVN.CRT">
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="2.00" unit="mEq/L">
+																			<c:translation value="" code="mmol/L"/>
+																		</c:low>
+																		<c:high value="3.25" unit="mEq/L">
+																			<c:translation value="" code="mmol/L"/>
+																		</c:high>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:text>
+										<c:table>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td styleCode="Bold"/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td align="left" styleCode="BG_8 FG_1">Fer (2)</c:td>
+													<c:td>52 µg/dL</c:td>
+													<c:td>(50-168)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td styleCode="Italics SmallFont">
+														<c:content ID="TEC_FE_0100">(Férène Hitachi 917 )</c:content>
+													</c:td>
+													<c:td styleCode="SmallFont">9.3 µmol/L</c:td>
+													<c:td styleCode="SmallFont">(9.0-30.1)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="18719-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biochimie"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<c:time value="20150325121715+0100"/>
+												<c:participantRole>
+													<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+													<c:playingEntity>
+														<c:name>
+															<c:given>AL</c:given>
+															<c:family>CHIMIE PETRO</c:family>
+														</c:name>
+													</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:procedure classCode="PROC" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+													<c:code code="9056" codeSystem="1.2.250.1.213.2.7" displayName="Ponction arterielle" codeSystemName="NABM"/>
+													<c:effectiveTime>
+														<c:high value="20150325000000+0100"/>
+													</c:effectiveTime>
+													<c:performer>
+														<c:assignedEntity>
+															<c:id root="1.2.250.1.71.4.2.1" extension="38"/>
+															<c:telecom value="tel:+33684358916" use="MC"/>
+															<c:assignedPerson>
+																<c:name>
+																	<c:given>Anne-Elisabeth</c:given>
+																	<c:family>LARGET-PIET</c:family>
+																</c:name>
+															</c:assignedPerson>
+															<c:representedOrganization>
+																<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+																<c:name>Laboratoire Biologie Médicale</c:name>
+																<c:telecom value="tel:+33368461628" use="PUB"/>
+																<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+																<c:telecom value="fax:+33368461628" use="PUB"/>
+																<c:addr>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+																</c:addr>
+																<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+															</c:representedOrganization>
+														</c:assignedEntity>
+													</c:performer>
+													<c:participant typeCode="PRD">
+														<c:participantRole classCode="SPEC">
+															<c:playingEntity>
+																<c:code nullFlavor="UNK">
+																	<c:originalText/>
+																</c:code>
+															</c:playingEntity>
+														</c:participantRole>
+													</c:participant>
+												</c:procedure>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="FE[1]" codeSystem="1.2.250.1.312.9000.8" codeSystemName="KALISIL_9000" displayName="Fer"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime>
+																<c:high value="20150325000000+0100"/>
+															</c:effectiveTime>
+															<c:value xsi:type="c:PQ" value="52" unit="µg/dL">
+																<c:translation value="9.3" code="µmol/L"/>
+															</c:value>
+															<c:interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+															<c:methodCode>
+																<c:originalText>
+																	<c:reference value="#TEC_FE_0100"/>
+																</c:originalText>
+															</c:methodCode>
+															<c:referenceRange typeCode="REFV">
+																<c:observationRange classCode="OBS" moodCode="EVN.CRT">
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="50" unit="µg/dL">
+																			<c:translation value="" code="µmol/L"/>
+																		</c:low>
+																		<c:high value="168" unit="µg/dL">
+																			<c:translation value="" code="µmol/L"/>
+																		</c:high>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+						</c:section>
+					</c:component>
+					<c:component>
+						<c:section>
+							<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+							<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+							<c:title>Biologie</c:title>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:text>
+										<c:paragraph styleCode="top">
+											<c:br/>Le 25-03-2015 par Marc BREMAUD - Prélèvement par ponction veineuse directe (biologiste/infirmière)</c:paragraph>
+										<c:table>
+											<c:thead>
+												<c:tr>
+													<c:th/>
+													<c:th>Résultats</c:th>
+													<c:th>Références</c:th>
+													<c:th colspan="5">Antécédents</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:table>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td styleCode="Bold">17-02-2015</c:td>
+													<c:td styleCode="Bold">23-01-2015</c:td>
+													<c:td styleCode="Bold">23-01-2015</c:td>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td align="left" styleCode="Bold Underline BG_8 FG_1">Sodium</c:td>
+													<c:td>20 mmol/L</c:td>
+													<c:td>(15-730)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td/>
+													<c:td styleCode="SmallFont">4 mEq/L</c:td>
+													<c:td styleCode="SmallFont">(3-146)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<c:time value="20150325121715+0100"/>
+												<c:participantRole>
+													<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+													<c:playingEntity>
+														<c:name>
+															<c:given>AL</c:given>
+															<c:family>CHIMIE PETRO</c:family>
+														</c:name>
+													</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:procedure classCode="PROC" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+													<c:code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Prélèvement par ponction veineuse directe (biologiste/infirmière)" codeSystemName="NABM"/>
+													<c:effectiveTime>
+														<c:high value="20150325000000+0100"/>
+													</c:effectiveTime>
+													<c:performer>
+														<c:assignedEntity>
+															<c:id root="1.2.250.1.71.4.2.1" extension="95"/>
+															<c:telecom value="tel:+33954950000" use="PUB"/>
+															<c:telecom value="tel:+33954950006" use="MC"/>
+															<c:telecom value="fax:+33100000000" use="PUB"/>
+															<c:assignedPerson>
+																<c:name>
+																	<c:given>Marc</c:given>
+																	<c:family>BREMAUD</c:family>
+																</c:name>
+															</c:assignedPerson>
+															<c:representedOrganization>
+																<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+																<c:name>Laboratoire Biologie Médicale</c:name>
+																<c:telecom value="tel:+33368461628" use="PUB"/>
+																<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+																<c:telecom value="fax:+33368461628" use="PUB"/>
+																<c:addr>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+																</c:addr>
+																<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+															</c:representedOrganization>
+														</c:assignedEntity>
+													</c:performer>
+													<c:participant typeCode="PRD">
+														<c:participantRole classCode="SPEC">
+															<c:playingEntity>
+																<c:code nullFlavor="UNK">
+																	<c:originalText>Sérum</c:originalText>
+																</c:code>
+															</c:playingEntity>
+														</c:participantRole>
+													</c:participant>
+												</c:procedure>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="NA[1]" codeSystem="1.2.250.1.312.9000.8" codeSystemName="KALISIL_9000" displayName="Sodium"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime>
+																<c:high value="20150325000000+0100"/>
+															</c:effectiveTime>
+															<c:value xsi:type="c:PQ" value="20" unit="mmol/L">
+																<c:translation value="4" code="mEq/L"/>
+															</c:value>
+															<c:interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+															<c:referenceRange typeCode="REFV">
+																<c:observationRange classCode="OBS" moodCode="EVN.CRT">
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="15" unit="mmol/L">
+																			<c:translation value="" code="mEq/L"/>
+																		</c:low>
+																		<c:high value="730" unit="mmol/L">
+																			<c:translation value="" code="mEq/L"/>
+																		</c:high>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+						</c:section>
+					</c:component>
+					<c:component>
+						<c:section>
+							<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+							<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+							<c:title>Biologie</c:title>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:text>
+										<c:paragraph styleCode="top">
+											<c:br/>Le 25-03-2015 par Marc BREMAUD - Prélèvement par ponction veineuse directe (biologiste/infirmière)</c:paragraph>
+										<c:table>
+											<c:thead>
+												<c:tr>
+													<c:th/>
+													<c:th>Résultats</c:th>
+													<c:th>Références</c:th>
+													<c:th colspan="5">Antécédents</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:table>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td styleCode="Bold"/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td align="left" styleCode="BG_8 FG_1">Troponine I (2)</c:td>
+													<c:td>0.02 ng/ml</c:td>
+													<c:td>(0.01-0.06)</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td styleCode="Italics SmallFont">
+														<c:content ID="TEC_TROPO_0100">(Technique ELFA Vidas BioMérieux)</c:content>
+													</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<c:time value="20150325121715+0100"/>
+												<c:participantRole>
+													<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+													<c:playingEntity>
+														<c:name>
+															<c:given>AL</c:given>
+															<c:family>CHIMIE PETRO</c:family>
+														</c:name>
+													</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:procedure classCode="PROC" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+													<c:code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Prélèvement par ponction veineuse directe (biologiste/infirmière)" codeSystemName="NABM"/>
+													<c:effectiveTime>
+														<c:high value="20150325000000+0100"/>
+													</c:effectiveTime>
+													<c:performer>
+														<c:assignedEntity>
+															<c:id root="1.2.250.1.71.4.2.1" extension="95"/>
+															<c:telecom value="tel:+33954950000" use="PUB"/>
+															<c:telecom value="tel:+33954950006" use="MC"/>
+															<c:telecom value="fax:+33100000000" use="PUB"/>
+															<c:assignedPerson>
+																<c:name>
+																	<c:given>Marc</c:given>
+																	<c:family>BREMAUD</c:family>
+																</c:name>
+															</c:assignedPerson>
+															<c:representedOrganization>
+																<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+																<c:name>Laboratoire Biologie Médicale</c:name>
+																<c:telecom value="tel:+33368461628" use="PUB"/>
+																<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+																<c:telecom value="fax:+33368461628" use="PUB"/>
+																<c:addr>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+																</c:addr>
+																<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+															</c:representedOrganization>
+														</c:assignedEntity>
+													</c:performer>
+													<c:participant typeCode="PRD">
+														<c:participantRole classCode="SPEC">
+															<c:playingEntity>
+																<c:code nullFlavor="UNK">
+																	<c:originalText/>
+																</c:code>
+															</c:playingEntity>
+														</c:participantRole>
+													</c:participant>
+												</c:procedure>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="TROPO[1]" codeSystem="1.2.250.1.312.9000.8" codeSystemName="KALISIL_9000" displayName="Troponine I"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime>
+																<c:high value="20150325000000+0100"/>
+															</c:effectiveTime>
+															<c:value xsi:type="c:PQ" value="0.02" unit="ng/ml"/>
+															<c:interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+															<c:methodCode>
+																<c:originalText>
+																	<c:reference value="#TEC_TROPO_0100"/>
+																</c:originalText>
+															</c:methodCode>
+															<c:referenceRange typeCode="REFV">
+																<c:observationRange classCode="OBS" moodCode="EVN.CRT">
+																	<c:value xsi:type="c:IVL_PQ">
+																		<c:low value="0.01" unit="ng/ml"/>
+																		<c:high value="0.06" unit="ng/ml"/>
+																	</c:value>
+																</c:observationRange>
+															</c:referenceRange>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+						</c:section>
+					</c:component>
+					<c:component>
+						<c:section>
+							<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
+							<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+							<c:title>Biologie</c:title>
+							<c:component>
+								<c:section>
+									<c:templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
+									<c:text>
+										<c:paragraph styleCode="top">
+											<c:br/>Le 25-03-2015 par Marc BREMAUD - Prélèvement par ponction veineuse directe (biologiste/infirmière)</c:paragraph>
+										<c:table>
+											<c:thead>
+												<c:tr>
+													<c:th/>
+													<c:th>Résultats</c:th>
+													<c:th>Références</c:th>
+													<c:th colspan="5">Antécédents</c:th>
+												</c:tr>
+											</c:thead>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:table>
+											<c:tbody>
+												<c:tr>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td styleCode="Bold">27-01-2015</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td align="left" styleCode="BG_8 FG_1">GLYCEMIE à 60 mn APRES 50 g DE GLUCOSE (2)</c:td>
+													<c:td>2 g/L</c:td>
+													<c:td/>
+													<c:td>10</c:td>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+												<c:tr>
+													<c:td/>
+													<c:td styleCode="SmallFont">11 mmol/L</c:td>
+													<c:td styleCode="SmallFont"/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+													<c:td/>
+												</c:tr>
+											</c:tbody>
+										</c:table>
+										<c:paragraph styleCode="bottom">
+											<c:br/> (1) Clinique Test -    <c:br/> (2)  Laboratoire les Ponts de Cé -  31, rue bis David d'Angers 49130 LES PONTS DE CE</c:paragraph>
+										<c:paragraph styleCode="entete">Compte-rendu annule et remplace le rapport du 02-03-2018</c:paragraph>
+									</c:text>
+									<c:entry typeCode="DRIV">
+										<c:templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+										<c:act classCode="ACT" moodCode="EVN">
+											<c:code code="26436-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Biologie"/>
+											<c:statusCode code="completed"/>
+											<c:participant typeCode="AUTHEN">
+												<c:templateId root="1.3.6.1.4.1.19376.1.8.1.4.7"/>
+												<c:time value="20150325121715+0100"/>
+												<c:participantRole>
+													<c:id root="1.2.250.1.71.4.2.1" extension="899900048366"/>
+													<c:playingEntity>
+														<c:name>
+															<c:given>AL</c:given>
+															<c:family>CHIMIE PETRO</c:family>
+														</c:name>
+													</c:playingEntity>
+												</c:participantRole>
+											</c:participant>
+											<c:entryRelationship typeCode="COMP">
+												<c:procedure classCode="PROC" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
+													<c:code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Prélèvement par ponction veineuse directe (biologiste/infirmière)" codeSystemName="NABM"/>
+													<c:effectiveTime>
+														<c:high value="20150325000000+0100"/>
+													</c:effectiveTime>
+													<c:performer>
+														<c:assignedEntity>
+															<c:id root="1.2.250.1.71.4.2.1" extension="95"/>
+															<c:telecom value="tel:+33954950000" use="PUB"/>
+															<c:telecom value="tel:+33954950006" use="MC"/>
+															<c:telecom value="fax:+33100000000" use="PUB"/>
+															<c:assignedPerson>
+																<c:name>
+																	<c:given>Marc</c:given>
+																	<c:family>BREMAUD</c:family>
+																</c:name>
+															</c:assignedPerson>
+															<c:representedOrganization>
+																<c:id root="1.2.250.1.71.4.2.2" extension="1123456789"/>
+																<c:name>Laboratoire Biologie Médicale</c:name>
+																<c:telecom value="tel:+33368461628" use="PUB"/>
+																<c:telecom value="mailto:loic.schaal@netika.net" use="PUB"/>
+																<c:telecom value="fax:+33368461628" use="PUB"/>
+																<c:addr>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>3 rue Sarrelouis</c:streetAddressLine>
+																	<c:streetAddressLine>67000 STRASBOURG</c:streetAddressLine>
+																</c:addr>
+																<c:standardIndustryClassCode code="ETABLISSEMENT" codeSystem="1.2.250.1.213.1.1.4.9" displayName="Etablissement de santé"/>
+															</c:representedOrganization>
+														</c:assignedEntity>
+													</c:performer>
+													<c:participant typeCode="PRD">
+														<c:participantRole classCode="SPEC">
+															<c:playingEntity>
+																<c:code nullFlavor="UNK">
+																	<c:originalText>Sérum/Plasma</c:originalText>
+																</c:code>
+															</c:playingEntity>
+														</c:participantRole>
+													</c:participant>
+												</c:procedure>
+											</c:entryRelationship>
+											<c:entryRelationship typeCode="COMP">
+												<c:organizer classCode="BATTERY" moodCode="EVN">
+													<c:templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+													<c:statusCode code="completed"/>
+													<c:component>
+														<c:observation classCode="OBS" moodCode="EVN">
+															<c:templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+															<c:code code="GLY50[1]" codeSystem="1.2.250.1.312.9000.8" codeSystemName="KALISIL_9000" displayName="GLYCEMIE à 60 mn APRES 50 g DE GLUCOSE"/>
+															<c:statusCode code="completed"/>
+															<c:effectiveTime>
+																<c:high value="20150325000000+0100"/>
+															</c:effectiveTime>
+															<c:value xsi:type="c:PQ" value="2" unit="g/L">
+																<c:translation value="11" code="mmol/L"/>
+															</c:value>
+															<c:interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" displayName="Normal"/>
+														</c:observation>
+													</c:component>
+												</c:organizer>
+											</c:entryRelationship>
+										</c:act>
+									</c:entry>
+								</c:section>
+							</c:component>
+						</c:section>
+					</c:component>
+				</c:structuredBody>
+			</c:component>
+		</c:ClinicalDocument>
+	</data:Contenu>
+	<xsl:template match="xsl:stylesheet">
+		<xsl:apply-templates select="data:Contenu/c:ClinicalDocument" />
+	</xsl:template>
+	<xsl:template match="c:ClinicalDocument">
+		<html>
+			<head>
+				<style>
+					body {
+					    font-family : Calibri, sans-serif;
+					}
+					h1 {
+						font-size : 2em;
+					}
+					h2 {
+					    margin : 10px 0;
+					}
+					h3 {
+						margin-top : 30px;
+						text-align : center;
+						font-size : 1.8em;
+					}
+					h4 {
+						text-align : center;
+					}
+					table {
+					    border-collapse : collapse;
+						table-layout:fixed;
+					}
+					th {
+					    padding : 0px 5px 0px 5px;	
+					}
+					tr {
+					    font-weight : normal;
+					}
+					td {
+					    padding : 0px 5px 0px 5px;
+					}
+					p {
+						margin : 5px;
+					}
+					#header img,
+					#header p,
+					#header h2 {
+					    margin : 0px 25px 0px 25px;
+					}
+					#juridique {
+						font-size:0.8em;
+						margin-top:0;
+					}
+					.data {
+					    font-style : italic;
+					    color : rgb(0, 112, 192);
+					}
+					.alignCenter {
+					    text-align:center;
+    				}	
+				</style>
+				<title>
+					<xsl:value-of select="c:title"/>
+				</title>
+			</head>
+			<body>
+				<table id="header">
+					<tr>
+						<td>
+							<xsl:call-template name="printLogo"/>
+						</td>
+						<td>
+							<h2 class="data">
+								<xsl:value-of select="c:authenticator/c:assignedEntity/c:representedOrganization//c:name"/>
+							</h2>
+							<p>
+								<span class="data">
+									<xsl:call-template name="show-address">
+										<xsl:with-param name="address" select="c:authenticator/c:assignedEntity/c:representedOrganization//c:addr"/>
+									</xsl:call-template>
+									<xsl:for-each select="c:authenticator/c:assignedEntity/c:representedOrganization//c:telecom[@use='PUB']">
+										<xsl:call-template name="show-telecom">
+											<xsl:with-param name="telecom" select="."/>
+										</xsl:call-template>
+										<br/>
+									</xsl:for-each>
+								</span>
+								Biologiste responsable : 
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref" select="c:authenticator/c:assignedEntity"/>
+								</xsl:call-template>
+							</p>
+						</td>
+					</tr>
+				</table>
+				<h1 class="data">
+					<xsl:value-of select="//c:title"/>
+				</h1>
+				<xsl:for-each select="//c:paragraph[@styleCode='entete']">
+					<h4>
+						<xsl:apply-templates/>
+					</h4>
+				</xsl:for-each>
+
+				<p> Produit le 
+					<xsl:call-template name="printDate">
+						<xsl:with-param name="date" select="c:effectiveTime/@value"/>
+					</xsl:call-template>
+					 pour 
+					<span class="data">
+						<xsl:if test="string-length(c:recordTarget//c:patient/c:name/c:prefix)>0">
+							<xsl:value-of select="c:recordTarget//c:patient/c:name/c:prefix"/>
+							<xsl:text> </xsl:text>
+						</xsl:if>
+						<xsl:if test="string-length(c:recordTarget//c:patient/c:name/c:given)>0">
+							<xsl:value-of select="c:recordTarget//c:patient/c:name/c:given"/>
+							<xsl:text> </xsl:text>
+						</xsl:if>
+						<xsl:if test="string-length(c:recordTarget//c:patient/c:name/c:family)>0">
+							<xsl:value-of select="c:recordTarget//c:patient/c:name/c:family"/>
+							<xsl:text> </xsl:text>
+						</xsl:if>
+					</span>
+					<br/>INS-C : 
+					<span class="data">
+						<xsl:value-of select="c:recordTarget//c:id/@extension"/>
+					</span>
+					, Date de naissance : 
+					<xsl:call-template name="printDate">
+						<xsl:with-param name="date" select="c:recordTarget//c:patient/c:birthTime/@value"/>
+					</xsl:call-template>
+					, Sexe : 
+					<span class="data">
+						<xsl:value-of select="c:recordTarget//c:patient/c:administrativeGenderCode/@code"/>
+					</span>
+				</p><p>Demande d'examens 
+					<span class="data">
+						<xsl:value-of select="c:documentationOf/c:serviceEvent/c:id/@extension"/>
+					</span>
+					prescrite le 
+					<xsl:call-template name="printDate">
+						<xsl:with-param name="date" 
+							select="c:participant[@typeCode='REF']/c:time/c:high/@value"/>
+					</xsl:call-template>
+					 par 
+					<xsl:call-template name="printNameAndId">
+						<xsl:with-param name="ref"	
+							select="c:participant[@typeCode='REF']/c:associatedEntity"/>
+					</xsl:call-template>
+					<br/>Réalisation du 
+					<xsl:call-template name="printDate">
+						<xsl:with-param name="date" select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:low/@value"/>
+					</xsl:call-template>
+					 au 
+					<xsl:call-template name="printDate">
+						<xsl:with-param name="date" select="c:documentationOf/c:serviceEvent/c:effectiveTime/c:high/@value"/>
+					</xsl:call-template>
+				</p>
+				<xsl:apply-templates select="c:component/c:structuredBody" />
+				<br/>
+				<table>
+					<tr>
+						<th>Biologistes médicaux ayant participé à l'interprétation du compte rendu</th>
+						<th>Date &amp; heure</th>
+					</tr>
+					<xsl:for-each select="c:authenticator">
+						<tr>
+							<td>
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref" select="c:assignedEntity"/>
+								</xsl:call-template>
+							</td>
+							<td>
+								<xsl:call-template name="printDateAndTime">
+									<xsl:with-param name="date" select="c:time/@value"/>
+								</xsl:call-template>
+							</td>
+						</tr>
+					</xsl:for-each>
+					<xsl:if test="not(c:authenticator/c:assignedEntity)">
+						<tr>
+							<td>
+								<xsl:call-template name="printNameAndId">
+									<xsl:with-param name="ref" select="c:legalAuthenticator/c:assignedEntity"/>
+								</xsl:call-template>
+							</td>
+							<td>
+								<xsl:call-template name="printDateAndTime">
+									<xsl:with-param name="date" select="c:legalAuthenticator/c:time/@value"/>
+								</xsl:call-template>
+							</td>
+						</tr>
+					</xsl:if>
+					<tr>
+						<td>
+							<xsl:call-template name="directeur_signe"/>
+						</td>
+					</tr>
+				</table>
+				<hr/>
+				<p id="juridique">
+					<xsl:value-of select="c:custodian//c:name"/> 
+					<text> - </text>
+					<xsl:call-template name="show-address-inline">
+						<xsl:with-param name="address" select="c:custodian//c:addr"/>
+					</xsl:call-template>	
+					<br/>
+					Responsable : 
+					<xsl:call-template name="printNameAndId">
+						<xsl:with-param name="ref" select="c:legalAuthenticator/c:assignedEntity"/>
+					</xsl:call-template>
+				</p>
+			</body>
+		</html>
+	</xsl:template>
+	<xsl:template name="show-address">
+		<xsl:param name="address"/>
+		<xsl:choose>
+			<xsl:when test="$address">
+				<xsl:for-each select="$address/c:streetAddressLine">
+					<xsl:value-of select="."/>
+					<br/>
+				</xsl:for-each>
+				<xsl:if test="$address/c:streetName">
+					<xsl:value-of select="$address/c:streetName"/>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select="$address/c:houseNumber"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:postalCode)>0">
+					<xsl:value-of select="$address/c:postalCode"/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:city)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:city"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:state)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:state"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:country)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:country"/>
+					<br/>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>addresse non renseignée</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template name="show-address-inline">
+		<xsl:param name="address"/>
+		<xsl:choose>
+			<xsl:when test="$address">
+				<xsl:for-each select="$address/c:streetAddressLine">
+					<xsl:value-of select="."/>
+					<xsl:text> </xsl:text>
+				</xsl:for-each>
+				<xsl:if test="$address/c:streetName">
+					<xsl:value-of select="$address/c:streetName"/>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select="$address/c:houseNumber"/>				
+				</xsl:if>
+				<xsl:if test="string-length($address/c:postalCode)>0">
+					<xsl:value-of select="$address/c:postalCode"/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:city)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:city"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:state)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:state"/>
+					<br/>
+				</xsl:if>
+				<xsl:if test="string-length($address/c:country)>0">
+					<xsl:text>,&#160;</xsl:text>
+					<xsl:value-of select="$address/c:country"/>
+					<br/>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>addresse non renseignée</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template name="show-telecom">
+		<xsl:param name="telecom"/>
+		<xsl:choose>
+			<xsl:when test="$telecom">
+				<xsl:variable name="type" select="substring-before($telecom/@value, ':')"/>
+				<xsl:variable name="value" select="substring-after($telecom/@value, ':')"/>
+				<xsl:if test="$type">
+					<xsl:call-template name="translateTelecomCode">
+						<xsl:with-param name="code" select="$type"/>
+					</xsl:call-template>
+					<xsl:text> : </xsl:text>
+					<xsl:text> </xsl:text>
+					<xsl:value-of select="$value"/>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>Coordonnées téléphoniques non renseignées</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template name="translateTelecomCode">
+		<xsl:param name="code"/>
+		<xsl:choose>
+			<xsl:when test="$code='tel'">
+				<xsl:text>Tél</xsl:text>
+			</xsl:when>
+			<xsl:when test="$code='fax'">
+				<xsl:text>Fax</xsl:text>
+			</xsl:when>
+			<xsl:when test="$code='http'">
+				<xsl:text>Page Web</xsl:text>
+			</xsl:when>
+			<xsl:when test="$code='mailto'">
+				<xsl:text>E-mail</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>{$code='</xsl:text>
+				<xsl:value-of select="$code"/>
+				<xsl:text>'?}</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template name="printDateAndTime">
+		<xsl:param name="date"/>
+		<xsl:call-template name="printDate">
+			<xsl:with-param name="date" select="$date"/>
+		</xsl:call-template>
+		<xsl:text> </xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 9, 2)"/>
+		</span>
+		<xsl:text>:</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 11, 2)"/>
+		</span>
+	</xsl:template>
+	<xsl:template name="printDate">
+		<xsl:param name="date"/>
+		<span class="data">
+			<xsl:value-of select="substring($date, 7, 2)"/>
+		</span>
+		<xsl:text>/</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 5, 2)"/>
+		</span>
+		<xsl:text>/</xsl:text>
+		<span class="data">
+			<xsl:value-of select="substring($date, 1, 4)"/>
+		</span>
+	</xsl:template>
+	<xsl:template name="printNameAndId">
+		<xsl:param name="ref"/>
+		<span class="data">
+			<xsl:if test="string-length($ref/c:assignedPerson/c:name/c:prefix|$ref/c:associatedPerson/c:name/c:prefix)>0">
+				<xsl:value-of select="$ref/c:assignedPerson/c:name/c:prefix|$ref/c:associatedPerson/c:name/c:prefix"/>
+				<xsl:text> </xsl:text>
+			</xsl:if>
+			<xsl:if test="string-length($ref/c:assignedPerson/c:name/c:given|$ref/c:associatedPerson/c:name/c:given)>0">
+				<xsl:value-of select="$ref/c:assignedPerson/c:name/c:given|$ref/c:associatedPerson/c:name/c:given"/>
+				<xsl:text> </xsl:text>
+			</xsl:if>
+			<xsl:if test="string-length($ref/c:assignedPerson/c:name/c:family|$ref/c:associatedPerson/c:name/c:family)>0">
+				<xsl:value-of select="$ref/c:assignedPerson/c:name/c:family|$ref/c:associatedPerson/c:name/c:family"/>
+				<xsl:text> </xsl:text>
+			</xsl:if>
+		</span>
+		<xsl:text> (</xsl:text>
+		<span class="data">
+			<xsl:value-of select="$ref//c:id/@extension"/>
+		</span>
+		<xsl:text>)</xsl:text>
+	</xsl:template>
+	<xsl:template name="printLogo">
+		<img src="data:image/gif;base64,R0lGODlheACrAPcAAAAAAJa/DZa/Dpa/D5e/EJfAD5fAEJfAEZfAEpjAEZjAEpjAE5nAFJnBFZrBFprBF5rCF5rBGJrCGJvCGpvCG5zCGpzCHJzCHZzDHpzDH53EHp3EH53DIZ7DJZ7EIJ/EIp7EJJ7FJZ/FJqDFJKDFJaDFJqDGJaHGJqDEKKHGKKHGKaHGKqPGLKPHLaPGLqTHLaTHLqTHL6TILaTILqTHMKPIMKTIMKXIMqbJNKbJNabJNqbIN6fKN6jJN6jKNqjJOajKOKnLO6jJPKnLPKrLPanKPqrLP6rMPKvMP6vMQ6zMQKzMQazMQq3NRK3NRq3MR67ORq3MSK/OSK/OSa/OSq/NTbDOSbDPSrDOTLHPTbDOTrHQTrLQULLQUrLQVLTRU7TRVLTSVbTSVrXSV7XRWbXSWbbSWrbTXLfTXbfUXrfUX7jUXbjUX7nUYLnUYrvVZLvVZrvVZ7vWZLvWZ7zVZrzWZbzWZr3XaLzWab3War7WbL7Xbr3Yab/Ya77Ybb7Ybr/Yb7/YcMDZb8DYcMDZcsLZdMHZdsLadcLadsLad8LaeMPaesPbe8PafcPbf8TbeMTbe8TbfcXbfsTce8XcfMbcfcXcfsTbgMXbgsbcgcfdg8fdhMbchcjdgsjdg8jeg8jdhMnehMnehsreh8neiMreicreisvfjMzfjMvgjMvgj8zgjM3gjczgjszgj83gkM3hks/iks7hlM/ildDildDiltHjmNLjm9LjnNPknNTkntTloNXmoNbmpNfmptjmptjnqNnop9roqNvoqtnorNrort3qst3qtN3qtt/stt/sueDruODsueHsu+DsvOLtvuPuv+LtwOPuwePuxOTuw+XvxOXvxuXvyOfwyOfwyujxzOnxzunyzury0Ozz1Ozz1u301u702O712u713fD13fD23vD14PH24PL34/L25PP45fT45/T46PX56vb57Pb67Pf67vj77/j68Pn78vn88vr89Pr89vz99vv9+Pz9+Pz9+vz++f3++v3+/P7+/gAAACH5BAEAAP8ALAAAAAB4AKsAAAj/AP8JHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnIlRFKWbOHPqxFmpUytauGiuVLNhgtGjSJMixRBCBQwdRqaI0bNJ6MhEGQJo3cq1q9cAAgYMMKDAAQYRObDgKWXVo5YEX+PK7RqWgYUURM6saqvxyYC5gAMLMOCAxBJAfC/6Dcw48IAHLeIkpri4seW5C1owmhyx8uXPXyVQgcXZoWfQqLcyyBGoNMPTqVMnKCHGtULYsVELqMBklu2DuHOjZhDE1O+CwYWDTuCi0vGBUf4qVy7ghKXn/5JIny58QA1Sz4EI/+A+3cANV8dzjCevfAGS9OvZC39w5rd6+dNLELJ9H7/wBDqgV1p//uUmQReuEVhgagKQsB9nCi6IWgI/DBifhKlFgAaEF2KIGgYC8hWhh6AJMdmIJF6GgCqJoZiiZUa02OGLl11Qi4gz0tiYAmbgqKNuNvjImAAKNNDAAT9i8KBQLnJlQAU2SCGGGEyksACNC0zRVpNaGTDDHbk0gw02y7yiBQY5+icADCHOxKUCOsjiTTz58MNPPu1EM0gJaeJ3wRxWNSlACqa4048/iCZqjzZ6XJCiAk0E2qcDbpST6KWI1sMMFgSQKAALpzDZJwm94IPppf2UI4kFKXqwpExN+v+QzamYvpPLCSla4IaockEBDq2XyvMLCyk+UBtNTV4RDrCJyhOMDCkucAWvcSnLLKLOQktiAktQ+5W112abogFAeOsVuMyKS+IANtCCbJ/oAquuh4OG8q5c8dI6r4ceIHJvtcuG++yLE/Tx77cBpztwihPkcfC5Ccu7MGgCVNynVw0/3FW+p+7b2AAMXDDCCR5AUABjGbsJb8T6TtzYAiVAYUclnxwiBgxXApYyrCtf64/HgC0QxCPFcFPOOeFIU4oRDejssMr4styxy4ApQMQt38jDTz9c21OOLUAYMNfOMSUrNaZAxyXAEb24w8+pqVqiwdhP8xy1z2nTFUEUx9T/w6w9zTRBt8ZccYw21V4VgEEZyPjNbD/fyDE41ADjjThXA3iwBjLy+JyqIJPbXbnA2n5FgAduJPPOodf2Iw4foZfdM+lxGUCCG8/Ew/q1+VjDRewwmW156VwdkAIezzjusz/v2EKsXGQHP7vCxGu1gA2FVKO8z/Y4w0XOcUX/kvC0c5XADZFks/21+myTxwYXi+8S+dR3xYIl3dizPKL4cJNICdsJX91kd7fyaYUDnwhHPvbnj3xUww8qCKAACbcVwwVrYQNYASbUsTu8OcMMHhBbYOTXEvpJTAYCWAAOTpEOBvJDHb/YggQuxhUSssSE+hLGDCSghFico4N/Awcs/5gAgcvYcCU47JgwgkAFW5DjbcurhzZCMYQH0LArR1RJEjFFD2P4QRfn0Mf+6lGNRNygAVfE4gClV0Bm4eMbz0AHFH02j2i4QQVwAU0WU7JFVNmjHkAEVj2MYQYLSNAye0RJHxmIqXws4woSyE0iT7JIRirqFzFII/TWOL7pWZJZ5shDJGMzSZNU8pP+6Ic1upBH1JSyJKdEZT2KgQMR6pGT8/MkKoHFDk+s4JAow2UJdblLuG3DDx842WdeSZJY7pIeyjDDBTS5FWaOxJmX4of+PLeOXTzhAcsU5g2JeS17cEMZC/QZP8RRChwowIjiRCI5gUUPagwiC9kI5KnsgaUNP4CAmtYUCTbl4Qw7oKABehjH/uRxDC4wAJHx1OI8a1WMMXDgLyUYhTr2B49e5ABJwaSgViyYqH60YxdYoMB6EhCEXbxjf+3wRARDSjmE+ewe0LiCA+IjgAmAARnz2N838uCoEUaUjxNF1DyGMYPEmWAQ2kgn756RhXc6TaQBICm2LreAHqSiHPpEmy5sYMsJ1hRiw/uKACAwBWB0bnnnoAQJ4nf/VEUm9WeXA4sFylCNbV6LH9ywwwSA18k2nlAuBfgAJLwhVWZ1sQnA1EpAQ3LKvHUJCLXgoOfKUYnBmlV0NjVgXB6gBWMEFW/AeMEmsWqFs12wel4RAAbgwI05Aisf0SDCas/alSJ0w2fw4IUKBAMCTbDDZ/uYhhF2C1qvjMAXjcVU3FjFmBLs4rT0JAYNmEvA0dpBHI5VxhZAKhgoOCO6JS1HJqj7lcmCpEnmqQU7bIsoe2zjf5epwBvyBzd3EAMKZVUjVgXggCbwIhzzYF0/4GENS+CglYwZQAkicY13zDEf6SjGGYr62Zj44GICkAATJkEMbYQjHNfYhRtwBpoD/8QADrqoBjjE4Q1noAILGYisZOt6EiPQUAAMAAERwuAGN2whBxUIsGUOgIEcaIENdTADFFaAxqvORAo6posBFrCAAVBTLgIogAIWkAAv01QmV1Dyj+BJky+oec2Nce9H1gBhOLN5Jniwqp3DSRNING3PfJ6JLEYJaIgKJSuFNjRNSpBoRc9ku40+s0yqEGlJx6QRlTaqVbKcaTmDJASZJixMvBBq7soEFA8tNcZ4nJIWqHrVbfECeV8dAE+DJBMeoPVWKuAHvgSB04nOgCH44gZCq1oAIGgEX15hgy//SAAdcERivOAAWkP7EokRBQucTaNrT2YMxs60txPjihtwO/9F405MsY/dAWxzRgd1bnS6E7OHD5R63onhAjjF3W7bFOHNdsY3uVfAb3e7RhGIlne/f2MHDERa4JyhA5oSDXHO4GEFeg74wp+zCB7sW+MGf04pnDBxOFfcNmSYq8k3jh2BEMIFAJfQyX8jiydkHN0sb/lAFGGDVOM85DonSCB2IIGYk2fmOicEE0rwAKMLB+lBN8UZgOCBBjhdNzkPekIqsYUdgEACCgC2ZaCudYJYIg1NuIEHJNDlp6OAE2WfSCj+UIYm4EAFH7DAAxZgAAN4uWJz6SkV4o4RV1jiD20AwxWYUAQd3MAGKSDBCCZP+RGQYAVZsAXhQWILWZgiFKAaD33oWbH50pv+9KhPvepXz/rWu/71sG95QAAAOw=="/>
+	</xsl:template>
+	<xsl:template name="directeur_signe"/>
+	<xsl:template match="c:component/c:structuredBody">
+		<xsl:for-each select="c:component/c:section">
+			<xsl:comment>Debut body structure</xsl:comment>
+			<xsl:call-template name="section"/>
+			<xsl:comment>Fin body structure</xsl:comment>
+		</xsl:for-each>
+	</xsl:template>
+	<xsl:template name="section">
+		<xsl:call-template name="section-title">
+			<xsl:with-param name="title" select="c:title"/>
+		</xsl:call-template>
+		<xsl:call-template name="section-text"/>
+		<xsl:for-each select="c:component/c:section">
+			<xsl:call-template name="nestedSection">
+				<xsl:with-param name="margin" select="2"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+	<xsl:template name="section-title">
+		<xsl:param name="title"/>
+		<h3>
+			<xsl:value-of select="$title"/>
+		</h3>
+	</xsl:template>
+	<xsl:template name="section-text">
+		<div>
+			<xsl:apply-templates select="c:text" />
+		</div>
+	</xsl:template>
+	<xsl:template name="nestedSection">
+		<xsl:param name="margin"/>
+		<h4 style="margin-left : {$margin}em;">
+			<xsl:value-of select="c:title"/>
+		</h4>
+		<div style="margin-left : {$margin}em;">
+			<xsl:apply-templates select="c:text" />
+		</div>
+		<xsl:for-each select="c:component/c:section">
+			<xsl:call-template name="nestedSection">
+				<xsl:with-param name="margin" select="2*$margin"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+	<xsl:template match="c:table/@*|c:thead/@*|c:tfoot/@*|c:tbody/@*|c:colgroup/@*|c:col/@*|c:tr/@*|c:th/@*|c:td/@*">
+		<xsl:copy>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</xsl:copy>
+	</xsl:template>
+	<xsl:template match="c:table">
+		<xsl:variable name="tableStyle">
+			<xsl:choose>
+				<xsl:when test="@styleCode = 'anterio'">
+							margin-top:25px;
+							border:0;
+				</xsl:when>
+				<xsl:otherwise>
+							border:1px solid lightgrey;
+				</xsl:otherwise>
+			</xsl:choose>					
+			<xsl:choose>
+				<xsl:when test="contains(@styleCode,'W_')">
+							width:<xsl:value-of select="substring-after(@styleCode,'W_')" />px;
+				</xsl:when>
+				<xsl:otherwise>
+							width:88%;
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<table style="{$tableStyle};">
+
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</table>
+	</xsl:template>
+	<xsl:template match="c:td">
+		<xsl:variable name="colspan" select="./@colspan"/>
+		<xsl:variable name="position" select="position()"/>
+		<xsl:variable name="tdStyle">
+			<xsl:choose>
+				<xsl:when test="$position = 1">width:20%;border: 0;</xsl:when>
+				<xsl:otherwise>border-left:1px solid lightgrey;text-align:center;</xsl:otherwise>
+			</xsl:choose>	
+		</xsl:variable>
+		<xsl:variable name="tdWidth">
+			<xsl:if test="contains(@styleCode,'W_')">
+				<xsl:value-of select="substring-after(@styleCode,'W_')" />
+			</xsl:if>
+		</xsl:variable>
+		<xsl:variable name="fontStyle">
+			<xsl:if test="contains(@styleCode,'Bold')">font-weight:bold;</xsl:if>
+			<xsl:if test="contains(@styleCode,'Italics')">font-style:italic;</xsl:if>
+			<xsl:if test="contains(@styleCode,'Underline')">text-decoration:underline;</xsl:if>
+			<xsl:if test="contains(@styleCode,'SmallFont')">font-size:0.85em;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_1')">background-color:#000000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_2')">background-color:#0066FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_3')">background-color:#66FFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_4')">background-color:#00FF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_5')">background-color:#FF66FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_6')">background-color:#FF3333;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_7')">background-color:#FFFF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_8')">background-color:#FFFFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_9')">background-color:#808080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_10')">background-color:#000080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_11')">background-color:#008080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_12')">background-color:#008000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_13')">background-color:#800080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_14')">background-color:#800000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_15')">background-color:#808000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_16')">background-color:#C0C0C0;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_1')">color:#000000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_2')">color:#0066FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_3')">color:#66FFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_4')">color:#00FF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_5')">color:#FF66FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_6')">color:#FF3333;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_7')">color:#FFFF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_8')">color:#FFFFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_9')">color:#808080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_10')">color:#000080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_11')">color:#008080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_12')">color:#008000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_13')">color:#800080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_14')">color:#800000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_15')">color:#808000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_16')">color:#C0C0C0;</xsl:if>
+		</xsl:variable>
+		<td width="{$tdWidth}" style="{$tdStyle}" colspan="{$colspan}">
+			<span style="{$fontStyle}">
+				<xsl:apply-templates />	
+			</span>
+		</td>
+	</xsl:template>
+	<xsl:template match="c:th">
+		<xsl:variable name="position" select="position()"/>
+		<xsl:variable name="style">
+			<xsl:choose>
+				<xsl:when test="$position = 1">border: 0;width:20%;</xsl:when>
+				<xsl:otherwise>border-left: 1px solid grey;</xsl:otherwise>
+			</xsl:choose>	
+		</xsl:variable>
+		<th class="th" style="background:lightgrey;{$style}">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</th>
+	</xsl:template>
+	<xsl:template match="c:tr">
+		<tr class="tr">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</tr>
+	</xsl:template>
+	<xsl:template match="c:col">
+		<col>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</col>
+	</xsl:template>
+	<xsl:template match="c:colgroup">
+		<colgroup>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</colgroup>
+	</xsl:template>
+	<xsl:template match="c:tbody">
+		<tbody>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</tbody>
+	</xsl:template>
+	<xsl:template match="c:tfoot">
+		<tfoot>
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</tfoot>
+	</xsl:template>
+	<xsl:template match="c:thead">
+		<thead style="border-bottom: 1px solid lightgrey;">
+			<xsl:copy-of select="@*"/>
+			<xsl:apply-templates />
+		</thead>
+	</xsl:template>
+	<xsl:template match="c:table/c:caption">
+		<span style="font-weight:bold;">
+			<xsl:apply-templates />
+		</span>
+	</xsl:template>
+	<xsl:template match="c:content">
+		<xsl:apply-templates  />
+	</xsl:template>
+	<xsl:template match="c:content[@revised='delete']"/>
+	<xsl:template match="c:paragraph">
+		<xsl:variable name="style">
+			<xsl:choose>
+				<xsl:when test="@styleCode='entete'">display:none;</xsl:when>
+				<xsl:when test="@styleCode='bottom'">margin-top:0;margin-bottom:30px;</xsl:when>
+				<xsl:otherwise>margin : 8px 0;</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="fontStyle">
+			<xsl:if test="contains(@styleCode,'Bold')">font-weight:bold;</xsl:if>
+			<xsl:if test="contains(@styleCode,'Italics')">font-style:italic;</xsl:if>
+			<xsl:if test="contains(@styleCode,'Underline')">text-decoration:underline;</xsl:if>
+			<xsl:if test="contains(@styleCode,'SmallFont')">font-size:0.85em;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_1')">background-color:#000000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_2')">background-color:#0066FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_3')">background-color:#66FFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_4')">background-color:#00FF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_5')">background-color:#FF66FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_6')">background-color:#FF3333;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_7')">background-color:#FFFF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_8')">background-color:#FFFFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_9')">background-color:#808080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_10')">background-color:#000080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_11')">background-color:#008080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_12')">background-color:#008000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_13')">background-color:#800080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_14')">background-color:#800000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_15')">background-color:#808000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_16')">background-color:#C0C0C0;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_1')">color:#000000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_2')">color:#0066FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_3')">color:#66FFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_4')">color:#00FF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_5')">color:#FF66FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_6')">color:#FF3333;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_7')">color:#FFFF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_8')">color:#FFFFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_9')">color:#808080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_10')">color:#000080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_11')">color:#008080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_12')">color:#008000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_13')">color:#800080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_14')">color:#800000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_15')">color:#808000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_16')">color:#C0C0C0;</xsl:if>
+		</xsl:variable>
+		<p style="font-size:0.9em;{$style};{$fontStyle}">
+			<xsl:apply-templates/>
+		</p>
+	</xsl:template>
+	<xsl:template match="c:caption">
+		<xsl:variable name="fontStyle">
+			<xsl:if test="contains(@styleCode,'Bold')">font-weight:bold;</xsl:if>
+			<xsl:if test="contains(@styleCode,'Italics')">font-style:italic;</xsl:if>
+			<xsl:if test="contains(@styleCode,'Underline')">text-decoration:underline;</xsl:if>
+			<xsl:if test="contains(@styleCode,'SmallFont')">font-size:0.85em;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_1')">background-color:#000000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_2')">background-color:#0066FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_3')">background-color:#66FFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_4')">background-color:#00FF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_5')">background-color:#FF66FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_6')">background-color:#FF3333;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_7')">background-color:#FFFF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_8')">background-color:#FFFFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_9')">background-color:#808080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_10')">background-color:#000080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_11')">background-color:#008080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_12')">background-color:#008000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_13')">background-color:#800080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_14')">background-color:#800000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_15')">background-color:#808000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'BG_16')">background-color:#C0C0C0;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_1')">color:#000000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_2')">color:#0066FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_3')">color:#66FFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_4')">color:#00FF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_5')">color:#FF66FF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_6')">color:#FF3333;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_7')">color:#FFFF66;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_8')">color:#FFFFFF;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_9')">color:#808080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_10')">color:#000080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_11')">color:#008080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_12')">color:#008000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_13')">color:#800080;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_14')">color:#800000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_15')">color:#808000;</xsl:if>
+			<xsl:if test="contains(@styleCode,'FG_16')">color:#C0C0C0;</xsl:if>
+		</xsl:variable>
+		<h2 style="{$fontStyle}">
+			<xsl:apply-templates/>
+		</h2>
+	</xsl:template>
+	<xsl:template match="c:pre">
+		<pre>
+			<xsl:apply-templates/>
+		</pre>
+	</xsl:template>
+	<xsl:template match="c:br">
+		<xsl:element name="br">
+			<xsl:apply-templates/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="c:list">
+		<xsl:if test="c:caption">
+			<p>
+				<b>
+					<xsl:apply-templates select="c:caption"/>
+				</b>
+			</p>
+		</xsl:if>
+		<div class="alignCenter">
+			<xsl:for-each select="c:item">
+				<xsl:apply-templates/>
+			</xsl:for-each>
+		</div>
+	</xsl:template>
+	<xsl:template match="c:renderMultiMedia">
+		<xsl:variable name="imageRef" select="@referencedObject"/>
+		<xsl:variable name="divClass">
+			<xsl:if test="contains($imageRef,'GRAPH')">
+							alignCenter
+			</xsl:if>
+		</xsl:variable>
+		<div class="{$divClass}">
+			<xsl:choose>
+				<xsl:when test="//c:regionOfInterest[@ID=$imageRef]">
+					<!-- Here is where the Region of Interest image referencing goes -->
+					<xsl:if test="//c:regionOfInterest[@ID=$imageRef]//c:observationMedia/c:value[@mediaType='image/gif' or @mediaType='image/jpeg' or @mediaType='image/png']">
+						<br clear="all"/>
+						<xsl:element name="img">
+							<xsl:attribute name="src">
+								<xsl:value-of select="//c:regionOfInterest[@ID=$imageRef]//c:observationMedia/c:value/c:reference/@value" />
+							</xsl:attribute>
+						</xsl:element>
+					</xsl:if>
+				</xsl:when>
+				<xsl:otherwise>
+					<!-- Here is where the direct MultiMedia image referencing goes -->
+					<xsl:if test="//c:observationMedia[@ID=$imageRef]/c:value[@mediaType='image/gif' or @mediaType='image/jpeg' or @mediaType='image/png']">
+						<br clear="all"/>
+						<xsl:element name="IMG">
+							<xsl:attribute name="id">
+								<xsl:value-of select="$imageRef"/>
+							</xsl:attribute>
+							<xsl:attribute name="src">
+										data:<xsl:value-of select="//c:observationMedia[@ID=$imageRef]/c:value/@mediaType"/>;base64, <xsl:value-of select="//c:observationMedia[@ID=$imageRef]/c:value"/>
+							</xsl:attribute>
+						</xsl:element>
+					</xsl:if>
+				</xsl:otherwise>
+			</xsl:choose>
+		</div>
+	</xsl:template>
+	<xsl:template name="renderTextB64">
+		<xsl:variable name="vendor" select="system-property('xsl:vendor')"/>
+		<xsl:variable name="node-set" select="function-available('exsl:node-set')"/>
+		<xsl:choose>
+			<xsl:when test="$vendor='libxslt' and $node-set">
+				<!-- Le navigateur est soit safari version 3.x et superieure soit google chrome version 2.x et superieure -->
+				<!-- On peut donc afficher le pdf -->
+				<xsl:element name="object">
+					<xsl:attribute name="type">
+						<xsl:value-of select="c:text/@mediaType"/>
+					</xsl:attribute>
+					<xsl:attribute name="width">800px</xsl:attribute>
+					<xsl:attribute name="height">600px</xsl:attribute>
+					<xsl:attribute name="data">data:<xsl:value-of select="c:text/@mediaType"
+									/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+				</xsl:element>
+			</xsl:when>
+			<xsl:when test="$vendor='Opera' and $node-set">
+				<!-- Le navigateur est opera 9.x et superieure -->
+				<!-- On peut donc afficher le pdf -->
+				<xsl:element name="object">
+					<xsl:attribute name="type">
+						<xsl:value-of select="c:text/@mediaType"/>
+					</xsl:attribute>
+					<xsl:attribute name="width">800px</xsl:attribute>
+					<xsl:attribute name="height">600px</xsl:attribute>
+					<xsl:attribute name="data">data:<xsl:value-of select="c:text/@mediaType"
+									/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+				</xsl:element>
+			</xsl:when>
+			<xsl:when test="$vendor='Transformiix' and $node-set">
+				<!-- Le navigateur est Firefox version 3.x ou superieure -->
+				<!-- Le pdf ne sera disponble que sous forme de lien -->
+				<xsl:text>Enregistrer le document PDF (clic droit "puis enregistrer sous") : </xsl:text>
+				<xsl:element name="a">
+					<xsl:attribute name="href">data:<xsl:value-of select="c:text/@mediaType"
+									/>;base64,<xsl:value-of select="c:text"/>
+					</xsl:attribute>
+					<xsl:text>ici</xsl:text>
+				</xsl:element>
+			</xsl:when>
+			<xsl:otherwise>
+				<!-- Navigaeur non pris en charge -->
+				<CENTER>Ce document contient un fichier PDF qui ne peut être affiché par ce
+							navigateur</CENTER>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+</xsl:stylesheet>

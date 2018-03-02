@@ -1,0 +1,1539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_AVC_PostAVC.sch"?> 
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?>
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+    
+    <!-- 
+      **********************************************************************************************************
+      Système : ASIP
+      Document : Evaluation Pluri Professionnelle Post AVC (PostAVC)
+      Auteur : DAM (HGH)
+      Date de création : 12/07/2016
+      Version : 0.0.1
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:
+      - TemplateId des documents:
+         Admission en UNV (AUNV): 1.2.250.1.213.1.1.1.15 
+         Suivi en UNV (SUNV): 1.2.250.1.213.1.1.1.16
+         Post UNV (PUNV): 1.2.250.1.213.1.1.1.17
+         Evaluation Pluri Professionnelle Post AVC (PostAVC): 1.2.250.1.213.1.1.1.25
+      - Type de documents (Matrice)
+            
+            AUNV, SUNV, PUNV, PostAVC entrent dans la catégorie "Synthèse d'épisode de soins" de code LOINC 34133-9
+            
+      - OID temporaire du LPS producteur de document: root="1.2.250.1.213.1.1.9" 
+      - Domaine de vocabulaire ASIP pour AVC = TA_AVC 1.2.250.1.213.1.1.4.321
+      - Jeux de valeurs du volet AVC 1.2.250.1.213.1.1.4.321.1 à 1.2.250.1.213.1.1.4.321.X
+      
+      02/03/17 : NMA : Correction des entrées ProblemEntry qui ne passaient pas au schématron
+      
+      **********************************************************************************************************
+   -->
+    
+    <realmCode code="FR"/>
+    <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <!-- Conformité spécifications HL7 France -->
+    <templateId root="2.16.840.1.113883.2.8.2.1"/>
+    <!-- Conformité spécifications au CI-SIS de l'ASIP Santé -->
+    <templateId root="1.2.250.1.213.1.1.1.1"/>
+    <!-- Evaluation Pluri Professionnelle Post AVC (PostAVC)-->
+    <templateId root="1.2.250.1.213.1.1.1.25"/>
+    
+    
+    <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+    <id root="1.2.250.1.213.1.1.9" extension="A7102400008_040"/>
+    <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+        displayName="Synthèse d'épisode de soins"/>
+    <title>Evaluation Pluri Professionnelle Post AVC (PostAVC)</title>
+    <effectiveTime value="201607211100+0100"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+        codeSystemName="Confidentiality" displayName="Normal"/>
+    <languageCode code="fr-FR"/>
+    
+    <!--Identification du patient=-->
+    
+    <recordTarget>
+        <patientRole>
+            <!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+            <id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/><!--INS-C-->
+            <addr use="H">
+                <houseNumber>24</houseNumber>
+                <streetNameType>Avenue</streetNameType>
+                <streetName>Breteuil</streetName>
+                <postalCode>75007</postalCode>
+                <city>Paris</city>
+            </addr>
+            <!-- Portable -->
+            <telecom value="tel:0686970800" use="MC"/>
+            <!-- Domicile -->
+            <telecom value="tel:0186940900" use="H"/>
+            <patient classCode="PSN">
+                <name>
+                    <given>Marie</given>
+                    <family qualifier="BR">DECOURCY</family>
+                    <family qualifier="SP" nullFlavor="NAV"/>
+                </name>
+                <administrativeGenderCode code="F"/>
+                <birthTime value="19800315"/>      
+            </patient>
+        </patientRole>
+    </recordTarget>
+    
+    <!-- Auteur du document - Clinicien ayant suivi le patient  -->
+    
+    <author>
+        <time value="201607211200+0100"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <!-- PS identifié par son N°RPPS -->
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/><!--id nationale du professionnel de santé-->
+            <code code='G15_10/SM32' codeSystem='1.2.250.1.213.1.1.4.5' codeSystemName='RPPS'  displayName='Médecin – Neurologie (SM)'/>
+            <addr nullFlavor="NASK"/>
+            <telecom nullFlavor="NASK"/>
+            <assignedPerson>
+                <name>
+                    <given>Jacques</given>
+                    <family>BIDEAULT</family>
+                    <prefix>Dr.</prefix>
+                </name>
+            </assignedPerson>
+            <!-- Numéro FINESS de l'ES (optionnel)  -->
+            <representedOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/><!--id national de la structure-->
+                <name>Clinique du Belvédère</name>
+                <telecom nullFlavor="NAV"/>
+                <addr>
+                    <houseNumber>142</houseNumber>
+                    <streetNameType>rue</streetNameType>
+                    <streetName>Belvédère</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>Boulogne-Billancourt</city>
+                </addr>
+                <standardIndustryClassCode code="ETABLISSEMENT" 
+                    displayName="Établissement de santé"
+                    codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <!-- Aidant referent -->  
+    <informant>
+        <relatedEntity classCode="ECON">
+            <code code="SON" displayName="Fils"/>
+            <addr nullFlavor="NAV"/>
+            <telecom value="tel:0647150100" use="MC"/>
+            <relatedPerson>
+                <name>
+                    <family>DECOURCY</family>
+                    <given>Sophie</given>
+                </name>
+            </relatedPerson>
+        </relatedEntity>
+    </informant>
+    
+    <!--Organisation de santé responsable du document -->
+    
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id root="1.2.250.1.71" extension="1120456789" assigningAuthorityName="GIP-CPS"/>
+                <name>Clinique du Belvédère</name>
+                <telecom value="tel:0442515151" use="WP"/>
+                <addr>
+                    <houseNumber>142</houseNumber>
+                    <streetNameType>rue</streetNameType>
+                    <streetName>Belvédère</streetName>
+                    <postalCode>92100</postalCode>
+                    <city>Boulogne-Billancourt</city>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    
+    <!-- transmission dans 8 jours au masseur.....-->
+    <informationRecipient>
+        <intendedRecipient>
+            <id extension="801234567897" root="1.2.250.1.71.4.2.1"/>
+            <telecom value="tel:0147150020" use="DIR"/>
+            <informationRecipient>
+                <name>
+                    <prefix>Dr</prefix>
+                    <given>Jean</given>
+                    <family>CHIRURGIEN</family>
+                </name> 
+             </informationRecipient>
+        </intendedRecipient>
+     </informationRecipient>
+      
+    <!--Responsable de la validation de la synthèse-->
+    
+    <legalAuthenticator>
+        <time value="201607211218+0100"/>
+        <signatureCode code="S"/>
+        <assignedEntity>
+            <realmCode code="FR"/>
+            <!-- PS identifié par son N°RPPS -->
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+            <code code='G15_10/SM32' codeSystem='1.2.250.1.213.1.1.4.5' codeSystemName='RPPS' displayName='Médecin – Neurologie (SM)'/>
+            <assignedPerson>
+                <name>
+                    <given>Jacques </given>
+                    <family>BIDEAULT</family>
+                    <prefix>DR</prefix>
+                    <suffix/>
+                </name>
+            </assignedPerson>
+        </assignedEntity>
+    </legalAuthenticator>
+    
+    <!-- Médecin traitant -->
+    <participant typeCode="INF">
+        <functionCode code="PCP"/>
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+            <addr>
+                <houseNumber>3</houseNumber>
+                <streetNameType>rue</streetNameType>
+                <streetName>Petit Pont</streetName>
+                <postalCode>75005</postalCode>
+                <city>Paris</city>
+            </addr>
+            <telecom value="tel:0147150000" use="EC"/>
+            <associatedPerson>
+                <name>
+                    <family>MEDIONI</family>
+                    <given>Stéphane</given>
+                    <prefix>DR</prefix>
+                </name>
+            </associatedPerson>         
+        </associatedEntity>
+    </participant>
+    <!-- Médecin referent -->
+    <participant typeCode="INF">
+        <functionCode code="ASPEC"/>
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+            <addr>
+                <houseNumber>3</houseNumber>
+                <streetNameType>rue</streetNameType>
+                <streetName>Petit Pont</streetName>
+                <postalCode>75005</postalCode>
+                <city>Paris</city>
+            </addr>
+            <telecom value="tel:0147160000" use="EC"/>
+            <associatedPerson>
+                <name>
+                    <family>MILENKOVIC </family>
+                    <given>Nemanja</given>
+                    <prefix>DR</prefix>
+                </name>
+            </associatedPerson>         
+        </associatedEntity>
+    </participant>
+    
+   
+    
+    <!-- Informations sur le document --> 
+    <documentationOf>
+        <serviceEvent classCode="ACT">
+            <id root="22752fcd-2477-4ab8-8ab3-762dd4333ea1"/>
+            <code code="51847-2" displayName="Consultation d'évaluations pluri professionnelle Post AVC" 
+                codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+            <effectiveTime>
+                <low value="20120328111700+0100"/>
+                <high value="20120330111700+0100"/>
+            </effectiveTime>
+            <performer typeCode="PRF">
+                <assignedEntity>
+                    <realmCode code="FR"/>
+                    <!-- PS identifié par son N°RPPS -->
+                    <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                    <code code='G15_10/SM32' codeSystem='1.2.250.1.213.1.1.4.5' 
+                        codeSystemName='RPPS' displayName='Médecin – Neurologie (SM)'/>
+                    <assignedPerson>
+                        <name>
+                            <given>Jacques </given>
+                            <family>BIDEAULT</family>
+                            <prefix>Docteur</prefix>
+                            <suffix/>
+                        </name>
+                    </assignedPerson>
+                    <representedOrganization>
+                        <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                        <name>Clinique du Belvédère</name>
+                        <telecom nullFlavor="NAV"/>
+                        <addr>
+                            <houseNumber>142</houseNumber>
+                            <streetNameType>rue</streetNameType>
+                            <streetName>Belvédère</streetName>
+                            <postalCode>92100</postalCode>
+                            <city>Boulogne-Billancourt</city>
+                        </addr>
+                        <standardIndustryClassCode code="ETABLISSEMENT" 
+                            displayName="Établissement de santé"
+                            codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                    </representedOrganization>
+                </assignedEntity>
+            </performer>
+        </serviceEvent>
+    </documentationOf>
+    
+    <componentOf>
+        <encompassingEncounter>
+            <effectiveTime>
+                <high value="20120328111700+0100"/>
+            </effectiveTime>
+            <location>
+                <healthCareFacility>
+                  
+                    <code code="SA01" displayName="Etablissement Public de santé"
+                        codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+                </healthCareFacility>
+            </location>
+        </encompassingEncounter>
+    </componentOf>
+    
+    <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+    <component>
+        <structuredBody>
+           
+            <component>
+                <!--Evaluation education therapeutique et prevention secondaire E1 --> 
+                <!-- Active problem -->
+                <section>
+                    <templateId root='2.16.840.1.113883.10.20.1.11'/>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.6'/>
+                    <id root="e261e90a-e565-4737-a1f3-819b23321e5b"/>
+                    <code code='11450-4' displayName='PROBLEM LIST' codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <text/>
+                    <!-- problem concern entry-->
+                    <entry> 
+                        <act classCode="ACT" moodCode="EVN">
+                            <templateId root='2.16.840.1.113883.10.20.1.27'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.1'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.2'/>
+                            <id root="b65a536b-ff5c-4cb5-8a22-4a0679e96433"/>
+                            <code  nullFlavor="NA"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime nullFlavor="UNK"/>
+                            
+                            <!--Infarctus ou hemorragie avec fdr a surveiller-->
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                    <id root="bf6e6515-8c5f-4cfa-8f2f-55b98730748c"/>
+                                    <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime>
+                                        <low nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <value xsi:type="CD" code="I21" displayName="Infarctus du myocarde" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                                        <translation code="AVC-281" displayName="Infarctus ou hemorragie avec fdr a surveiller" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                                    </value>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="c893e5f5-a165-4d2f-958e-62033e76d23e"/>
+                                    <code code='D3-02000' displayName='HTA' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                                    <text>HTA</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="true"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="cec71e67-633c-476d-a843-67ce2376a243"/>
+                                    <code code='DB-61000' displayName='Diabète' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                                    <text>Diabete</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="false"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="f49d17d0-ae8f-404e-a071-657e77fd8397"/>
+                                    <code code='D6-11100' displayName='Obésité' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                                    <text>Obésité</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="false"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="bf6e6515-8c5f-4cfa-8f2f-55b98730748c"/>
+                                    <code code='L-D9871' displayName='Tabac' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                                    <text>Tabac</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="false"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="190aefbf-a24a-4be7-ab00-14b6a10c9ec2"/>
+                                    <code code='AVC-217' displayName='Dyslipidémie' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                                    <text>Dyslipidémie</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="false"/>
+                                </observation>
+                            </entryRelationship>
+                        </act>
+                    </entry>
+                    
+                    <entry> 
+                        <act classCode="ACT" moodCode="EVN">
+                            <templateId root='2.16.840.1.113883.10.20.1.27'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.1'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.2'/>
+                            <id root="7d5fe047-966b-40d6-85a3-6d408dad061e"/>
+                            <code nullFlavor="NA"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime nullFlavor="UNK"/>
+                            
+                            <!--Infarctus ou hemorragie avec etiologie a surveiller-->
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                    <id root="bf6e6515-8c5f-4cfa-8f2f-55b98730748c"/>
+                                    <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime>
+                                        <low nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <value xsi:type="CD" code="I21" displayName="Infarctus du myocarde" codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM10">
+                                        <translation code="AVC-282"
+                                            displayName="Infarctus ou hemoragie avec etiologie à surveiller"
+                                            codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                                    </value>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="6624ae03-dd2e-484f-b89a-2e09df282311"/>
+                                    <code code="AVC-218" displayName="Cardiaque" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                                    <text>Cardiaque</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="false"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="05689544-5321-4034-b2e1-779ca38d0db6"/>
+                                    <code code='G-B113' displayName='Hématologique' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                                    <text>Hematologique</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="false"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <entryRelationship typeCode="REFR">
+                                <observation classCode="OBS" moodCode="EVN">
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                                    <id root="cde01113-8489-4ba8-8504-a905c2731ea3"/>
+                                    <code code='DF-00180' displayName='Maladie génétique' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                                    <text>Maladie génétique</text>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime nullFlavor="NA"/>
+                                    <value xsi:type="BL" value="false"/>
+                                </observation>
+                            </entryRelationship>
+                        </act>
+                    </entry>
+                            
+                    <entry> 
+                        <act classCode="ACT" moodCode="EVN">
+                            <templateId root='2.16.840.1.113883.10.20.1.27'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.1'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5.2'/>
+                            <id root="fe3bb6bb-53d3-4a8b-ad6b-c6d03f9b24ef"/>
+                            <code nullFlavor="NA"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime nullFlavor="UNK"/>
+                            
+                            <!--Risque de récidive-->
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                    <id root="548ab139-5426-410d-9c11-6095b109f442"/>
+                                    <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime>
+                                        <low nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <value xsi:type="CD" code="AVC-212" displayName="Risque de récidive" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <!--Affection Longue Durée-->
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                    <id root="e9014673-6682-493e-8714-62023797bcca"/>
+                                    <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime>
+                                        <low nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <value xsi:type="CD" code="DB-70660" displayName="ALD" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                </observation>
+                            </entryRelationship>
+                            
+                            <!--Existance polypathologies associees E4-->
+                            <entryRelationship typeCode="SUBJ" inversionInd="false">
+                                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                                    <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                                    <id root="5fda934c-f89f-4ebd-8aea-ea91b4dda8ee"/>
+                                    <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                                    <statusCode code="completed"/>
+                                    <effectiveTime>
+                                        <low nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <value xsi:type="CD" code="AVC-285"
+                                        displayName="Existance polypathologies associees"
+                                        codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                                </observation>
+                            </entryRelationship>
+                        </act>
+                    </entry>
+                </section>
+            </component>
+                            
+
+            <!-- Coded Care Plan  -->
+            <component>
+                <section>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.36'/>
+                    <templateId root='2.16.840.1.113883.10.20.1.10'/>
+                    <id root='1f6536d7-6adb-41ec-b5bc-ba960c137ef3'/>
+                    <code code='18776-5' displayName='TREATMENT PLAN'  codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                    <text>
+                        <content ID="ortho"></content><!--recuperer le jeu de valeur de orthophoniste-->     
+                    </text>
+                    <!-- Observation Request -->
+                    <entry><!-- Bilan initial etiologique -->
+                      <observation classCode='OBS' moodCode='GOL'>
+                        <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                        <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                        <id root='5c4a5231-b0b3-4702-9f63-b2f822527356'/>  
+                        <code code='AVC-219' displayName='Bilan étiologique' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        <text></text>
+                        <statusCode code='active'/>
+                          <effectiveTime nullFlavor="NASK"/>
+                          <value xsi:type='BL' value="true"/>
+                      </observation>
+                    </entry>
+                    <entry><!-- Ce qui a ete prevu ulterieurement a t'il ete fait? -->
+                       <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='ad79c43e-925f-493b-8776-318e41585000'/>  
+                            <code code='AVC-220' displayName='Ce qui a été prévu ultérieurement a-t-il été fait?' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> <reference value='#fait'/></text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='BL' value="true"/>
+                       </observation>
+                    </entry>
+                    <entry><!--Si oui laquelle ?-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='4f4bec16-0662-4c19-83fb-a1afecae208c'/>   
+                            <code code='AVC-228' displayName=' Si oui laquelle ?' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName=' TA_AVC '/>
+                            <text>Temps quotidien moyen (H)</text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='ST'>Aides soigante et 2 heures</value>
+                        </observation>
+                    </entry>
+                   
+                    <!--Besoin d'un soutien psychotherapeutique-->
+                    <entry><!--Proche-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='f4f62ee6-970b-4d3a-932b-af2f9b0a60ec'/>  
+                            <code  nullFlavor="NA"/>
+                            <text></text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NA"/>
+                            <value xsi:type='BL'/>
+                            <subject typeCode='SBJ'>
+                                <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.15.2'/>
+                                <relatedSubject>
+                                    <code code='FRND' displayName='Proche'
+                                        codeSystem='2.16.840.1.113883.5.111' codeSystemName='roleCode'/>
+                                    
+                                </relatedSubject>
+                            </subject>    
+                        </observation> 
+                    </entry>
+                    <!--Objectif global du projet de vie-->
+                    <entry><!--Association de soutien--> 
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='c57c354a-c8ab-4bc2-ba20-54cac7725a6a'/>
+                            <code code='AVC-225' displayName='Association de soutien' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type="BL" value="true"/>  <!--on considere que true est le oui à la reponse-->
+                        </observation>
+                    </entry>
+                    <entry><!--Appareillage petit--><!--Observation Request-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='36537ece-85da-42dc-b8ed-420c710bcf7e'/>
+                            <code code='AVC-226' displayName='Appareillage' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK" />
+                            <value xsi:type='CD' code="G-A216" displayName="Petit"  codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                        </observation>
+                    </entry>
+                    <!--Traitement-->   
+                    <entry><!--Traitement medical preventif-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='3c1d98bb-b3f4-4f77-a26a-7a3b308c84f0'/>
+                            <code code='F-01450' displayName='complication' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime />
+                                <value xsi:type='CD' code='AVC-276' displayName='A poursuivre' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                    </entry>
+                    <entry>  <!--prise en charge reguliere-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='a0e42b1c-052f-4f9b-a6a2-0cf5c35dd374'/>
+                            <code code='AVC-227' displayName='Consultation de spécialité' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime  nullFlavor="NASK"/>
+                            <value xsi:type='BL' value="true" />
+                        </observation>
+                    </entry>   
+                    <entry><!--Prevoir-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='2344938f-179e-44d0-a842-b34741777998'/>
+                            <code code='AVC-288' displayName='Prevoir' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                             <text></text>
+                            <statusCode code='active'/>
+                            <effectiveTime />
+                            <value xsi:type='CD' code='AVC-229' displayName='Séjour de répit' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                    </entry>
+                    <!--Mesure de protection-->
+                    <!--Juridique-->
+                    <entry><!--A envisager-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='4615cec8-3aef-4f85-9803-54457c09fc37'/>
+                            <code code='AVC-291' displayName='Juridique' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='CD' code='AVC-278' displayName='A envisager' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                    </entry>
+                    <entry><!--A envisager de lever-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='c0d0768d-0f30-4ee2-9628-7f7a5b7dcba2'/>
+                            <code code='AVC-291' displayName='Juridique' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='CD' code='AVC-279' displayName='A envisager de lever' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                    </entry>
+                    <entry><!--Existante à maintenir-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='a3f32e9e-f5c1-4307-a867-91b8fcfce868'/>
+                            <code code='AVC-291' displayName='Juridique' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime />
+                            <value xsi:type='CD' code='AVC-280' displayName='Existante à maintenir' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                    </entry>
+                    <!--professionnelle-->
+                    <entry><!--Reprise a envisager;demarches faites-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='fdb63df9-3b56-4c5a-9202-d71594f3317b'/>
+                            <code code='AVC-292' displayName="Reprise a envisager;demarches faites" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='BL' value="true"/>   
+                        </observation>
+                    </entry>
+                    <entry><!--Reprise inenvisageable;demarches faites-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='e7cebf1e-e468-4707-963e-631e26fafae3'/>
+                            <code code='AVC-293' displayName="Reprise inenvisageable;demarches faites" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime  nullFlavor="MSK"/>
+                            <value xsi:type='BL' value="true"/>   
+                        </observation>
+                    </entry>
+                    <!--conduite automobile-->
+                    <entry><!--Formellement conre indiquée-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='a94c2ffc-0467-431e-bfc4-040e9e937dac'/>
+                            <code code='AVC-294' displayName="Formellement conre indiquée" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='BL' value="true"/>   
+                        </observation>
+                    </entry>
+                    <entry><!--Possible sans permis special-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='cb1ae490-7c75-4154-9b18-242cb88fe577'/>
+                            <code code='AVC-295' displayName="Possible sans permis special" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK" />
+                            <value xsi:type='BL' value="true"/>   
+                        </observation>
+                    </entry>
+                    <entry><!--Les demarches ont elles été faites-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='39b6774f-2ebb-4f00-86b6-fb9fd18d85f7'/>
+                            <code code='AVC-296' displayName="Les demarches ont elles été faites" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="ASKU" />
+                            <value xsi:type='BL' value="true"/>   
+                        </observation>
+                    </entry>
+                    <!--Evaluation entorage environnemental(E5)-->
+                    <entry><!--lieu de vie-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='9e4e8d00-9562-471d-8dbe-7e2518b0186f'/>
+                            <code code='AVC-311' displayName='lieu de vie' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime />
+                            <value xsi:type='CD' code='AVC-297' displayName='Domicile' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                    </entry>
+                    <!--mode de vie-->
+                    <entry><!--seul-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='311fda29-7766-4911-9b04-a0ab1b72925d'/>
+                            <code code='G-A224' displayName="seul" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='BL' value="true"/>  
+                        </observation>
+                    </entry>
+                    <entry><!--En couple-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='8801772c-2133-4ab8-90ee-62df993d601a'/>
+                            <code code='AVC-298' displayName="En couple" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <text nullFlavor="MSK"/> 
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='BL' value="true"/>  
+                        </observation>
+                    </entry>
+                    <entry><!--En famille-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='40874114-8ae9-4bf4-835b-6001231079ee'/>
+                            <code code='AVC-299' displayName="En famille" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <text nullFlavor="MSK"/> 
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='BL' value="true"/>  
+                        </observation>
+                    </entry>
+                    <!--Diagnstic autonomie de l'habitat-->
+                    <entry>
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='5074e36e-4a88-4e6c-8be0-5ac0b0149562'/>
+                            <code code='AVC-300' displayName='Diagnstic autonomie de l habitat' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime />
+                            <value xsi:type='CD' code='AVC-265' displayName='Fait' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                    </entry>
+                    <!--Idem pour a faire/refaire-->
+                    <!--Aides mises en oeuvre-->
+                    <entry><!--Dossier MDPH en cours,adaptéDossier MDPH en cours,adapté-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='0821d1e4-d8fc-46dc-af4f-b6953ac7ec8b'/>
+                            <code code='AVC-302' displayName='Dossier MDPH en cours,adapté' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime  nullFlavor="NASK"/>
+                            <value xsi:type='BL'  value="true"/>
+                        </observation>
+                    </entry> 
+                    
+                    <entry><!--APA-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='0821d1e4-d8fc-46dc-af4f-b6953ac7ec8b'/>
+                            <code code='AVC-304' displayName='APA' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK" />
+                            <value xsi:type='BL' value="true" />
+                        </observation>
+                    </entry>
+                    <entry><!--Dissocié-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='0821d1e4-d8fc-46dc-af4f-b6953ac7ec8b'/>
+                            <code code='AVC-310' displayName='Dissocié' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime />
+                            <value xsi:type='BL' value="true" />
+                        </observation>
+                    </entry>
+                      
+                    <!-- Contraintes du parcours de soin  -->
+                    <entry> <!--soins infirmiers-->
+                        <observation classCode="OBS" moodCode="GOL">
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='e3a5a048-c5cf-4a58-a462-4dcf9eb402db'/>
+                            <code code='AVC-236' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="Soins infirmiers"/> 
+                            <text></text>
+                            <statusCode code="active"/>
+                            <effectiveTime></effectiveTime>
+                            <value xsi:type='BL' value='true' />     
+                        </observation>
+                    </entry> 
+                    <entry> <!--Orthophonie-->
+                        <observation classCode="OBS" moodCode="GOL">
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='e3a5a048-c5cf-4a58-a462-4dcf9eb402db'/>
+                            <code code='P7-80200' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5' displayName="Orthophonie"/> 
+                            <text></text>
+                            <statusCode code="completed"/>
+                            <effectiveTime></effectiveTime>
+                            <value xsi:type='BL' value='true' />     
+                        </observation>
+                    </entry> 
+                    <!-- Besoin d'un bilan complementaire -->   
+                    <entry><!--orthophoniste-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='40874114-8ae9-4bf4-835b-6001231079ee'/>
+                            <code code='G15_91' displayName="Othophoniste" codeSystem='1.2.250.1.213.1.1.4.5' codeSystemName='ASIP-SANTE_AuthorSpeciality' />
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='CD'  code="AVC-265" displayName="Fait" codeSystem="1.2.250.1.213.1.1.4.321"  codeSystemName="AVC-265"/>  
+                        </observation>
+                    </entry>
+                    
+                    <!-- Besoin d'un avis medical complementaire -->    
+                    <entry><!--Neurologue-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='40874114-8ae9-4bf4-835b-6001231079ee'/>
+                            <code code='G15_10/C43' displayName="Neurologue" codeSystem='1.2.250.1.213.1.1.4.5' codeSystemName='ASIP-SANTE_AuthorSpeciality'/>
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='BL' value="true"/>  
+                        </observation>
+                    </entry>
+                    <entry><!--Cardiologue-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='40874114-8ae9-4bf4-835b-6001231079ee'/>
+                            <code code='G15_10/C07' displayName="Cardiologue" codeSystem='1.2.250.1.213.1.1.4.5' codeSystemName='ASIP-SANTE_AuthorSpeciality'/> 
+                            <text nullFlavor="MSK"/> 
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='BL' value="true"/>  
+                        </observation>
+                    </entry>
+                    <entry><!--Autre-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='40874114-8ae9-4bf4-835b-6001231079ee'/>
+                            <code code='G-A609' displayName="Autre" codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/> 
+                            <text nullFlavor="MSK"> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="MSK" />
+                            <value xsi:type='ST'/>  
+                        </observation>
+                    </entry>
+                    <!--idem pour MPR,Geniatre-->
+                    <entry><!--Soins ou traitement nocturne-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='547889d7-4d22-428d-af1a-d8537018e431'/>  
+                            <code code='AVC-240' displayName=' Soins ou traitement nocturne' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName=' TA_AVC '/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='BL' value="true"/>
+                        </observation>
+                    </entry>
+                    <entry><!--Ventilation-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='23bf4a94-a2cb-4a34-9ded-2a7f9708297b'/>  
+                            <code code='AVC-241' displayName=' Ventilation' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName=' TA_AVC '/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='BL' value="true"/>
+                        </observation>
+                    </entry>
+                    <entry><!--Contrainte alimentaire-->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='bf78c84c-7967-4fd8-8b29-9dd5ae532cc3'/>  
+                            <code code='AVC-242' displayName=' Contrainte alimentaire' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName=' TA_AVC '/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='BL' value="true"/>
+                        </observation>
+                    </entry> 
+                     
+                  </section>
+            </component>
+            <!-- Evaluation handicap moteur(E2) -->
+            <component>  
+                <!-- general appearance section --> 
+                <section>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.9.16'/>
+                    <id root='f3423a4e-7741-4668-854e-67d20d893aa6'/>
+                    <code code='10210-3' displayName='GENERAL STATUS'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                    <!-- Problem observation-->
+                    <entry> <!--paralysie--> <!--Cas de presence de la deficience physique-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="bd700abb-e639-455d-8f6e-c020348be892"/>
+                            <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                            <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                            <text></text>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime> 
+                            <value xsi:type='CD' code="F-A0840" displayName="Paralysie"  codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                            <entryRelationship typeCode='SUBJ' inversionInd='true'>
+                                <observation classCode='OBS' moodCode='EVN'>
+                                    <templateId root='2.16.840.1.113883.10.20.1.55'/>
+                                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.1'/>
+                                    <code code='SEV' displayName='Severity' 
+                                        codeSystem='2.16.840.1.113883.5.4' codeSystemName='ActCode' />
+                                    <text nullFlavor="MSK"/> 
+                                    <statusCode code='completed'/>
+                                    <effectiveTime><low nullFlavor="UNK"/> <high nullFlavor="UNK"/></effectiveTime>
+                                    <value xsi:type='CD' code='Severe' 
+                                        codeSystem='2.16.840.1.113883.5.1063' 
+                                        codeSystemName='ObservationValue' />
+                                </observation>
+                            </entryRelationship> 
+                        </observation>    
+                    </entry>
+                    <entry> <!--Spasticite genante-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="fa3e3c70-005f-4311-ab87-d877ad1aa169"/>
+                            <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                            <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                            <text/>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime> 
+                            <value xsi:type='CD' code="AVC-243" displayName="Spasticité génante" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <entryRelationship typeCode='SUBJ' inversionInd='true'>
+                                <observation classCode='OBS' moodCode='EVN'>
+                                    <templateId root='2.16.840.1.113883.10.20.1.55'/>
+                                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.1'/>
+                                    <code code='SEV' displayName='Severity' 
+                                        codeSystem='2.16.840.1.113883.5.4' codeSystemName='ActCode' />
+                                    <text nullFlavor="MSK"/> 
+                                    <statusCode code='completed'/>
+                                    <effectiveTime><low nullFlavor="UNK"/> <high nullFlavor="UNK"/></effectiveTime>
+                                    <value xsi:type='CD' code='Severe' 
+                                        codeSystem='2.16.840.1.113883.5.1063' 
+                                        codeSystemName='ObservationValue' />
+                                </observation>
+                            </entryRelationship>    
+                        </observation>    
+                    </entry>
+                    
+                    <entry> <!--Aphasie--><!--Cas d'absence de la deficience physique-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="15df6e9a-f0ad-4dd9-8426-eda90f6a7fb8"/>
+                            <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                            <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                            <text/>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='CD' code="F-A6000" displayName="Aphasie" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>  
+                        </observation>    
+                    </entry>
+                    <entry> <!---Negligence visuospatiale-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="5fbe4f73-dad3-4b92-a12e-8552bb088813"/>
+                            <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                            <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                            <text/>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='CD' code="AVC-244" displayName="Négligence visuospatiale" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            
+                        </observation>    
+                    </entry>
+                    <entry> <!--HLH-QLH-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="18931f24-6c7b-46f9-90c8-02480fd80ae9"/>
+                            <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                            <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                            <text/>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='CD' code="AVC-245" displayName="HLH-QLH" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC">
+                            </value>
+                        </observation>    
+                    </entry>
+                    <entry> <!---Troubles de la deglutition-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="ab4ea9eb-5172-42f7-9fd7-21ba58a9a64a"/>
+                            <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                            <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                            <text/>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime> 
+                            <value xsi:type='CD' code="AVC-246" displayName="Troubles de la déglutition " codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            
+                        </observation>    
+                    </entry>
+                    <entry> <!---Troubles de l'elimination urinaire-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="ce022886-8ee1-4a04-87e4-576cf77e367e"/>
+                            <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                            <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                            <text/>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime> 
+                            <value xsi:type='CD' code="AVC-247" 
+                                displayName="Troubles de l'élimination urinaire" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            
+                        </observation> 
+                    </entry>
+                        <entry> <!--Troubles de l'elimination fecale-->
+                            <observation classCode="OBS" moodCode="EVN" negationInd=" true">
+                                <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                                <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                                <id root="bb11b505-1826-4e1d-8db6-7aca1243a095"/>
+                                <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                                <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                                <text/>
+                                <statusCode code='completed'/>
+                                <effectiveTime>
+                                    <low nullFlavor="UNK"/>
+                                </effectiveTime>
+                                <value xsi:type="CD" code="AVC-248" 
+                                    displayName="Troubles de l'élimination fécale" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                                
+                            </observation>    
+                        </entry>
+                        <entry> <!---Troubles de la sexualite-->
+                            <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                                <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                                <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                                <id root="867fb252-9135-4e00-b4db-27ebc0440dcf"/>
+                                <!--NMA: <code code="AVC-283" displayName="deficience physique" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>-->
+                                <code code="F-01100" displayName="Trouble fonctionnel" codeSystem="1.2.250.1.213.2.12"/>
+                                <text/>
+                                <statusCode code='completed'/>
+                                <effectiveTime>
+                                    <low nullFlavor="UNK"/>
+                                </effectiveTime>
+                                <value xsi:type="CD" code="AVC-249" 
+                                    displayName="Troubles de la sexualité" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>   
+                            </observation>    
+                        </entry>
+                   
+                </section>
+            </component>
+       
+            <component><!--delimitation d'activite-->
+             <!-- physical function section --> 
+                <section>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.2.5'/>  
+                    <id root='a182d212-6671-4809-ba07-d22c97dace75'/>
+                    <code code='46006-3' displayName='Physical functioning and structural problems' codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/> 
+                    <text></text>
+                    <entry><!--se lever seul--><!--survey observation-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='a182d212-6671-4809-ba07-d22c97dace75'/>
+                            <code code='45588-1' displayName='se lever seul' codeSystem='2.16.840.1.113883.6.257.755' codeSystemName='LOINC'/>
+                            <text>Délimitation d'activité</text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--risque de chute -->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='34dcfc38-9630-4e58-938e-5c541960f47f'/>
+                            <code code='AVC-250' displayName='Risque de chute' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> </text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL'/>
+                        </observation> 
+                    </entry>
+                    <entry><!--faire des transferts-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='51f9adfa-befe-4cc1-8186-799fb48d5fb2'/>
+                            <code code='45590-7' displayName='faire des transferts' codeSystem='2.16.840.1.113883.6.257.755' codeSystemName='LOINC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL'/>
+                        </observation> 
+                    </entry>
+                    <entry><!--marcher seul interieur-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='9c1a05bc-1ac1-48c4-9b4e-b00ea0fd14d6'/>
+                            <code code='45592-3' displayName='marcher seul interieur' codeSystem='2.16.840.1.113883.6.257.755' codeSystemName='LOINC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime nullFlavor="NA"/>
+                            <value xsi:type='BL' />
+                        </observation> 
+                    </entry>
+                    <entry><!--marcher seul exterieur-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='de4ed06e-e00c-4e2b-a31c-5d04edfa8893'/>
+                            <code code='AVC-256' displayName='marcher seul exterieur' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL'/>
+                        </observation> 
+                    </entry>
+                    <entry><!--se deplacer en fauteuil roulant seul-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='bc75d8bc-f3a4-4c19-8852-236ede411b2a'/>
+                            <code code='45537-8' displayName='se deplacer en fauteuil roulant seul' codeSystem='2.16.840.1.113883.6.257.117' codeSystemName='LOINC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL'/>
+                        </observation> 
+                    </entry>
+                    <entry><!--faire sa toilette seul-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='c916a82a-026c-4d5d-82c6-dfc187d7aacb'/>
+                            <code code='45606-1' displayName='faire sa toilette seul' codeSystem='2.16.840.1.113883.6.257.755' codeSystemName='LOINC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--utiliser les wc seul-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='1e08ad7f-90c5-4051-b13b-57eadbe0b1d4'/>
+                            <code code='45604-6' displayName='utiliser les wc seul' codeSystem='2.16.840.1.113883.6.257.755' codeSystemName='LOINC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--manger un repas preparer seul-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='aba43791-c7ce-47b0-a05e-31740d04776a'/>
+                            <code code='45602-0' displayName='manger un repas preparer seul' codeSystem='2.16.840.1.113883.6.257.755' codeSystemName='LOINC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL'   value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--incontinence-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='8fb84f4e-a2a7-409f-b195-c5344905846a'/>
+                            <code code='AVC-251' displayName='incontinence' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--communiquer proches-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='c9617fcc-ea3d-4fbf-8b37-a2f4d47f6ffa'/>
+                            <code code='AVC-252' displayName='Communiquer : Proches' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--exterieur appel secours,courses-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='3337597c-1c76-48d6-b4f2-3aaeb875bcc9'/>
+                            <code code='AVC-253' displayName='Exterieur (Appel secours, courses)' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--gerer ces comptes/affaires personnelles-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='8eba81a2-4143-4e63-8664-648105dbc4b6'/>
+                            <code code='AVC-254' displayName='Gerer ces comptes/ Affaires personnelles' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--gerer seul ces traitements-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='9bc4c64a-759f-4109-bc4a-9824203563d3'/>
+                            <code code='AVC-255' displayName='gerer seul ces traitements' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <entry><!--aide humaine-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='c7e9e140-7739-44d1-84c8-7b96c0e6e34f'/>
+                            <code code='AVC-221' displayName='Le patient bénéficie-t-il d une aide humaine ?' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text></text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='BL' value="true"/>
+                        </observation> 
+                    </entry>
+                    <!--survey observation-->
+                    <entry><!--Objectif global du projet de vie-->
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='7a211896-769e-49a3-a31d-c809d175d518'/>
+                            <code code='AVC-257' displayName='Perte d autonomie' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> </text>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='CD'  code='AVC-266' displayName='GIR -1' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/> 
+                        </observation> 
+                    </entry>
+                    <entry><!--Realisation effective activites--> 
+                        <observation classCode='OBS' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.12.3.6'/>
+                            <id root='7c2faec1-14c0-49fc-9d31-54ff34d17b34' />
+                            <code code='AVC-258' displayName='Realisation effective activités' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> </text>
+                            <!--NMA: <statusCode code='active'/>-->
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='CD'  code='G-A224' displayName='Seul' codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                        </observation>
+                    </entry>
+                </section>
+               
+            </component>
+            <!-- Evaluation Neuropsychocognitive -->
+            <component>
+                <!-- Neurologic system section --> 
+                <section>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.9.35'/>
+                    <id root='3ba16828-a44d-4f3c-907f-c51be6893b06' />
+                    <code code='10202-0' displayName='NEUROLOGIC SYSTEM' codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                    <text> </text>
+                    <entry><!--Syndrome dysexecutif--><!-- le syndrome dysexecutif est abscent-->
+                        <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="7d8dce68-773c-456a-a4e6-a2c0046d6f86"/> 
+                            <!--NMA: <code code="AVC-284" displayName="Evaluation neuropsychocognitive" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC" />-->
+                            <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                            <text>Evaluation neuropsychocognitive</text>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='CD' code="AVC-259" displayName="Syndrome dysexecutif" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>   
+                        </observation> 
+                    </entry>
+                    <!--Deterioration intellectuelle-->
+                    <entry>  
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                            <templateId root='2.16.840.1.113883.10.20.1.28'/>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.5'/>
+                            <id root="fa3e3c70-005f-4311-ab87-d877ad1aa169"/>
+                            <!--NMA: <code code="AVC-284" displayName="Evaluation neuropsychocognitive" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC" />-->
+                            <code code="G-1009" displayName="Diagnostic" codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+                            <text/>
+                            <statusCode code='completed'/>
+                            <effectiveTime>
+                                <low nullFlavor="UNK"/>
+                            </effectiveTime>
+                            <value xsi:type='CD' code="AVC-260" displayName="Deterioration intellectuelle" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC"/>
+                            <entryRelationship typeCode='SUBJ' inversionInd='true'>
+                                <observation classCode='OBS' moodCode='EVN'>
+                                    <templateId root='2.16.840.1.113883.10.20.1.55'/>
+                                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.1'/>
+                                    <code code='SEV' displayName='Severity' 
+                                        codeSystem='2.16.840.1.113883.5.4' codeSystemName='ActCode' />
+                                    <text nullFlavor="MSK"/> 
+                                    <statusCode code='completed'/>
+                                    <effectiveTime>
+                                        <low nullFlavor="UNK"/>
+                                        <high nullFlavor="UNK"/>
+                                    </effectiveTime>
+                                    <value xsi:type='CD' code='Severe' 
+                                        codeSystem='2.16.840.1.113883.5.1063' 
+                                        codeSystemName='ObservationValue' />
+                                </observation>
+                            </entryRelationship>    
+                        </observation>    
+                    </entry>    
+                </section>
+            </component>
+          <!-- Souhaits et projet de vie de la personne -->
+            <!--Procedure Care Plan Section -->
+            <component>
+                <section>
+                    <templateId root='2.16.840.1.113883.10.20.1.10'/>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.31'/>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.9.40'/>
+                    <id root='7fae25de-7afe-43af-9bbc-bab68e73c07f' />
+                    <code code='18776-5' displayName='TREATMENT PLAN'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                    <text></text> 
+                    <entry><!-- Retour domicile -->
+                        <observation classCode='OBS' moodCode='GOL'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>  
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='ad79c43e-925f-493b-8776-318e41585000'/>  
+                            <code code='AVC-289' displayName='Souhaits et projet de vie de la personne' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                            <text> </text>
+                            <statusCode code='active'/>
+                            <effectiveTime nullFlavor="NASK"/>
+                            <value xsi:type='CD' code="AVC-143" displayName="Retour domicile" codeSystem="1.2.250.1.213.1.1.4.321" codeSystemName="TA_AVC "/>
+                        </observation>
+                    </entry>
+                    
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+    
+</ClinicalDocument>

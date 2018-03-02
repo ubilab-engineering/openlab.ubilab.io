@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.18" displayName="OBP_AspectLA" version="20131025">
+        <ConceptList>
+            <Concept code="G-A456" displayName="clair" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="OBS_216" displayName="teinté (méconial fluide)"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_217" displayName="méconial épais"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_218" displayName="sanglant" codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+            <Concept code="OBS_219" displayName="autre aspect du liquide amniotique"
+                codeSystem="1.2.250.1.213.1.1.4.2.289"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

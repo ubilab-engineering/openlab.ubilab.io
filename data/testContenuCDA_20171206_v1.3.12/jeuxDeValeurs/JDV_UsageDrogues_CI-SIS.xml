@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Historique :
+        22/05/2017 : NMA : Création
+-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+
+    <ValueSet id="1.2.250.1.213.1.1.5.94" displayName="UsageDrogues" version="test">
+        <ConceptList>
+            <Concept code="G-D101" displayName="Voie intraveineuse" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="GEN-070" displayName="Voie nasale" codeSystem="1.2.250.1.213.1.1.4.322"/>
+            
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.18" displayName="AVC_hemisphereProfond">
+        <ConceptList>
+            <Concept code="T-A3200" displayName="noyau caudé" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="AVC-131" displayName="Capsulo-thalamique"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-132" displayName="Capsulo-lenticulaire"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-162" displayName="Système ventriculaire"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

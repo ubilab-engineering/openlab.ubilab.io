@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Créé par lbeucherie, le 27/01/2017-->
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.83" displayName="MotifMiseAJour" version="20170127">
+        <ConceptList>
+            <Concept code="G-A500" displayName="récidive" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="MED-103" displayName="Non réponse ou évolution sous traitement"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="MED-104"
+                displayName="Inadéquation ou refus de la proposition thérapeutique"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="MED-105" displayName="Décision de prise en charge palliative"
+                codeSystem="1.2.250.1.213.1.1.4.322"/>
+            <Concept code="AVC-211" displayName="Autre (préciser)"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

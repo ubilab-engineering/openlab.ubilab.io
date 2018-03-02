@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.32" displayName="AVC_NIHSSLangInt" version="20131025">
+        <ConceptList>
+            <Concept code="AVC-047" displayName="normal, pas d’aphasie"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-048" displayName="aphasie discrète à modérée"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-049" displayName="aphasie sévère"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-050" displayName=" mutisme; aphasie globale"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>
+<!-- 
+
+ ()
+ ()
+ ()
+ ()
+AVC_NIHSSDysInt (1.2.250.1.213.1.1.4.321.35)
+-->

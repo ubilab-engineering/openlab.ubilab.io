@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.18" displayName="encompassingEncounterCode" version="20130124">
+        <ConceptList>
+            <Concept code="IMP" displayName="Hospitalisation" codeSystem="2.16.840.1.113883.5.4"/>
+            <Concept code="EMER" displayName="Passage aux urgences"
+                codeSystem="2.16.840.1.113883.5.4"/>
+            <Concept code="AMB" displayName="Ambulatoire" codeSystem="2.16.840.1.113883.5.4"/>
+            <Concept code="FLD" displayName="Terrain (voie publique, hélicoptère, ambulance...)"
+                codeSystem="2.16.840.1.113883.5.4"/>
+            <Concept code="HH" displayName="Soins à domicile" codeSystem="2.16.840.1.113883.5.4"/>
+            <Concept code="VR" displayName="Virtuelle" codeSystem="2.16.840.1.113883.5.4"/>
+            <Concept code="EXTERNE" displayName="Actes et consultations externes"
+                codeSystem="1.2.250.1.213.1.1.4.2.291"/>
+            <Concept code="SEANCE" displayName="Séance (en libéral ou en établissement)"
+                codeSystem="1.2.250.1.213.1.1.4.2.291"/>
+            <Concept code="SS" displayName="Consultation en hôpital de jour ou court séjour"
+                codeSystem="2.16.840.1.113883.5.4"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

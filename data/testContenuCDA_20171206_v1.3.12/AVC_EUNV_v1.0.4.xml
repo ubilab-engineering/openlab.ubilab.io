@@ -1,0 +1,1750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_AVC_EUNV.sch"?>
+ 
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+
+   <!-- 
+      **********************************************************************************************************
+      Système : ASIP
+      Document : Episode de soins en UNV (EUNV)
+      Auteur : BE (CRI)
+      Date de création : 27/09/2013
+      Date de mise à jour : 26/07/2016
+      Version : 0.0.4
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:
+      - TemplateId des documents:
+         Admission en UNV (AUNV): 1.2.250.1.213.1.1.1.15 
+         Suivi en UNV (SUNV): 1.2.250.1.213.1.1.1.16
+         Post UNV (PUNV): 1.2.250.1.213.1.1.1.17
+      - Type de documents (Matrice)
+            
+            AUNV, SUNV, PUNV entrent dans la catégorie "Synthèse d'épisode de soins" de code LOINC 34133-9
+            
+      - OID temporaire du LPS producteur de document: root="1.2.250.1.213.1.1.9" 
+      - Domaine de vocabulaire ASIP pour AVC = TA_AVC 1.2.250.1.213.1.1.4.321
+      - Jeux de valeurs du volet AVC 1.2.250.1.213.1.1.4.321.1 à 1.2.250.1.213.1.1.4.321.X
+      
+      **********************************************************************************************************
+   -->
+   
+   <realmCode code="FR"/>
+   <!-- Référencement CDAr2/Interopérabilité de niveau 3 -->
+   <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+   <!-- Conformité spécifications HL7 France -->
+   <templateId root="2.16.840.1.113883.2.8.2.1"/>
+   <!-- Conformité spécifications au CI-SIS de l'ASIP Santé -->
+   <templateId root="1.2.250.1.213.1.1.1.1"/>
+   <!-- Suivi en UNV (EUNV)-->
+   <templateId root="1.2.250.1.213.1.1.1.16"/>
+
+
+   <!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+   <id root="1.2.250.1.213.1.1.9" extension="A7102400008_040"/>
+   <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+      displayName="Synthèse d'épisode de soins"/>
+   <title>SUIVI EN UNV (SUNV)</title>
+   <effectiveTime value="20120328111700+0100"/>
+   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+      codeSystemName="Confidentiality" displayName="Normal"/>
+   <languageCode code="fr-FR"/>
+
+   <!--=<<o#%@O[ Identification du patient ]O@%#o>>=-->
+   
+   <recordTarget>
+      <patientRole>
+         <!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+         <id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+         <addr use="H">
+            <houseNumber>24</houseNumber>
+            <streetNameType>Avenue</streetNameType>
+            <streetName>Breteuil</streetName>
+            <postalCode>75007</postalCode>
+            <city>Paris</city>
+         </addr>
+         <!-- Portable -->
+         <telecom value="tel:0686970800" use="MC"/>
+         <!-- Domicile -->
+         <telecom value="tel:0186940900" use="H"/>
+         <patient classCode="PSN">
+            <name>
+               <given>Marie</given>
+               <family qualifier="BR">DECOURCY</family>
+               <family qualifier="SP" nullFlavor="NAV"/>
+            </name>
+            <administrativeGenderCode code="F"/>
+            <birthTime value="19800315"/>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   
+   <!--=<<o#%@O[ Auteur du document - Clinicien ayant suivi la patiente ]O@%#o>>=-->
+   
+   <author>
+      <time value="20120328111700+0100"/>
+      <assignedAuthor classCode="ASSIGNED">
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <code code='G15_10/SM32' codeSystem='1.2.250.1.213.1.1.4.5' codeSystemName='RPPS'  displayName='Médecin – Neurologie (SM)'/>
+         <addr nullFlavor="NASK"/>
+         <telecom nullFlavor="NASK"/>
+         <assignedPerson>
+            <name>
+               <given>Jacques</given>
+               <family>BIDEAULT</family>
+               <prefix>DR</prefix>
+            </name>
+         </assignedPerson>
+         <!-- Numéro FINESS de l'ES (optionnel)  -->
+         <representedOrganization>
+            <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+            <name>Clinique du Belvédère</name>
+            <telecom nullFlavor="NAV"/>
+            <addr>
+               <houseNumber>142</houseNumber>
+               <streetNameType>rue</streetNameType>
+               <streetName>Belvédère</streetName>
+               <postalCode>92100</postalCode>
+               <city>Boulogne-Billancourt</city>
+            </addr>
+            <standardIndustryClassCode code="ETABLISSEMENT" 
+               displayName="Établissement de santé"
+               codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+         </representedOrganization>
+      </assignedAuthor>
+   </author>
+   
+   <!--=<<o#%@O[ Personne à prévenir en cas d'urgence ]O@%#o>>=-->
+   
+   <informant>
+      <relatedEntity classCode="ECON">
+         <code code="AUNT" displayName="Tante"/>
+         <addr nullFlavor="NAV"/>
+         <telecom value="tel:0647150100" use="MC"/>
+         <relatedPerson>
+            
+            <name>
+               <family>DECOURCY</family>
+               <given>Sophie</given>
+            </name>
+            
+         </relatedPerson>
+      </relatedEntity>
+   </informant>
+   
+   <!--=<<o#%@O[ Organisation de santé responsable du document ]O@%#o>>=-->
+
+   <custodian typeCode="CST">
+      <assignedCustodian classCode="ASSIGNED">
+         <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+            <id root="1.2.250.1.71" extension="1120456789" assigningAuthorityName="GIP-CPS"/>
+            <name>Clinique du Belvédère</name>
+            <telecom value="tel:0442515151" use="WP"/>
+            <addr>
+               <houseNumber>142</houseNumber>
+               <streetNameType>rue</streetNameType>
+               <streetName>Belvédère</streetName>
+               <postalCode>92100</postalCode>
+               <city>Boulogne-Billancourt</city>
+            </addr>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   
+   <!--=<<o#%@O[ Responsable de la validation de la synthèse ]O@%#o>>=-->
+   
+   <legalAuthenticator>
+      <time value="20120329094914+0100"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <realmCode code="FR"/>
+         <!-- PS identifié par son N°RPPS -->
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+         <code code='G15_10/SM32' codeSystem='1.2.250.1.213.1.1.4.5'
+            codeSystemName='RPPS' displayName='Médecin – Neurologie (SM)'/>         
+         <assignedPerson>
+            <name>
+               <given>Jacques </given>
+               <family>BIDEAULT</family>
+               <prefix>DR</prefix>
+               <suffix/>
+            </name>
+         </assignedPerson>
+      </assignedEntity>
+   </legalAuthenticator>
+   
+   <!--=<<o#%@O[ Médecin traitant ]O@%#o>>=-->
+   <participant typeCode="INF">
+      <functionCode code="PCP"/>
+      <associatedEntity classCode="PROV">
+         <id root="1.2.250.1.71.4.2.1" extension="801234567897"/>
+         <addr>
+            <houseNumber>3</houseNumber>
+            <streetNameType>rue</streetNameType>
+            <streetName>Petit Pont</streetName>
+            <postalCode>75005</postalCode>
+            <city>Paris</city>
+         </addr>
+         <telecom value="tel:0147150000" use="EC"/>
+         <associatedPerson>
+            <name>
+               <family>MEDIONI</family>
+               <given>Stéphane</given>
+               <prefix>DR</prefix>
+            </name>
+         </associatedPerson>         
+      </associatedEntity>
+   </participant>
+   
+   
+   <!--=<<o#%@O[ Informations sur sur le document ]O@%#o>>=-->
+   
+   <documentationOf>
+      <serviceEvent classCode="ACT">
+         <id root="5A931FFC-E3D3-4153-953F-4C314500A410"/>
+         <code code="47039-3" displayName="Historique et examen physique aux admissions de l'hôpital" 
+            codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+         <effectiveTime>
+            <low value="20120328111700+0100"/>
+            <high value="20120330111700+0100"/>
+         </effectiveTime>
+         <performer typeCode="PRF">
+            <assignedEntity>
+               <realmCode code="FR"/>
+               <!-- PS identifié par son N°RPPS -->
+               <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+               <code code='G15_10/SM32' codeSystem='1.2.250.1.213.1.1.4.5' 
+                  codeSystemName='RPPS' displayName='Médecin – Neurologie (SM)'/>
+               <assignedPerson>
+                  <name>
+                     <given>Jacques </given>
+                     <family>BIDEAULT</family>
+                     <prefix>Docteur</prefix>
+                     <suffix/>
+                  </name>
+               </assignedPerson>
+               <representedOrganization>
+                  <id root="1.2.250.1.71.4.2.2" extension="101238887" assigningAuthorityName="ASIP Santé"/>
+                  <name>Clinique du Belvédère</name>
+                  <telecom nullFlavor="NAV"/>
+                  <addr>
+                     <houseNumber>142</houseNumber>
+                     <streetNameType>rue</streetNameType>
+                     <streetName>Belvédère</streetName>
+                     <postalCode>92100</postalCode>
+                     <city>Boulogne-Billancourt</city>
+                  </addr>
+                  <standardIndustryClassCode code="ETABLISSEMENT" 
+                     displayName="Établissement de santé"
+                     codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+               </representedOrganization>
+            </assignedEntity>
+         </performer>
+      </serviceEvent>
+   </documentationOf>
+
+   <!--=<<o#%@O[ Informations sur les circonstances de la "rencontre" ]O@%#o>>=-->
+   
+   <componentOf>
+      <encompassingEncounter>
+         <code nullFlavor="NAV"/>
+         <effectiveTime>
+            <high value="20120328111700+0100"/>
+         </effectiveTime>
+         <location>
+            <healthCareFacility>
+               <id root="1.2.250.1.213.1.1.9" extension="11223344"
+                  assigningAuthorityName="Clinique de Breteuil"/>
+               <code code="SA04" displayName="Etablissement Privé Non PSPH"
+                  codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+            </healthCareFacility>
+         </location>
+      </encompassingEncounter>
+   </componentOf>
+
+
+   <!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+   -->
+   
+
+  <component>
+      <structuredBody>
+          
+        <!--=<<o#%@O[ Scores d'évaluation clinique ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.2.250.1.213.1.1.2.36'/>
+               <id root='57848968-9b1e-44bb-bb36-bb5141b0f592'/>
+               <code code='70182-1' displayName='Score NIH Stroke Scale'
+               codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Score NIHSS</title>
+               <text>
+                  <!-- espace vide = &#160; -->
+                  <table border="1">
+                     <thead align="center">
+                        <tr><th>Test</th><th>Score</th><th>Interprétation</th></tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td>Score NIHSS (/42)</td><td>4</td><td>&#160;</td></tr>
+                        <tr><td>CONS</td><td>0</td><td><content ID="avcndx-030">vigilant, réagit vivement.</content></td></tr>
+                        <tr><td>LOCQ</td><td>0</td><td><content ID="avcndx-031">ne répond correctement qu’à une seule question.</content></td></tr>
+                        <tr><td>LOCC</td><td>0</td><td><content ID="avcndx-032">exécute un seul ordre sur les deux.</content></td></tr>
+                        <tr><td>OCUL</td><td>0</td><td><content ID="avcndx-033">paralysie partielle (ce score est attribué quand l'oculomotricité est anormale pour 1 ou 2 yeux, mais sans déviation forcée, ni paralysie complète).</content></td></tr>                        
+                        <tr><td>CV</td><td>0</td><td><content ID="avcndx-034">aucun trouble du champ visuel.</content></td></tr>
+                        <tr><td>PF</td><td>0</td><td><content ID="avcndx-035">paralysie mineure (effacement du sillon nasogénien, asymétrie du sourire).</content></td></tr>                        
+                        <tr><td>MSD</td><td>0</td><td><content ID="avcndx-036">absence de chute; maintien du membre supérieur à 90° (ou 45°) pendant 10 secondes.</content></td></tr>
+                        <tr><td>MSG</td><td>0</td><td><content ID="avcndx-037">absence de chute; maintien du membre supérieur à 90° (ou 45°) pendant 10 secondes.</content></td></tr>                        
+                        <tr><td>MID</td><td>1</td><td><content ID="avcndx-038">chute; la position ne peut être maintenue pendant 5 secondes mais le membre inférieur ne retombe pas sur le lit.</content></td></tr>
+                        <tr><td>MIG</td><td>1</td><td><content ID="avcndx-039">chute; la position ne peut être maintenue pendant 5 secondes mais le membre inférieur ne retombe pas sur le lit.</content></td></tr>                        
+                        <tr><td>ATAX</td><td>2</td><td><content ID="avcndx-041">présente pour deux membres.</content></td></tr>
+                        <tr><td>SENS</td><td>0</td><td><content ID="avcndx-042">Normale</content></td></tr>                        
+                        <tr><td>LANG</td><td>0</td><td><content ID="avcndx-043">aphasie discrète à modérée. </content></td></tr>
+                        <tr><td>DYS</td><td>0</td><td><content ID="avcndx-044">Normal</content></td></tr>
+                     </tbody>
+                  </table>                 
+               </text>  
+                 
+               <!-- Score de Glasgow -->
+               <component>
+                  <section>
+                     <templateId root='1.2.250.1.213.1.1.2.40'/>
+                     <id root='57848968-9b1e-44bb-bb36-bb5141b0f592'/>
+                     <code code='35088-4' displayName='Score de Glasgow'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                     <title>Score de Glasgow</title>
+                     <text>
+                        <table border="1">
+                           <thead align="center">
+                              <tr><th>Test</th><th>Score</th><th>Interprétation</th></tr>
+                           </thead>
+                           <tbody align="left">
+                              <tr><td>Score de Glasgow</td><td>10</td><td>&#160;</td></tr>
+                           </tbody>
+                        </table> 
+                     </text>
+                     <entry>
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='1c9d8e86-c683-4f74-ade8-45ea76494c5b'/>
+                           <code code='9269-2' displayName='Glasgow coma score total' 
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime value="2012"/>
+                           <value xsi:type='INT' value='15'/>
+                           <interpretationCode xsi:type='CE'  code="N" displayName="Normal" 
+                              codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation"/>
+                        </observation>
+                     </entry>
+                  </section>
+               </component>
+               
+               <!-- Score NIHSS -->
+               <component>
+                  <section>
+                     <templateId root='1.2.250.1.213.1.1.2.36'/>
+                     <id root='57848968-9b1e-44bb-bb36-bb5141b0f592'/>
+                     <code code='70182-1' displayName='Score NIH Stroke Scale'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                     <title>Score NIHSS</title>
+                     <text/>
+                     <entry>
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <templateId root='2.16.840.1.113883.10.20.1.31'/>
+            
+                     <templateId root='1.2.250.1.213.1.1.3.6'/>
+                     <id root='80fe66ee-5b16-46b4-b7fb-53ca28c2d684'/>
+                     <code code='72089-6' 
+                        displayName='Score total NIHSS' 
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                     </code>
+                     <statusCode code='completed'/>
+                     <effectiveTime value='20130926'/>
+                     <value xsi:type='INT' value='4'/>
+                     <!-- Détail du Score NIHSS = 15 éléments entryRelationship typeCode='COMP' -->
+                     <!-- Niveau de conscience (CONS) -->                    
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70184-7' displayName='Niveau conscience [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='AVC-010' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="vigilant, réagit vivement.">
+                              <originalText><reference value="#avcndx-30"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- LOC Questions (LOCQ) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70185-4' displayName='LOC Questions [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='1'/>
+                           <interpretationCode code='AVC-015' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="ne répond correctement qu’à une seule question.">
+                              <originalText><reference value="#avcndx-31"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- LOC Commandes (LOCC) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70186-2' displayName='LOC Commandes [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='1'/>
+                           <interpretationCode code='AVC-018' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="exécute un seul ordre sur les deux.">
+                              <originalText><reference value="#avcndx-32"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Oculomotricité (OCUL) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70187-0' displayName='Occulomotricité [NIHSS]'    
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='1'/>
+                           <interpretationCode code='AVC-021' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="paralysie partielle (ce score est attribué quand l'oculomotricité est anormale pour 1 ou 2 yeux, mais sans déviation forcée, ni paralysie complète).">
+                              <originalText><reference value="#avcndx-33"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Champ visuel (CV) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70188-8' displayName='Champ visuel [NIHSS]'     
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='AVC-023' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="aucun trouble du champ visuel.">
+                              <originalText><reference value="#avcndx-34"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!--  Paralysie faciale (PF) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70189-6' displayName='Paralysie faciale [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='AVC-028' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="paralysie mineure (effacement du sillon nasogénien, asymétrie du sourire).">
+                              <originalText><reference value="#avcndx-35"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- motricité du membre supérieur droit (MSD) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70967-5' displayName='motricité MSD [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='AVC-031' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="absence de chute; maintien du membre supérieur à 90° (ou 45°) pendant 10 secondes.">
+                              <originalText><reference value="#avcndx-36"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!--  motricité du membre supérieur gauche (MSG) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70190-4' displayName=' motricité MSG [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='AVC-031' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="absence de chute; maintien du membre supérieur à 90° (ou 45°) pendant 10 secondes.
+                              ">
+                              <originalText><reference value="#avcndx-37"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!--  motricité du membre inférieur droit (MID) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70968-3' displayName=' motricité MID [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='1'/>
+                           <interpretationCode code='AVC-038' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="chute; la position ne peut être maintenue pendant 5 secondes mais le membre inférieur ne retombe pas sur le lit.
+                              ">
+                              <originalText><reference value="#avcndx-38"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- motricité du membre inférieur gauche (MIG) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70191-2' displayName='motricité MIG [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='AVC-038' codeSystem='1.2.250.1.213.1.1.4.321' 
+                              codeSystemName='TA_AVC' displayName="chute; la position ne peut être maintenue pendant 5 secondes mais le membre inférieur ne retombe pas sur le lit.
+                              ">
+                              <originalText><reference value="#avcndx-39"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>                     
+                     <!-- Ataxie des membres (ATAX) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70192-0' displayName='Ataxie des membres [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='2'/>
+                           <interpretationCode code='AVC-045' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="présente pour deux membres">
+                              <originalText><reference value="#avcndx-41"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- 70193-8  Sensibilité (SENS) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70193-8' displayName='Sensibilité [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='N' codeSystem='2.16.840.1.113883.5.83' codeSystemName='ObservationInterpretation' displayName="Normale">
+                              <originalText><reference value="#avcndx-42"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- 70194-6   Meilleur langage (LANG) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70194-6' displayName='Meilleur langage [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='AVC-048' codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC' displayName="aphasie discrète à modérée. ">
+                              <originalText><reference value="#avcndx-43"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- 70195-3 Dysarthrie (DYS) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70195-3' displayName='Dysarthrie [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='N' codeSystem='2.16.840.1.113883.5.83' codeSystemName='ObservationInterpretation' displayName="Normal">
+                              <originalText><reference value="#avcndx-44"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                     <!-- 70196-1  Extinction ou négligence (NEGL) -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <templateId root='2.16.840.1.113883.10.20.1.31'/>
+                           <!-- NIHSS component templateId -->
+                           <templateId root='1.2.250.1.213.1.1.3.8'/>
+                           <id root='9c3fff8c-486e-481c-ae6c-17b970b80342'/>
+                           <code code='70196-1' displayName='Extinction ou négligence [NIHSS]'
+                              codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'>
+                           </code>
+                           <statusCode code='completed'/>
+                           <effectiveTime value='20130926'/>
+                           <value xsi:type='INT' value='0'/>
+                           <interpretationCode code='N' codeSystem='2.16.840.1.113883.5.83' codeSystemName='ObservationInterpretation' displayName="Normal">
+                              <originalText><reference value="#avcndx-48"></reference></originalText>
+                           </interpretationCode>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+                     </entry>
+                  </section>
+               </component>
+               
+               
+            </section>
+         </component>
+         <!--=<<o#%@O[ PCC Coded Event Outcomes ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <!-- Coded Event Outcomes assessment section templateId -->
+               <templateId root='1.3.6.1.4.1.19376.1.7.3.1.1.13.7'/>
+               <id root='034cd987-14f4-4be5-a0dc-d1607e0306b0'/>
+               <code code='42545-4' displayName='Event Outcome'
+               codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+               <title>Complications pendant l'hospitalisation</title>
+               <text>
+                  <table border="1">
+                     <thead align="center">
+                        <tr><th>Type</th><th>Sous-type</th><th>Date</th></tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td rowspan="3">Aggravation neurologique</td><td></td><td></td></tr>
+                        <tr><td>Cause présumée</td><td></td></tr>
+                        <tr><td>Précision</td><td></td></tr>
+                        <tr><td>Crise convulsive</td><td></td><td></td></tr>
+                        <tr><td>Troubles de la dégutition justifiant une gastrostomie</td><td></td><td></td></tr>
+                        <tr><td rowspan="4">Complications pulmonaires</td><td>Infection pulmonaire</td><td></td></tr>
+                        <tr><td>Troubles respiratoires justifiant une Ventilation Assistée</td><td></td></tr>
+                        <tr><td>Troubles respiratoires justifiant une VNI</td><td></td></tr>
+                        <tr><td>Troubles respiratoires justifiant une trachéotomie</td><td></td></tr>
+                        <tr><td rowspan="3">Complications thrombo-emboliques</td><td>Embolie pulmonaire</td><td></td></tr>
+                        <tr><td>Thrombose veineuse profonde</td><td></td></tr>
+                        <tr><td>Embolie systémique</td><td></td></tr>                   
+                        <tr><td rowspan="3">Complications urinaires</td><td>Infection urinaire</td><td></td></tr>
+                        <tr><td>Troubles urinaires justifiant une sonde urinaire</td><td></td></tr>
+                        <tr><td>Germe</td><td></td></tr>                   
+                        <tr><td rowspan="2">Complications digestives</td><td>Hémorragie digestive</td><td></td></tr>
+                        <tr><td>Troubles digestifs justifiant une sonde digestive</td><td></td></tr>
+                        <tr><td>Autre infection</td><td></td><td></td></tr>
+                        <tr><td>Dépression</td><td></td><td></td></tr>
+                        <tr><td>Insuffisance cardiaque aiguë</td><td></td><td></td></tr>
+                        <tr><td>Autre complication</td><td></td><td></td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <!-- Aggravation neurologique -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='AVC-093' displayName='Aggravation neurologique' 
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value="20140112"/>
+                     <value xsi:type='BL' value="true"/>
+                     
+                     <entryRelationship typeCode="RSON" negationInd="true">
+                        <observation classCode='OBS' moodCode='EVN'>
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='G-A609' displayName='Autre' 
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                              <originalText><reference value="#eunv_001"></reference></originalText>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+               <!-- Crise convulsive -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='DA-30000' displayName='Crise convulsive'
+                        codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NA"/>
+                     <value xsi:type='BL' value="true"/>
+                  </observation>
+               </entry>
+               <!-- Troubles de la déglution justifiant une Gastrostomie -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='AVC-094' displayName='Troubles de la déglution justifiant une Gastrostomie'
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value="21040112"/>
+                     <value xsi:type='BL' value="true"/>
+                  </observation>
+               </entry>
+               
+               <!-- Troubles pulmonaires -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='AVC-192' displayName='Complications pulmonaires' 
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value="20140112"/>
+                     <value xsi:type='BL' value="true"/>
+                     <!-- Infection pulmonaire -->
+                     <entryRelationship typeCode="RSON" negationInd="true">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='D2-00100' displayName='Infection pulmonaire'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                            </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Troubles respiratoires justifiant une Ventilation assistée -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='AVC-102' displayName='Troubles respiratoires justifiant une Ventilation assistée'
+                              codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Troubles respiratoires justifiant une VNI -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='AVC-095' displayName='Troubles respiratoires justifiant une VNI'
+                              codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Troubles respiratoires justifiant une trachéotomie -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='AVC-096' displayName='Troubles respiratoires justifiant une Trachéotomie'
+                              codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+
+               <!-- Troubles thromboemboliques -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='AVC-193' displayName='Complications thrombo-emboliques' 
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value="20140112"/>
+                     <value xsi:type='BL' value="true"/>
+                     <!-- Embolie Pulmonaire -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='D3-40230' displayName='Embolie pulmonaire'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Thrombose veineuse profonde -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='D3-87713' displayName='Thrombose veineuse profonde'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Thrombus systémique -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='M-35106' displayName='Thrombus systémique'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+
+               <!-- Complications urinaires -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='AVC-194' displayName='Complications urinaires' 
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value="20140112"/>
+                     <value xsi:type='BL' value="true"/>
+                     <!-- 	 Infection urinaire -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='D7-10030' displayName='Infection urinaire'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                           <entryRelationship typeCode="RSON">
+                              <observation classCode='OBS' moodCode='EVN'>
+                                 <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                                 <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                                 <code code='AVC-097' displayName='Germe' 
+                                    codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                                 <statusCode code='completed'/>
+                                 <effectiveTime nullFlavor="NA"/>
+                                 <value xsi:type='ST'>fsd</value>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                     <!-- 	 Troubles urinaires justifiant une Sonde urinaire -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD' code='AVC-098' displayName='Troubles urinaires justifiant une Sonde urinaire'
+                              codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                     </entryRelationship>
+                     
+                  </observation>
+               </entry>
+               
+               
+               <!-- Complications digestives -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='AVC-195' displayName='Complications digestives' 
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime value="20140112"/>
+                     <value xsi:type='BL' value="true"/>
+                     <!-- 	 Hémorragie digestive -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD'  code='D5-00100' displayName='Hémorragie digestive'
+                              codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                        </observation>
+                     </entryRelationship>
+                     <!-- 	 Toubles digestifs justifiant une Sonde gastrique -->
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode='OBS' moodCode='EVN' negationInd="false">
+                           <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                           <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                           <code code='ASSERTION' codeSystem='2.16.840.1.113883.5.4'/>
+                           <statusCode code='completed'/>
+                           <effectiveTime nullFlavor="NA"/>
+                           <value xsi:type='CD'  code='AVC-099' displayName='Toubles digestifs justifiant une Sonde gastrique'
+                              codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                        </observation>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+               
+               <!--  Autre infection -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='AVC-100' displayName=' Autre infection'
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NA"/>
+                     <value xsi:type='BL' value="true"/>
+                  </observation>
+               </entry>
+               
+               <!-- 	 Dépression  -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='F-92300' displayName='Dépression'
+                        codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NA"/>
+                     <value xsi:type='BL' value="true"/>
+                  </observation>
+               </entry>
+               
+               <!-- 	Insuffisance cardiaque aiguë -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='D3-16001' displayName='Insuffisance cardiaque aiguë'
+                        codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NA"/>
+                     <value xsi:type='BL' value="true"/>
+                  </observation>
+               </entry>
+               
+               <!-- Autres -->
+               <entry>
+                  <observation classCode='OBS' moodCode='EVN'>
+                     <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13'/>
+                     <id root='548d60c8-f871-4df6-a657-65c3efe203a2'/>
+                     <code code='G-A609' displayName='Autres'
+                        codeSystem='1.2.250.1.213.2.12' codeSystemName='SNOMED 3.5'/>
+                     <statusCode code='completed'/>
+                     <effectiveTime nullFlavor="NA"/>
+                     <value xsi:type='ST'>hhh</value>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+         
+         <!--=<<o#%@O[ Section Biochimie ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.3.3.2.1'/>
+               <id root='5f11a8af-a003-4c16-bf30-15c629bbb9a8'/>
+               <code code='18719-5' displayName='Biochimie'
+                  codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Biochimie</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Date du résultat</th><th>Objet</th><th>Résultat</th><th>Unité</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>22/06/2011</td><td>Cholesterol total</td><td>1.2</td><td>g/L</td></tr>
+                        <tr><td>11/08/2011</td><td>Triglycérides</td><td>1.8</td><td>g/L</td></tr>
+                        <tr><td>22/06/2011</td><td>Cholestérol LDL</td><td>1.05</td><td>g/L</td></tr>
+                        <tr><td>22/06/2011</td><td>Cholestérol HDL</td><td>1.2</td><td>g/L</td></tr>
+                        <tr><td>11/08/2011</td><td>Glycémie</td><td>1.8</td><td>g/L</td></tr>
+                        <tr><td>22/06/2011</td><td>Glycémie à jeun</td><td>1.05</td><td>g/L</td></tr>
+                        <tr><td>22/06/2011</td><td>Hémoglobine Glyquée</td><td>1.2</td><td>%</td></tr>
+                        <tr><td>11/08/2011</td><td>Créatininémie</td><td>1.8</td><td>µmol/L</td></tr>
+                        <tr><td>22/06/2011</td><td>Clairance créatininémie (Cockroft)</td><td>1.2</td><td>ml/min</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+                  <act classCode="ACT" moodCode="EVN">
+                     <code code='18719-5' displayName='Biochimie'
+                        codeSystem="2.16.840.1.113883.6.1"/>
+                     <statusCode code="completed"/>
+                     <!-- Cholesterol total -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="2093-3" displayName="Cholesterol [Masse/Volume]"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="1.5" unit="g/L">
+                              <translation value="3.1" code="mmol/L"/>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Triglycérides -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="2571-8" displayName="Triglycérides [Masse/Volume]"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="0.54" unit="g/L">
+                              <translation value="3.1" code="mmol/L"/>                              
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Cholestérol LDL -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="2089-1" displayName="Cholestérol LDL [Masse/Volume]"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="1.2" unit="g/L">
+                              <translation value="3.1" code="mmol/L"/>                                
+                           </value>                           
+                        </observation>
+                     </entryRelationship>
+                     <!-- Cholestérol HDL -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="2085-9" displayName="Cholestérol HDL [Masse/Volume]"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="0.35" unit="g/L">
+                              <translation value="3.1" code="mmol/L"/>                                     
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Glycémie -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="2339-0" displayName="Glycémie"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110811"/>
+                           <value xsi:type="PQ" value="1.8" unit="g/L">
+                              <translation value="10" code="mmol/L"/>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Glycémie à jeun -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="53049-3" displayName="Glycémie à jeun [Masse/Volume]"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110811"/>
+                           <value xsi:type="PQ" value="1.05" unit="g/L">
+                              <translation value="7.8" code="mmol/L"/>
+                           </value>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Hémoglobine Glyquée -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="27353-2" displayName="Hémoglobine Glyquée"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                              <translation></translation>
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="1.2" unit="%"/>
+                        </observation>
+                     </entryRelationship>                 
+                     <!-- Créatininémie -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="14682-9" displayName="Créatininémie [Moles/Volume]"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="75" unit="µmol/L"/>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Clairance créatininémie (Cockroft)-->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="35591-7" displayName="Créatinine clairance calculée (Formule de Cockroft-Gault)"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="111.6" unit="ml/min"/>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>   
+         
+         <!--=<<o#%@O[ Section Hémostase ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.3.3.2.1'/>
+               <id root='5f11a8af-a003-4c16-bf30-15c629bbb9a8'/>
+               <code code='18720-3' displayName='Hémostase'
+                  codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Hémostase</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Date du résultat</th><th>Objet</th><th>Résultat</th><th>Unité</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>22/06/2011</td><td>C Réactive protéine</td><td>1.2</td><td>mg/L</td></tr>      
+                        <tr><td>22/06/2011</td><td>TCA</td><td>27</td><td>s</td></tr>
+                        <tr><td>22/06/2011</td><td>INR</td><td>0.94</td><td>--</td></tr>
+                        <tr><td>22/06/2011</td><td>Fibrinogène</td><td>1.2</td><td>g/L</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+                  <act classCode="ACT" moodCode="EVN">
+                     <code code='18719-5' displayName='Biochimie'
+                        codeSystem="2.16.840.1.113883.6.1"/>
+                     <statusCode code="completed"/>
+                     <!-- C Réactive protéine-->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="1988-5" displayName="C Réactive protéine [Masse/Volume]"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="1.2" unit="mg/L"/>
+                        </observation>
+                     </entryRelationship>
+                     <!-- TCA -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="3173-2" displayName="Temps de céphaline activée"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110811"/>
+                           <value xsi:type="PQ" value="27" unit="s"/>
+                        </observation>
+                     </entryRelationship>
+                     <!-- INR -->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="34714-6" displayName="Temps de quick INR"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="REAL" value="0.94"/>
+                        </observation>
+                     </entryRelationship>
+                     <!-- Fibrinogène-->
+                     <entryRelationship typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                           <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                           <code code="3255-7" displayName="Fibrinogène [Masse/Volume"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
+                           </code>
+                           <statusCode code="completed"/>
+                           <effectiveTime value="20110622"/>
+                           <value xsi:type="PQ" value="1.2" unit="g/L"/>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>  
+         
+         <!--=<<o#%@O[ Section Hématologie ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root='1.3.6.1.4.1.19376.1.3.3.2.1'/>
+               <id root='5f11a8af-a003-4c16-bf30-15c629bbb9a8'/>
+               <code code='18723-7' displayName='Hématologie'
+                  codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+               <title>Hématologie</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Date du résultat</th><th>Objet</th><th>Résultat</th><th>Unité</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td rowspan="13">22/06/2011</td><td>Erythrocytes</td><td>4.60</td><td>10*6/mm3</td></tr>
+                        <tr><td>Hémoglobinémie</td><td>13.0</td><td>g/dL</td></tr>
+                        <tr><td>Hématocrite</td><td>45</td><td>%</td></tr>
+                        <tr><td>VGM</td><td>85</td><td>fL</td></tr>
+                        <tr><td>CCMH</td><td>31.0</td><td>g/dL</td></tr>
+                        <tr><td>TCMH</td><td>30.0</td><td>pg</td></tr>
+                        <tr><td>Thrombocytes</td><td>250</td><td></td></tr>
+                        <tr><td>Leucocytes</td><td>8.2</td><td>10*3/mm3</td></tr>
+                        <tr><td>PN Neutrophiles</td><td>60</td><td>%</td></tr>
+                        <tr><td>PN Eosinophiles</td><td>2</td><td>%</td></tr>
+                        <tr><td>PN Basophiles</td><td>1</td><td>%</td></tr>
+                        <tr><td>Lymphocytes</td><td>31</td><td>%</td></tr>
+                        <tr><td>Monocytes</td><td>6</td><td>%</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <!-- NFS -->
+               <entry typeCode="DRIV">
+                  <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
+                  <act classCode="ACT" moodCode="EVN">
+                     <code code="18723-7" codeSystem="2.16.840.1.113883.6.1"
+                        codeSystemName="LOINC" displayName="H&#xE9;matologie"/>
+                     <statusCode code="completed"/>
+                     <entryRelationship typeCode="COMP">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                           <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
+                           <code code="58410-2"
+                              displayName="H&#xE9;mogramme complet sur automate"
+                              codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                           <statusCode code="completed"/>
+                           
+                           <!-- Erythrocytes -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="789-8" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Erythtocytes [Nombre/Volume] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20131112113000+0100"/>
+                                 <value xsi:type="PQ" value="4.60" unit="10*6/mm3"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- Hémoglobine -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="20509-6" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="H&#xE9;moglobine [Masse/Volume] Sang ; Num&#xE9;rique ; R&#xE9;sultat calcul&#xE9;"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="13.0" unit="g/dL"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- Hématocrite -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="4544-3" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="H&#xE9;matocrite [Fraction volumique] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="45" unit="%"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- VGM -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="787-2" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Volume globulaire moyen [Volume d'entit&#xE9;] Erythrocytes ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="85" unit="fL"/>
+                                 <interpretationCode code="N"
+                                    displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- CCMH -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="786-4" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Indice de distribution &#xE9;rythrocytaire [Ratio] Erythrocytes ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="31.0" unit="g/dL"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- TCMH -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="785-6" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Teneur corpusculaire moyenne en h&#xE9;moglobine [Masse d'entit&#xE9;] Erythrocytes ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="30.0" unit="pg"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- Thrombocytes -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="777-3" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Plaquettes [Nombre/Volume] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="250" unit="10*9/L"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- Leucocytes -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="6690-2" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Leucocytes [Nombre/Volume] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="8.2" unit="10*3/mm3"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- PN Neutrophiles -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="770-8" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Polynuclaires neutrophiles/100 leucocytes [Fraction de nombres] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="60" unit="%"/>
+                                 <interpretationCode code="N"
+                                    displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- PN Eosinophiles -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="713-8" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Polynuclaires &#xE9;osinophiles/100 leucocytes [Fraction de nombres] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="2" unit="%"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- PN Basophiles -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="706-2" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Polynuclaires basophiles/100 leucocytes [Fraction de nombres] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="0" unit="%"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- Lymphocytes -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="736-9" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Lymphocytes/100 leucocytes [Fraction de nombres] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="31" unit="%"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                           <!-- Monocytes -->
+                           <component>
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
+                                 <code code="5905-5" codeSystem="2.16.840.1.113883.6.1"
+                                    displayName="Monocytes/100 leucocytes [Fraction de nombres] Sang ; Num&#xE9;rique ; Comptage automate"/>
+                                 <statusCode code="completed"/>
+                                 <effectiveTime value="20100104113000+0100"/>
+                                 <value xsi:type="PQ" value="6" unit="%"/>
+                                 <interpretationCode code="N" displayName="Normal"
+                                    codeSystem="2.16.840.1.113883.5.83"/>
+                              </observation>
+                           </component>
+                        </organizer>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+ 
+         <!--=<<o#%@O[ Coded Results Section ]O@%#o>>=-->
+         
+         <component>
+            <section>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+               <id root="c7ee790c-4b17-40ad-b7b3-b3ad54820014"/>
+               <code code="30954-2" displayName="STUDIES SUMMARY" codeSystem="2.16.840.1.113883.6.1"
+                  codeSystemName="LOINC"/>
+               <title>Resultats d'examens</title>
+               <text>
+                  <table border="1">
+                     <thead>
+                        <tr><th>Date du résultat</th><th>Objet</th><th>Résultat</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>22/06/2011</td><td>ECG</td><td>blah_blah</td></tr>
+                        <tr><td>11/08/2011</td><td>Scope</td><td>blah_blah</td></tr>
+                        <tr><td>11/08/2011</td><td>Holter</td><td>blah_blah</td></tr>
+                        <tr><td>11/08/2011</td><td>Echographie Transthoracique</td><td>blah_blah</td></tr>
+                        <tr><td>11/08/2011</td><td>Echographie Transoesophagienne</td><td>blah_blah3</td></tr>
+                        <tr><td>11/08/2011</td><td>ARM Cervicale</td><td>blah_blah</td></tr>
+                        <tr><td>11/08/2011</td><td>Angioscanner cérébral</td><td>blah_blah</td></tr>
+                        <tr><td>11/08/2011</td><td>Echo-Doppler cervical</td><td>blah_blah</td></tr>
+                        <tr><td>11/08/2011</td><td>DTC</td><td>blah_blah</td></tr>
+                     </tbody>
+                  </table>
+               </text>
+               <!-- ECG -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="DEQP003" displayName="ECG"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-022"/></originalText></value>
+                  </observation>
+               </entry>
+               
+               <!-- Scope -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="DEQP004" displayName="Scope"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-022"/></originalText></value>
+                  </observation>
+               </entry>
+               
+               <!-- Holter -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="DEQP005" displayName="Holter"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-023"/></originalText></value>
+                  </observation>
+               </entry>          
+               
+               <!-- Echographie Transthoracique -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="DZQM006" displayName="Echographie Transthoracique"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-022"/></originalText></value>
+                  </observation>
+               </entry>            
+               
+               <!-- Echographie Transoesophagienne -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="DZQJ001" displayName="Echographie Transoesophagienne"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <text/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-022"/></originalText></value>
+                  </observation>
+               </entry>          
+               <!-- ARM Cervicale -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="ACQN001" displayName="ARM Cervicale"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-022"/></originalText></value>
+                  </observation>
+               </entry>
+               
+               <!-- Angioscanner cérébral -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="EBQH006" displayName="Angiographie cervicale"
+                     codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-022"/></originalText></value>
+                  </observation>
+               </entry>
+               
+               <!-- Echo-Doppler cervical -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="EAQM004" displayName="Echo-Doppler cervical"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-023"/></originalText></value>
+                  </observation>
+               </entry>
+               <!-- DTC -->
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                     <!-- simple observation templateId -->
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                     <id root="f4ba4e58-a270-47b9-b270-26003761cea5"/>
+                     <code code="EAQM002" displayName="DTC"
+                        codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM"/>
+                     <statusCode code="completed"/>
+                     <effectiveTime value="20110622"/>
+                     <value xsi:type="CD"><originalText><reference value="#avcndx-023"/></originalText></value>
+                  </observation>
+               </entry>              
+            </section>
+         </component>
+         
+
+         <!--=<<o#%@O[ PCC Procedures & Interventions Section ]O@%#o>>=-->
+               
+         <component>
+            <section>
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+               <id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+               <code code="29554-3" displayName="PROCEDURES"
+                  codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+               <title>Traitements Spécifiques</title>
+               <text>
+                  <table border="1">
+                     <thead align="center">
+                        <tr>
+                           <th>Date</th><th>Procédures et Interventions</th>
+                        </tr>
+                     </thead>
+                     <tbody align="left">
+                        <tr><td>12/01/2013</td><td><content ID="avc_10">Description Endartériectomie</content></td></tr>
+                        <tr><td>12/02/2013</td><td><content ID="avc_11">Description Angioplastie</content></td></tr>
+                        <tr><td>12/03/2013</td><td><content ID="avc_12">Description Crâniectomie</content></td></tr>         
+                        <tr><td>12/04/2013</td><td><content ID="avc_13">Description Evacuation hématome intracérébral</content></td></tr>         
+                        <tr><td>12/05/2013</td><td><content ID="avc_14">Description Pose Valve / Dérivation externe</content></td></tr>                       
+                     </tbody>
+                  </table>
+               </text>
+               <!-- Endartériectomie -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                     <code code="P1-30330" displayName="Endartériectomie"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                        <originalText><reference value="#avc_10"/></originalText>
+                     </code>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20130112"/></effectiveTime>
+                  </procedure>
+               </entry>
+               <!--  Angioplastie  -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                     <code code="P1-30800" displayName="Angioplastie"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                        <originalText><reference value="#avc_11"/></originalText>
+                     </code>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20130212"/></effectiveTime>
+                  </procedure>
+               </entry>
+               <!--  Crâniectomie   -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                     <code code="P1-91300" displayName="Crâniectomie"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                        <originalText><reference value="#avc_12"/></originalText>
+                     </code>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20130312"/></effectiveTime>
+                  </procedure>
+               </entry>
+               <!--  Evacuation hématome intracérébral   -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                     <code code="P1-91221" displayName="Evacuation hématome intracérébral"
+                        codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5">
+                        <originalText><reference value="#avc_13"/></originalText>
+                     </code>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20130412"/></effectiveTime>
+                  </procedure>
+               </entry>
+               <!--  Pose Valve / Dérivation externe    -->
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN" negationInd="false">
+                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                     <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                     <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                     <code code="AVC-106" displayName="Pose Valve / Dérivation externe"
+                        codeSystem='1.2.250.1.213.1.1.4.321' codeSystemName='TA_AVC'>
+                        <originalText><reference value="#avc_14"/></originalText>
+                     </code>
+                     <statusCode code="completed"/>
+                     <effectiveTime><low value="20130512"/></effectiveTime>
+                  </procedure>
+               </entry>
+            </section>
+         </component>
+      </structuredBody>
+  </component>
+</ClinicalDocument>

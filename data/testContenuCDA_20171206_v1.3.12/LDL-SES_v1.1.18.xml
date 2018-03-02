@@ -1,0 +1,1411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?> 
+<?oxygen SCHSchema="Schematrons/CI-SIS_LDL_SES.sch"?> 
+
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA_extended.xsd">
+    
+    <realmCode code="FR"/> 
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    
+    <templateId root="2.16.840.1.113883.2.8.2.1"/>
+    <templateId root="1.2.250.1.213.1.1.1.1"/>  
+    <templateId root="1.2.250.1.213.1.1.1.29"/>
+    <id root="1.2.250.1.213.1.1.9" extension="A7102400008_1" assigningAuthorityName="ASIP SANTE"/> 
+    <code codeSystem="2.16.840.1.113883.6.1" code="11490-0" displayName="Lettre de liaison à la sortie d’un établissement de soins"/>
+    <title>Lettre de liaison à la sortie de l'établissement de santé</title>
+    <effectiveTime value="20170417"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality" displayName="Normal"/>
+    <languageCode code="fr-FR"/>
+   
+  <!--identification du patient-->
+    <recordTarget>
+        <patientRole>
+            <!--Identification via le NIR-->
+            <id extension="2760375106693" root="1.2.250.1.213.1.4.8"/>
+            
+            <id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+            <addr use="H">
+                <houseNumber>24</houseNumber>
+                <streetNameType>Avenue</streetNameType>
+                <streetName>de Breteuil</streetName>
+                <postalCode>75007</postalCode>
+                <city>Paris</city>				
+                <additionalLocator>Escalier A</additionalLocator>
+                <postalCode>75007</postalCode>
+                <city>PARIS</city>
+            </addr>
+            <telecom value="tel:0686970800" use="MC"/>
+            <telecom value="tel:0186940900" use="H"/>
+            <patient classCode='PSN'>
+                <name>
+                    <prefix>Mme</prefix>
+                    <given>Alice</given>
+                    <family qualifier='BR'>DECOURCY</family>
+                </name>
+                <administrativeGenderCode code='F'/>
+                <birthTime value='19760318'/>			
+                <birthplace>
+                    <place>
+                        <addr>
+                            <city>Paris</city>
+                            <postalCode>75006</postalCode>
+                        </addr>
+                    </place>
+                </birthplace>
+            </patient>
+        </patientRole>
+    </recordTarget>
+    
+    <!--Auteur du document-->
+    <author>
+        <time value="20120328111700+0100"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <!-- PS identifié par son N°RPPS -->
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897" 
+                assigningAuthorityName="ASIP Santé"/>
+            <code code="G15_10/SM27" codeSystem="1.2.250.1.213.1.1.4.5" 
+                codeSystemName="RPPS"
+                displayName="Médecin - Médecine interne (SM)"/> 
+            <addr>
+                <houseNumber>40</houseNumber>
+                <streetNameType>Rue</streetNameType>
+                <streetName>rue Rabelais</streetName>
+                <postalCode>85201</postalCode>
+                <city>Fontenay-le-Comte Cedex</city>
+            </addr> 
+            <telecom nullFlavor="NASK"/>
+            <assignedPerson>
+                <name>
+                    <given>Charles</given>
+                    <family>RICA</family>
+                    <prefix>Dr.</prefix>
+                    <suffix/>
+                </name>     
+            </assignedPerson>
+            <!-- Numéro FINESS de l'ES (optionnel)  -->
+            <representedOrganization>
+                <!-- établissement identifié par son N° FINESS -->
+                <id root="1.2.250.1.71.4.2.2" extension="101238887" 
+                    assigningAuthorityName="ASIP Santé"/>
+                <name>Centre Hospitalier de Fontenay-le-Comte</name>
+                <telecom nullFlavor="NAV"/>
+                <addr>
+                    <houseNumber>40</houseNumber>
+                    <streetNameType>Rue</streetNameType>
+                    <streetName>Rabelais</streetName>
+                    <postalCode>85201</postalCode>
+                    <city>Fontenay-le-Comte Cedex</city>
+                </addr>
+                <standardIndustryClassCode code="ETABLISSEMENT" 
+                    displayName="Établissement de santé"
+                    codeSystem="1.2.250.1.213.1.1.4.9" 
+                    codeSystemName="practiceSettingCode"/>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>   
+  
+    <!--Organisation chargée de la conservation du document-->  
+    <custodian typeCode="CST">
+        <assignedCustodian>
+            <representedCustodianOrganization>
+                <id root="1.2.250.1.71.4.2.2" extension="101238887" 
+                    assigningAuthorityName="ASIP Santé"/>
+                <name>Centre Hospitalier de Fontenay-le-Comte</name>
+                <telecom nullFlavor="NAV"/>
+                <addr>
+                    <houseNumber>40</houseNumber>
+                    <streetNameType>Rue</streetNameType>
+                    <streetName>Rabelais</streetName>
+                    <postalCode>85201</postalCode>
+                    <city>Fontenay-le-Comte Cedex</city>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian> 
+    
+    <informationRecipient>
+        <intendedRecipient>
+            <id extension="801234567897" root="1.2.250.1.71.4.2.1"/>
+            <informationRecipient>
+                <name>
+                    <family>NomDestinataire</family>
+                </name>
+            </informationRecipient>
+            <receivedOrganization>
+                <id extension="1120456789" root="1.2.250.1.71.4.2.2"/>
+                <name>LE 15</name>
+            </receivedOrganization>
+        </intendedRecipient>
+    </informationRecipient>
+    
+    <!--Responsable/signataire légal-->
+    <legalAuthenticator>
+        <time value="20120329094914-0100"/>
+        <signatureCode code="S"/>
+        <assignedEntity>
+            <realmCode code="FR"/>
+            <!-- PS identifié par son N°RPPS -->
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897" 
+                assigningAuthorityName="ASIP Santé"/>
+            <code code="G15_10/SM27" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                displayName="Médecin - Médecine interne (SM)"/>
+            <assignedPerson>
+                <name>
+                    <given>Léon </given>
+                    <family>AUGUIN</family>
+                    <prefix>Pr.</prefix>
+                </name>
+            </assignedPerson>
+        </assignedEntity>
+    </legalAuthenticator>  
+   
+    <!-- Practicien Adresseur -->
+    <participant typeCode="CON">
+        <time xsi:type="IVL_TS">
+            <low value="20120505111700+0100"/>
+        </time>
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897"
+                assigningAuthorityName="ASIP Santé"/>
+            <addr>
+                <houseNumber>3</houseNumber>
+                <streetNameType>rue</streetNameType>
+                <streetName>de Chat qui Pêche</streetName>
+                <postalCode>75005</postalCode>
+                <city>Paris</city>
+            </addr>
+            
+            <telecom value="tel:0147150000" use="WP"/>
+            <associatedPerson>
+                <name>
+                    <prefix>Dr.</prefix>
+                    <given>Ella</given>
+                    <family>Kivala</family>
+                </name>
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    
+    <!--Medecin traitant-->
+    <participant typeCode="INF">
+        <functionCode code="PCP" 
+            codeSystem="2.16.840.1.113883.5.88" 
+            displayName="Médecin Traitant"/>
+        <time xsi:type="IVL_TS">
+            <low value="20120505111700+0100"/>
+        </time>
+        <!-- n°RPPS du médecin -->
+        <associatedEntity classCode="PROV">
+            <id root="1.2.250.1.71.4.2.1" extension="801234567897" 
+                assigningAuthorityName="ASIP Santé"/>
+            <addr>
+                <houseNumber>3</houseNumber>
+                <streetNameType>rue</streetNameType>
+                <streetName>de Chat qui Pêche</streetName>
+                <postalCode>75005</postalCode>
+                <city>Paris</city>
+            </addr>
+            <telecom value="tel:0147150000" use="WP"/>
+            <associatedPerson>
+                <name>
+                    <prefix>Dr.</prefix>
+                    <given>Charles</given>
+                    <family>RICA</family>
+                </name>
+            </associatedPerson>
+        </associatedEntity>
+    </participant> 
+   
+    <!--Actes documentés-->
+    <documentationOf>
+        <serviceEvent>
+            <code code="P0-10000" displayName="Hospitalisation" 
+                codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+            <effectiveTime>
+                <!-- Date de début d'hospitalisation -->
+                <low value="201507011200+0100"/>
+                <!-- Date de fin d'hospitalisation (date de décès le cas échéant) -->
+                <high value="201509301605+0100"/>
+            </effectiveTime>
+            <!-- Réalisation de l'acte -->
+            <performer typeCode="PRF">
+                <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7"/>
+                <time>
+                    <high value="201503021605+0100"/>
+                </time>
+                <assignedEntity>
+                    <realmCode code="FR"/>
+                    <!-- PS identifié par son N°RPPS -->
+                    <id root="1.2.250.1.71.4.2.1" extension="801234567897" assigningAuthorityName="ASIP Santé"/>
+                    <code code="G15_10/SM27" codeSystem="1.2.250.1.213.1.1.4.5" codeSystemName="RPPS"
+                        displayName="Médecin - Médecine interne (SM)"/>
+                    <assignedPerson>
+                        <!-- Voir avec HAS pas de fonction pour le legalAuthenticator  -->
+                        <name>
+                            <given>Léon </given>
+                            <family>AUGUIN</family>
+                            <prefix>Pr.</prefix>
+                        </name>
+                    </assignedPerson>
+                    <representedOrganization>
+                        <name>Service de Cardiologie</name>
+                        <telecom nullFlavor="NAV"/>
+                        <standardIndustryClassCode code="ETABLISSEMENT" 
+                            displayName="Établissement de santé"
+                            codeSystem="1.2.250.1.213.1.1.4.9" codeSystemName="practiceSettingCode"/>
+                        <asOrganizationPartOf>
+                            <wholeOrganization>
+                                <!-- établissement identifié par son N° FINESS -->
+                                <id root="1.2.250.1.71.4.2.2" extension="101238887" 
+                                    assigningAuthorityName="ASIP Santé"/>
+                                <name>Centre Hospitalier de Fontenay-le-Comte</name>
+                                <telecom nullFlavor="NAV"/>
+                                <addr>
+                                    <houseNumber>40</houseNumber>
+                                    <streetNameType>Rue</streetNameType>
+                                    <streetName>Rabelais</streetName>
+                                    <postalCode>85201</postalCode>
+                                    <city>Fontenay-le-Comte Cedex</city>
+                                </addr>
+                            </wholeOrganization>
+                        </asOrganizationPartOf>
+                    </representedOrganization>
+                </assignedEntity>
+            </performer>
+        </serviceEvent>
+    </documentationOf>   
+ 
+    <!--Evenement de prise en charge du patient-->   
+    <componentOf>
+        <encompassingEncounter>
+            <effectiveTime>
+                <low value="20120328111700+0100"/>
+                <high value="20120401111700+0100"/>
+            </effectiveTime>
+            
+            <location>
+                <healthCareFacility>
+                    <code code="SA01" displayName="Etablissement Public de santé"
+                        codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+                </healthCareFacility>
+            </location>
+            
+        </encompassingEncounter>
+    </componentOf>
+
+    <!--   
+    *********************
+       Corps  
+       *********************	-->
+
+    <component>
+        <structuredBody>                        
+
+           <!--Motif d'hospitalisation "Reason for referral"--> 
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+                    <id root='3f8201b6-e1dc-4093-ae73-62e6df2212a2'/>
+                    <code code="42349-1" codeSystem="2.16.840.1.113883.6.1" 
+                        displayName="Raison de la recommandation" codeSystemName="LOINC"/>
+                    <title>Motif d'hospitalisation</title>
+                    <text>
+                        <table border="1">
+                            <tbody align="left">
+                                <tr><td>Episode psychotique - cachexie/anorexie</td></tr>
+                            </tbody>
+                        </table>
+                    </text>
+                </section>
+            </component>   
+            
+            <!-- Synthèse Médicale du Séjour "Coded Event Outcomes" --> 
+            <component>
+                <section>
+                    
+                    <templateId root='1.3.6.1.4.1.19376.1.7.3.1.1.13.7'/>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9'/>
+                    <id root='E52A7B75-3B12-44DF-80B3-3DEA64E25B4B'/>
+                    <code code="42545-4" displayName="Evènements observés"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <title>Synthèse médicale du séjour</title>
+                    <text>
+                        <table border="1">
+                            <thead>
+                                <tr><th colspan="2">Synthèse médicale du séjour</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Modalité et date d'entrée en hospitalisation </td>
+                                    <td><content ID="modaliteE">02/01/2015, Transfert</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Précision Modalité d’entrée</td>
+                                    <td><content ID="autreModaliteE">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Modalité et date de sortie d'hospitalisation</td>
+                                    <td><content ID="modDest">05/01/2015, Autre établissement de santé</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Précision Modalité de sortie</td>
+                                    <td><content ID="autreModDest">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Synthèse Medicale du séjour </td>
+                                    <td><content ID="synthMed">Infection respiratoire aigue</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Présence d’événements indésirables pendant l’hospitalisation</td>
+                                    <td><content ID="EveInd">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Description des événements indésirables</td>
+                                    <td><content ID="desc">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Identification de micro-organismes multirésistants</td>
+                                    <td><content ID="idMicroMulti">Oui</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Description des micro-organismes multirésistants</td>
+                                    <td><content ID="descMulti">Streptococcus pneumoniae</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Transfusion de produits sanguins</td>
+                                    <td><content ID="transfu">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Accidents transfusionnels</td>
+                                    <td><content ID="quelsTransfu">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Description des accidents transfusionnels</td>
+                                    <td><content ID="descTransfu">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Administration de dérivés du sang</td>
+                                    <td><content ID="admiSang">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Évènements indésirables suite à l’administration de dérivé du sang</td>
+                                    <td><content ID="evenInd">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Description Évènements indésirables suite à l’administration de dérivé du sang</td>
+                                    <td><content ID="descEvenInd">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Pose d'un dispositif médical implantable</td>
+                                    <td><content ID="posedispoImpl">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Nature du DMI</td>
+                                    <td><content ID="natureDispoImp">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Site d'implantation du DMI</td>
+                                    <td><content ID="siteImpl">-</content></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <!-- Simple Observation entry -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="f597bfd5-2bd0-4163-892a-7c51830e2ba6"/>
+                            <code code="ORG-070" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Modalité d'entrée"/>
+                            <text>
+                                <reference value="modaliteE"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <!-- Date de l'entrée en hospitalisation -->
+                            <effectiveTime value='20150102'/>
+                            <!-- Modalité d'Entrée en hospitalisation -->
+                            <value xsi:type="CD" code="ORG-069" displayName="Transfert" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                        </observation>
+                    </entry>
+                    
+                    <!-- Simple Observation entry -->
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="e7d0207b-d370-4bad-994d-f1e54c075759"/>
+                            <code code="GEN-093" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Si réponse autre"/>
+                            <text>
+                                <reference value="autreModaliteE"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20150102'/>
+                            <!-- si réponse autre (Entrée en hospitalisation)-->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                    
+                    <!-- Simple Observation entry -->
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="1e384ea2-2083-4f17-b825-6a088d2a0e6e"/>
+                            <code code="ORG-074" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_LDL" 
+                                displayName="Modalité de sortie"/>
+                            <text>
+                                <reference value="modDest"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <!-- Date de sortie d'hospitalisation -->
+                            <effectiveTime value='20150105'/>
+                            <!-- Modalité de destination (Sortie d'hospitalisation) -->
+                            <value xsi:type="CD" code="ORG-073" displayName="Autre établissement de santé" codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP" />
+                        </observation>
+                    </entry>
+                    
+                    <!-- Simple Observation entry -->
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="11739c89-578a-4e30-9e35-80be527c84e9"/>
+                            <code code="GEN-093" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Si réponse autre"/>
+                            <text>
+                                <reference value="autreModDest"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20150102'/>
+                            <!-- si réponse autre (Sortie d'hospitalisation)-->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                    
+                    <!-- Simple Observation entry -->
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="174f6d84-986e-4032-8f99-91975403b955"/>
+                            <code code="MED-142" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Synthèse médicale"/>
+                            <text>
+                                <reference value="synthMed"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Synthèse Medicale du séjour -->
+                            <value xsi:type='ST'/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="cdbd5b08-6cde-11db-9fe1-0800200c9a66"/>
+                            <code code="MED-143" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Evenements indésirables survenus pendant l'hospitalisation"/>
+                            <text>
+                                <reference value="EveInd"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Evenements indésirables survenus pendant l'hospitalisation -->
+                            <value xsi:type='BL' value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+                            <code code="GEN-089" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="description"/>
+                            <text>
+                                <reference value="desc"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- si oui, description (Evenements indésirables survenus pendant l'hospitalisation) -->
+                            <value xsi:type='ST'/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="53c6c420-96ef-47d4-8eca-b25460140b8f"/>
+                            <code code="MED-144" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Identifiants de micro-organismes multirésistants"/>
+                            <text>
+                                <reference value="idMicroMulti"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Identifiants de micro-organismes multirésistants -->
+                            <value xsi:type='BL' value="true"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+                            <code code="GEN-089" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="description"/>
+                            <text>
+                                <reference value="descMulti"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- si oui, description (Identifiants de micro-organismes multirésistants) -->
+                            <value xsi:type='ST'>Streptococcus pneumoniae</value>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="53c6c420-96ef-47d4-8eca-b25460140b8f"/>
+                            <code code="MED-145" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Transfusion de produits sanguins"/>
+                            <text>
+                                <reference value="transfu"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Transfusion de produits sanguins -->
+                            <value xsi:type='BL' value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+                            <code code="MED-146" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Accidents transfusionnels"/>
+                            <text>
+                                <reference value="quelsTransfu"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Si oui, Accidents transfusionnels -->
+                            <value xsi:type='BL' value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="53c6c420-96ef-47d4-8eca-b25460140b8f"/>
+                            <code code="GEN-089" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="description"/>
+                            <text>
+                                <reference value="descTransfu"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- si oui, description (Accidents transfusionnels) -->
+                            <value xsi:type='ST'/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+                            <code code="MED-147" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Administration de dérivés du sang"/>
+                            <text>
+                                <reference value="admiSang"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Administration de dérivés du sang -->
+                            <value xsi:type='BL' value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+                            <code code="MED-148" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Evenements indésirables"/>
+                            <text>
+                                <reference value="evenInd"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Evenements indésirables -->
+                            <value xsi:type='BL' value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+                            <code code="GEN-089" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="description"/>
+                            <text>
+                                <reference value="descEvenInd"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- si oui, description (Evenements indésirables) -->
+                            <value xsi:type='ST'/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5"/>
+                            <code code="MED-149" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Pose d'un dispositif médical implantable"/>
+                            <text>
+                                <reference value="posedispoImpl"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Pose d'un dispositif médical implantable -->
+                            <value xsi:type='BL' value="false"/>
+                        </observation>
+                    </entry>
+
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="fc21dc59-43d5-4bb0-acc7-3601784bfbc0"/>
+                            <code code="MED-150" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="nature du DMI"/>
+                            <text>
+                                <reference value="natureDispoImp"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Si oui, nature du DMI (Pose d'un dispositif médical implantable) -->
+                            <value xsi:type='ST'/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="fc21dc59-43d5-4bb0-acc7-3601784bfbc0"/>
+                            <code code="MED-151" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="site d'implantation"/>
+                            <text>
+                                <reference value="siteImpl"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime value='20130102'/>
+                            <!-- si oui, site d'implantation (Pose d'un dispositif médical implantable) -->
+                            <value xsi:type='ST'/>
+                        </observation>
+                    </entry>
+                    
+                </section>
+            </component>
+            
+             <!--Traitements arretés durant le sejour "Medications Administred"-->
+            <!--Si cette section est présente, c'est qu'il y a des Traitements médicamenteux arrêtés durant le séjour -->
+            <component>
+                <section>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.21'/>
+                    <id root='4A402640-1CF6-4153-B5BA-D56B623004C8'/>
+                    <code code='18610-6' displayName='Médicaments administrés'
+                        codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+                    <title>Traitements arrêtés durant le séjour’</title>
+                    <text>
+                        <table border="1">
+                            <thead>
+                                <tr><th>Date de début et de fin</th>
+                                    <th>Médicament</th>
+                                    <th>Composition</th>
+                                    <th>Posologie</th>
+                                    <th>Motif de l'arrêt</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/08/2008 au 31/08/2008</td>
+                                    <td><content ID="vsm0015">PLAVIX 75mg
+                                    </content></td>
+                                    <td><content ID="vsm0028">CLOPIDOGREL 
+                                        (HYDROGÉNOSULFATE DE)</content></td>
+                                    <td>1 cp/j</td>
+                                    <td><content ID="vsm0017">arrêt suite à analyses médicales</content></td>
+                                </tr>
+                                <tr>
+                                    <td>01/08/2008 au 08/08/2008</td>
+                                    <td><content ID="vsm0025">KETOPROFENE 
+                                        BIOGARAN LP 100 mg</content></td>
+                                    <td>KETOPROFENE</td>
+                                    <td>1 cp/matin et soir</td>
+                                    <td><content ID="vsm0026">arrêt suite à analyses médicales
+                                    </content></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <!-- ************ Traitement Plavix pour Angine 
+                  de poitrine ************ -->
+                    <entry typeCode="DRIV">
+                        <substanceAdministration classCode="SBADM" 
+                            moodCode="EVN">
+                            <!-- template CCD Medication activity -->
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <!-- template 'PCC Medication' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <!-- template 'Normal dosing' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <id root="AADC9C14-F1CA-4177-B2C8-A5178D5B3CA0"/>
+                            <text>
+                                <reference value="vsm0017"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime xsi:type="IVL_TS">
+                                <low value="20080801"/>
+                                <high value="20080831"/>
+                            </effectiveTime>
+                            <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                <period value="1" unit="d"/>
+                            </effectiveTime>
+                            <routeCode code="PO" 
+                                displayName="prendre par la boouche" 
+                                codeSystem="2.16.840.1.113883.5.112"/>
+                            
+                            <doseQuantity>
+                                <low value="2" unit="tbl"></low>
+                                <high value="2" unit="tbl"></high>
+                            </doseQuantity>
+                            <rateQuantity nullFlavor="NAV"/>
+                            <maxDoseQuantity>
+                                <numerator></numerator>
+                                <denominator></denominator>
+                            </maxDoseQuantity>
+                            <consumable>
+                                <manufacturedProduct>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <manufacturedMaterial>
+                                        <code code="63564053" 
+                                            codeSystem="1.2.250.1.213.2.3.1"
+                                            codeSystemName="CIS"
+                                            displayName="PLAVIX 75 mg, 
+                                            comprimé pelliculé">
+                                            <originalText>
+                                                <reference value="#vsm0015"/>
+                                            </originalText>
+                                            <translation code="52920"
+                                                codeSystem="1.2.250.1.213.2.3.2"
+                                                codeSystemName="CIS_Composition"
+                                                displayName="CLOPIDOGREL 
+                                                (HYDROGÉNOSULFATE DE)">
+                                                <originalText>
+                                                    <reference value="#vsm0016"/>
+                                                </originalText>
+                                            </translation>
+                                        </code>
+                                        <name>PLAVIX 75 mg</name>
+                                        <lotNumberText nullFlavor="NA"></lotNumberText>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </consumable>
+                        </substanceAdministration>
+                    </entry>
+                    
+                    <!-- Traitement AINS pour Lombosciatique -->
+                    <entry typeCode="DRIV">
+                        <substanceAdministration classCode="SBADM" moodCode="EVN">
+                            <!-- template CCD Medication activity -->
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <!-- template 'PCC Medication' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <!-- template 'Normal dosing' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <id root="AADC9C14-F1CA-4177-B2C8-A5178D5B3CA0"/>
+                            <text>
+                                <reference value="vsm0026"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime xsi:type="IVL_TS">
+                                <low value="20080801"/>
+                                <high value="20080808"/>
+                            </effectiveTime>
+                            <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                <period value="12" unit="d"/>
+                            </effectiveTime>
+                            <routeCode code="PO" 
+                                displayName="prendre par la bouche" 
+                                codeSystem="2.16.840.1.113883.5.112"/>
+                            <doseQuantity>
+                                <low value="1" unit="tbl"/>
+                                <high value="1" unit="tbl"/>
+                            </doseQuantity>
+                            <rateQuantity nullFlavor="NAV"/>
+                            <maxDoseQuantity>
+                                <numerator></numerator>
+                                <denominator></denominator>
+                            </maxDoseQuantity>
+                            <consumable>
+                                <manufacturedProduct>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <manufacturedMaterial>
+                                        <code code="63586338" codeSystem="1.2.250.1.213.2.3.1"
+                                            codeSystemName="CIS"
+                                            displayName="KETOPROFENE BIOGARAN 
+                                            LP 100 mg, comprimé sécable à 
+                                            libération prolongée">
+                                            <originalText>
+                                                <reference value="#vsm0015"/>
+                                            </originalText>
+                                            <translation code="823"
+                                                codeSystem="1.2.250.1.213.2.3.2"
+                                                codeSystemName="CIS_Composition"
+                                                displayName="KÉTOPROFÈNE">
+                                                <originalText>
+                                                    <reference value="#vsm0016"/>
+                                                </originalText>
+                                            </translation>
+                                        </code>
+                                        <name>KÉTOPROFÈNE 100 mg</name>
+                                        <lotNumberText nullFlavor="NA"/>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </consumable>
+                        </substanceAdministration>
+                    </entry>
+                </section>
+            </component>
+            
+            <!--Si cette section est présente, c'est qu'il y a des Traitements médicamenteux prescrits à la sortie de l’établissement -->
+            <!--   Médicaments à la sortie " Hospital Discharge Medications Section" -->
+            <component>
+                <section>
+                    <templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.22'/>
+                    <id root='d2e72afe-401e-4cd2-8583-8473714a32a5'/>
+                    <code code='10183-2' 
+                        displayName="Ordonnance de sortie"
+                        codeSystem='2.16.840.1.113883.6.1' 
+                        codeSystemName='LOINC'/>
+                    <title>Traitements à la sortie</title>
+                    <text>
+                        <table border="1">
+                            <thead>
+                                <tr><th>Date de début et de fin</th>
+                                    <th>Médicament</th>
+                                    <th>Composition</th>
+                                    <th>Posologie</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/08/2008 au 31/08/2008</td>
+                                    <td><content ID="vsm0022">PLAVIX 75mg, 
+                                        comprimé pelliculé</content></td>
+                                    <td><content ID="vsm0023">CLOPIDOGREL 
+                                        (HYDROGÉNOSULFATE DE)</content></td>
+                                    <td>1 cp/j</td>
+                                </tr>
+                                <tr>
+                                    <td styleCode="Bold">01/08/2008 au 31/08/2008</td>
+                                    <td><content ID="vsm0033" styleCode="Bold">
+                                        COUMADINE 5mg, comprimé sécable </content></td>
+                                    <td><content ID="vsm0029" styleCode="Bold">
+                                        (WARFARINE SODIQUE)</content></td>
+                                    <td><content styleCode="Bold">1 cp/j</content></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </text>
+                    <!-- ************ Premier Traitement ************ -->
+                    <entry typeCode="DRIV">
+                        <substanceAdministration classCode="SBADM" moodCode="INT">
+                            <!-- template CCD Medication activity -->
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <!-- template 'PCC Medication' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <!-- template 'Normal dosing' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <id root="AADC9C14-F1CA-4177-B2C8-A5178D5B3CA0"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime xsi:type="IVL_TS">
+                                <low value="20080801"/>
+                                <high value="20080831"/>
+                            </effectiveTime>
+                            <effectiveTime xsi:type="PIVL_TS" operator="A">
+                                <period value="1" unit="d"/>
+                            </effectiveTime>
+                            <routeCode code="PO" 
+                                displayName="prendre par la boouche" 
+                                codeSystem="2.16.840.1.113883.5.112"/>
+                            <doseQuantity>
+                                <low value="2" unit="tbl"/>
+                                <high value="2" unit="tbl"/>
+                            </doseQuantity>
+                            <rateQuantity nullFlavor="NAV"/>
+                            <maxDoseQuantity>
+                                <numerator></numerator>
+                                <denominator></denominator>
+                            </maxDoseQuantity>
+                            <consumable>
+                                <manufacturedProduct>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <manufacturedMaterial>
+                                        <code code="63564053" 
+                                            codeSystem="1.2.250.1.213.2.3.1"
+                                            codeSystemName="CIS"
+                                            displayName="PLAVIX 75 mg, comprimé pelliculé">
+                                            <originalText>
+                                                <reference value="#vsm0015"/>
+                                            </originalText>
+                                            <translation code="52920"
+                                                codeSystem="1.2.250.1.213.2.3.2"
+                                                codeSystemName="CIS_Composition"
+                                                displayName="CLOPIDOGREL (HYDROGÉNOSULFATE DE)">
+                                                <originalText>
+                                                    <reference value="#vsm0016"/>
+                                                </originalText>
+                                            </translation>
+                                        </code>
+                                        <name>PLAVIX 75 mg</name>
+                                        <lotNumberText nullFlavor="NA"/>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </consumable>
+                        </substanceAdministration>
+                    </entry>
+                    
+                    <!-- Deuxième Traitement -->
+
+                    <entry typeCode="DRIV">
+                        <substanceAdministration classCode="SBADM" 
+                            moodCode="INT">
+                            <!-- template CCD Medication activity -->
+                            <templateId root="2.16.840.1.113883.10.20.1.24"/>
+                            <!-- template 'PCC Medication' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+                            <!-- template 'Normal dosing' -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+                            <id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A"/>
+                            <statusCode code="completed"/>
+                            <effectiveTime xsi:type="IVL_TS">
+                                <low value="20000328"/>
+                                <high value="20000404"/>
+                            </effectiveTime>
+                            <effectiveTime xsi:type="PIVL_TS" 
+                                operator="A">
+                                <period value="6" unit="h"/>
+                            </effectiveTime>
+                            <routeCode code="PO" 
+                                displayName="prendre par la boouche" 
+                                codeSystem="2.16.840.1.113883.5.112"/>
+                            <doseQuantity>
+                                <low value="1" unit="tbl"/>
+                                <high value="1" unit="tbl"/>
+                            </doseQuantity>
+                            <rateQuantity nullFlavor="NAV"/>
+                            <consumable>
+                                <manufacturedProduct>
+                                    <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+                                    <!-- Product template -->
+                                    <manufacturedMaterial>
+                                        <code code="63245753" 
+                                            codeSystem="1.2.250.1.213.2.3.1"
+                                            codeSystemName="CIS"
+                                            displayName="COUMADINE 5mg, comprimé sécable">
+                                            <originalText mediaType="text/xml">
+                                                <reference value="#vsm0018"/>
+                                            </originalText>
+                                            <translation code="00678"
+                                                codeSystem="1.2.250.1.213.2.3.2"
+                                                codeSystemName="CIS_Composition"
+                                                displayName="WARFARINE SODIQUE">
+                                                <originalText mediaType="text/xml">
+                                                    <reference value="#vsm0019"/>
+                                                </originalText>
+                                            </translation>
+                                        </code>
+                                        <name>COUMADINE 5mg</name>
+                                        <lotNumberText nullFlavor="NA"/>
+                                    </manufacturedMaterial>
+                                </manufacturedProduct>
+                            </consumable>
+                        </substanceAdministration>
+                    </entry>
+                </section>      
+            </component>
+           
+            <!-- Résultats d'examens "Coded Results Section" -->
+            <component>
+                <section>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+                    <code code="30954-2" displayName="Résultats d'examens"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Résultats d'examens</title>
+                    <text>
+                        <table border="1">
+                            <thead>
+                                <tr><th colspan="2"><content ID="resExam">Résultats d'examens</content></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Autres traitements (traitements non médicamenteux)</td>
+                                    <td><content ID="autresTrait">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>si oui, lesquels (Autres traitements non médicamenteux)</td>
+                                    <td><content ID="quelsTrait">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Attente de résultats d’examens à venir ou d’autres informations</td>
+                                    <td><content ID="att">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>si oui, lesquels (résultats d’examens à venir ou d’autres informations)</td>
+                                    <td><content ID="quelsAtt">-</content></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <entry>
+                        <!-- Procedure Entry -->
+                        <procedure classCode='PROC' moodCode='EVN'>
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.29'/> 
+                            <!-- EVN moodCode : acte realisé -->
+                            <id root='7c6eb1cb-e9e9-4199-8ceb-5de37e93364f'/>
+                            <!-- Résultats d’examens -->
+                            <code code="MED-152" displayName="Résultats d’examens" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP"/>
+                            <text>
+                                <reference value="resExam"/>
+                            </text>
+                            <statusCode code='completed'/>
+                            <effectiveTime value="20071111"/>
+                        </procedure>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="f3eec9af-00bd-41f9-b16c-ee77d1deaad7"/>
+                            <code code="MED-154" displayName="Autres traitements" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP"/>
+                            <text>
+                                <reference value="autresTrait"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime nullFlavor="NASK"/> 
+                            <!-- Autres traitements (traitements non médicamenteux) -->
+                            <value xsi:type="BL" value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="eb6febae-25b2-4128-b2b1-a114679628f7"/>
+                            <code code="GEN-090" displayName="lesquesls" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP"/>
+                            <text>
+                                <reference value="quelsTrait"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime nullFlavor="NASK"/> 
+                            <!-- si oui, lesquels (Autres traitements non médicamenteux)-->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="6F7DBEC2-0E15-48F0-B61E-00B0753BFCAD"/>
+                            <code code="MED-153" displayName="Attente de résultats d’examens à venir ou d’autres informations" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP"/>
+                            <text>
+                                <reference value="att"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime nullFlavor="NASK"/> 
+                            <!-- Attente de résultats d’examens à venir ou d’autres informations -->
+                            <value xsi:type="BL" value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- template Simple Observations -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                            <id root="a6bc7fd2-ec3f-4e01-b567-854b087d1d9b"/>
+                            <code code="GEN-090" displayName="lesquesls" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP"/>
+                            <text>
+                                <reference value="quelsAtt"/>
+                            </text>
+                            <statusCode code="completed"/>
+                            <effectiveTime nullFlavor="NASK"/> 
+                            <!-- si oui, lesquels (résultats d’examens à venir ou d’autres informations) -->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                </section>
+            </component>
+            
+            
+            <!-- Suite à donner "Coded care plan Section" -->
+            <component>
+                <section>
+                    <templateId root="2.16.840.1.113883.10.20.1.10"/>
+                    <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.36"/>
+                    <id root="fc21dc59-43d5-4bb0-acc7-3601784bfbc0"/>
+                    <code code="18776-5" 
+                        displayName="Plan de soins" 
+                        codeSystem="2.16.840.1.113883.6.1"
+                        codeSystemName="LOINC"/>
+                    <title>Suites à donner</title>
+                    <text>
+                        <table border="1">
+                            <thead>
+                                <tr><th colspan="2">Suites à donner</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Soins ou actes prévus ou à programmer</td>
+                                    <td><content ID="soins">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Si oui, lesquels (Soins ou actes prévus ou à programmer)</td>
+                                    <td><content ID="quelsSoins">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Recommandations et surveillances particulières</td>
+                                    <td><content ID="recomm">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Si oui, lesquelles (Recommandations et surveillances particulières)</td>
+                                    <td><content ID="quelsRecomm">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Suites à donner d'ordre médico-social</td>
+                                    <td><content ID="suites">Non</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Si oui, lesquelles (Suites à donner d'ordre médico-social)</td>
+                                    <td><content ID="quelsSuites">-</content></td>
+                                </tr>
+                                <tr>
+                                    <td>Autres suites à donner</td>
+                                    <td><content ID="autresSuites">-</content></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <entry>
+                        <observation classCode="OBS" moodCode="INT">
+                            <!-- Observation Request -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+                            <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                            <id root="D99F46A4-C196-44CC-9F77-CB034DF6D1AF"/>
+                            <code code="ORG-063" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Soins ou actes prévus ou à programmer"/>
+                            <text>
+                                <reference value="soins"/>
+                            </text>
+                            <statusCode code="active"/>
+                            <effectiveTime value="20130102"/>
+                            <!-- Soins ou actes prévus ou à programmer -->
+                            <value xsi:type="BL" value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode="OBS" moodCode="INT">
+                            <!-- Observation Request -->
+                            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1"/>
+                            <templateId root="2.16.840.1.113883.10.20.1.25"/>
+                            <id root="cf5b21bc-387a-44AD-9fe9-d6582a6cf332"/>
+                            <code code="GEN-090" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="lesquels"/>
+                            <text>
+                                <reference value="quelsSoins"/>
+                            </text>
+                            <statusCode code="active"/>
+                            <effectiveTime value="20130102"/>
+                            <!-- Si oui, lesquels (Soins ou actes prévus ou à programmer) -->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode="OBS" moodCode="INT">
+                            <!-- Observation Request -->
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='8378f25f-7ec2-4cee-a9a5-168030827d07'/>
+                            <code code="ORG-064" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Recommandations et surveillances particulières"/>
+                            <text>
+                                <reference value="recomm"/>
+                            </text>
+                            <statusCode code='active'/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Recommandations et surveillances particulières -->
+                            <value xsi:type="BL" value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode='OBS' moodCode='INT'>
+                            <!-- Observation Request -->
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='7649c5fa-a444-49a6-91e9-78d2e5880c67'/>
+                            <code code="GEN-090" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="lesquels"/>
+                            <text>
+                                <reference value="quelsRecomm"/>
+                            </text>
+                            <statusCode code='active'/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Si oui, lesquelles (Recommandations et surveillances particulières) -->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode='OBS' moodCode='INT'>
+                            <!-- Observation Request -->
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='1269c206-4d59-4a9d-aa2d-aa0c4622d525'/>
+                            <code code="ORG-065" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Suites à donner d'ordre médico-social"/>
+                            <text>
+                                <reference value="suites"/>
+                            </text>
+                            <statusCode code='active'/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Suites à donner d'ordre médico-social -->
+                            <value xsi:type="BL" value="false"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode='OBS' moodCode='INT'>
+                            <!-- Observation Request -->
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='c64c6013-c8af-4938-ad10-1b7d26dee2a0'/>
+                            <code code="GEN-090" codeSystem="1.2.250.1.213.1.1.4.322"
+                                codeSystemName="TA_ASIP" 
+                                displayName="lesquels"/>
+                            <text>
+                                <reference value="quelsSuites"/>
+                            </text>
+                            <statusCode code='active'/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Si oui, lesquelles (Suites à donner d'ordre médico-social) -->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                    
+                    <entry>
+                        <observation classCode='OBS' moodCode='INT'>
+                            <!-- Observation Request -->
+                            <templateId root='1.3.6.1.4.1.19376.1.5.3.1.1.20.3.1'/>
+                            <templateId root='2.16.840.1.113883.10.20.1.25'/>
+                            <id root='010a7a1c-b808-42cb-9352-ac682c57e8fb'/>
+                            <code code="ORG-066" codeSystem="1.2.250.1.213.1.1.4.333"
+                                codeSystemName="TA_ASIP" 
+                                displayName="Autres suites à donner"/>
+                            <text>
+                                <reference value="autresSuites"/>
+                            </text>
+                            <statusCode code='active'/>
+                            <effectiveTime value='20130102'/>
+                            <!-- Autres suites à donner -->
+                            <value xsi:type="ST"/>
+                        </observation>
+                    </entry>
+                    
+                </section>
+            </component>
+ 
+        </structuredBody>
+    </component>
+</ClinicalDocument>

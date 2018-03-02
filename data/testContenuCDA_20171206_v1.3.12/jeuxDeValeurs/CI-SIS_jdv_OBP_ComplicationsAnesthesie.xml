@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.289.20" displayName="OBP_ComplicationsAnesthesie"
+        version="20131025">
+        <ConceptList>
+            <Concept code="D3-04000" displayName="lésion" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="O74.3"
+                displayName="complications intéressant le système nerveux central dues à l'anesthésie au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.0"
+                displayName="Syndrome de Mendelson dû à anesthésie au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.1"
+                displayName="Autres complication pulmonaire de l'anesthésie au cours du travailm et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.2"
+                displayName="complications cardiaques de l'anesthésie au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.4"
+                displayName="Réaction toxique à une anesthésie locale au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.5"
+                displayName="Céphalée provoquée par une rachianesthésie et une anesthésie épidurale au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.6"
+                displayName="autre complication d'une rachianesthésie et une anesthésie épidurale au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.7"
+                displayName="échec ou difficultés d'intubation au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+            <Concept code="O74.8"
+                displayName="autre complication de l'anesthésie au cours du travail et de l'accouchement"
+                codeSystem="2.16.840.1.113883.6.3"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

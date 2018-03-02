@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="cda_asip.xsl"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_StructurationCommuneCDAr2.sch"?>
+<?oxygen SCHSchema="Schematrons/CI-SIS_VSM_CDA_n3.sch"?>
+
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 infrastructure/cda/CDA.xsd" xmlns="urn:hl7-org:v3">
+	<!-- 
+      **********************************************************************************************************
+      Système : ASIP
+      Document : Volet de Synthèse Médicale Niveau 3 (VSM-3)
+      Auteur : PTS, HAS
+      Date de création : 15/05/2012
+      Version : 0.0.1
+      **********************************************************************************************************
+      format HL7 - CDA Release 2 - selon schéma XML (CDA.xsd) du standard ANSI/HL7 CDA, R2-2005 4/21/2005
+      **********************************************************************************************************
+      Notes:
+      - TemplateId du modèle de document: Synthèse Médicale (VSM): 1.2.250.1.213.1.1.1.XX
+      - Type de documents (Matrice): SYNTH (Synthèse)
+      - Domaine de vocabulaire ASIP pour VSM 
+      - OID temporaire du LPS producteur de document: root="1.2.250.1.213.1.1.9" 
+      
+      **********************************************************************************************************
+   -->
+
+		
+			<realmCode code="FR"/>
+			<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+			<!-- Conformité spécifications HL7 France -->
+			<templateId root="2.16.840.1.113883.2.8.2.1"/>
+			<!-- Conformité spécifications au CI-SIS -->
+			<templateId root="1.2.250.1.213.1.1.1.1"/>
+			<!-- Conformité au Volet Synthèse Médicale (VSM)-->
+			<templateId root="1.2.250.1.213.1.1.1.13"/>
+
+
+			<!-- Unique ID obligatoire = ID dans le LPS producteur (extension) + OID du producteur (root) -->
+			<id root="1.2.250.1.213.1.1.9" extension="452214"/>
+			<code code="SYNTH" codeSystem="1.2.250.1.213.1.1.4.12" codeSystemName="typCode"
+				displayName="Synthèse"/>
+			<title>SYNTHESE MEDICALE</title>
+			<effectiveTime value="20120328111700+0100"/>
+			<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"
+				codeSystemName="Confidentiality" displayName="Normal"/>
+			<languageCode code="fr-FR"/>
+	
+
+			<!--=<<o#%@O[ Identification du malade ]O@%#o>>=-->
+			<recordTarget>
+				<patientRole>
+					<!-- pour l"INS-A root= "1.2.250.1.213.1.4.1"-->
+					<id extension="1234567890112345678901" root="1.2.250.1.213.1.4.2"/>
+					<addr use="H">
+						<houseNumber>24</houseNumber>
+						<streetNameType>AV</streetNameType>
+						<streetName>de Breteuil</streetName>
+						<postalCode>75007</postalCode>
+						<city>Paris</city>
+					</addr>
+					<!-- Portable -->
+					<telecom value="tel:0686970800" use="MC"/>
+					<!-- Domicile -->
+					<telecom value="tel:0186940900" use="H"/>
+					<patient classCode="PSN">
+						<name>
+							<prefix>Mme</prefix>
+							<given>Marie</given>
+							<family qualifier="BR">DECOURCY</family>
+						</name>
+						<administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1"/>
+						<birthTime value="19800315"/>
+						<birthplace>
+							<place>
+								<addr>
+									<city>Paris</city>
+									<postalCode>75006</postalCode>
+								</addr>
+							</place>
+						</birthplace>
+					</patient>
+				</patientRole>
+			</recordTarget>
+	
+
+			<!--=<<o#%@O[ Auteur du document - Clinicien ayant suivi le malade ]O@%#o>>=-->
+
+			<author>
+				<time value="20120328111700+0100"/>
+				<assignedAuthor>
+					<!-- PS identifié par son N°RPPS -->
+					<id root="1.2.250.1.71.4.2.1" 
+						extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<code code="G15_10/SM26" 
+						codeSystem="1.2.250.1.213.1.1.4.5"
+						codeSystemName="RPPS" 
+						displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+					<addr nullFlavor="NASK"/>
+					<telecom nullFlavor="NASK"/>
+					<assignedPerson>
+						<name>
+							<prefix>Dr.</prefix>
+							<given>Charles </given>
+							<family>BOILEAU</family>
+						</name>
+					</assignedPerson>
+				</assignedAuthor>
+			</author>
+
+			<!--=<<o#%@O[ Personne à appeler en cas d'urgence ]O@%#o>>=-->
+
+			<informant>
+				<relatedEntity classCode="ECON">
+					<code code="SIS" displayName="Soeur" 
+						codeSystem="2.16.840.1.113883.5.111" codeSystemName="RoleCode"/>
+					<addr nullFlavor="NAV"/>
+					<telecom value="tel:0647150100" use="MC"/>
+					<relatedPerson>
+						<name>
+							<family>DECOURCY</family>
+							<given>Sophie</given>
+						</name>
+					</relatedPerson>
+				</relatedEntity>
+			</informant>
+
+			<!--=<<o#%@O[ Organisation de santé responsable du document ]O@%#o>>=-->
+
+			<custodian>
+				<assignedCustodian>
+					<representedCustodianOrganization>
+						<id root="1.2.250.1.71.4.2.2" 
+							extension="1120456789"
+							assigningAuthorityName="ASIP Santé"/>
+						<name>Centre Médical du Belvédère</name>
+						<telecom value="tel:0442515151" use="WP"/>
+						<addr>
+							<houseNumber>142</houseNumber>
+							<streetNameType>RUE</streetNameType>
+							<streetName>Belvédère</streetName>
+							<postalCode>92100</postalCode>
+							<city>Boulogne-Billancourt</city>
+						</addr>
+					</representedCustodianOrganization>
+				</assignedCustodian>
+			</custodian>
+
+			<!--=<<o#%@O[ Signataire du document ]O@%#o>>=-->
+
+			<legalAuthenticator>
+				<time value="20080929094914+0100"/>
+				<signatureCode code="S"/>
+				<assignedEntity>
+					<!-- PS identifié par son N°RPPS -->
+					<id root="1.2.250.1.71.4.2.1" extension="801234567897"
+						assigningAuthorityName="ASIP Santé"/>
+					<code code="G15_10/SM26" codeSystem="1.2.250.1.213.1.1.4.5"
+						codeSystemName="RPPS" 
+						displayName="Médecin - Qualifié en Médecin Générale (SM)"/>
+					<addr nullFlavor="NASK"/>
+					<telecom nullFlavor="NASK"/>
+					<assignedPerson>
+						<name>
+							<prefix>Dr.</prefix>
+							<given>Charles </given>
+							<family>BOILEAU</family>
+						</name>
+					</assignedPerson>
+				</assignedEntity>
+			</legalAuthenticator>
+
+
+			<!--=<<o#%@O[ Médecin traitant ]O@%#o>>=-->
+	
+			<participant typeCode="INF">
+				<functionCode code="PCP" 
+					codeSystem="2.16.840.1.113883.5.88" 
+					displayName="Médecin Traitant"/>
+				<time value="20120328111700+0100"/>
+				<associatedEntity classCode="PROV">
+					<id root="1.2.250.1.71.4.2.1" 
+						extension="801234567897" 
+						assigningAuthorityName="ASIP Santé"/>
+					<addr>
+						<houseNumber>3</houseNumber>
+						<streetNameType>RUE</streetNameType>
+						<streetName>Petit Pont</streetName>
+						<postalCode>75005</postalCode>
+						<city>Paris</city>
+					</addr>
+					<telecom value="tel:0147150000" use="WP"/>
+					<associatedPerson>
+						<name>
+							<prefix>Dr.</prefix>
+							<given>Stéphane</given>
+							<family>MEDIONI</family>
+						</name>
+					</associatedPerson>
+				</associatedEntity>
+			</participant>
+
+			<!--=<<o#%@O[ Informations sur sur le document ]O@%#o>>=-->
+
+			<documentationOf>
+				<serviceEvent>
+					<code code="34117-2" 
+						displayName="Historique et clinique"
+						codeSystem="2.16.840.1.113883.6.1" 
+						codeSystemName="LOINC"/>
+					<effectiveTime>
+						<low value="20120328111700+0100"/>
+					</effectiveTime>
+					<performer typeCode="PRF">
+						<assignedEntity>
+							<!-- N° RPPS du PS -->
+							<id root="1.2.250.1.71.4.2.1" 
+								extension="801234567897"
+								assigningAuthorityName="ASIP Santé"/>
+							<addr nullFlavor="NASK"/>
+							<telecom nullFlavor="NASK"/>
+							<assignedPerson>
+								<name>
+									<given>Charles </given>
+									<family>BOILEAU</family>
+									<prefix>Dr.</prefix>
+								</name>
+							</assignedPerson>
+							<!-- Numéro FINESS de l'ES  -->
+							<representedOrganization>
+								<id root="1.2.250.1.71.4.2.2" 
+									extension="101238887"
+									assigningAuthorityName="ASIP Santé"/>
+								<name>Centre de soins du Belvédère</name>
+								<telecom nullFlavor="NAV"/>
+								<addr>
+									<houseNumber>142</houseNumber>
+									<streetNameType>RUE</streetNameType>
+									<streetName>Belvédère</streetName>
+									<postalCode>92100</postalCode>
+									<city>Boulogne-Billancourt</city>
+								</addr>
+								<standardIndustryClassCode code="ETABLISSEMENT"
+									displayName="Établissement de santé"
+									codeSystem="1.2.250.1.213.1.1.4.9"
+									codeSystemName="practiceSettingCode"/>
+							</representedOrganization>
+						</assignedEntity>
+					</performer>
+				</serviceEvent>
+			</documentationOf>
+
+			<!--=<<o#%@O[ Informations sur la mise à jour  ]O@%#o>>=-->
+
+			<relatedDocument typeCode="RPLC">
+				<parentDocument>
+					<!-- Identifiant du document remplacé = ID dans le LPS producteur (extension) + OID du producteur (root)-->
+					<id root="1.2.250.1.213.1.1.9" extension="452127"/>
+					<versionNumber value="2"/>
+				</parentDocument>
+			</relatedDocument>
+
+
+			<!--=<<o#%@O[ Informations sur les circonstances de la "rencontre" ]O@%#o>>=-->
+
+			<componentOf>
+				<encompassingEncounter>
+					<code code="EXTERNE" displayName="acte et consultation externe (établissement)" codeSystem="1.2.250.1.213.1.1.4.2.291"/>
+					<effectiveTime>
+						<high value="20120328111700+0100"/>
+					</effectiveTime>
+					<location>
+						<healthCareFacility>
+							<id root="1.2.250.1.213.1.1.9" extension="11223344"
+								assigningAuthorityName="Centre de Soins du belvédère"/>
+							<code code="SA04" displayName="Etablissement Privé Non PSPH"
+								codeSystem="1.2.250.1.71.4.2.4" codeSystemName="R02"> </code>
+						</healthCareFacility>
+					</location>
+				</encompassingEncounter>
+			</componentOf>
+
+
+			<!-- 
+      ********************************************************
+      Corps du document
+      ********************************************************
+			-->
+			
+			<component>
+				<structuredBody>
+
+					<!--=<<o#%@O[ Section Pathologie en cours, antécédents, allergies et facteurs de risques ]O@%#o>>=-->
+
+					<component>
+						<section>
+							<templateId root="1.2.250.1.213.1.1.2.29"/>
+							<code code="46612-8" codeSystem="2.16.840.1.113883.6.1"
+								displayName="Conclusions de synthèse"/>
+							<title>Pathologie en cours, antécédents, allergies et facteurs de risques</title>
+							<text/>
+
+							<!--=<<o#%@O[ Sous-section Pathologie en cours, antécédents et allergies]O@%#o>>=-->
+							<component>
+								<section>
+									<templateId root="1.2.250.1.213.1.1.2.30"/>
+									<code code="34117-2" codeSystem="2.16.840.1.113883.6.1"
+										displayName="Historique et physique"/>
+									<title>Pathologies en cours, antécédents et allergies</title>
+									<text/>
+
+									<!--====%[ Sous-section PCC Active problem  ]%====-->
+									<component>
+										<section>
+											<!--  CCD Problem Section templateId -->
+											<templateId root="2.16.840.1.113883.10.20.1.11"/>
+											<!-- Active problem section templateId -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+											<id root="E52A7B75-3B12-44DF-80B3-3DEA64E25B4B"/>
+											<code code="11450-4" displayName="Liste des problèmes actifs"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<title>Pathologie en cours</title>
+											<text>
+												<list>
+													<item>20/06/2006 : <content ID="vsm0001" styleCode="Bold">Accident ischémique cérébral transitoire</content></item>
+													<item>22/06/2009 : <content ID="vsm0002">Angine de poitrine instable</content></item>
+												</list>
+											</text>
+
+											<!-- AIT -->
+											<entry>
+												<act classCode="ACT" moodCode="EVN">
+													<templateId root="2.16.840.1.113883.10.20.1.27"/>
+													<!-- Problem Act template -->
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+													<id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+													<code nullFlavor="NA"/>
+													<statusCode code="completed"/>
+													<effectiveTime>
+														<low value="20060626"/>
+														<high value="20060626"/>
+													</effectiveTime>
+													<!-- Accident Ischémique transitoire -->
+													<entryRelationship typeCode="SUBJ"
+														inversionInd="false">
+														<observation classCode="OBS" moodCode="EVN" negationInd="false">
+															<templateId root="2.16.840.1.113883.10.20.1.28"/>
+															<!-- Problem observation template -->
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+															<!-- ID de l'observation -->
+															<id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+															<code code="G-1009" displayName="Diagnostic"
+																codeSystem="1.2.250.1.213.2.12"
+																codeSystemName="SNOMED 3.5"/>
+															<statusCode code="completed"/>
+															<effectiveTime>
+																<low value="20090812"/>
+															</effectiveTime>
+															<value xsi:type="CD" code="G45.9"
+																codeSystem="2.16.840.1.113883.6.3"
+																codeSystemName="CIM10"
+																displayName="Accident Ischémique Cérébral Transitoire">
+																<originalText><reference value='#vsm0001'/></originalText>
+															</value>
+														</observation>
+													</entryRelationship>
+													<!-- Problème actif -->
+													<entryRelationship typeCode="REFR">
+														<observation classCode="OBS" moodCode="EVN">
+															<templateId root="2.16.840.1.113883.10.20.1.50"/>
+															<code code="33999-4"
+																codeSystem="2.16.840.1.113883.6.1"
+																displayName="Status"/>
+															<statusCode code="completed"/>
+															<value xsi:type="CE" code="55561003"
+																codeSystem="2.16.840.1.113883.6.96"
+																displayName="Active"/>
+														</observation>
+													</entryRelationship>
+												</act>
+											</entry>
+
+											<!-- Angine de Poitrine instable -->
+											<entry>
+												<act classCode="ACT" moodCode="EVN">
+													<templateId root="2.16.840.1.113883.10.20.1.27"/>
+													<!-- Problem Act template -->
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+													<id root="cdbd5b08-6cde-11db-9fe1-0800200c9a66"/>
+													<code nullFlavor="NA"/>
+													<statusCode code="completed"/>
+													<effectiveTime>
+														<low nullFlavor="MSK"/>
+														<high nullFlavor="MSK"/>
+													</effectiveTime>
+													
+													<entryRelationship typeCode="SUBJ"
+														inversionInd="false">
+														<observation classCode="OBS" moodCode="EVN" negationInd="false">
+															<templateId root="2.16.840.1.113883.10.20.1.28"/>
+															<!-- Problem observation template -->
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+															<!-- ID de l'observation -->
+															<id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+															<code code="G-1009" displayName="Diagnostic"
+																codeSystem="1.2.250.1.213.2.12"
+																codeSystemName="SNOMED 3.5"/>
+															<statusCode code="completed"/>
+															<effectiveTime>
+																<low value="20090812"/>
+															</effectiveTime>
+															<value xsi:type="CD" code="I20.0"
+																codeSystem="2.16.840.1.113883.6.3"
+																codeSystemName="CIM10"
+																displayName="Angine de poitrine instable">
+																<originalText><reference value='#vsm0002'/></originalText>
+															</value>
+														</observation>
+													</entryRelationship>
+													<!-- Problème actif -->
+													<entryRelationship typeCode="REFR">
+														<observation classCode="OBS" moodCode="EVN">
+															<templateId root="2.16.840.1.113883.10.20.1.50"/>
+															<code code="33999-4"
+																codeSystem="2.16.840.1.113883.6.1"
+																displayName="Status"/>
+															<statusCode code="completed"/>
+															<value xsi:type="CE" code="55561003"
+																codeSystem="2.16.840.1.113883.6.96"
+																displayName="Active"/>
+														</observation>
+													</entryRelationship>
+												</act>
+											</entry>
+										</section>
+									</component>
+
+									<!--=<<o#%@O[ PCC History of past illness subsection ]O@%#o>>=-->
+									<component>
+										<section>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.8"/>
+											<id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+											<code code="11348-0"
+												displayName="Historique des maladies"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<title>Antécédents Médicaux</title>
+											<text>
+												<list>
+												<item>11/08/2008 : <content ID="vsm0003" styleCode="Bold">Pyélonéphrite aiguë</content></item>
+													<item>11/08/2008 : <content ID="vsm0004" styleCode="Bold">Infarctus transmural inférieur</content></item>
+												</list>
+											</text>
+
+											<!-- Pyélonéphrite aiguë -->
+											<entry>
+												<act classCode="ACT" moodCode="EVN">
+													<!-- Conformité Problem Act template -->
+													<templateId root="2.16.840.1.113883.10.20.1.27"/>
+													<!-- Conformité Concern entry template -->
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+													<!-- Conformité problem concern entry template -->
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+													<id root="D3DCE1E0-EB52-47CB-8507-D33F0041D138"/>
+													<code nullFlavor="NA"/>
+													<statusCode code="active"/>
+													<effectiveTime>
+														<low value="20080811"/>
+													</effectiveTime>
+													<!-- 1..* entry relationships identifiant les éléments de pathologie -->
+													<entryRelationship typeCode="SUBJ"
+														inversionInd="false">
+														<observation classCode="OBS" moodCode="EVN" negationInd="false">
+															<templateId root="2.16.840.1.113883.10.20.1.28"/>
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+															<id root="21872220-FBDF-4BCC-85B1-61D1BBB420A5"/>
+															<code code="G-1009" displayName="Diagnostic"
+																codeSystem="1.2.250.1.213.2.12"
+																codeSystemName="SNOMED 3.5"/>
+															<statusCode code="completed"/>
+															<effectiveTime>
+																<low value="20080811"/>
+															</effectiveTime>
+															<value xsi:type="CD" code="N10"
+																displayName="Pyélonéphrite aiguë"
+																codeSystem="2.16.840.1.113883.6.3"
+																codeSystemName="CIM10">
+																<originalText><reference value='#vsm0003'/></originalText>
+															</value>
+														</observation>
+													</entryRelationship>
+												</act>
+											</entry>
+											<!-- Infarctus inférieur transmural -->
+											<entry>
+												<act classCode="ACT" moodCode="EVN">
+													<templateId root="2.16.840.1.113883.10.20.1.27"/>
+													<!-- Problem Act template -->
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+													<id root="fc21dc59-43d5-4bb0-acc7-3601784bfbc0"/>
+													<code nullFlavor="NA"/>
+													<statusCode code="completed"/>
+													<effectiveTime>
+														<low value="20060626"/>
+														<high value="20060626"/>
+													</effectiveTime>
+													<entryRelationship typeCode="SUBJ"
+														inversionInd="false">
+														<observation classCode="OBS" moodCode="EVN" negationInd="false">
+															<templateId root="2.16.840.1.113883.10.20.1.28"/>
+															<!-- Problem observation template -->
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+															<!-- ID de l'observation -->
+															<id root="fc21dc59-43d5-4bb0-acc7-3601784bfbc0"/>
+															<code code="G-1009" displayName="Diagnostic"
+																codeSystem="1.2.250.1.213.2.12"
+																codeSystemName="SNOMED 3.5"/>
+															<statusCode code="completed"/>
+															<effectiveTime>
+																<low value="20090812"/>
+															</effectiveTime>
+															<value xsi:type="CD" code="I21.1"
+																codeSystem="2.16.840.1.113883.6.3"
+																codeSystemName="CIM10"
+																displayName="Infarctus transmural inférieur">
+																<originalText><reference value='#vsm0004'/></originalText>
+															</value>
+														</observation>
+													</entryRelationship>
+													<!-- Problème actif -->
+													<entryRelationship typeCode="REFR">
+														<observation classCode="OBS" moodCode="EVN">
+															<templateId root="2.16.840.1.113883.10.20.1.50"/>
+															<code code="33999-4"
+																codeSystem="2.16.840.1.113883.6.1"
+																displayName="Status"/>
+															<statusCode code="completed"/>
+															<value xsi:type="CE" code="55561003"
+																codeSystem="2.16.840.1.113883.6.96"
+																displayName="Active"/>
+														</observation>
+													</entryRelationship>
+												</act>
+											</entry>
+											
+										</section>
+									</component>
+									
+									<!--=<<o#%@O[ Sous-section PCC Coded List of Surgeries ]O@%#o>>=-->
+									
+									<component>
+										<section>
+											<templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.11'/>
+											<templateId root='1.3.6.1.4.1.19376.1.5.3.1.3.12'/>
+											<id root='6F7DBEC2-0E15-48F0-B61E-00B0753BFCAD'/>
+											<code code='47519-4' displayName='Historique des interventions'
+											codeSystem='2.16.840.1.113883.6.1' codeSystemName='LOINC'/>
+											<title>Antécédents Chirurgicaux</title>
+											<text>
+												<list>
+													<item>
+														12/08/1999<content ID="vsm0005"> Dilatation intraluminale de deux vaisseaux
+															coronaires avec pose d'endoprothèse, par voie artérielle
+															transcutanée</content> (<content ID="vsm0006">Infarctus inférieur transmural</content>)
+													</item>
+												</list>
+											</text>   
+											<entry>
+												<procedure classCode='PROC' moodCode='EVN'>
+													<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.19'/>
+													<templateId root='2.16.840.1.113883.10.20.1.29'/>
+													<id root='a6bc7fd2-ec3f-4e01-b567-854b087d1d9b'/>
+													<code code="DDAF004" codeSystem="1.2.250.1.213.2.5" codeSystemName="CCAM">
+														<originalText><reference value='#vsm0005'/></originalText>
+													</code>
+													<statusCode code='completed'/>
+													<effectiveTime value="19990812"/>
+													<author>
+														<time value="19990812"/>
+														<assignedAuthor>
+															<id nullFlavor="UNK"/>
+															<addr nullFlavor="NAV"/>
+															<telecom nullFlavor="NAV"/>
+															<assignedPerson>
+																<name>
+																	<prefix>Pr.</prefix>
+																	<given>Jacques</given>
+																	<family>Petitjean</family>
+																</name>
+															</assignedPerson>
+															<representedOrganization>
+																<name>Hôpital Lariboisière</name>
+																<addr nullFlavor="NAV"/>
+															</representedOrganization>
+														</assignedAuthor>
+													</author>
+													
+													<entryRelationship typeCode='RSON'>
+														<act classCode='ACT' moodCode='EVN'>
+															<!-- Référence interne -->
+															<templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.4.1'/>
+															<!-- Id de l'observation correspondante -->
+															<id root='fc21dc59-43d5-4bb0-acc7-3601784bfbc0'/>
+															<code code="I21.1"
+																codeSystem="2.16.840.1.113883.6.3"
+																codeSystemName="CIM10"
+																displayName="Infarctus transmural inférieur">
+																<originalText><reference value='#vsm0006'/></originalText>
+															</code>
+														</act>
+													</entryRelationship>
+												</procedure>
+											</entry>
+										</section>
+									</component>
+
+									<!--=<<o#%@O[ Allergies & intolerances Section ]O@%#o>>=-->
+
+									<component>
+										<section>
+											<templateId root="2.16.840.1.113883.10.20.1.2"/>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13"/>
+											<id root="7649c5fa-a444-49a6-91e9-78d2e5880c67"/>
+											<code code="48765-2" displayName="Allergies, effets indésirables, alertes" codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<title>Allergies, effets indésirables, alertes</title>
+											<text>
+												<table>
+													<thead>
+														<tr><th>Date</th><th>Type d'allergie</th><th>Manifestation</th><th>Statut</th><th>Agent responsable</th></tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>11/08/2008</td>
+															<td><content ID="vsm0007">Allergie Médicamenteuse</content></td>
+															<td><content ID="vsm0008">Urticaire</content></td>
+															<td><content ID="vsm0010">Intermittent</content></td>
+															<td><content ID="vsm0009">Paracétamol</content></td>
+														</tr>
+													</tbody>
+												</table>
+											</text>
+
+											
+											<entry>
+												<!-- Elément 'Allergies and Intolerances Concern' -->
+												<act classCode="ACT" moodCode="EVN">
+													<!-- CCD Problem acts template Id -->
+													<templateId root="2.16.840.1.113883.10.20.1.27"/>
+													<!-- Concern Entry template id -->
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+													<!-- allergies and Intolerance Concern template Id -->
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3"/>
+													<id root="1269c206-4d59-4a9d-aa2d-aa0c4622d525"/>
+													<code nullFlavor="NA"/>
+													<statusCode code="active"/>
+													<effectiveTime>
+														<low nullFlavor="MSK"/>
+													</effectiveTime>
+													
+													<!-- 1..* entry relationships identifiant les allergies ou intolérances -->
+													<!-- PARACETAMOL -->
+													<entryRelationship typeCode="SUBJ" inversionInd="false">
+														<observation classCode="OBS" moodCode="EVN" negationInd="false">
+															<!-- CCD Problem Observation template Id -->
+															<templateId root="2.16.840.1.113883.10.20.1.28"/>
+															<!-- 'PCC Problem  Entry' template id-->
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+															<!--'Allergy and Intolerance Entry' template id -->
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6"/>
+															<id root="c64c6013-c8af-4938-ad10-1b7d26dee2a0"/>
+															<!-- ALG = Allergy -->
+															<code code="DALG"
+																codeSystem="2.16.840.1.113883.5.4"
+																codeSystemName="ObservationIntoleranceType"
+																displayName="Allergie à un produit pharmaceutique">
+																<originalText>
+																	<reference value="#vsm0007"/>
+																</originalText>
+															</code>
+															<statusCode code="completed"/>
+															<effectiveTime xsi:type="IVL_TS">
+																<low value="20000328"/>
+															</effectiveTime>
+															<!-- Note: l'élément value peut être un élément codé ou non codé -->
+															<value xsi:type="CD" code="T78.3"
+																displayName="Urticaire"
+																codeSystem="2.16.840.1.113883.6.3" codeSystemName="CIM-10" >
+																<originalText>
+																	<reference value="#vsm0008"/>
+																</originalText>
+															</value>
+															<!-- Contrainte sur la présence de l'allergène -->
+															<participant typeCode="CSM">
+																<time nullFlavor="NAV"/>
+																<participantRole classCode="MANU">
+																	<playingEntity classCode="MMAT">
+																		<!-- Note: l'élément code peut être un élément codé ou non codé -->
+																		<code code="2202" codeSystem="1.2.250.1.213.2.3.1"
+																			codeSystemName="CIS_Composition"
+																			displayName="PARACETAMOL">
+																			<originalText>
+																				<reference value="#vsm0009"/>
+																			</originalText>
+																		</code>
+																	</playingEntity>
+																</participantRole>
+															</participant>
+															
+															<!-- Statut de l'allergie -->
+															<entryRelationship typeCode="REFR"
+																inversionInd="false">
+																<observation classCode="OBS" moodCode="EVN" negationInd="false">
+																	<!-- CCD Status Observation -->
+																	<templateId root="2.16.840.1.113883.10.20.1.57"/>
+																	<!-- CCD Problem Status Observation -->
+																	<templateId root="2.16.840.1.113883.10.20.1.50"/>
+																	<!-- PCC Problem Status Observation -->
+																	<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1"/>
+																	<code code="33999-4" displayName="Status"
+																		codeSystem="2.16.840.1.113883.6.1"
+																		codeSystemName="LOINC"/>
+																	<text><reference value="#vsm0010"/></text>
+																	<statusCode code="completed"/>
+																	<value xsi:type="CE" code="G-A397"
+																		codeSystem="1.2.250.1.213.2.12"
+																		codeSystemName="SNOMED 3.5"
+																		displayName="Intermittent">
+																	</value>
+																</observation>
+															</entryRelationship>
+														</observation>
+													</entryRelationship>
+												</act>
+											</entry>
+										</section>
+									</component>
+								</section>
+							</component>
+							
+							<!--=<<o#%@O[ Sous-section Facteurs de risque]O@%#o>>=-->
+							
+							<component>
+								<section>
+									<templateId root="1.2.250.1.213.1.1.2.31"/>
+									<code code="57207-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+										displayName="Facteurs de risque présents ou passés affectant l'état de santé et/ou une circonstance."/>
+									<title>Facteurs de risque</title>
+									<text/>
+									
+									<!--=<<o#%@O[ Sous-section Coded Social History]O@%#o>>=-->
+									<component>
+										<section>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16"/>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16.1"/>
+											<id root="D99F46A4-C196-44CC-9F77-CB034DF6D1AF"/>
+											<code code="29762-2" displayName="Historique social"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<title>Mode de vie</title>
+											<text>
+												<list>
+													<item>Tabagisme</item>
+													<item>Consommation de cannabis occasionnelle</item>
+												</list>
+											</text>
+											<entry>
+												<observation classCode="OBS" moodCode="EVN">
+													<templateId root="2.16.840.1.113883.10.20.1.33"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+													
+													<id root='cf5b21bc-387a-44AD-9fe9-d6582a6cf332'/>
+													<code code='XX-MCH181' displayName='Consommation tabagique et exposition'
+														codeSystem="1.2.250.1.213.1.1.4.14" codeSystemName="TA_CS"/>
+													<statusCode code='completed'/>
+													<value xsi:type="PQ" value="25" unit="PA"/>
+												</observation>
+											</entry>
+											<entry>
+												<observation classCode="OBS" moodCode="EVN">
+													<templateId root="2.16.840.1.113883.10.20.1.33"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.4"/>
+													<id root='8378f25f-7ec2-4cee-a9a5-168030827d07'/>
+													<code code='S-00500' displayName='Autre élément social'
+														codeSystem="1.2.250.1.213.2.12" codeSystemName="SNOMED 3.5"/>
+													<statusCode code='completed'/>
+													<value xsi:type="ST">Consommation de cannabis occasionnelle</value>
+												</observation>
+											</entry>
+										</section>
+									</component>
+									
+									<!--=<<o#%@O[ Sous-section PCC Hazardous Working Conditions]O@%#o>>=-->
+									<component>
+										<section>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.1"/>
+											<id root="BC6A2067-884F-4D55-8B27-E8C2BE276F29"/>
+											<code code="10161-8"
+												displayName="Historique de l'exposition professionnelle"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<title>Facteurs de risques professionnels</title>
+											<text> 
+												<paragraph>
+													Exposition à l'amiante à contrôler (architecte,
+													reconstruction d'immeubles, visites de chantier)
+												</paragraph>
+											</text>
+										</section>
+									</component>
+
+									<!--=<<o#%@O[ PCC Coded Family Medical History Section ]O@%#o>>=-->
+
+									<component>
+										<section>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.14"/>
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.15"/>
+											<id root="B6B00F3F-40A0-419F-847F-FDA1E0908EC8"/>
+											<code code="10157-6"
+												displayName="Historique des pathologies familiales"
+												codeSystem="2.16.840.1.113883.6.1"
+												codeSystemName="LOINC"/>
+											<title>Antécédents Familiaux</title>
+											<text>
+												<list>
+													<item>
+														<content ID="vsm0011">Anémie Drépanocytaire </content>
+														<content ID="vsm0012">(maternelle)</content>
+													</item>
+												</list>
+											</text>
+											
+											<!-- Pathologie(s) d'origine maternelle -->
+											<entry>
+												<organizer classCode="CLUSTER" moodCode="EVN">
+													<templateId root="2.16.840.1.113883.10.20.1.23"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.15"/>
+													<statusCode code="completed"/>
+													<subject typeCode="SBJ">
+														<relatedSubject classCode="PRS">
+															<code code="SIGOTHR" displayName="Autre"
+																codeSystem="2.16.840.1.113883.5.111"
+																codeSystemName="RoleCode">
+																<originalText>
+																	<reference value="#vsm0012"/>
+																</originalText>
+															</code>
+															<subject>
+																<administrativeGenderCode nullFlavor="UNK"/>
+															</subject>
+														</relatedSubject>
+													</subject>
+													<!-- 1..* pathologie(s) observée(s) -->
+													<component typeCode="COMP">
+														<observation classCode="OBS" moodCode="EVN">
+															<templateId root="2.16.840.1.113883.10.20.1.22"/>
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+															<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.3"/>
+															<id root="6F3F483F-374C-4CE2-9127-EA1B285E72D2"/>
+															<code code="G-1009" displayName="Diagnostic"
+																codeSystem="1.2.250.1.213.2.12"
+																codeSystemName="SNOMED 3.5"/>
+															<statusCode code="completed"/>
+															<effectiveTime nullFlavor="NAV"/>
+															<value xsi:type="CD" code="D57.1"
+																displayName="Anémie drépanocytaire"
+																codeSystem="2.16.840.1.113883.6.3"
+																codeSystemName="CIM10">
+																<originalText>
+																	<reference value="#vsm0011"/>
+																</originalText>
+															</value>
+														</observation>
+													</component>
+												</organizer>
+											</entry>
+										</section>
+									</component>
+								</section>
+							</component>
+						</section>
+					</component>
+					
+					<!--=<<o#%@O[ PCC Results ]O@%#o>>=-->
+					<component>
+						<section>
+							<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.27"/>
+							<id root="8eb396a9-79a4-4716-bf9d-38f5ce2652e3"/>
+							<code code="30954-2" displayName="Résumé des investigations pratiquées"
+								codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+							<title>Points de vigilance</title>
+							<text>
+								<!-- espace vide = &#160; -->
+								<table border="1">
+									<tbody align="left">
+										<tr>
+											<td>
+												<list>
+													<item>ECG Hémibloc antérieur gauche</item>
+													<item>Echodoppler VG non dilaté, trouble de la
+														relaxation du VG</item>
+													<item>Hypertriglycéridémie avec VLDL élevés -
+														notion familiale ?</item>
+												</list>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					
+					<!--=<<o#%@O[ Section Traitement au long cours ]O@%#o>>=-->
+					
+					<component>
+						<section>
+							<templateId root="1.2.250.1.213.1.1.2.32"/>
+							<code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+								displayName="Plan de traitement"/>
+							<title>Traitement au long cours</title>
+							<text>
+								<table>
+									<thead>
+										<tr><th>Date de début</th><th>Date de fin</th><th>Médicament</th><th>Composition</th><th>Posologie</th><th>Motif</th></tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>12/05/2009</td>
+											<td>21/04/2017</td>
+											<td><content ID="vsm0015">PLAVIX 75mg, comprimé pelliculé</content></td>
+											<td><content ID="vsm0016">CLOPIDOGREL (HYDROGÉNOSULFATE DE)</content></td>
+											<td>1 cp/j</td>
+											<td><content ID="vsm0017">Angine de poitrine instable</content></td>
+										</tr>
+										<tr>
+											<td>12/05/2009</td>
+											<td> </td>
+											<td><content ID="vsm0018">COUMADINE 5mg, comprimé sécable </content></td>
+											<td><content ID="vsm0019">(WARFARINE SODIQUE)</content></td>
+											<td>1 cp/j</td>
+											<td><content ID="vsm0020">Accident Ischémique Cérébral Transitoire</content></td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+					
+					<!--=<<o#%@O[ sous-section PCC Medication ]O@%#o>>=-->
+
+							<component>
+								<section>
+									<templateId root="2.16.840.1.113883.10.20.1.8"/>
+									<!-- CCD -->
+									<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19"/>
+									<!-- PCC Medications section template -->
+									<code code="10160-0" codeSystem="2.16.840.1.113883.6.1" 
+										displayName="Historique de la prise médicamenteuse" codeSystemName="LOINC"/>
+									<title></title>
+									<text/>
+		
+									<!-- ************ Traitement Plavix pour Angine de poitrine ************ -->
+									<entry typeCode="DRIV">
+										<substanceAdministration classCode="SBADM" moodCode="EVN">
+											<!-- template CCD Medication activity -->
+											<templateId root="2.16.840.1.113883.10.20.1.24"/>
+											<!-- template 'PCC Medication' -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+											<!-- template 'Normal dosing' -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+											<id root="AADC9C14-F1CA-4177-B2C8-A5178D5B3CA0"/>
+											<statusCode code="completed"/>
+											<effectiveTime xsi:type="IVL_TS">
+												<low value="20080801"/>
+												<high value="20080831"/>
+											</effectiveTime>
+											<effectiveTime xsi:type="PIVL_TS" operator="A">
+												<period value="1" unit="d"/>
+											</effectiveTime>
+											<routeCode code="PO" displayName="prendre par la boouche" codeSystem="2.16.840.1.113883.5.112"/>
+											<doseQuantity value="2" unit="tbl"/>
+											<rateQuantity nullFlavor="NAV"/>
+											<maxDoseQuantity>
+												<numerator></numerator>
+												<denominator></denominator>
+											</maxDoseQuantity>
+											<consumable>
+												<manufacturedProduct>
+													<templateId root="2.16.840.1.113883.10.20.1.53"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+													<manufacturedMaterial>
+														<code code="63564053" codeSystem="1.2.250.1.213.2.3.1"
+															codeSystemName="CIS"
+															displayName="PLAVIX 75 mg, comprimé pelliculé">
+															<originalText>
+																<reference value="#vsm0015"/>
+															</originalText>
+															<translation code="52920"
+																codeSystem="1.2.250.1.213.2.3.2"
+																codeSystemName="CIS_Composition"
+																displayName="CLOPIDOGREL (HYDROGÉNOSULFATE DE)">
+																<originalText>
+																	<reference value="#vsm0016"/>
+																</originalText>
+															</translation>
+														</code>
+														<name>PLAVIX 75 mg</name>
+													</manufacturedMaterial>
+												</manufacturedProduct>
+											</consumable>
+											<entryRelationship typeCode="RSON">
+												<!-- Liaison du traitement à sa cause -->
+												<act classCode="ACT" moodCode="EVN">
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1"/>
+													<!-- Problem observation template -->
+													<id root="cdbd5b08-6cde-11db-9fe1-0800200c9a66"/>
+														<code code="I20.0"
+															codeSystem="2.16.840.1.113883.6.3"
+															codeSystemName="CIM10"
+															displayName="Angine de poitrine instable">
+															<originalText mediaType="text/xml">
+																<reference value="#vsm0017"/>
+															</originalText>
+														</code>
+														<statusCode code="completed"/>
+													<effectiveTime xsi:type="IVL_TS">
+														<low value="20000328"/>
+													</effectiveTime>
+												</act>
+											</entryRelationship>
+										</substanceAdministration>
+									</entry>
+									
+									<!-- ****** Traitement Coumadine pour AIT ****** -->
+									
+									<entry typeCode="DRIV">
+										<substanceAdministration classCode="SBADM" moodCode="EVN">
+											<!-- template CCD Medication activity -->
+											<templateId root="2.16.840.1.113883.10.20.1.24"/>
+											<!-- template 'PCC Medication' -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7"/>
+											<!-- template 'Normal dosing' -->
+											<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1"/>
+											<id root="8609F763-4F75-4FB5-A1A3-A6A269D15F4A"/>
+											<statusCode code="completed"/>
+											<effectiveTime xsi:type="IVL_TS">
+												<low value="20000328"/>
+												<high value="20000404"/>
+											</effectiveTime>
+											<effectiveTime xsi:type="PIVL_TS" operator="A">
+												<period value="6" unit="h"/>
+											</effectiveTime>
+											<routeCode code="PO" displayName="prendre par la boouche" codeSystem="2.16.840.1.113883.5.112"/>
+											<doseQuantity value="1" unit="tbl"/>
+											<rateQuantity nullFlavor="NAV"/>
+											<consumable>
+												<manufacturedProduct>
+													<templateId root="2.16.840.1.113883.10.20.1.53"/>
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
+													<!-- Product template -->
+													<manufacturedMaterial>
+														<code code="63245753" codeSystem="1.2.250.1.213.2.3.1"
+															codeSystemName="CIS"
+															displayName="COUMADINE 5mg, comprimé sécable">
+															<originalText mediaType="text/xml">
+																<reference value="#vsm0018"/>
+															</originalText>
+															<translation code="00678"
+																codeSystem="1.2.250.1.213.2.3.2"
+																codeSystemName="CIS_Composition"
+																displayName="WARFARINE SODIQUE">
+																<originalText mediaType="text/xml">
+																	<reference value="#vsm0019"/>
+																</originalText>
+															</translation>
+														</code>
+														<name>COUMADINE 5mg</name>
+													</manufacturedMaterial>
+												</manufacturedProduct>
+											</consumable>
+											<entryRelationship typeCode="RSON">
+												<!-- Liaison du traitement à sa cause -->
+												<act classCode="ACT" moodCode="EVN">
+													<templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.4.1"/>
+													<id root="12da3a06-18e7-40b7-9397-1fa5b1552472"/>
+													<code code="G45.9"
+														codeSystem="2.16.840.1.113883.6.3"
+														codeSystemName="CIM10"
+														displayName="Accident Ischémique Cérébral Transitoire">
+														<originalText mediaType="text/xml">
+															<reference value="#vsm0020"/>
+														</originalText>
+														</code>
+													<statusCode code="completed"/>
+													<effectiveTime xsi:type="IVL_TS">
+														<low value="20000328"/>
+													</effectiveTime>
+												</act>
+											</entryRelationship>
+										</substanceAdministration>
+									</entry>
+								</section>
+							</component>
+					<!-- Fin de la section Medications -->
+						</section>
+					</component>
+
+					
+				</structuredBody>
+			</component>
+		</ClinicalDocument>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.321.15" displayName="AVC_arterePost">
+        <ConceptList>
+            <Concept code="AVC-158"
+                displayName="artère cérébrale postérieure territoire superficiel"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-159" displayName="artère cérébrale postérieure territoires complets"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-127"
+                displayName="Artère Cérébrale Postérieure (ACP) territoire profond Branches thalamoperforées"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="AVC-128"
+                displayName="Artère Cérébrale Postérieure (ACP) territoire profond Branches thalamogéniculées"
+                codeSystem="1.2.250.1.213.1.1.4.321"/>
+            <Concept code="T-45935" displayName="artères choroïdiennes postérieures"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="T-45320" displayName="artère communicante postérieure"
+                codeSystem="1.2.250.1.213.2.12"/>
+
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

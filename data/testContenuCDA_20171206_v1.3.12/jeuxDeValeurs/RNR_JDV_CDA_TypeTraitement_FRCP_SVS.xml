@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.4.2.281.9" displayName="FRCP_TypeTraitement" version="20140109">
+        <ConceptList>
+            <Concept code="P0-0044D" displayName="Autres soins" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P1-00000" displayName="Intervention chirurgicale"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P2-00200" displayName="Soins palliatifs" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P2-01351" displayName="Suivi médical" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P2-67010" displayName="Chimiothérapie conventionnelle"
+                codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P2-69200" displayName="Immunothérapie" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P5-C0300" displayName="Radiothérapie" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="P5-C0600" displayName="Curiethérapie" codeSystem="1.2.250.1.213.2.12"/>
+            <Concept code="RCP_120" displayName="Non traité" codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="RCP_061" displayName="Surveillance seule"
+                codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="RCP_076" displayName="Thérapies ciblées hormonothérapie"
+                codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="RCP_077" displayName="Radiologie interventionnelle"
+                codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="RCP_078" displayName="Soins de support"
+                codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="RCP_080" displayName="Endoscopie interventionnelle"
+                codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="RCP_081" displayName="Irathérapie" codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="RCP_111" displayName="Autre(s) traitement(s) médicamenteux spécifique(s)"
+                codeSystem="1.2.250.1.213.1.1.4.2.281"/>
+            <Concept code="P0-0000E" displayName="Procédures Thérapeutiques"
+                codeSystem="1.2.250.1.213.2.12"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

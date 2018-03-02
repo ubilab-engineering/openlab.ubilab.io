@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.75" displayName="ModeAdministration" version="20170117">
+        <ConceptList>
+            <Concept code="G-D101" displayName="Voie intraveineuse" codeSystem="1.2.250.1.213.2.12"> </Concept>
+            <Concept code="G-D103" displayName="Voie Intra-musculaire" codeSystem="1.2.250.1.213.2.12"> </Concept>
+            <Concept code="G-D104" displayName="Voie sous-cutanée" codeSystem="1.2.250.1.213.2.12"> </Concept>
+            <Concept code="G-D140" displayName="Voie orale" codeSystem="1.2.250.1.213.2.12"> </Concept>
+            <Concept code="AVC-211" displayName="Autre (à préciser)" codeSystem="1.2.250.1.213.1.1.4.321"> </Concept>
+            
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

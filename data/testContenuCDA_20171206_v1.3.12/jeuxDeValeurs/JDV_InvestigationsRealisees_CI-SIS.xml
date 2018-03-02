@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.2.250.1.213.1.1.5.47" displayName="JDV_InvestigationsRealisees_CI-SIS"
+        version="20160808">
+        <ConceptList>
+            <Concept code="G-A304" displayName="clinique" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="MED-101" displayName="génétique moléculaire"
+                codeSystem="1.2.250.1.213.1.1.4.322" codeSystemName="TA_ASIP"/>
+            <Concept code="MED-102" displayName="cytogénétique" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP"/>
+            <Concept code="G-B017" displayName="biochimique" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="G-B001" displayName="biologique" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+            <Concept code="GEN-036" displayName="imagerie" codeSystem="1.2.250.1.213.1.1.4.322"
+                codeSystemName="TA_ASIP"/>
+            <Concept code="G-A609" displayName="autre" codeSystem="1.2.250.1.213.2.12"
+                codeSystemName="SNOMED 3.5"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

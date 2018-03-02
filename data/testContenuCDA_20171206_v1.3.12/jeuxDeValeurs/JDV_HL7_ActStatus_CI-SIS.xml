@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RetrieveValueSetResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:svs:2008 SVS.xsd" xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="2.16.840.1.113883.1.11.15933" displayName="HL7:ActStatus" version="20171102">
+        <ConceptList>
+            <Concept code="aborted" displayName="Cessé" codeSystem="2.16.840.1.113883.5.14"/> 
+            <Concept code="active" displayName="Active" codeSystem="2.16.840.1.113883.5.14"/> 
+            <Concept code="cancelled" displayName="Annulée" codeSystem="2.16.840.1.113883.5.14"/> 
+            <Concept code="completed" displayName="Terminée" codeSystem="2.16.840.1.113883.5.14"/> 
+            <Concept code="suspended" displayName="Suspendue" codeSystem="2.16.840.1.113883.5.14"/> 
+            <Concept code="held" displayName="En attente" codeSystem="2.16.840.1.113883.5.14"/> 
+            <Concept code="new" displayName="En préparation" codeSystem="2.16.840.1.113883.5.14"/> 
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>
