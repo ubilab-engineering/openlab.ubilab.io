@@ -122,10 +122,10 @@ NF EN ISO 15189 (SH REF 02), § 5.8
     * [x] date et heure de fin de prélèvement
     * [x] date et heure d'arrivé au laboratoire
  
- ## DL Santé (Hprim Santé 2.4)
+## DL Santé (Hprim Santé 2.4)
 
 
- ## AGFA (Hprim Santé 2.4)
+## AGFA (Hprim Santé 2.4)
  
  * [ ] Compte Rendu de Resultat (ID Unique)
   * [ ] Laboratoire
