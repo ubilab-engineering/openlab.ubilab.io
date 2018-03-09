@@ -76,51 +76,8 @@ NF EN ISO 15189 (SH REF 02), § 5.8
 
 # Integration du format obligatoire avec Ubilab
 ## Netika (Hprim Santé 2.4)
+ne souhaite pas communiquer
 
-* [ ] Compte Rendu de Resultat (ID Unique)
- * [ ] Laboratoire
-   * [ ]  Identifiant laboratoire émetteur 
- * [ ] Patient 
-   * [x] ID SIL
-   * [x] Nom
-   * [ ] Nom jeune fille
-   * [x] Prénom 
-   * [x] Date de naissance
-   * [ ] ISN
-   * [x] CODE_SECURITE_SOCIALE
- * [x] Prescripteur
-   * [x] ID SIL
-   * [x] RPPS
-   * [x] ADELI
-   * [x] Nom
-   * [x] Prénom
-   * [x] Adresse
- * [x] Préleveur
-    * [x] ID SIL
-    * [x] Nom
-    * [x] Prénom
- * [ ] Resultat
-    * [ ] Lieu de prise en charge du patient
-    * [x] Destination du compte rendu de résultats
-    * [x] Ligne resultat
-        * [x] intervalle de référence biologique (plusieurs lignes possible)
-        * [ ] Interpretation des résultats
-        * [x] Autre commentaire
-        * [x] Date d'obtention du résultat
-        * [x] Validateur
-          * [x] ID SIL
-          * [x] Nom
-          * [x] Prénom
-    * [ ] Technique
-    * [ ] Automate
-    * [ ] Dernier traitement
-    * [ ] Indication thérapeutique
- * [ ] Echantillon primaire
-    * [ ] Origine de l'echantillon / type
-    * [x] date et heure de prélèvement
-    * [x] date et heure de fin de prélèvement
-    * [x] date et heure d'arrivé au laboratoire
- 
 ## DL Santé (Hprim Santé 2.4)
 
 * [ ] Compte Rendu de Resultat (ID Unique)
