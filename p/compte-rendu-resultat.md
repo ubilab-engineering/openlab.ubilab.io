@@ -140,19 +140,19 @@ NF EN ISO 15189 (SH REF 02), § 5.8
   * [ ] Laboratoire
     * [ ]  Identifiant laboratoire émetteur 
   * [ ] Patient 
-    * [ ] ID SIL
-    * [ ] Nom
+    * [x] ID SIL
+    * [x] Nom
     * [ ] Nom jeune fille
-    * [ ] Prénom 
-    * [ ] Date de naissance
+    * [x] Prénom 
+    * [x] Date de naissance
     * [ ] ISN
     * [ ] CODE_SECURITE_SOCIALE
   * [ ] Prescripteur
-    * [ ] ID SIL
+    * [x] ID SIL
     * [ ] RPPS
     * [ ] ADELI
-    * [ ] Nom
-    * [ ] Prénom
+    * [x] Nom
+    * [x] Prénom
     * [ ] Adresse
   * [ ] Préleveur
      * [ ] ID SIL
