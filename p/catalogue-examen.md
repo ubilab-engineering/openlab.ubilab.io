@@ -25,3 +25,8 @@ Vous pouvez nous envoyer le fichier de plusieurs manières :
 
 Contacter l'équipe support@ubilab.io afin de recevoir vos identifiants.
 
+# Format du fichier
+Le fichier peut être générée soit au format .xls soit au format .csv
+
+# Discussion
+N'hésitez pas à poser vos questions directement sur le tchat gitter [![Gitter](https://badges.gitter.im/ubilab-engineering/openlab.ubilab.io.svg)](https://gitter.im/ubilab-engineering/openlab.ubilab.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
